@@ -64,6 +64,7 @@
 #include "Wizard/FirstRunWizard.h"
 #include "Application.h"
 #include "MainWindow.h"
+#include "SkipListener.h"
 #include "AudioscrobblerSettings.h"
 
 #ifdef Q_OS_WIN32
@@ -322,6 +323,8 @@ Application::init()
 
     new CommandReciever( this );
 #endif
+
+    new SkipListener( this );
 }
 
 QSystemTrayIcon*
@@ -449,8 +452,25 @@ Application::macEventFilter( EventHandlerCallRef caller, EventRef event )
 #endif
 
 void
-Application::onTrackSpooled( const Track& /*track*/ )
+Application::onTrackSpooled( const Track& track )
 {
+    QString strippedContextString = MetadataWidget::getContextString( track );
+
+    QRegExp re( "<[^>]*>" );
+
+    strippedContextString.replace( re, "" );
+
+    QString ircMessage = QString( "#last.clientroomradio %1 (%2) %3" ).arg( track.toString(), Track::durationString( track.duration() ), strippedContextString );
+
+    if ( track.context().values().count() == ( RadioService::instance().station().url().count( "," ) + 1 ) )
+        ircMessage.append( " BINGO!" );
+
+    QTcpSocket socket;
+    socket.connectToHost( "localhost", 12345 );
+    socket.waitForConnected();
+    socket.write( ircMessage.toUtf8() );
+    socket.flush();
+    socket.close();
 }
 
 void

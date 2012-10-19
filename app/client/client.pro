@@ -34,6 +34,7 @@ SOURCES += \
     AudioscrobblerSettings.cpp \
     Application.cpp \
     StationSearch.cpp \
+    SkipListener.cpp \
     ScrobSocket.cpp \
     MediaDevices/MediaDevice.cpp \
     MediaDevices/IpodDevice.cpp \
@@ -113,6 +114,7 @@ HEADERS += \
     Application.h \
     MainWindow.h \
     StationSearch.h \
+    SkipListener.h \
     Services/RadioService/RadioConnection.h \
     Services/ScrobbleService.h \
     Services/ScrobbleService/StopWatch.h \
