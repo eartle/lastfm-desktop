@@ -87,6 +87,12 @@ CONFIG( sparkle ) {
     }
 }
 
+CONFIG( spotify ) {
+    mac{
+        LIBS += -framework CocoaLibSpotify
+    }
+}
+
 CONFIG( sqlite3 ) {
     win32 {
         CONFIG += link_pkgconfig

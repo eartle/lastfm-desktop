@@ -21,14 +21,18 @@
 #include <QThread>
 #include <QTimer>
 #include <QDesktopServices>
+#include <QCoreApplication>
 
-#include <lastfm/RadioTuner.h>
 #include <phonon/mediaobject.h>
 #include <phonon/backendcapabilities.h>
 
-#include "RadioService.h"
+#include <lastfm/RadioTuner.h>
+
 #include "lib/unicorn/UnicornSettings.h"
-#include <QCoreApplication>
+
+#include "RadioService.h"
+
+
 
 #define ALLOW_ALL_USAGE -1
 
@@ -42,6 +46,42 @@ RadioService::RadioService( )
     initRadio();
 
     QDesktopServices::setUrlHandler( "lastfm", this, "onLastFmUrl" );
+
+    unicorn::UserSettings us;
+    m_spotify = new Spotify( us.value( "SpotifyUser", "" ).toString(), us.value( "SpotifyPass", "" ).toString(), this );
+    connect( m_spotify, SIGNAL(started(Track)), SIGNAL(trackSpooled(Track)));
+    connect( m_spotify, SIGNAL(tick(qint64)), SIGNAL(tick(qint64)));
+    connect( m_spotify, SIGNAL(stopped()), SLOT(skip()));
+    connect( m_spotify, SIGNAL(error(Spotify::SpotifyError)), SLOT(onSpotifyError(Spotify::SpotifyError)) );
+    connect( m_spotify, SIGNAL(loginFinished(bool)), SIGNAL(spotifyLoginStatusChanged(bool)) );
+}
+
+bool
+RadioService::spotifyLoggedIn() const
+{
+    return ( m_spotify && m_spotify->loggedIn() );
+}
+
+void
+RadioService::spotifyLogin( const QString& username, const QString& password )
+{
+    if ( m_spotify )
+        m_spotify->login( username, password );
+}
+
+void
+RadioService::onSpotifyError( Spotify::SpotifyError error )
+{
+    if ( error == Spotify::TrackNotFound )
+    {
+        // we were unable to find the track on Spotify
+        // so try to play the last.fm version
+
+        if ( !enqueueTrack( m_track ) )
+            skip();
+    }
+    else
+        skip();
 }
 
 void
@@ -276,7 +316,12 @@ RadioService::pause()
 {
     Q_ASSERT( m_mediaObject );
 
-    if ( m_mediaObject )
+    if ( m_spotify && m_spotify->loggedIn() )
+    {
+        m_spotify->pause();
+        changeState( Paused );
+    }
+    else if ( m_mediaObject )
     {
         m_mediaObject->pause();
         changeState( Paused );
@@ -288,7 +333,12 @@ RadioService::resume()
 {
     Q_ASSERT( m_mediaObject );
 
-    if ( m_mediaObject )
+    if ( m_spotify && m_spotify->loggedIn() )
+    {
+        m_spotify->resume();
+        changeState( Playing );
+    }
+    else if ( m_mediaObject )
     {
         m_mediaObject->play();
         changeState( Playing );
@@ -419,23 +469,41 @@ RadioService::phononEnqueue()
         // state changes, so we must filter them.
         if (!t.url().isValid())
             continue;
-        
-        m_track = t;
-        Phonon::MediaSource ms( t.url() );
 
-        qDebug() << "enqueuing " << t;
-        try
+        m_track = t;
+        
+        if ( m_spotify && m_spotify->loggedIn() )
         {
-            m_mediaObject->enqueue( ms );
-            m_mediaObject->play();
+            m_spotify->play( t );
         }
-        catch (...)
+        else
         {
-            continue;
+            if ( !enqueueTrack( t ) )
+                continue;
         }
 
         break;
     }
+}
+
+bool
+RadioService::enqueueTrack( const lastfm::Track& track )
+{
+    Phonon::MediaSource ms( track.url() );
+
+    qDebug() << "enqueuing " << track;
+
+    try
+    {
+        m_mediaObject->enqueue( ms );
+        m_mediaObject->play();
+    }
+    catch (...)
+    {
+        return false;
+    }
+
+    return true;
 }
 
 

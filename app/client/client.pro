@@ -3,7 +3,7 @@ TARGET = "Last.fm Scrobbler"
 VERSION = 2.1.25
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 QT = core gui xml network sql webkit
-CONFIG += lastfm unicorn listener logger phonon fingerprint ffmpeg
+CONFIG += lastfm unicorn listener logger phonon fingerprint ffmpeg spotify
 win32:LIBS += user32.lib kernel32.lib psapi.lib
 DEFINES += LASTFM_COLLAPSE_NAMESPACE
 
@@ -186,7 +186,8 @@ HEADERS += \
     Fingerprinter/LAV_Source.h \
     Services/AnalyticsService.h \
     Services/AnalyticsService/AnalyticsService.h \
-    Services/AnalyticsService/PersistentCookieJar.h
+    Services/AnalyticsService/PersistentCookieJar.h \
+    Spotify/Spotify.h
 
 win32:HEADERS += Plugins/FooBar08PluginInfo.h \
                     Plugins/FooBar09PluginInfo.h \
@@ -220,7 +221,8 @@ mac:OBJECTIVE_SOURCES += CommandReciever/CommandReciever.mm \
                             MediaKeys/MediaKey.mm \
                             ../../lib/3rdparty/SPMediaKeyTap/SPMediaKeyTap.m \
                             ../../lib/3rdparty/SPMediaKeyTap/SPInvocationGrabbing/NSObject+SPInvocationGrabbing.m \
-                            Dialogs/CloseAppsDialog_mac.mm
+                            Dialogs/CloseAppsDialog_mac.mm \
+                            Spotify/Spotify.mm
 
 FORMS += \
     Widgets/PlaybackControlsWidget.ui \
