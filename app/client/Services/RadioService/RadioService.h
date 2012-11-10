@@ -58,6 +58,8 @@ public:
     void spotifyLogin( const QString& username, const QString& password );
     bool spotifyLoggedIn() const;
 
+    void queueSpotifyTrack( const QString& spotifyId );
+
     RadioStation station() const { return m_station; }
     Track currentTrack() const {return m_track;}
 
@@ -112,7 +114,7 @@ private slots:
     void onBuffering( int );
     void onFinished();
 
-    void onSpotifyError( Spotify::SpotifyError error );
+    void onSpotifyError(Spotify::SpotifyError error, int code, const QString& description );
 
     void onMutedChanged(bool);
     void onOutputDeviceChanged(const Phonon::AudioOutputDevice&);
@@ -132,7 +134,8 @@ private:
     void restoreVolume();
 
     bool enqueueTrack( const lastfm::Track& track );
-    
+    void doPause( bool broadcast );
+
     /** emits signals if appropriate */
     void changeState( State );
 	

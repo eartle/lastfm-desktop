@@ -179,58 +179,59 @@ Spotify::loggedIn() const
     return m_loggedIn;
 }
 
-void
-Spotify::play( const Track& track )
+QString
+qt_mac_NSStringToQString( const NSString* nsstr )
 {
-    pause();
-    m_track = track;
-    connect( track.playlinks(), SIGNAL(finished()), SLOT(onPlaylinks()));
+    NSRange range;
+    range.location = 0;
+    range.length = [nsstr length];
+
+    unichar *chars = new unichar[range.length];
+    [nsstr getCharacters:chars range:range];
+    QString result = QString::fromUtf16(chars, range.length);
+    delete[] chars;
+    return result;
 }
 
 void
-Spotify::onPlaylinks()
-{
-    lastfm::XmlQuery lfm;
+Spotify::play( Track& track )
+{   
+    pause();
 
-    if ( lfm.parse( static_cast<QNetworkReply*>( sender() ) ) )
+    m_track = track;
+
+    NSString* id = nsString( m_track.extra( "spotifyId" ) );
+
+    NSURL *trackURL = [NSURL URLWithString:id];
+
+    [[SPSession sharedSession] trackForURL:trackURL callback:^(SPTrack* spTrack)
     {
-        QString spotifyId = lfm["spotify"]["track"]["externalids"]["spotify"].text();
-
-        if ( !spotifyId.isEmpty() )
+        if (spTrack != nil)
         {
-            NSString* id = nsString( spotifyId );
-
-            NSURL *trackURL = [NSURL URLWithString:id];
-
-            [[SPSession sharedSession] trackForURL:trackURL callback:^(SPTrack *track)
+            [SPAsyncLoading waitUntilLoaded:spTrack timeout:kSPAsyncLoadingDefaultTimeout then:^(NSArray *tracks, NSArray *notLoadedTracks)
             {
-                if (track != nil)
+                NSTimeInterval duration = [spTrack duration];
+                MutableTrack mt( m_track );
+                mt.setTitle( qt_mac_NSStringToQString( [spTrack name] ) );
+                mt.setAlbum( qt_mac_NSStringToQString( [[spTrack album] name] ) );
+                mt.setArtist( qt_mac_NSStringToQString( [[[spTrack artists] objectAtIndex:0] name] ) );
+                mt.setDuration( duration );
+
+                [g_delegate.m_playbackManager playTrack:spTrack callback:^(NSError* nsError)
                 {
-                    [SPAsyncLoading waitUntilLoaded:track timeout:kSPAsyncLoadingDefaultTimeout then:^(NSArray *tracks, NSArray *notLoadedTracks)
+                    if ( nsError != nil )
+                        emit error( PlaybackError, [nsError code], qt_mac_NSStringToQString( [nsError localizedDescription] ) );
+                    else
                     {
-                        [g_delegate.m_playbackManager playTrack:track callback:^(NSError* nsError)
-                        {
-                            if ( nsError )
-                                emit error( PlaybackError );
-                            else
-                            {
-                                MutableTrack( m_track ).setExtra( "streamSource", "Spotify" );
-                                emit started( m_track );
-                            }
-                        }];
-                    }];
-                }
-                else
-                    emit error( TrackNotFound );
+                        MutableTrack( m_track ).setExtra( "streamSource", "Spotify" );
+                        emit started( m_track );
+                    }
+                }];
             }];
         }
         else
-            emit error( TrackNotFound );
-    }
-    else
-    {
-        qDebug() << lfm.parseError().enumValue() << lfm.parseError().message();
-    }
+            emit error( TrackNotFound, 0, "" );
+    }];
 }
 
 void

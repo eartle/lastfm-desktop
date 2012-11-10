@@ -21,7 +21,7 @@ public:
 
     bool loggedIn() const;
 
-    void play( const Track& track );
+    void play( Track& track );
     void pause();
     void resume();
     void stop();
@@ -35,14 +35,12 @@ signals:
     void loginFinished( bool successful );
     void started( const Track& track );
     void stopped();
-    void error( Spotify::SpotifyError error );
+    void error( Spotify::SpotifyError error, int code, const QString& description );
     void tick( qint64 );
 
-private slots:
-    void onPlaylinks();
 private:
-    lastfm::Track m_track;
     bool m_loggedIn;
+    Track m_track;
 };
 
 #endif // SPOTIFY_H
