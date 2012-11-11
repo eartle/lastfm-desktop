@@ -66,6 +66,8 @@ public:
 
     void addWinThumbBarButton( QAction* );
 
+    QString currentCategory() const;
+
 signals:
     void trackGotInfo(XmlQuery);
     void albumGotInfo(XmlQuery);

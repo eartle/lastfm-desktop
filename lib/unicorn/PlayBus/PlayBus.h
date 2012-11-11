@@ -11,7 +11,7 @@
 #include <QDateTime>
 #include <QSignalMapper>
 
-#include "SignalBlocker.h"
+#include "../SignalBlocker.h"
 
 #ifdef Q_OS_WIN
 #include <QSharedMemory>

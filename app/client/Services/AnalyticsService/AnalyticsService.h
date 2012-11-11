@@ -25,27 +25,30 @@
 namespace lastfm { class User; }
 
 // -- Categories and their associated actions
-#define START_CATEGORY "Start"
 #define NOW_PLAYING_CATEGORY "NowPlaying"
 #define SCROBBLES_CATEGORY "Scrobbles"
 #define PROFILE_CATEGORY "Profile"
 #define FRIENDS_CATEGORY "Friends"
 #define RADIO_CATEGORY "Radio"
-#define SHARING_CATEGORY "Sharing"
-#define SIDE_BAR_CATEGORY "SideBar"
-#define TAG_CATEGORY "Tags"
+
+#define SETTINGS_CATEGORY "Settings"
 
 #define LOVE_TRACK "LoveTrack"
 #define BAN_TRACK "BanTrack"
 #define LINK_CLICKED "LinkClicked"
 #define PLAY_CLICKED "PlayClicked"
+#define PLAY_NEXT_CLICKED "PlayNextClicked"
+#define PLAY_MULTI_CLICKED "PlayMultiClicked"
+#define PLAY_MULTI_NEXT_CLICKED "PlayMultiNextClicked"
+#define QUICKSTART_PLAY_CLICKED "QuickstartPlayClicked"
+#define QUICKSTART_PLAY_NEXT_CLICKED "QuickstartPlayNextClicked"
 #define SHARE_CLICKED "ShareClicked"
 #define TAG_CLICKED "TagClicked"
 #define SIDE_BAR_CLICKED "SideBarClicked"
 #define SKIP_CLICKED "SkipClicked"
 #define BUY_CLICKED "BuyClicked"
 
-#define SETTINGS_CATEGORY "Settings"
+#define SETTINGS_CLICKED "SettingsClicked"
 #define BASIC_SETTINGS "Basic"
 #define SCROBBLING_SETTINGS "Scrobbling"
 

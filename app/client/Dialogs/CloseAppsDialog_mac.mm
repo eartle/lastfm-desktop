@@ -1,6 +1,6 @@
 #include "CloseAppsDialog.h"
 
-QString qt_mac_NSStringToQString(const NSString *nsstr)
+QString NSStringToQString(const NSString *nsstr)
 {
     NSRange range;
     range.location = 0;
@@ -28,7 +28,7 @@ CloseAppsDialog::runningApps()
         if ( [[[runningApps objectAtIndex:i] bundleIdentifier] isEqualToString:@"com.apple.iTunes"] )
         {
             NSString* appName = [[runningApps objectAtIndex:i] localizedName];
-            apps << qt_mac_NSStringToQString( appName );
+            apps << NSStringToQString( appName );
             break;
         }
     }

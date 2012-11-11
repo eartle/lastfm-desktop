@@ -43,20 +43,20 @@ AnalyticsService::AnalyticsService()
     connect( m_webView, SIGNAL(loadFinished(bool)), SLOT(onLoadFinished()) );
     connect( aApp, SIGNAL(gotUserInfo(lastfm::User)), SLOT(onGotUserInfo(lastfm::User)) );
 
-    m_webView->load( QString( "http://users.last.fm/~michael/ga.html" ) );
+    m_webView->load( QString( "http://cdn.last.fm/client/ga.html" ) );
 }
 
 void
 AnalyticsService::sendEvent( const QString& category, const QString& action, const QString& label, const QString& value )
 {
-    m_queue.enqueue( QString( "http://users.last.fm/~michael/ga.html#event?category=%1&action=%2&label=%3&value=%4" ).arg( category, action, label, value ) );
+    m_queue.enqueue( QString( "http://cdn.last.fm/client/ga.html#event?category=%1&action=%2&label=%3&value=%4" ).arg( category, action, label, value ) );
     loadPages();
 }
 
 void
 AnalyticsService::sendPageView( const QString& url )
 {
-    m_queue.enqueue( QString( "http://users.last.fm/~michael/ga.html#pageview?url=%1" ).arg( url ) );
+    m_queue.enqueue( QString( "http://cdn.last.fm/client/ga.html#pageview?url=%1" ).arg( url ) );
     loadPages();
 }
 
@@ -95,7 +95,7 @@ AnalyticsService::onGotUserInfo( const lastfm::User& user )
 {
     // set all the session level custom vars
     m_customVars.clear();
-    m_customVars.enqueue( QString( "http://users.last.fm/~michael/ga.html#custom?version=%1&usertype=%2" ).arg( QCoreApplication::applicationVersion(), userTypeToString( user.type() ) ) );
+    m_customVars.enqueue( QString( "http://cdn.last.fm/client/ga.html#custom?version=%1&usertype=%2" ).arg( QCoreApplication::applicationVersion(), userTypeToString( user.type() ) ) );
     m_customVarsSet = true;
 
     loadPages();

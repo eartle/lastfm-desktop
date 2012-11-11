@@ -2,21 +2,21 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 [CustomMessages]
-Version=2.1.24
+Version=2.1.25
 
 
 [Setup]
-OutputBaseFilename=Last.fm-2.1.24
-VersionInfoVersion=2.1.24
-VersionInfoTextVersion=2.1.24
-AppName=Last.fm
-AppVerName=Last.fm {cm:Version}
+OutputBaseFilename=Last.fm-2.1.25
+VersionInfoVersion=2.1.25
+VersionInfoTextVersion=2.1.25
+AppName="Last.fm Scrobbler"
+AppVerName="Last.fm Scrobbler {cm:Version}"
 VersionInfoDescription=Last.fm Installer
 AppPublisher=Last.fm
 AppPublisherURL=http://www.last.fm
 AppSupportURL=http://www.last.fm
 AppUpdatesURL=http://www.last.fm
-AppCopyright=Copyright 2010 Last.fm Ltd. (C)
+AppCopyright=Copyright 2012 Last.fm Ltd. (C)
 DefaultDirName={pf}\Last.fm
 UsePreviousAppDir=yes
 DefaultGroupName=Last.fm
@@ -31,7 +31,7 @@ ShowLanguageDialog=yes
 WizardImageFile=wizard.bmp
 WizardSmallImageFile=wizard_small.bmp
 SetupIconFile=installer.ico
-UninstallDisplayIcon="{app}\Last.fm.exe"
+UninstallDisplayIcon="{app}\Last.fm Scrobbler.exe"
 AppModifyPath="{app}\UninsHs.exe" /m0=LastFM
 WizardImageBackColor=$ffffff
 WizardImageStretch=no
@@ -68,7 +68,7 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 [Files]
 ; Main files
-Source: "..\..\..\_bin\Last.fm.exe"; DestDir: "{app}"; Flags: ignoreversion; BeforeInstall: ExitApp('{app}\Last.fm R')
+Source: "..\..\..\_bin\Last.fm Scrobbler.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\..\..\_bin\iPodScrobbler.exe"; DestDir: "{app}"; Flags: ignoreversion
 
 ;libraries
@@ -88,6 +88,7 @@ Source: "%QTDIR%\bin\QtGui4.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "%QTDIR%\bin\QtNetwork4.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "%QTDIR%\bin\QtXml4.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "%QTDIR%\bin\QtSql4.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "%QTDIR%\bin\QtWebKit4.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\..\..\_bin\phonon.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 ;image formats plugins
@@ -143,7 +144,7 @@ Source: "..\..\..\_bin\avutil-51.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\..\..\_bin\swresample-0.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 ;The stylesheets
-Source: "..\..\..\app\client\Last.fm.css"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\..\..\app\client\Last.fm Scrobbler.css"; DestDir: "{app}"; Flags: ignoreversion
 
 ;The translations
 Source: "..\..\..\i18n\*.qm"; DestDir: "{app}\i18n"; Flags: ignoreversion
@@ -167,24 +168,15 @@ Source: "UninsHs.exe"; DestDir: "{app}"; Flags: onlyifdoesntexist
 [Registry]
 ; The Path is looked for in both places by plugins
 Root: HKCU; Subkey: "Software\Last.fm\Client"; ValueType: string; ValueName: "Version"; ValueData: "{cm:Version}"; Flags: uninsdeletekey
-Root: HKCU; Subkey: "Software\Last.fm\Client"; ValueType: string; ValueName: "Path"; ValueData: "{app}\Last.fm.exe"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "Software\Last.fm\Client"; ValueType: string; ValueName: "Path"; ValueData: "{app}\Last.fm Scrobbler.exe"; Flags: uninsdeletekey
 Root: HKCU; Subkey: "Software\Last.fm\Last.fm"; ValueType: string; ValueName: "Version"; ValueData: "{cm:Version}"; Flags: uninsdeletekey
-Root: HKCU; Subkey: "Software\Last.fm\Last.fm"; ValueType: string; ValueName: "Path"; ValueData: "{app}\Last.fm.exe"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "Software\Last.fm\Last.fm"; ValueType: string; ValueName: "Path"; ValueData: "{app}\Last.fm Scrobbler.exe"; Flags: uninsdeletekey
 
 ; Register last.fm protocol only if it isn't already
 Root: HKCR; Subkey: "lastfm"; ValueType: string; ValueName: ""; ValueData: "URL:lastfm"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "lastfm"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Flags: uninsdeletekey
-Root: HKCR; Subkey: "lastfm\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\Last.fm.exe"" ""%1"""; Flags: uninsdeletekey
+Root: HKCR; Subkey: "lastfm\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\Last.fm Scrobbler.exe"" ""%1"""; Flags: uninsdeletekey
 Root: HKCR; Subkey: "lastfm"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Flags: uninsdeletekey
-
-; Register Last.fm in the control panel
-Root: HKLM; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel\NameSpace\{{7BC5FBA0-A70A-406e-A50B-235D5AFE67FB}"; ValueType: string; ValueName: ""; ValueData: "Audioscrobbler"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "CLSID\{{7BC5FBA0-A70A-406e-A50B-235D5AFE67FB}"; ValueType: string; ValueName: ""; ValueData: "Audioscrobbler"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "CLSID\{{7BC5FBA0-A70A-406e-A50B-235D5AFE67FB}"; ValueType: string; ValueName: "InfoTip"; ValueData: "Last.fm"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "CLSID\{{7BC5FBA0-A70A-406e-A50B-235D5AFE67FB}"; ValueType: string; ValueName: "System.ApplicationName"; ValueData: "fm.last.audioscrobbler"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "CLSID\{{7BC5FBA0-A70A-406e-A50B-235D5AFE67FB}"; ValueType: string; ValueName: "System.ControlPanel.Category"; ValueData: "8"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "CLSID\{{7BC5FBA0-A70A-406e-A50B-235D5AFE67FB}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\Last.fm.exe, -2"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "CLSID\{{7BC5FBA0-A70A-406e-A50B-235D5AFE67FB}\Shell\Open\Command"; ValueType: string; ValueName: ""; ValueData: "{app}\Last.fm.exe --settings"; Flags: uninsdeletekey
 
 ; WinSparkle - This stop it asking the user if they want to check for updates on first run.
 Root: HKCU; Subkey: "Software\Last.fm\Last.fm Desktop App\WinSparkle"; ValueType: string; ValueName: "CheckForUpdates"; ValueData: "1"; Flags: uninsdeletekey
@@ -194,20 +186,20 @@ Root: HKCU; Subkey: "Software\Last.fm"; Flags: dontcreatekey uninsdeletekey
 Root: HKLM; Subkey: "Software\Last.fm"; Flags: dontcreatekey uninsdeletekey
 
 [Icons]
-Name: "{group}\Last.fm"; Filename: "{app}\Last.fm.exe"
-Name: "{commondesktop}\Last.fm"; Filename: "{app}\Last.fm.exe"; Tasks: desktopicon
+Name: "{group}\Last.fm Scrobbler"; Filename: "{app}\Last.fm Scrobbler.exe"
+Name: "{commondesktop}\Last.fm Scrobbler"; Filename: "{app}\Last.fm Scrobbler.exe"; Tasks: desktopicon
 
 ;Uninstall
-Name: "{group}\Uninstall Last.fm"; Filename: "{uninstallexe}"
-Name: "{group}\Uninstall Last.fm"; Filename: "{app}\UninsHs.exe"; Parameters: "/u0=LastFM"
+Name: "{group}\Uninstall Last.fm Scrobbler"; Filename: "{uninstallexe}"
+Name: "{group}\Uninstall Last.fm Scrobbler"; Filename: "{app}\UninsHs.exe"; Parameters: "/u0=LastFM"
 
 ; The OnlyBelowVersion flag disables this on Vista as an admin-run installer can't install a quick launch
 ; icon to the standard user's folder location. Sucks.
-Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Last.fm"; Filename: "{app}\Last.fm.exe"; OnlyBelowVersion: 0,6; Tasks: quicklaunchicon
+Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Last.fm Scrobbler"; Filename: "{app}\Last.fm Scrobbler.exe"; OnlyBelowVersion: 0,6; Tasks: quicklaunchicon
 
 
 [Run]
-Filename: "{app}\Last.fm.exe"; Description: "Start The Last.fm Desktop App now?"; Flags: nowait postinstall
+Filename: "{app}\Last.fm Scrobbler.exe"; Description: "Start Last.fm Scrobbler now?"; Flags: nowait postinstall
 Filename: "{app}\UninsHs.exe"; Parameters: "/r0=LastFM,{language},{srcexe},{app}\Installer.exe"; Flags: runminimized runhidden nowait
 
 [InstallDelete]
@@ -220,6 +212,7 @@ Type: Files; Name: "{app}\libvorbisfile.dll"
 
 Type: Files; Name: "{commondesktop}\Last.fm.lnk"
 Type: Files; Name: "{app}\Last.fm.exe"
+Type: Files; Name: "{app}\Last.fm Scrobbler.exe"
 Type: Files; Name: "{app}\phonon4.dll"
 Type: Files; Name: "{app}\phonon.dll"
 Type: Files; Name: "{app}\Last.fm.css"
@@ -231,6 +224,8 @@ Type: dirifempty; Name: "{app}\phonon_backend"
 Type: dirifempty; Name: "{app}\sqldrivers"
 Type: filesandordirs; Name: "{app}\plugins\*"
 
+Type: Files; Name: "{app}\Last.fm.css"
+Type: Files; Name: "{app}\Last.fm Scrobbler.css"
 
 
 ; This is the LAST step of uninstallation
@@ -250,7 +245,8 @@ Type: dirifempty; Name: "{commonappdata}\Last.fm"
 
 ; This is the FIRST step of uninstallation
 [UninstallRun]
-Filename: "{app}\Last.fm.exe"; Parameters: "--exit"
+Filename: "{app}\Last.fm.exe"; Parameters: "--exit"; Flags: skipifdoesntexist
+Filename: "{app}\Last.fm Scrobbler.exe"; Parameters: "--exit"; Flags: skipifdoesntexist
 
 [Code]
 // Global variables
@@ -305,6 +301,7 @@ begin
   if CurStep = ssInstall then
     begin
       ExitApp( '{app}\Last.fm.exe' );
+      ExitApp( '{app}\Last.fm Scrobbler.exe' );
     end;
 end;
 

@@ -6,7 +6,7 @@
 #version = ARGV[0]
 
 # TODO: find out the app version from the app's plist.info
-$version = '2.1.24'
+$version = '2.1.25'
 
 # TODO: get the version numbers from the argument list
 $deltas = []
@@ -46,7 +46,7 @@ end
 
 def copy_plugin
 	## copy the iTunes plugin into the bundle
-	system 'cp -R _bin/Audioscrobbler.bundle _bin/Last.fm.app/Contents/MacOS/'
+	system "cp -R _bin/Audioscrobbler.bundle '_bin/Last.fm Scrobbler.app/Contents/MacOS/'"
 end
 
 def create_zip
@@ -54,8 +54,8 @@ def create_zip
 	Dir.chdir("_bin") do
 		system "rm -rf #{$version}"
 		system "mkdir #{$version}"
-		system "tar cjf #{$version}/Last.fm-#{$version}.tar.bz2 Last.fm.app"
-		system "zip -r #{$version}/Last.fm-#{$version}.zip Last.fm.app"
+		system "tar cjf #{$version}/Last.fm-#{$version}.tar.bz2 'Last.fm Scrobbler.app'"
+		system "zip -ry #{$version}/Last.fm-#{$version}.zip 'Last.fm Scrobbler.app'"
 	end
 end
 

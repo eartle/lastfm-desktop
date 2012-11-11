@@ -51,6 +51,7 @@ ScrobbleSettingsWidget::ScrobbleSettingsWidget( QWidget* parent )
     ui->scrobblePoint->setValue( scrobblePointValue );
     ui->percentText->setText( QString::number(scrobblePointValue) );
     ui->percentText->setFixedWidth( ui->percentText->fontMetrics().width( "100" ) );
+    m_initialScrobblePercentage = scrobblePointValue;
 
     ui->allowFingerprint->setChecked( unicorn::UserSettings().value( SETTING_ALLOW_FINGERPRINTING, ui->allowFingerprint->isChecked() ).toBool() );
 
@@ -64,6 +65,12 @@ ScrobbleSettingsWidget::ScrobbleSettingsWidget( QWidget* parent )
     connect( aApp, SIGNAL(scrobbleToggled(bool)), ui->scrobblingOn, SLOT(setChecked(bool)));
     connect( ui->scrobblingOn, SIGNAL(clicked(bool)), SLOT(onSettingsChanged()) );
     connect( ui->podcasts, SIGNAL(stateChanged(int)), SLOT(onSettingsChanged()) );
+}
+
+ScrobbleSettingsWidget::~ScrobbleSettingsWidget()
+{
+    if ( unicorn::UserSettings().value( SETTING_SCROBBLE_POINT, 50 ).toInt() != m_initialScrobblePercentage )
+        AnalyticsService::instance().sendEvent(SETTINGS_CATEGORY, SCROBBLING_SETTINGS, "ScrobblePercentageChanged", QString::number( ui->scrobblePoint->value() ) );
 }
 
 void
@@ -80,9 +87,6 @@ ScrobbleSettingsWidget::saveSettings()
         qDebug() << "Saving settings...";
 
         aApp->onScrobbleToggled( ui->scrobblingOn->isChecked() );
-
-        if ( unicorn::UserSettings().value( SETTING_SCROBBLE_POINT, 50 ).toInt() != ui->scrobblePoint->value() )
-            AnalyticsService::instance().sendEvent(SETTINGS_CATEGORY, SCROBBLING_SETTINGS, "ScrobblePercentageChanged", QString::number( ui->scrobblePoint->value() ) );
 
         unicorn::UserSettings().setValue( SETTING_SCROBBLE_POINT, ui->scrobblePoint->value() );
         unicorn::UserSettings().setValue( SETTING_ALLOW_FINGERPRINTING, ui->allowFingerprint->isChecked() );

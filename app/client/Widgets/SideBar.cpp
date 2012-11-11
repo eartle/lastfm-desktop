@@ -83,6 +83,17 @@ SideBar::SideBar(QWidget *parent)
     ui.nowPlaying->click();
 }
 
+QString
+SideBar::currentCategory() const
+{
+    if ( m_buttonGroup->checkedButton() == ui.nowPlaying ) return NOW_PLAYING_CATEGORY;
+    else if ( m_buttonGroup->checkedButton() == ui.scrobbles ) return SCROBBLES_CATEGORY;
+    else if ( m_buttonGroup->checkedButton() == ui.profile ) return PROFILE_CATEGORY;
+    else if ( m_buttonGroup->checkedButton() == ui.friends ) return FRIENDS_CATEGORY;
+    else if ( m_buttonGroup->checkedButton() == ui.radio ) return RADIO_CATEGORY;
+    return "Unknown";
+}
+
 void
 SideBar::addToMenu( QMenu& menu )
 {
@@ -132,12 +143,12 @@ SideBar::onButtonClicked( QAbstractButton* button )
 
     if ( button != m_lastButton )
     {
-        if ( button == ui.nowPlaying ) AnalyticsService::instance().sendPageView( "NowPlaying" );
+        if ( button == ui.nowPlaying ) AnalyticsService::instance().sendPageView( NOW_PLAYING_CATEGORY );
         // the scrobble tab is a bit more complicataed so it sends its own for now
-        //else if ( button == ui.scrobbles ) AnalyticsService::instance().sendPageView( "Scrobbles" );
-        else if ( button == ui.profile ) AnalyticsService::instance().sendPageView( "Profile" );
-        else if ( button == ui.friends ) AnalyticsService::instance().sendPageView( "Friends" );
-        else if ( button == ui.radio ) AnalyticsService::instance().sendPageView( "Radio" );
+        //else if ( button == ui.scrobbles ) AnalyticsService::instance().sendPageView( SCROBBLES_CATEGORY );
+        else if ( button == ui.profile ) AnalyticsService::instance().sendPageView( PROFILE_CATEGORY );
+        else if ( button == ui.friends ) AnalyticsService::instance().sendPageView( FRIENDS_CATEGORY );
+        else if ( button == ui.radio ) AnalyticsService::instance().sendPageView( RADIO_CATEGORY );
     }
 
     m_lastButton = button;

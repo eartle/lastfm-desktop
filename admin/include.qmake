@@ -66,6 +66,9 @@ macx:CONFIG( app_bundle ): contains( TEMPLATE, app ) {
     ## copy the apple script suite definition
     QMAKE_POST_LINK += echo Copying apple script suite definition file..; cp \"$$ROOT_DIR/admin/dist/mac/AppleScriptSuite.sdef\" \"$$BUNDLE_DIR/Contents/Resources\";
 
+    QMAKE_POST_LINK += echo Copying airfoil remote file..; cp \"$$ROOT_DIR/admin/dist/mac/dacp.fm.last.Scrobbler.scpt\" \"$$BUNDLE_DIR/Contents/Resources\";
+    QMAKE_POST_LINK += echo Copying airfoil tracks file..; cp \"$$ROOT_DIR/admin/dist/mac/fm.last.Scrobbler.scpt\" \"$$BUNDLE_DIR/Contents/Resources\";
+
     ## add the translations
     QMAKE_POST_LINK += lrelease -removeidentical \"$${ROOT_DIR}/Last.fm.pro\";
     QMAKE_POST_LINK += mkdir -p \"$${BUNDLE_DIR}/Contents/Resources/qm/\";

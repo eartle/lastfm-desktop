@@ -30,6 +30,9 @@ public:
 
     void load();
 
+private:
+    bool setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const QUrl &url);
+
 public slots:
     void save();
 };

@@ -134,6 +134,8 @@ namespace audioscrobbler
         void startBootstrap( const QString& pluginId );
 
         void showAs( bool showAs );
+
+        QString currentCategory() const;
         
     signals:
         void lovedStateChanged(bool loved);

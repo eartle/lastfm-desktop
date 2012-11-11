@@ -134,7 +134,7 @@ ScrobbleControls::onShareLastFm()
     sd->raise();
     sd->show();
     sd->activateWindow();
-    AnalyticsService::instance().sendEvent(SHARING_CATEGORY, SHARE_CLICKED, "ShareDialog");
+    AnalyticsService::instance().sendEvent( aApp->currentCategory(), SHARE_CLICKED, "ShareDialog");
 }
 
 void
@@ -142,14 +142,14 @@ ScrobbleControls::onShareTwitter()
 {
     ShareDialog::shareTwitter( m_track );
 
-    AnalyticsService::instance().sendEvent(SHARING_CATEGORY, SHARE_CLICKED, "TwitterShare");
+    AnalyticsService::instance().sendEvent( aApp->currentCategory(), SHARE_CLICKED, "TwitterShare");
 }
 
 void
 ScrobbleControls::onShareFacebook()
 {
     ShareDialog::shareFacebook( m_track );
-    AnalyticsService::instance().sendEvent(SHARING_CATEGORY, SHARE_CLICKED, "FacebookShare");
+    AnalyticsService::instance().sendEvent( aApp->currentCategory(), SHARE_CLICKED, "FacebookShare");
 }
 
 void
@@ -159,5 +159,5 @@ ScrobbleControls::onTag()
     td->raise();
     td->show();
     td->activateWindow();
-    AnalyticsService::instance().sendEvent(NOW_PLAYING_CATEGORY, TAG_CLICKED, "TagButtonPressed");
+    AnalyticsService::instance().sendEvent( aApp->currentCategory(), TAG_CLICKED, "TagButtonPressed");
 }

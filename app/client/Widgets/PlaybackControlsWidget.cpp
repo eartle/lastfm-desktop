@@ -150,18 +150,19 @@ PlaybackControlsWidget::onPlayClicked( bool checked )
 {
     if ( checked )
     {
+        AnalyticsService::instance().sendEvent(NOW_PLAYING_CATEGORY, PLAY_CLICKED, "PlayButtonPressed");
+
         if ( RadioService::instance().state() == Stopped )
             RadioService::instance().play( RadioStation( "" ) );
         else
         {
             RadioService::instance().resume();
         }
-        AnalyticsService::instance().sendEvent(NOW_PLAYING_CATEGORY, PLAY_CLICKED, "PlayButtonPressed");
     }
     else
     {
-        RadioService::instance().pause();
         AnalyticsService::instance().sendEvent(NOW_PLAYING_CATEGORY, PLAY_CLICKED, "PauseButtonPressed");
+        RadioService::instance().pause();
     }
 }
 

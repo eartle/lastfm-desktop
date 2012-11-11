@@ -19,6 +19,7 @@
 */
 
 #include <QNetworkCookieJar>
+#include <QDebug>
 
 #include "lib/unicorn/UnicornSettings.h"
 
@@ -36,11 +37,22 @@ PersistentCookieJar::~PersistentCookieJar()
     save();
 }
 
+bool
+PersistentCookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, const QUrl &url)
+{
+    // save every time some cookies are set
+    bool oneOrMoreSet = QNetworkCookieJar::setCookiesFromUrl( cookieList, url );
+    save();
+    return oneOrMoreSet;
+}
+
 void
 PersistentCookieJar::save()
-{
+{   
     QList<QNetworkCookie> list = allCookies();
     QByteArray data;
+
+    qDebug() << "Cookie count: " << list.count();
 
     foreach (QNetworkCookie cookie, list)
     {

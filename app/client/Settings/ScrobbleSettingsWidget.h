@@ -31,6 +31,7 @@ class ScrobbleSettingsWidget: public SettingsWidget
 
 public:
     ScrobbleSettingsWidget( QWidget* parent = 0 );
+    ~ScrobbleSettingsWidget();
 
 public slots:
     virtual void saveSettings();
@@ -40,6 +41,7 @@ private slots:
 
 private:
     Ui::ScrobbleSettingsWidget* ui;
+    int m_initialScrobblePercentage;
 };
 
 #endif

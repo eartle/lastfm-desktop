@@ -66,7 +66,7 @@ header( "Installer" );
 #    run( "tar", "cjf", "../../dist/Last.fm-$VERSION-win.symbols.tar.bz2", "." );
 
 header( "Signing" );
-	system( 'signtool sign /a /d "The Last.fm Desktop App" /du http://www.last.fm/download ' . $installer );
+	system( 'signtool sign /a /d "Last.fm Scrobbler" /du http://www.last.fm/download ' . $installer );
 
 	
 header( "done!" );

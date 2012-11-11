@@ -1,7 +1,4 @@
 
-#ifdef Q_WS_X11
-#include <QFileDialog>
-#endif
 #include <QDebug>
 #include <QDirIterator>
 #include <QTimer>
@@ -14,6 +11,10 @@
 #include "../Dialogs/CloseAppsDialog.h"
 #include "IpodDevice.h"
 #include "DeviceScrobbler.h"
+
+#ifdef Q_WS_X11
+#include <QFileDialog>
+#endif
 
 // check for iTunes playcount difference once a minute
 #define BACKGROUND_CHECK_INTERVAL 60000

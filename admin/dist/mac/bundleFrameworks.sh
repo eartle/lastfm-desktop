@@ -89,19 +89,21 @@ function fixLocalLibs {
         else
             cpPath=$lib
         fi
-        lib=`basename $lib`
+
+        resolvedLib=`/usr/local/bin/greadlink -f $cpPath`
+        basenameLib=`basename $resolvedLib`
 
 		echo $cpPath "$bundlePath/Contents/MacOS"
 
-        cp -R -H -f $cpPath "$bundlePath/Contents/MacOS"
+        cp -RLf $resolvedLib "$bundlePath/Contents/MacOS/"
 
         chmod -R u+w "$bundlePath/Contents/MacOS"
 
-        install_name_tool -id @executable_path/../MacOS/$lib "$bundlePath/Contents/MacOS/$lib"
-        install_name_tool -change $libPath @executable_path/../MacOS/$lib "$bin"
+        install_name_tool -id @executable_path/../MacOS/$basenameLib "$bundlePath/Contents/MacOS/$basenameLib"
+        install_name_tool -change $libPath @executable_path/../MacOS/$basenameLib "$bin"
         
-        fixFrameworks "$bundlePath/Contents/MacOS/$lib"
-        fixLocalLibs "$bundlePath/Contents/MacOS/$lib"
+        fixFrameworks "$bundlePath/Contents/MacOS/$basenameLib"
+        fixLocalLibs "$bundlePath/Contents/MacOS/$basenameLib"
     done
 }
 
@@ -145,7 +147,7 @@ echo
 echo ======= Copying 3rd party frameworks ===========
 
 cp -R -H -f /Library/Frameworks/Growl.framework "$bundlePath/Contents/Frameworks"
-#cp -R -H -f /Library/Frameworks/Sparkle.framework "$bundlePath/Contents/Frameworks"
+cp -R -H -f /Library/Frameworks/Sparkle.framework "$bundlePath/Contents/Frameworks"
 #cp -R -L -f /Library/Frameworks/Breakpad.framework "$bundlePath/Contents/Frameworks"
 
 echo
@@ -183,7 +185,6 @@ vlcPlugins='libaccess_http_plugin.dylib
             libdtstofloat32_plugin.dylib
             libdtstospdif_plugin.dylib
             libmpgatofixed32_plugin.dylib
-            libsamplerate_plugin.dylib
             libscaletempo_plugin.dylib
             libsimple_channel_mixer_plugin.dylib
             libspeex_resampler_plugin.dylib

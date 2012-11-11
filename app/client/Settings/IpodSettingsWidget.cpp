@@ -61,8 +61,12 @@ IpodSettingsWidget::IpodSettingsWidget( QWidget* parent )
     ui->alwaysAsk->setChecked( unicorn::AppSettings().value( SETTING_ALWAYS_ASK, true ).toBool() );
     connect( ui->alwaysAsk, SIGNAL(clicked(bool)), SLOT(onSettingsChanged()));
 
+#ifdef Q_WS_X11
+    ui->deviceScrobblingEnabled->hide();
+#else
     ui->deviceScrobblingEnabled->setChecked( unicorn::AppSettings( OLDE_PLUGIN_SETTINGS ).value( SETTING_OLDE_ITUNES_DEVICE_SCROBBLING_ENABLED, true ).toBool() );
     connect( ui->deviceScrobblingEnabled, SIGNAL(clicked(bool)), SLOT(onSettingsChanged()));
+#endif
 }
 
 void
@@ -78,6 +82,7 @@ IpodSettingsWidget::saveSettings()
         // we need to restart iTunes for this setting to take affect
         bool currentlyEnabled = unicorn::AppSettings( OLDE_PLUGIN_SETTINGS ).value( SETTING_OLDE_ITUNES_DEVICE_SCROBBLING_ENABLED, true ).toBool();
 
+#ifndef Q_WS_X11
         if ( currentlyEnabled != ui->deviceScrobblingEnabled->isChecked() )
         {
 #ifdef Q_OS_WIN
@@ -89,7 +94,6 @@ IpodSettingsWidget::saveSettings()
 #else
             CloseAppsDialog* closeApps = new CloseAppsDialog( this );
 #endif
-
             if ( closeApps->result() != QDialog::Accepted )
                 closeApps->exec();
             else
@@ -111,6 +115,7 @@ IpodSettingsWidget::saveSettings()
                         .exec();
             }
         }
+#endif
 
         onSettingsSaved();
     }

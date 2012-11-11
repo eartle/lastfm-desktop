@@ -7,6 +7,7 @@
 #include <QFontMetrics>
 #include <QEvent>
 
+#include "../Application.h"
 #include "lib/unicorn/widgets/Label.h"
 #include "lib/unicorn/DesktopServices.h"
 #include "../Services/AnalyticsService.h"
@@ -96,6 +97,6 @@ void
 TagWidget::onClicked()
 {
     unicorn::DesktopServices::openUrl( m_url );
-    AnalyticsService::instance().sendEvent(TAG_CATEGORY, TAG_CLICKED, "TagButtonPressed");
+    AnalyticsService::instance().sendEvent( aApp->currentCategory(), TAG_CLICKED, "TagButtonPressed");
 
 }

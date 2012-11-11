@@ -7,7 +7,7 @@
 
 #include "lib/unicorn/layouts/SideBySideLayout.h"
 
-#include "Services/AnalyticsService/AnalyticsService.h"
+#include "../Services/AnalyticsService/AnalyticsService.h"
 #include "ScrobblesListWidget.h"
 #include "TrackWidget.h"
 #include "MetadataWidget.h"

@@ -23,6 +23,7 @@
 
 #include "lib/unicorn/dialogs/ScrobbleConfirmationDialog.h"
 #include "lib/unicorn/widgets/Label.h"
+#include "lib/unicorn/DesktopServices.h"
 
 #include "MessageBar.h"
 
@@ -82,14 +83,22 @@ MessageBar::onCloseClicked()
 }
 
 void
-MessageBar::onLinkActivated( const QString& /*link*/ )
+MessageBar::onLinkActivated( const QString& link )
 {
-    // always sort the tracks before displaying them
-    qSort ( m_tracks.begin(), m_tracks.end() );
+    if ( link == "tracks" )
+    {
+        // always sort the tracks before displaying them
+        qSort ( m_tracks.begin(), m_tracks.end() );
 
-    // Show a dialog with the tracks
-    ScrobbleConfirmationDialog confirmDialog( m_tracks );
-    confirmDialog.setReadOnly();
-    confirmDialog.exec();
+        // Show a dialog with the tracks
+        ScrobbleConfirmationDialog confirmDialog( m_tracks );
+        confirmDialog.setReadOnly();
+        confirmDialog.exec();
+    }
+    else
+    {
+        // this should be a url so open it in the browser
+        unicorn::DesktopServices::openUrl( link );
+    }
 }
 

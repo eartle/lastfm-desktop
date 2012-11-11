@@ -72,7 +72,7 @@ QuickStartWidget::QuickStartWidget( QWidget* parent )
     connect( ui.button, SIGNAL(clicked()), SLOT(play()));
     connect( ui.button, SIGNAL(customContextMenuRequested(QPoint)), SLOT(customContextMenuRequested(QPoint)));
 
-    layout->addWidget( ui.whyNotTry = new Label( "", this ) );
+    layout->addWidget( ui.whyNotTry = new unicorn::Label( "", this ) );
     ui.whyNotTry->setObjectName( "whyNotTry" );
     ui.whyNotTry->setTextFormat( Qt::RichText );
     ui.whyNotTry->setWordWrap( true );
@@ -200,10 +200,10 @@ QuickStartWidget::setSuggestions()
         QStringList suggestions;
         if(RadioService::instance().isRadioUsageAllowed(false))
         {
-            suggestions << Label::anchor( RadioStation::similar( artist1 ).url(), artist1.name()  )
-                        << Label::anchor( RadioStation::similar( artist2 ).url(), artist2.name() )
-                        << Label::anchor( RadioStation::tag( tag1 ).url(), tag1 )
-                        << Label::anchor( RadioStation::tag( tag2 ).url(), tag2 );
+            suggestions << unicorn::Label::anchor( RadioStation::similar( artist1 ).url(), artist1.name()  )
+                        << unicorn::Label::anchor( RadioStation::similar( artist2 ).url(), artist2.name() )
+                        << unicorn::Label::anchor( RadioStation::tag( tag1 ).url(), tag1 )
+                        << unicorn::Label::anchor( RadioStation::tag( tag2 ).url(), tag2 );
 
             ui.whyNotTry->setText( tr( "Why not try %1, %2, %3 or %4?" ).arg( suggestions.takeAt(qrand() % suggestions.count()),
                                                                               suggestions.takeAt(qrand() % suggestions.count()),
@@ -226,47 +226,50 @@ QuickStartWidget::setToCurrent()
 void
 QuickStartWidget::play()
 {
-    if(!RadioService::instance().isRadioUsageAllowed())
-        return;
-
-    QString trimmedText = ui.edit->text().trimmed();
-
-    if ( !trimmedText.isEmpty() )
+    if( RadioService::instance().isRadioUsageAllowed() )
     {
-        if ( trimmedText.startsWith("lastfm://") )
-            RadioService::instance().play( RadioStation( trimmedText ) );
-        else if ( ui.edit->text().length() )
+        AnalyticsService::instance().sendEvent( aApp->currentCategory(), QUICKSTART_PLAY_CLICKED, objectName());
+
+        QString trimmedText = ui.edit->text().trimmed();
+
+        if ( !trimmedText.isEmpty() )
         {
-            StationSearch* search = new StationSearch();
+            if ( trimmedText.startsWith("lastfm://") )
+                RadioService::instance().play( RadioStation( trimmedText ) );
+            else if ( trimmedText.startsWith("spotify:track:") )
+                RadioService::instance().queueSpotifyTrack( trimmedText );
+            else if ( ui.edit->text().length() )
+            {
+                StationSearch* search = new StationSearch();
 
-            connect( search, SIGNAL(searchResult(RadioStation)), &RadioService::instance(), SLOT(play(RadioStation)));
-            connect( search, SIGNAL(error(QString,QString)), aApp, SIGNAL(showMessage(QString,QString)));
+                connect( search, SIGNAL(searchResult(RadioStation)), &RadioService::instance(), SLOT(play(RadioStation)));
+                connect( search, SIGNAL(error(QString,QString)), aApp, SIGNAL(showMessage(QString,QString)));
 
-            search->startSearch( ui.edit->text() );
+                search->startSearch( ui.edit->text() );
+            }
+
+            ui.edit->clear();
         }
-
-        ui.edit->clear();
-    }
-    else
-    {
-        if ( RadioService::instance().state() != Playing )
-            RadioService::instance().play( RadioStation() );
         else
         {
-            // They are already playing something. Maybe we
-            // should switch to the now playing view
+            if ( RadioService::instance().state() != Playing )
+                RadioService::instance().play( RadioStation() );
+            else
+            {
+                // They are already playing something. Maybe we
+                // should switch to the now playing view
+            }
         }
     }
-
-    AnalyticsService::instance().sendEvent(START_CATEGORY, PLAY_CLICKED, "PlayButtonPressed");
-
 }
 
 void
 QuickStartWidget::playNext()
 {
-    if(RadioService::instance().isRadioUsageAllowed())
+    if( RadioService::instance().isRadioUsageAllowed() )
     {
+        AnalyticsService::instance().sendEvent( aApp->currentCategory(), QUICKSTART_PLAY_NEXT_CLICKED, objectName());
+
         QString trimmedText = ui.edit->text().trimmed();
 
         if( trimmedText.startsWith("lastfm://"))

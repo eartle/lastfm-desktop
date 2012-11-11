@@ -279,12 +279,12 @@ TrackWidget::onLoveClicked( bool loved )
     if ( loved )
     {
         MutableTrack( m_track ).love();
-        AnalyticsService::instance().sendEvent(NOW_PLAYING_CATEGORY, LOVE_TRACK, "TrackLoved");
+        AnalyticsService::instance().sendEvent( aApp->currentCategory(), LOVE_TRACK, "TrackLoved");
     }
     else
     {
         MutableTrack( m_track ).unlove();
-        AnalyticsService::instance().sendEvent(NOW_PLAYING_CATEGORY, LOVE_TRACK, "TrackUnLoved");
+        AnalyticsService::instance().sendEvent( aApp->currentCategory(), LOVE_TRACK, "TrackUnLoved");
     }
 }
 
@@ -295,7 +295,7 @@ TrackWidget::onTagClicked()
     td->raise();
     td->show();
     td->activateWindow();
-    AnalyticsService::instance().sendEvent(NOW_PLAYING_CATEGORY, TAG_CLICKED, "TagButtonPressed");
+    AnalyticsService::instance().sendEvent( aApp->currentCategory(), TAG_CLICKED, "TagButtonPressed");
 }
 
 void
@@ -452,7 +452,7 @@ void
 TrackWidget::onBuyActionTriggered( QAction* buyAction )
 {
     unicorn::DesktopServices::openUrl( buyAction->data().toString() );
-    AnalyticsService::instance().sendEvent(NOW_PLAYING_CATEGORY, BUY_CLICKED, "BuyButtonPressed");
+    AnalyticsService::instance().sendEvent( aApp->currentCategory(), BUY_CLICKED, "BuyButtonPressed" );
 }
 
 void
@@ -462,20 +462,20 @@ TrackWidget::onShareLastFm()
     sd->raise();
     sd->show();
     sd->activateWindow();
-    AnalyticsService::instance().sendEvent(NOW_PLAYING_CATEGORY, SHARE_CLICKED, "LastfmShare");
+    AnalyticsService::instance().sendEvent( aApp->currentCategory(), SHARE_CLICKED, "LastfmShare" );
 }
 
 void
 TrackWidget::onShareTwitter()
 {
     ShareDialog::shareTwitter( m_track );
-    AnalyticsService::instance().sendEvent(NOW_PLAYING_CATEGORY, SHARE_CLICKED, "TwitterShare");
+    AnalyticsService::instance().sendEvent( aApp->currentCategory(), SHARE_CLICKED, "TwitterShare" );
 }
 
 void
 TrackWidget::onShareFacebook()
 {
     ShareDialog::shareFacebook( m_track );
-    AnalyticsService::instance().sendEvent(NOW_PLAYING_CATEGORY, SHARE_CLICKED, "FacebookShare");
+    AnalyticsService::instance().sendEvent( aApp->currentCategory(), SHARE_CLICKED, "FacebookShare" );
 }
 

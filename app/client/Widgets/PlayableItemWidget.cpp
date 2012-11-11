@@ -28,6 +28,7 @@
 #include <lastfm/RadioStation.h>
 
 #include "PlayableItemWidget.h"
+#include "../Application.h"
 #include "../Services/RadioService.h"
 #include "../Services/AnalyticsService.h"
 
@@ -126,8 +127,8 @@ PlayableItemWidget::play()
 {
     if(RadioService::instance().isRadioUsageAllowed())
     {
+        AnalyticsService::instance().sendEvent( aApp->currentCategory(), PLAY_CLICKED, objectName() );
         RadioService::instance().play( m_rs );
-        AnalyticsService::instance().sendEvent(RADIO_CATEGORY, PLAY_CLICKED, "PlayClicked");
     }
 }
 
@@ -136,8 +137,8 @@ PlayableItemWidget::playNext()
 {
     if(RadioService::instance().isRadioUsageAllowed())
     {
+        AnalyticsService::instance().sendEvent( aApp->currentCategory(), PLAY_NEXT_CLICKED, objectName() );
         RadioService::instance().playNext( m_rs );
-        AnalyticsService::instance().sendEvent(RADIO_CATEGORY, PLAY_CLICKED, "PlayNextClicked");
     }
 }
 
@@ -165,8 +166,8 @@ PlayableItemWidget::playMulti()
     {
         if ( m_rs.url().startsWith("lastfm://user/") )
         {
+            AnalyticsService::instance().sendEvent( aApp->currentCategory(), PLAY_MULTI_CLICKED, objectName());
             RadioService::instance().play( getMultiStation() );
-            AnalyticsService::instance().sendEvent(RADIO_CATEGORY, PLAY_CLICKED, "PlayMultiClicked");
         }
     }
 }
@@ -178,8 +179,8 @@ PlayableItemWidget::playMultiNext()
     {
         if ( m_rs.url().startsWith("lastfm://user/") )
         {
+            AnalyticsService::instance().sendEvent( aApp->currentCategory(), PLAY_MULTI_NEXT_CLICKED, objectName());
             RadioService::instance().playNext( getMultiStation() );
-            AnalyticsService::instance().sendEvent(RADIO_CATEGORY, PLAY_CLICKED, "PlayMultiNextClicked");
         }
     }
 }

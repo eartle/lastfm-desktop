@@ -86,10 +86,17 @@ ProgressBar::paintEvent( QPaintEvent* e )
 
         p.setPen( QColor( 0x333333 ) );
 
+        QString message;
+
         if ( m_track.extra( "playerId" ) != "spt" )
         {
             if ( m_track.duration() >= 30 )
             {
+                QString streamSource( m_track.extra( "streamSource" ) );
+
+                if ( !streamSource.isEmpty() )
+                    message = tr( "Streaming from %1" ).arg( streamSource );
+
                 QString format( "m:ss" );
 
                 QTime duration( 0, 0 );
@@ -172,39 +179,29 @@ ProgressBar::paintEvent( QPaintEvent* e )
                 }
                 else
                 {
-                    QString offMessage = NULL;
-
                     if ( unicorn::UserSettings().value( "scrobblingOn", true ).toBool() )
                     {
                         if ( m_track.isVideo() )
-                            offMessage = tr( "Not scrobbling - not a music video" );
+                            message = tr( "Not scrobbling - not a music video" );
                         else if ( !unicorn::UserSettings().value( "podcasts", true ).toBool() && m_track.isPodcast() )
-                            offMessage = tr( "Not scrobbling - podcasts disabled" );
+                            message = tr( "Not scrobbling - podcasts disabled" );
                         else if ( m_track.artist().isNull() )
-                            offMessage = tr( "Not scrobbling - missing artist" );
-                    }
-
-                    if(offMessage != NULL)
-                    {
-                        p.setPen( QColor( 0x333333 ) );
-                        QTextOption textOption;
-                        textOption.setAlignment( Qt::AlignVCenter | Qt::AlignRight );
-                        p.drawText( rect().adjusted( 0, 0, -6, 0 ), offMessage, textOption );
+                            message = tr( "Not scrobbling - missing artist" );
                     }
                 }
             }
             else
-            {
-                QTextOption textOption;
-                textOption.setAlignment( Qt::AlignVCenter | Qt::AlignRight );
-                p.drawText( rect().adjusted( 0, 0, -6, 0 ), tr( "Not scrobbling - track too short" ), textOption );
-            }
+                message = tr( "Not scrobbling - track too short" );
         }
         else
+            message = tr( "Enable scrobbling in Spotify's preferences!" );
+
+        if ( !message.isEmpty() )
         {
+            p.setPen( QColor( 0x333333 ) );
             QTextOption textOption;
             textOption.setAlignment( Qt::AlignVCenter | Qt::AlignRight );
-            p.drawText( rect().adjusted( 0, 0, -6, 0 ), tr("Enable scrobbling in Spotify's preferences!"), textOption );
+            p.drawText( rect().adjusted( 0, 0, -6, 0 ), message, textOption );
         }
     }
 }

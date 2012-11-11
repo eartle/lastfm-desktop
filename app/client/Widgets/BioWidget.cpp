@@ -8,8 +8,9 @@
 #include "lib/unicorn/widgets/BannerWidget.h"
 #include "lib/unicorn/widgets/HttpImageWidget.h"
 #include "lib/unicorn/DesktopServices.h"
-#include "../Services/AnalyticsService.h"
 
+#include "../Services/AnalyticsService.h"
+#include "../Application.h"
 #include "WidgetTextObject.h"
 #include "BioWidget.h"
 
@@ -186,7 +187,7 @@ void
 BioWidget::onAnchorClicked( const QUrl& link )
 {
     unicorn::DesktopServices::openUrl( link );
-    AnalyticsService::instance().sendEvent(NOW_PLAYING_CATEGORY, LINK_CLICKED, "BioPageLinkClicked");
+    AnalyticsService::instance().sendEvent( aApp->currentCategory(), LINK_CLICKED, "BioPageLinkClicked");
 }
 
 

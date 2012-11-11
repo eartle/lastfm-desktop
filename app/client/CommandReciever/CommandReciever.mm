@@ -98,6 +98,17 @@
 CommandReciever::CommandReciever( QObject *parent )
     :QObject( parent ), m_artworkDownloaded( false )
 {
+    bool success = QDir::home().mkdir( "Library/Application Support/Airfoil/" );
+    success = QDir::home().mkdir( "Library/Application Support/Airfoil/RemoteControl/" );
+    success = QDir::home().mkdir( "Library/Application Support/Airfoil/TrackTitles/" );
+
+    // make sure the scripts are copied
+    success = QFile::copy( QApplication::applicationDirPath() + "/../Resources/dacp.fm.last.Scrobbler.scpt",
+                                    QDir::home().filePath( "Library/Application Support/Airfoil/RemoteControl/dacp.fm.last.Scrobbler.scpt" ) );
+
+    success = QFile::copy( QApplication::applicationDirPath() + "/../Resources/fm.last.Scrobbler.scpt",
+                                    QDir::home().filePath( "Library/Application Support/Airfoil/TrackTitles/fm.last.Scrobbler.scpt" ) );
+
     aApp->delegate()->setCommandObserver( this );
 
     connect( &RadioService::instance(), SIGNAL(trackSpooled(Track)), SLOT(onTrackSpooled(Track)) );

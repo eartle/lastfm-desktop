@@ -26,9 +26,7 @@
 
 class QComboBox;
 
-namespace unicorn { class Label; }
-using unicorn::Label;
-namespace unicorn { class Session; }
+namespace unicorn { class Label; class Session; }
 
 class QuickStartWidget : public QFrame
 {
@@ -38,7 +36,7 @@ private:
     {
         class QLineEdit* edit;
         class QPushButton* button;
-        Label* whyNotTry;
+        unicorn::Label* whyNotTry;
     } ui;
 
 public:
