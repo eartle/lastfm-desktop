@@ -194,12 +194,45 @@ qt_mac_NSStringToQString( const NSString* nsstr )
 }
 
 void
-Spotify::play( Track& track )
-{   
-    pause();
+Spotify::onGotPlaylinks()
+{
+    lastfm::XmlQuery lfm;
 
+    // get the spotify ids from the xml
+    if ( lfm.parse( static_cast<QNetworkReply*>( sender() ) ) )
+    {
+        QString spotifyId = lfm["spotify"]["track"]["externalids"]["spotify"].text();
+
+        if ( !spotifyId.isEmpty() )
+        {
+            MutableTrack( m_track ).setExtra( "spotifyId", spotifyId );
+            doPlay();
+        }
+        else
+            emit error( PlaybackError, 0, "" );
+    }
+}
+
+void
+Spotify::play( Track& track )
+{
+    pause();
     m_track = track;
 
+    if ( m_track.extra( "spotifyId" ) == "unknown" )
+    {
+        // fetch the playlink
+        QList<Track> tracks;
+        tracks << m_track;
+        connect( Track::playlinks( tracks ), SIGNAL(finished()), SLOT(onGotPlaylinks()));
+    }
+    else
+        doPlay();
+}
+
+void
+Spotify::doPlay()
+{
     NSString* id = nsString( m_track.extra( "spotifyId" ) );
 
     NSURL *trackURL = [NSURL URLWithString:id];
