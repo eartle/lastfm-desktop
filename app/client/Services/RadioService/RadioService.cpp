@@ -523,12 +523,15 @@ RadioService::onPhononCurrentSourceChanged( const Phonon::MediaSource& )
         return;
     }
 
-    MutableTrack( m_track ).stamp();
+    if ( !m_track.isNull() )
+    {
+        MutableTrack( m_track ).stamp();
 
-    if (m_mediaObject->state() != Phonon::PlayingState)
-        changeState( Buffering );
+        if (m_mediaObject->state() != Phonon::PlayingState)
+            changeState( Buffering );
 
-    emit trackSpooled( m_track );
+        emit trackSpooled( m_track );
+    }
 }
 
 
