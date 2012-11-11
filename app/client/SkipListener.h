@@ -1,5 +1,4 @@
-#ifndef SKIPLISTENER_H
-#define SKIPLISTENER_H
+#pragma once
 
 #include <QObject>
 #include <QStringList>
@@ -12,18 +11,16 @@ class SkipListener : public QObject
 public:
     explicit SkipListener(QObject *parent = 0);
 
-signals:
-
 private slots:
     void onTrackSpooled();
     void onNewConnection();
+    void onSpotifyLookup();
 
 private:
     QStringList users( const lastfm::RadioStation& rs );
+    void sendMessage( const QString& message );
 
 private:
     class QTcpServer* m_server;
     QStringList m_skippers;
 };
-
-#endif // SKIPLISTENER_H
