@@ -44,6 +44,8 @@
 	<string>YES</string>
 	<key>CFBundleName</key>
 	<string>Last.fm</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
     <key>CFBundleURLTypes</key>
 	<array>
 		<dict>

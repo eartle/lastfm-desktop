@@ -104,25 +104,3 @@ unicorn::CoreApplication::log( const QString& productName )
     return dir::logs().filePath( productName + ".debug.log" );
 #endif
 }
-
-
-#ifdef __APPLE__
-#include <Carbon/Carbon.h>
-static QLocale qMacLocale()
-{
-    //TODO see what Qt's version does
-    CFArrayRef languages = (CFArrayRef) CFPreferencesCopyValue( 
-            CFSTR( "AppleLanguages" ),
-            kCFPreferencesAnyApplication,
-            kCFPreferencesCurrentUser,
-            kCFPreferencesAnyHost );
-    
-    if (languages == NULL)
-        return QLocale::system();
-
-    CFStringRef uxstylelangs = CFStringCreateByCombiningStrings( kCFAllocatorDefault, languages, CFSTR( ":" ) );
-
-    QString const s = CFStringToQString( uxstylelangs ).split( ':' ).value( 0 );
-    return QLocale( s );
-}
-#endif
