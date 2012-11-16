@@ -26,6 +26,12 @@ public:
     void resume();
     void stop();
 
+private:
+    void doPlay();
+
+private slots:
+    void onGotPlaylinks();
+
 public:
     void _loginFinished( bool successful );
     void _trackPositionChanged( double seconds );
