@@ -2,6 +2,8 @@
 
 #include <QObject>
 #include <QStringList>
+#include <QDateTime>
+#include <QMap>
 
 namespace lastfm { class RadioStation; }
 
@@ -23,4 +25,5 @@ private:
 private:
     class QTcpServer* m_server;
     QStringList m_skippers;
+    QMap<QString, QDateTime> m_cueRequests;
 };

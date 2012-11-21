@@ -216,17 +216,28 @@ SkipListener::onNewConnection()
                 }
             }
         }
-        else if ( data[1].compare( "play", Qt::CaseInsensitive ) == 0 )
+        else if ( data[1].compare( "cue", Qt::CaseInsensitive ) == 0 )
         {
-            if ( data.count() == 3 && data[2].startsWith( "spotify:track:" ) )
-            {
-                QUrl lookup( "http://ws.spotify.com/lookup/1/" );
-                lookup.addQueryItem( "uri", data[2] );
+            QDateTime time = m_cueRequests.value( data[0] );
 
-                connect( lastfm::nam()->get( QNetworkRequest( lookup ) ), SIGNAL(finished()), SLOT(onSpotifyLookup()) );
+            if ( time.isNull() || (!time.isNull() && time.addSecs( 60 * 60 ) < QDateTime::currentDateTime()) )
+            {
+                m_cueRequests[ data[0] ] = QDateTime::currentDateTime();
+
+                if ( data.count() == 3 && data[2].startsWith( "spotify:track:" ) )
+                {
+                    QUrl lookup( "http://ws.spotify.com/lookup/1/" );
+                    lookup.addQueryItem( "uri", data[2] );
+
+                    connect( lastfm::nam()->get( QNetworkRequest( lookup ) ), SIGNAL(finished()), SLOT(onSpotifyLookup()) );
+                }
+                else
+                    sendMessage( QString( "%1: Please provide 1 Spotify URI" ).arg( data[0] ) );
             }
             else
-                sendMessage( QString( "%1: Please provide 1 Spotify URI" ).arg( data[0] ) );
+            {
+                sendMessage( QString( "%1: You can't cue a track again until %2" ).arg( data[0], time.addSecs( 60 * 60 ).toString( Qt::DefaultLocaleShortDate ) ) );
+            }
         }
         else
             sendMessage( QString( "%1: I beg your pardon" ).arg( data[0] ) );
