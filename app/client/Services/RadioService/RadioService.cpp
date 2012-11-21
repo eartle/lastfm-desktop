@@ -468,7 +468,10 @@ RadioService::phononEnqueue()
             m_track = t;
 
             if ( m_spotify && m_spotify->loggedIn() && !t.extra( "spotifyId" ).isEmpty() )
+            {
                 m_spotify->play( t );
+                changeState( Playing );
+            }
             else
             {
                 if ( !enqueueTrack( t ) )
