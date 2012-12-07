@@ -256,7 +256,9 @@ Spotify::doPlay()
                         emit error( PlaybackError, [nsError code], qt_mac_NSStringToQString( [nsError localizedDescription] ) );
                     else
                     {
-                        MutableTrack( m_track ).setExtra( "streamSource", "Spotify" );
+                        MutableTrack mt( m_track );
+                        mt.setExtra( "streamSource", "Spotify" );
+                        mt.stamp();
                         emit started( m_track );
                     }
                 }];
