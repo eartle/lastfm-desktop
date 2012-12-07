@@ -40,44 +40,63 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="proxy">
+    <widget class="QGroupBox" name="cache">
      <property name="enabled">
       <bool>false</bool>
+     </property>
+     <property name="title">
+      <string>Cache Size:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="proxy">
+     <property name="enabled">
+      <bool>true</bool>
      </property>
      <property name="title">
       <string>Proxy:</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QRadioButton" name="radioButton">
-        <property name="text">
-         <string>Automatic</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="radioButton_2">
-        <property name="text">
-         <string>Manual</string>
-        </property>
-       </widget>
+       <widget class="QComboBox" name="proxyType"/>
       </item>
       <item>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0" rowspan="2">
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>Host:</string>
+        <item row="2" column="1" rowspan="2" colspan="3">
+         <widget class="QLineEdit" name="proxyUsername"/>
+        </item>
+        <item row="4" column="1" colspan="3">
+         <widget class="QLineEdit" name="proxyPassword">
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
           </property>
          </widget>
+        </item>
+        <item row="0" column="2" rowspan="2">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Port:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3" rowspan="2">
+         <widget class="QLineEdit" name="proxyPort"/>
+        </item>
+        <item row="0" column="1" rowspan="2">
+         <widget class="QLineEdit" name="proxyHost"/>
         </item>
         <item row="2" column="0" rowspan="2">
          <widget class="QLabel" name="label_2">
           <property name="text">
            <string>Username:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" rowspan="2">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Host:</string>
           </property>
          </widget>
         </item>
@@ -88,45 +107,9 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="1" rowspan="2" colspan="3">
-         <widget class="QLineEdit" name="proxyUsername"/>
-        </item>
-        <item row="4" column="1" colspan="3">
-         <widget class="QLineEdit" name="proxyPassword"/>
-        </item>
-        <item row="0" column="2" rowspan="2">
-         <widget class="QLabel" name="label_4">
-          <property name="text">
-           <string>Port:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1" rowspan="2">
-         <widget class="QLineEdit" name="proxyHost"/>
-        </item>
-        <item row="0" column="3" rowspan="2">
-         <widget class="QLineEdit" name="proxyPort"/>
-        </item>
-        <item row="5" column="1" colspan="3">
-         <widget class="QLabel" name="direct">
-          <property name="text">
-           <string>Leave fields blank to use a direct connection</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </item>
      </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="cache">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="title">
-      <string>Cache Size:</string>
-     </property>
     </widget>
    </item>
    <item>

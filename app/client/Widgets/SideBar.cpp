@@ -120,8 +120,8 @@ SideBar::addToMenu( QMenu& menu )
 
     menu.addSeparator();
 
-    menu.addAction( "Next Section", this, SLOT(onDown()), Qt::CTRL + Qt::Key_BracketRight);
-    menu.addAction( "Previous Section", this, SLOT(onUp()), Qt::CTRL + Qt::Key_BracketLeft);
+    menu.addAction( tr("Next Section"), this, SLOT(onDown()), Qt::CTRL + Qt::Key_BracketRight);
+    menu.addAction( tr("Previous Section"), this, SLOT(onUp()), Qt::CTRL + Qt::Key_BracketLeft);
 }
 
 void

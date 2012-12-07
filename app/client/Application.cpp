@@ -30,11 +30,13 @@
 #include <QShortcut>
 #include <QTcpSocket>
 #include <QAction>
+#include <QNetworkProxy>
 
 #include <lastfm/UrlBuilder.h>
 #include <lastfm/InternetConnectionMonitor.h>
 #include <lastfm/XmlQuery.h>
 #include <lastfm/misc.h>
+#include <lastfm/NetworkAccessManager.h>
 
 #include "lib/listener/State.h"
 #include "lib/listener/PlayerConnection.h"
@@ -88,6 +90,28 @@ using audioscrobbler::Application;
 Application::Application(int& argc, char** argv) 
     :unicorn::Application(argc, argv), m_raiseHotKeyId( (void*)-1 )
 {
+    unicorn::AppSettings appSettings;
+    int proxyType = appSettings.value( "proxyType", 0 ).toInt();
+    QString proxyHost = appSettings.value( "proxyHost", "" ).toString();
+    QString proxyPort = appSettings.value( "proxyPort", "" ).toString();
+    QString proxyUsername = appSettings.value( "proxyUsername", "" ).toString();
+    QString proxyPassword = appSettings.value( "proxyPassword", "" ).toString();
+
+    // set this new proxy
+    QNetworkProxy::ProxyType type = QNetworkProxy::DefaultProxy;
+
+    if ( proxyType == 1 )
+        type = QNetworkProxy::NoProxy;
+    else if ( proxyType == 2 )
+        type = QNetworkProxy::HttpProxy;
+    else if ( proxyType == 3 )
+        type = QNetworkProxy::Socks5Proxy;
+
+    QNetworkProxy proxy( type, proxyHost, proxyPort.toInt(), proxyUsername, proxyPassword );
+    lastfm::NetworkAccessManager* nam = qobject_cast<lastfm::NetworkAccessManager*>( lastfm::nam() );
+
+    if ( nam )
+        nam->setUserProxy( proxy );
 }
 
 void
@@ -155,7 +179,7 @@ Application::init()
     QMenu* menu = new QMenu;
     m_tray->setContextMenu(menu);
 
-    menu->addMenu( new UserMenu() )->setText( "Accounts" );
+    menu->addMenu( new UserMenu() )->setText( tr( "Accounts" ) );
 
     m_show_window_action = menu->addAction( tr("Show Scrobbler"));
     m_show_window_action->setShortcut( Qt::CTRL + Qt::META + Qt::Key_S );

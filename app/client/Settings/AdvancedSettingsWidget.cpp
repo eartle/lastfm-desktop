@@ -18,19 +18,6 @@
    along with lastfm-desktop.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "ui_AdvancedSettingsWidget.h"
-#include "AdvancedSettingsWidget.h"
-#include "../Widgets/ShortcutEdit.h"
-#include "../AudioscrobblerSettings.h"
-#include "../Application.h"
-
-#include "lib/unicorn/QMessageBoxBuilder.h"
-#include "lib/unicorn/UnicornApplication.h"
-#include "lib/unicorn/UnicornSession.h"
-#include "lib/unicorn/widgets/UserManagerWidget.h"
-
-#include <lastfm/User.h>
-
 #include <QApplication>
 #include <QComboBox>
 #include <QGroupBox>
@@ -41,6 +28,22 @@
 #include <QVBoxLayout>
 #include <QKeyEvent>
 #include <QStringListModel>
+#include <QNetworkProxy>
+
+#include <lastfm/User.h>
+#include <lastfm/ws.h>
+#include <lastfm/NetworkAccessManager.h>
+
+#include "lib/unicorn/QMessageBoxBuilder.h"
+#include "lib/unicorn/UnicornApplication.h"
+#include "lib/unicorn/UnicornSession.h"
+#include "lib/unicorn/widgets/UserManagerWidget.h"
+
+#include "../Widgets/ShortcutEdit.h"
+#include "../AudioscrobblerSettings.h"
+#include "../Application.h"
+#include "ui_AdvancedSettingsWidget.h"
+#include "AdvancedSettingsWidget.h"
 
 using lastfm::User;
 
@@ -60,6 +63,18 @@ AdvancedSettingsWidget::AdvancedSettingsWidget( QWidget* parent )
 
     connect( ui->sce, SIGNAL(editTextChanged(QString)), this, SLOT(onSettingsChanged()));
 #endif
+    unicorn::AppSettings appSettings;
+
+    QStringList proxyTypes;
+    proxyTypes << tr( "Auto-detect" ) << tr( "No-proxy" ) << tr("HTTP") << tr("SOCKS5");
+    ui->proxyType->addItems( proxyTypes );
+    ui->proxyType->setCurrentIndex( appSettings.value( "proxyType", 0 ).toInt() );
+    ui->proxyHost->setText( appSettings.value( "proxyHost", "" ).toString() );
+    ui->proxyPort->setText( appSettings.value( "proxyPort", "" ).toString() );
+    ui->proxyUsername->setText( appSettings.value( "proxyUsername", "" ).toString() );
+    ui->proxyPassword->setText( appSettings.value( "proxyPassword", "" ).toString() );
+
+    connect( ui->proxyType, SIGNAL(currentIndexChanged(int)), this, SLOT(onSettingsChanged()));
     connect( ui->proxyHost, SIGNAL(textChanged(QString)), this, SLOT(onSettingsChanged()));
     connect( ui->proxyPort, SIGNAL(textChanged(QString)), this, SLOT(onSettingsChanged()));
     connect( ui->proxyUsername, SIGNAL(textChanged(QString)), this, SLOT(onSettingsChanged()));
@@ -80,12 +95,43 @@ AdvancedSettingsWidget::saveSettings()
 
         aApp->setRaiseHotKey( ui->sce->modifiers(), ui->sce->key() );
 
-        if ( ui->proxyHost->text().trimmed().isEmpty()
-             && ui->proxyPort->text().trimmed().isEmpty()
-             && ui->proxyUsername->text().trimmed().isEmpty()
-             && ui->proxyPassword->text().trimmed().isEmpty() )
-        {
+        unicorn::AppSettings appSettings;
+        int proxyType = appSettings.value( "proxyType", 0 ).toInt();
+        QString proxyHost = appSettings.value( "proxyHost", "" ).toString();
+        QString proxyPort = appSettings.value( "proxyPort", "" ).toString();
+        QString proxyUsername = appSettings.value( "proxyUsername", "" ).toString();
+        QString proxyPassword = appSettings.value( "proxyPassword", "" ).toString();
 
+        if ( proxyType != ui->proxyType->currentIndex()
+             || proxyHost != ui->proxyHost->text()
+             || proxyPort != ui->proxyPort->text()
+             || proxyUsername != ui->proxyUsername->text()
+             || proxyPassword != ui->proxyPassword->text() )
+        {
+            // one of the proxy settings has changed
+
+            // save them
+            appSettings.setValue( "proxyType", ui->proxyType->currentIndex() );
+            appSettings.setValue( "proxyHost", ui->proxyHost->text() );
+            appSettings.setValue( "proxyPort", ui->proxyPort->text() );
+            appSettings.setValue( "proxyUsername", ui->proxyUsername->text() );
+            appSettings.setValue( "proxyPassword", ui->proxyPassword->text() );
+
+            // set this new proxy
+            QNetworkProxy::ProxyType type = QNetworkProxy::DefaultProxy;
+
+            if ( ui->proxyType->currentIndex() == 1 )
+                type = QNetworkProxy::NoProxy;
+            else if ( ui->proxyType->currentIndex() == 2 )
+                type = QNetworkProxy::HttpProxy;
+            else if ( ui->proxyType->currentIndex() == 3 )
+                type = QNetworkProxy::Socks5Proxy;
+
+            QNetworkProxy proxy( type, ui->proxyHost->text(), ui->proxyPort->text().toInt(), ui->proxyUsername->text(), ui->proxyPassword->text() );
+            lastfm::NetworkAccessManager* nam = qobject_cast<lastfm::NetworkAccessManager*>( lastfm::nam() );
+
+            if ( nam )
+                nam->setUserProxy( proxy );
         }
     }
 }

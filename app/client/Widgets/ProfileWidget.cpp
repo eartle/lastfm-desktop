@@ -11,6 +11,7 @@
 #include "PlayableItemWidget.h"
 #include "ProfileArtistWidget.h"
 #include "ContextLabel.h"
+#include "FriendWidget.h"
 
 #include "../Services/ScrobbleService/ScrobbleService.h"
 #include "../Application.h"
@@ -63,7 +64,7 @@ ProfileWidget::onGotUserInfo( const lastfm::User& user )
      ui->avatar->loadUrl( user.imageUrl( User::LargeImage, true ), HttpImageWidget::ScaleNone );
      ui->avatar->setHref( user.www() );
 
-     ui->infoString->setText( user.getInfoString() );
+     ui->infoString->setText( FriendWidget::userString( user ) );
 
      ui->scrobbles->setText( tr( "Scrobble(s) since %1", "", user.scrobbleCount() ).arg( user.dateRegistered().toString( Qt::DefaultLocaleShortDate ) ) );
 
