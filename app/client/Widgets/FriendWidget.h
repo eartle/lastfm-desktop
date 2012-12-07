@@ -28,6 +28,9 @@ public:
 
     bool operator<( const FriendWidget& that ) const;
 
+    static QString genderString( const lastfm::Gender& gender );
+    static QString userString( const lastfm::User& user );
+
 private:
     void setDetails();
 

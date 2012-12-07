@@ -84,21 +84,14 @@ StatusBar::StatusBar( QWidget* parent )
     connect( aApp, SIGNAL(scrobbleToggled(bool)), ui.scrobbleMessage, SLOT(setHidden(bool)));
     connect( aApp, SIGNAL(scrobbleToggled(bool)), ui.scrobbleIcon, SLOT(setHidden(bool)));
 
-    connect( aApp, SIGNAL(sessionChanged(unicorn::Session*)), SLOT(onSessionChanged(unicorn::Session*)));
-    connect( aApp, SIGNAL( gotUserInfo(lastfm::User)), SLOT( onGotUserInfo(lastfm::User) ) );
+    connect( aApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)));
 
     connect( ui.cog, SIGNAL(clicked()), aApp, SLOT(onPrefsTriggered()));
 }
 
 
 void
-StatusBar::onSessionChanged( unicorn::Session* /*session*/ )
-{
-    setStatus();
-}
-
-void
-StatusBar::onGotUserInfo( lastfm::User /*userDetails*/ )
+StatusBar::onSessionChanged( const unicorn::Session& /*session*/ )
 {
     setStatus();
 }

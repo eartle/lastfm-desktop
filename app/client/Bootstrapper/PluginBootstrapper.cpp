@@ -47,7 +47,7 @@ PluginBootstrapper::bootStrap()
     bootstrap.setValue( m_pluginId, lastfm::ws::Username );
     bootstrap.setValue( "data_path", lastfm::dir::runtimeData().path() );
 
-    bootstrap.setValue( "Strings/progress_label",       tr("test! Last.fm is importing your current media library...") );
+    bootstrap.setValue( "Strings/progress_label",       tr("Last.fm is importing your current media library...") );
     bootstrap.setValue( "Strings/complete_label",       tr("Last.fm has imported your media library.\n\n Click OK to continue.") );
     bootstrap.setValue( "Strings/progress_title",       tr("Last.fm Library Import") );
     bootstrap.setValue( "Strings/cancel_confirmation",  tr("Are you sure you want to cancel the import?") );

@@ -82,18 +82,21 @@ ITunesComWrapper::libraryTrackCount()
     HRESULT res = m_iTunesApp->get_LibraryPlaylist( &playlist );
     handleComResult( res, L"Failed to get iTunes library playlist" );
 
-    res = playlist->get_Tracks( &m_allTracks );
-    try 
+    if ( !m_allTracks )
     {
-        handleComResult( res, L"Failed to get iTunes library track collection" );
+        res = playlist->get_Tracks( &m_allTracks );
+        try
+        {
+            handleComResult( res, L"Failed to get iTunes library track collection" );
+        }
+        catch ( ITunesException& )
+        {
+            m_allTracks = 0;
+            playlist->Release();
+            throw;
+        }
     }
-    catch ( ITunesException& )
-    {
-        m_allTracks = 0;
-        playlist->Release();
-        throw;
-    }
-    
+
     res = m_allTracks->get_Count( &m_trackCount );
     try
     {

@@ -136,8 +136,11 @@ ITunesLibrary::Track::lastfmTrack() const
         << "end try"
 
         << "tell application 'iTunes' to tell t"
-        <<     "set l to location"
-        <<     "try" << "set l to POSIX path of l" << "end try"
+        <<     "set l to \"\""
+        <<     "try"
+        <<          "set l to location"
+        <<          "set l to POSIX path of l"
+        <<     "end try"
         <<     "return artist & '\n' & album artist & '\n' & name & '\n' & (duration as integer)  & '\n' & album & '\n' & played count  & '\n' & d & '\n' & l  & '\n' & podcast & '\n' & video kind"
         << "end tell";
 

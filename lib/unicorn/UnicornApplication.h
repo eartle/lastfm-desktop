@@ -167,14 +167,13 @@ namespace unicorn
 	
 
     private slots:
-        void onUserGotInfo();
         void onWizardRunningQuery( const QString& );
         void onBusSessionQuery( const QString& );
         void onBusSessionChanged( const unicorn::Session& session );
 
     signals:
-        void gotUserInfo( const lastfm::User& );
-        void sessionChanged( unicorn::Session* newSession );
+        void gotUserInfo( const lastfm::User& user );
+        void sessionChanged( const unicorn::Session& session );
         void rosterUpdated();
         void busLovedStateChanged(bool loved);
         void internetConnectionUp();

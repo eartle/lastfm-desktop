@@ -22,6 +22,7 @@
 #define SIDEBAR_H
 
 #include <QFrame>
+#include <QPointer>
 
 namespace lastfm { class User; }
 namespace unicorn { class Session; }
@@ -56,9 +57,13 @@ public slots:
     void onUp();
     void onDown();
 
+private slots:
+    void onSessionChanged( const unicorn::Session& session );
+
 private:
     class QButtonGroup* m_buttonGroup;
     class QAbstractButton* m_lastButton;
+    QPointer<QAction> m_radioAction;
 };
 
 #endif // SIDEBAR_H

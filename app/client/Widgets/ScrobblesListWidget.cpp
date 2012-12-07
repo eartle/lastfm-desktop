@@ -107,7 +107,7 @@ ScrobblesListWidget::ScrobblesListWidget( QWidget* parent )
     setSelectionMode( QAbstractItemView::NoSelection );
     setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
 
-    connect( qApp, SIGNAL( sessionChanged( unicorn::Session* )), SLOT(onSessionChanged( unicorn::Session* )));
+    connect( qApp, SIGNAL( sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)));
 
     connect( &ScrobbleService::instance(), SIGNAL(scrobblesCached(QList<lastfm::Track>)), SLOT(onScrobblesSubmitted(QList<lastfm::Track>) ) );
     connect( &ScrobbleService::instance(), SIGNAL(scrobblesSubmitted(QList<lastfm::Track>)), SLOT(onScrobblesSubmitted(QList<lastfm::Track>) ) );
@@ -117,7 +117,7 @@ ScrobblesListWidget::ScrobblesListWidget( QWidget* parent )
     connect( &ScrobbleService::instance(), SIGNAL(resumed()), SLOT(onResumed()));
     connect( &ScrobbleService::instance(), SIGNAL(stopped()), SLOT(onStopped()));
 
-    onSessionChanged( lastfm::ws::Username );
+    onSessionChanged( *aApp->currentSession() );
 }
 
 #ifdef Q_OS_MAC
@@ -182,25 +182,18 @@ ScrobblesListWidget::onMoreClicked()
 }
 
 void
-ScrobblesListWidget::onSessionChanged( unicorn::Session* session )
+ScrobblesListWidget::onSessionChanged( const unicorn::Session& session )
 {
-    onSessionChanged( session->userInfo().name() );
-}
-
-void
-ScrobblesListWidget::onSessionChanged( const QString& username )
-{
-    if ( !username.isEmpty() )
+    if ( !session.user().name().isEmpty() )
     {
-        QString path = lastfm::dir::runtimeData().filePath( username + "_recent_tracks.xml" );
+        QString path = lastfm::dir::runtimeData().filePath( session.user().name() + "_recent_tracks.xml" );
 
         if ( m_path != path )
         {
             m_path = path;
             read();
+            refresh();
         }
-
-        refresh();
     }
 }
 
@@ -518,39 +511,43 @@ ScrobblesListWidget::addTracks( const QList<lastfm::Track>& tracks )
 
     for ( int i = 0 ; i < tracks.count() ; ++i )
     {
-        int pos = -1;
-
-        for ( int j = 0 ; j < count() ; ++j )
+        if ( tracks[i].scrobbleError() != Track::Invalid  )
         {
-            TrackWidget* trackWidget = qobject_cast<TrackWidget*>( itemWidget( item( j ) ) );
+            // the track was not filtered client side for being invalid
+            int pos = -1;
 
-            if ( trackWidget
-                    && !static_cast<ScrobblesListWidgetItem*>( item( j ) )->isNowPlaying()
-                    && tracks[i].timestamp().toTime_t() == trackWidget->track().timestamp().toTime_t() )
+            for ( int j = 0 ; j < count() ; ++j )
             {
-                pos = j;
-                break;
+                TrackWidget* trackWidget = qobject_cast<TrackWidget*>( itemWidget( item( j ) ) );
+
+                if ( trackWidget
+                     && !static_cast<ScrobblesListWidgetItem*>( item( j ) )->isNowPlaying()
+                     && tracks[i].timestamp().toTime_t() == trackWidget->track().timestamp().toTime_t() )
+                {
+                    pos = j;
+                    break;
+                }
             }
-        }
 
-        if ( pos == -1 )
-        {
-            // the track was not in the list
-            ScrobblesListWidgetItem* item = new ScrobblesListWidgetItem( this );
-            Track track = tracks[i];
-            TrackWidget* trackWidget = new TrackWidget( track, this );
-            setItemWidget( item, trackWidget );
-            item->setSizeHint( trackWidget->sizeHint() );
+            if ( pos == -1 )
+            {
+                // the track was not in the list
+                ScrobblesListWidgetItem* item = new ScrobblesListWidgetItem( this );
+                Track track = tracks[i];
+                TrackWidget* trackWidget = new TrackWidget( track, this );
+                setItemWidget( item, trackWidget );
+                item->setSizeHint( trackWidget->sizeHint() );
 
-            connect( trackWidget, SIGNAL(removed()), SLOT(onTrackWidgetRemoved()));
-            connect( trackWidget, SIGNAL(clicked(TrackWidget&)), SLOT(onItemClicked(TrackWidget&)) );
+                connect( trackWidget, SIGNAL(removed()), SLOT(onTrackWidgetRemoved()));
+                connect( trackWidget, SIGNAL(clicked(TrackWidget&)), SLOT(onItemClicked(TrackWidget&)) );
 
-            connect( track.signalProxy(), SIGNAL(loveToggled(bool)), SLOT(write()));
-            connect( track.signalProxy(), SIGNAL(scrobbleStatusChanged(short)), SLOT(write()));
-        }
-        else
-        {
-            // update the track in the list with the new infos!
+                connect( track.signalProxy(), SIGNAL(loveToggled(bool)), SLOT(write()));
+                connect( track.signalProxy(), SIGNAL(scrobbleStatusChanged(short)), SLOT(write()));
+            }
+            else
+            {
+                // update the track in the list with the new infos!
+            }
         }
     }
 

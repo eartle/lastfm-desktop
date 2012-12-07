@@ -42,6 +42,8 @@ PlayableItemWidget::PlayableItemWidget( QWidget* parent )
     setAttribute( Qt::WA_MacNoClickThrough );
 
     setCursor( Qt::PointingHandCursor );
+
+    connect( aApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)) );
 }
 
 PlayableItemWidget::PlayableItemWidget( const RadioStation& rs, const QString& title, const QString& description, QWidget* parent )
@@ -61,6 +63,14 @@ PlayableItemWidget::PlayableItemWidget( const RadioStation& rs, const QString& t
 
     connect( &RadioService::instance(), SIGNAL(tuningIn(RadioStation)), SLOT(onRadioChanged(RadioStation)) );
     connect( &RadioService::instance(), SIGNAL(trackSpooled(Track)), SLOT(onRadioChanged()));
+
+    connect( aApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)) );
+}
+
+void
+PlayableItemWidget::onSessionChanged( const unicorn::Session& session )
+{
+    setVisible( session.youRadio() );
 }
 
 bool
@@ -75,6 +85,9 @@ PlayableItemWidget::event( QEvent* e )
     case QEvent::HoverLeave:
         m_hovered = false;
         update();
+        break;
+    case QEvent::Show:
+        onSessionChanged( *aApp->currentSession() );
         break;
     default:
         break;
@@ -125,21 +138,15 @@ PlayableItemWidget::setDescription( const QString& description )
 void 
 PlayableItemWidget::play()
 {
-    if(RadioService::instance().isRadioUsageAllowed())
-    {
-        AnalyticsService::instance().sendEvent( aApp->currentCategory(), PLAY_CLICKED, objectName() );
-        RadioService::instance().play( m_rs );
-    }
+    AnalyticsService::instance().sendEvent( aApp->currentCategory(), PLAY_CLICKED, objectName() );
+    RadioService::instance().play( m_rs );
 }
 
 void
 PlayableItemWidget::playNext()
 {
-    if(RadioService::instance().isRadioUsageAllowed())
-    {
-        AnalyticsService::instance().sendEvent( aApp->currentCategory(), PLAY_NEXT_CLICKED, objectName() );
-        RadioService::instance().playNext( m_rs );
-    }
+    AnalyticsService::instance().sendEvent( aApp->currentCategory(), PLAY_NEXT_CLICKED, objectName() );
+    RadioService::instance().playNext( m_rs );
 }
 
 RadioStation
@@ -162,26 +169,20 @@ PlayableItemWidget::getMultiStation() const
 void
 PlayableItemWidget::playMulti()
 {
-    if(RadioService::instance().isRadioUsageAllowed())
+    if ( m_rs.url().startsWith("lastfm://user/") )
     {
-        if ( m_rs.url().startsWith("lastfm://user/") )
-        {
-            AnalyticsService::instance().sendEvent( aApp->currentCategory(), PLAY_MULTI_CLICKED, objectName());
-            RadioService::instance().play( getMultiStation() );
-        }
+        AnalyticsService::instance().sendEvent( aApp->currentCategory(), PLAY_MULTI_CLICKED, objectName());
+        RadioService::instance().play( getMultiStation() );
     }
 }
 
 void
 PlayableItemWidget::playMultiNext()
 {
-    if(RadioService::instance().isRadioUsageAllowed())
+    if ( m_rs.url().startsWith("lastfm://user/") )
     {
-        if ( m_rs.url().startsWith("lastfm://user/") )
-        {
-            AnalyticsService::instance().sendEvent( aApp->currentCategory(), PLAY_MULTI_NEXT_CLICKED, objectName());
-            RadioService::instance().playNext( getMultiStation() );
-        }
+        AnalyticsService::instance().sendEvent( aApp->currentCategory(), PLAY_MULTI_NEXT_CLICKED, objectName());
+        RadioService::instance().playNext( getMultiStation() );
     }
 }
 

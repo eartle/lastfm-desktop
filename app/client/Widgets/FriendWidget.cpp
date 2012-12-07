@@ -38,7 +38,7 @@ FriendWidget::FriendWidget( const lastfm::XmlQuery& user, QWidget* parent)
     ui->avatar->loadUrl( user["image size=medium"].text().replace( re, "/serve/\\1s/" ), HttpImageWidget::ScaleNone );
     ui->avatar->setHref( user["url"].text() );
 
-    ui->radio->setStation( RadioStation::library( User( user["name"].text() ) ), tr("%1%2s Library Radio").arg( user["name"].text(), QChar(0x2019) ), "" );
+    ui->radio->setStation( RadioStation::library( User( user["name"].text() ) ), tr("%1's Library Radio").arg( user["name"].text() ), "" );
 
     ui->avatar->setUser( m_user );
 }
@@ -116,11 +116,38 @@ FriendWidget::operator<( const FriendWidget& that ) const
     return this->m_track.timestamp() > that.m_track.timestamp();
 }
 
+QString
+FriendWidget::genderString( const lastfm::Gender& gender )
+{
+    QString result;
+
+    if ( gender.male() )
+        result = tr( "Male" );
+    else if ( gender.female() )
+        result = tr( "Female" );
+    else
+        result = tr( "Neuter" );
+
+    return result;
+}
+
+QString
+FriendWidget::userString( const lastfm::User& user )
+{
+    QString text;
+
+    text = QString("%1").arg( user.realName().isEmpty() ? user.name() : user.realName() );
+    if ( user.age() ) text.append( QString(", %1").arg( user.age() ) );
+    if ( user.gender().known() ) text.append( QString(", %1").arg( genderString( user.gender() ) ) );
+    if ( !user.country().isEmpty() ) text.append( QString(", %1").arg( user.country() ) );
+
+    return text;
+}
 
 void
 FriendWidget::setDetails()
 {
-    ui->userDetails->setText( m_user.getInfoString() );
+    ui->userDetails->setText( userString( m_user ) );
     ui->username->setText( Label::boldLinkStyle( Label::anchor( m_user.www().toString(), name() ), Qt::black ) );
     ui->lastTrack->setText( m_track.toString() );
 

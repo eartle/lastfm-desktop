@@ -316,7 +316,7 @@ TrackWidget::onBuyClicked()
     if ( !ui->buy->menu() )
     {
         // show the buy links please!
-        QString country = aApp->currentSession()->userInfo().country();
+        QString country = aApp->currentSession()->user().country();
         connect( m_track.getBuyLinks( country ), SIGNAL(finished()), SLOT(onGotBuyLinks()));
     }
 }

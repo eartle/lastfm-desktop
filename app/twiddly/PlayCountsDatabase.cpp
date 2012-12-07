@@ -71,6 +71,8 @@ namespace QtOverrides
 PlayCountsDatabase::PlayCountsDatabase( const QString& path )
                    : m_path( path )
 {
+    qDebug() << path;
+
     #define TABLE_NAME "itunes_db" //named badly, but too late now
 #ifdef Q_OS_MAC
     #define SCHEMA "persistent_id   VARCHAR( 32 ) PRIMARY KEY," \
@@ -240,7 +242,11 @@ PlayCountsDatabase::update( const ITunesLibrary::Track& track )
 
 
 AutomaticIPod::PlayCountsDatabase::PlayCountsDatabase() 
+#ifdef Q_OS_MAC
               : ::PlayCountsDatabase( lastfm::dir::runtimeData().filePath( "iTunesPlays.db" ) )
+#else
+              : ::PlayCountsDatabase( lastfm::dir::runtimeData().filePath( "Client/iTunesPlays.db" ) )
+#endif
 {}
 
 

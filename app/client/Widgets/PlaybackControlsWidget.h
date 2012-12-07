@@ -8,6 +8,8 @@
 #include <lastfm/RadioStation.h>
 #include <lastfm/Track.h>
 
+namespace unicorn { class Session; }
+
 namespace Ui { class PlaybackControlsWidget; }
 
 class QMovie;
@@ -29,6 +31,8 @@ public:
     void addToMenu( class QMenu& menu, QAction* before = 0 );
 
 private slots:
+    void onSessionChanged( const unicorn::Session& session );
+
     void onActionsChanged();
     void onSpace();
     void onPlayClicked( bool checked );

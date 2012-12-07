@@ -88,9 +88,6 @@ using audioscrobbler::Application;
 Application::Application(int& argc, char** argv) 
     :unicorn::Application(argc, argv), m_raiseHotKeyId( (void*)-1 )
 {
-#ifdef Q_OS_MAC
-    m_mediaKey = new MediaKey( this );
-#endif
 }
 
 void
@@ -294,7 +291,7 @@ Application::init()
     connect( m_toggle_window_action, SIGNAL( triggered()), SLOT( toggleWindow()), Qt::QueuedConnection );
 
     connect( this, SIGNAL(messageReceived(QStringList)), SLOT(onMessageReceived(QStringList)) );
-    connect( this, SIGNAL( sessionChanged( unicorn::Session* ) ), &ScrobbleService::instance(), SLOT( onSessionChanged( unicorn::Session* ) ) );
+    connect( this, SIGNAL(sessionChanged(unicorn::Session)), &ScrobbleService::instance(), SLOT(onSessionChanged(unicorn::Session)) );
 
     connect( &ScrobbleService::instance(), SIGNAL(trackStarted(Track,Track)), SLOT(onTrackStarted(Track,Track)));
     connect( &ScrobbleService::instance(), SIGNAL(paused(bool)), SLOT(onTrackPaused(bool)));
@@ -322,6 +319,8 @@ Application::init()
     connect( &ScrobbleService::instance(), SIGNAL(stopped()), m_notify, SLOT(stopped()) );
 
     new CommandReciever( this );
+
+    m_mediaKey = new MediaKey( this );
 #endif
 
     new SkipListener( this );
@@ -363,7 +362,6 @@ Application::showAs( bool showAs )
     setQuitOnLastWindowClosed( !showAs && !QSystemTrayIcon::isSystemTrayAvailable() );
 #endif
 }
-
 
 void
 Application::setRaiseHotKey( Qt::KeyboardModifiers mods, int key )
@@ -428,7 +426,11 @@ Application::onTrackStarted( const lastfm::Track& track, const Track& oldTrack )
         }
     }
 
-    if ( unicorn::UserSettings().value( "fingerprint", true ).toBool() && track.url().isLocalFile() )
+    if ( unicorn::UserSettings().value( "fingerprint", true ).toBool()
+#if QT_VERSION >= 0x040800
+         && track.url().isLocalFile()
+#endif
+       )
     {
         Fingerprinter* fingerprinter = new Fingerprinter( track, this );
         connect( fingerprinter, SIGNAL(finished()), fingerprinter, SLOT(deleteLater()) );
@@ -455,6 +457,13 @@ Application::macEventFilter( EventHandlerCallRef caller, EventRef event )
 
     return m_mediaKey->macEventFilter( caller, event );
 }
+
+void
+Application::setMediaKeysEnabled( bool enabled )
+{
+    m_mediaKey->setEnabled( enabled );
+}
+
 #endif
 
 void

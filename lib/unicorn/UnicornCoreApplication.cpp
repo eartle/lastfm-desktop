@@ -33,10 +33,6 @@ using namespace lastfm;
 #ifdef WIN32
 extern void qWinMsgHandler( QtMsgType t, const char* msg );
 #endif
-#ifdef __APPLE__
-static QLocale qMacLocale();
-#endif
-
 
 unicorn::CoreApplication::CoreApplication( int& argc, char** argv )
                       : QtSingleCoreApplication( argc, argv )

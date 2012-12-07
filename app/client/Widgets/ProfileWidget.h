@@ -24,7 +24,7 @@ public slots:
     void refresh();
 
 private slots:
-    void onSessionChanged( unicorn::Session* session );
+    void onSessionChanged( const unicorn::Session& session );
     void onGotUserInfo( const lastfm::User& userDetails );
 
     void onGotTopWeeklyArtists();
@@ -39,13 +39,9 @@ private slots:
     void setScrobbleCount();
 
 private:
-    void changeUser( const lastfm::User& userDetails );
-
-private:
     Ui::ProfileWidget* ui;
 
-    lastfm::User m_currentUser;
-
+    QString m_currentUser;
     int m_scrobbleCount;
 };
 

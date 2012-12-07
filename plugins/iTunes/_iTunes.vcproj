@@ -44,7 +44,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\ScrobSub;../../;&quot;$(ProjectDir)\libs&quot;"
-				PreprocessorDefinitions="ID3LIB_LINKOPTION=1;WIN32;_DEBUG;_WINDOWS;_USRDLL;ITUNES_SCROBBLER_EXPORTS;TARGET_OS_WIN32;_WIN32_DCOM;_ATL_APARTMENT_THREADED;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
+				PreprocessorDefinitions="ITUNES_PLUGIN;ID3LIB_LINKOPTION=1;WIN32;_DEBUG;_WINDOWS;_USRDLL;ITUNES_SCROBBLER_EXPORTS;TARGET_OS_WIN32;_WIN32_DCOM;_ATL_APARTMENT_THREADED;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -66,7 +66,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/VERBOSE:LIB"
-				AdditionalDependencies="comsuppwd.lib wbemuuid.lib Setupapi.lib libs/sqlited.lib"
+				AdditionalDependencies="comsuppwd.lib wbemuuid.lib Setupapi.lib"
 				OutputFile="c:\program files\iTunes\Plug-Ins\itw_scrobbler.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;$(ProjectDir)\libs&quot;"
@@ -130,7 +130,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="..\ScrobSub;../../;&quot;$(ProjectDir)\libs&quot;"
-				PreprocessorDefinitions="ID3LIB_LINKOPTION=1;WIN32;NDEBUG;_WINDOWS;_USRDLL;ITUNES_SCROBBLER_EXPORTS;TARGET_OS_WIN32;_WIN32_DCOM;_ATL_APARTMENT_THREADED;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
+				PreprocessorDefinitions="ITUNES_PLUGIN;ID3LIB_LINKOPTION=1;WIN32;NDEBUG;_WINDOWS;_USRDLL;ITUNES_SCROBBLER_EXPORTS;TARGET_OS_WIN32;_WIN32_DCOM;_ATL_APARTMENT_THREADED;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
@@ -148,7 +148,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="sqlite.lib comsuppw.lib wbemuuid.lib Setupapi.lib libs/sqlite.lib"
+				AdditionalDependencies="comsuppw.lib wbemuuid.lib Setupapi.lib"
 				OutputFile="c:\Program Files (x86)\iTunes\Plug-Ins\itw_scrobbler.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(ProjectDir)\libs"
@@ -432,18 +432,34 @@
 				>
 			</File>
 		</Filter>
-		<File
-			RelativePath=".\iTunesVisualAPI\iTunesAPI.cpp"
+		<Filter
+			Name="sqlite"
 			>
-		</File>
-		<File
-			RelativePath=".\iTunesVisualAPI\iTunesAPI.h"
+			<File
+				RelativePath=".\libs\sqlite3.c"
+				>
+			</File>
+			<File
+				RelativePath=".\libs\sqlite3.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="iTunesVisualAPI"
 			>
-		</File>
-		<File
-			RelativePath=".\iTunesVisualAPI\iTunesVisualAPI.h"
-			>
-		</File>
+			<File
+				RelativePath=".\iTunesVisualAPI\iTunesAPI.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\iTunesVisualAPI\iTunesAPI.h"
+				>
+			</File>
+			<File
+				RelativePath=".\iTunesVisualAPI\iTunesVisualAPI.h"
+				>
+			</File>
+		</Filter>
 	</Files>
 	<Globals>
 	</Globals>

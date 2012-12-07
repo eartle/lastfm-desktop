@@ -135,6 +135,9 @@ namespace audioscrobbler
 
         void showAs( bool showAs );
 
+#ifdef Q_OS_MAC
+        void setMediaKeysEnabled( bool enabled );
+#endif
         QString currentCategory() const;
         
     signals:

@@ -45,7 +45,7 @@ private:
 
 private slots:
     void onUserFetched();
-    void onSessionChanged( unicorn::Session* session );
+    void onSessionChanged( const unicorn::Session& session );
 
 private:
     struct

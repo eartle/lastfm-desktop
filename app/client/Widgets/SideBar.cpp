@@ -73,14 +73,28 @@ SideBar::SideBar(QWidget *parent)
     ui.sash->setObjectName( "sash" );
 
     connect( m_buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), SLOT(onButtonClicked(QAbstractButton*)));
-    connect( ui.scrobbles, SIGNAL(clicked()), SLOT(onButtonClicked()));
-    connect( ui.profile, SIGNAL(clicked()), SLOT(onButtonClicked()));
-    connect( ui.friends, SIGNAL(clicked()), SLOT(onButtonClicked()));
-    connect( ui.radio, SIGNAL(clicked()), SLOT(onButtonClicked()));
-
     connect( ui.sash, SIGNAL(clicked()), aApp, SLOT(onBetaTriggered()));
 
     ui.nowPlaying->click();
+
+    connect( aApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)) );
+
+    onSessionChanged( *aApp->currentSession() );
+}
+
+void
+SideBar::onSessionChanged( const unicorn::Session& session )
+{
+    if ( session.isValid() )
+    {
+        ui.radio->setVisible( session.subscriberRadio() );
+
+        if ( m_radioAction )
+            m_radioAction->setVisible( session.subscriberRadio() );
+
+        if ( !session.subscriberRadio() && m_buttonGroup->checkedButton() == ui.radio )
+            ui.nowPlaying->click();
+    }
 }
 
 QString
@@ -101,7 +115,8 @@ SideBar::addToMenu( QMenu& menu )
     menu.addAction( ui.scrobbles->text(), ui.scrobbles, SLOT(click()), Qt::CTRL + Qt::Key_2);
     menu.addAction( ui.profile->text(), ui.profile, SLOT(click()), Qt::CTRL + Qt::Key_3);
     menu.addAction( ui.friends->text(), ui.friends, SLOT(click()), Qt::CTRL + Qt::Key_4);
-    menu.addAction( ui.radio->text(), ui.radio, SLOT(click()), Qt::CTRL + Qt::Key_5);
+    m_radioAction = menu.addAction( ui.radio->text(), ui.radio, SLOT(click()), Qt::CTRL + Qt::Key_5);
+    m_radioAction->setVisible( !aApp->currentSession()->isValid() || aApp->currentSession()->subscriberRadio() );
 
     menu.addSeparator();
 
@@ -112,7 +127,13 @@ SideBar::addToMenu( QMenu& menu )
 void
 SideBar::onUp()
 {
-    if ( ui.nowPlaying->isChecked() ) ui.radio->click();
+    if ( ui.nowPlaying->isChecked() )
+    {
+        if ( !aApp->currentSession()->isValid() || aApp->currentSession()->subscriberRadio() )
+            ui.radio->click();
+        else
+            ui.friends->click();
+    }
     else if ( ui.scrobbles->isChecked() ) ui.nowPlaying->click();
     else if ( ui.profile->isChecked() ) ui.scrobbles->click();
     else if ( ui.friends->isChecked() ) ui.profile->click();
@@ -125,7 +146,13 @@ SideBar::onDown()
     if ( ui.nowPlaying->isChecked() ) ui.scrobbles->click();
     else if ( ui.scrobbles->isChecked() ) ui.profile->click();
     else if ( ui.profile->isChecked() ) ui.friends->click();
-    else if ( ui.friends->isChecked() ) ui.radio->click();
+    else if ( ui.friends->isChecked() )
+    {
+        if ( !aApp->currentSession()->isValid() || aApp->currentSession()->subscriberRadio() )
+            ui.radio->click();
+        else
+             ui.nowPlaying->click();
+    }
     else if ( ui.radio->isChecked() ) ui.nowPlaying->click();
 }
 

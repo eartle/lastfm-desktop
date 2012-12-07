@@ -84,6 +84,8 @@ public:
     void syncTrack( const VisualPluginTrack& vpt );
 
 private:
+
+	void startComThread();
     
     static unsigned __stdcall
     threadMain( LPVOID p )

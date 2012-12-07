@@ -18,7 +18,7 @@ private:
     void setUser( const lastfm::User& user );
 
 private slots:
-    void onSessionChanged( unicorn::Session* session );
+    void onSessionChanged( const unicorn::Session& session );
 
     void oniTunesClicked();
 

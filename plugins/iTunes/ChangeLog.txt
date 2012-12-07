@@ -1,3 +1,8 @@
+5.0.5.1 (19/11/12)
+-------------------------------------------------------------------------------
+* Now syncs tracks more often for less spurious double scrobbles (only happened
+  if you skipped to the end of a track with 20s)
+
 5.0.4.1 (20/8/12)
 -------------------------------------------------------------------------------
 * Now sends album artist as parameter d in scrob sub protocol.

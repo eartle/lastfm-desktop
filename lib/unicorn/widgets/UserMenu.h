@@ -14,7 +14,8 @@ public:
     UserMenu( QWidget* p = 0 );
 
 protected slots:
-    void onSessionChanged( unicorn::Session* s );
+    void onSessionChanged( const unicorn::Session& session );
+
     void onTriggered( QAction* a );
     void manageUsers();
     void refresh();

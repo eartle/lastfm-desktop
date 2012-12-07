@@ -39,12 +39,10 @@ class StatusBar : public QStatusBar
         void onMessagedChanged( const QString& text );
         void setStatus();
 
-        void onGotUserInfo(lastfm::User userDetails);
-
         void onConnectionUp();
         void onConnectionDown();
 
-        void onSessionChanged( unicorn::Session* session );
+        void onSessionChanged( const unicorn::Session& session );
 
     private:
         struct

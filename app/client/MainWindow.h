@@ -31,7 +31,6 @@ class FirstRunWizard;
 class MessageBar;
 class SlideOverLayout;
 class UserToolButton;
-class MediaKey;
 class PluginList;
 class IpodDevice;
 
@@ -134,7 +133,6 @@ private:
     QPointer<PluginList> m_pluginList;
 
 #ifdef Q_WS_MAC
-    QPointer<MediaKey> m_mediaKey;
     QPointer<ITunesPluginInstaller> m_installer;
 #endif
 };

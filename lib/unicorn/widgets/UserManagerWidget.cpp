@@ -58,13 +58,13 @@ UserRadioButton::UserRadioButton( const User& user )
     connect( ui.button, SIGNAL(clicked()), this, SIGNAL(clicked()) );
     connect( ui.remove, SIGNAL(clicked()), this, SIGNAL(remove()) );
 
-    connect( qApp, SIGNAL(sessionChanged(unicorn::Session*)), SLOT(onSessionChanged(unicorn::Session*)) );
+    connect( qApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)) );
 }
 
 void
-UserRadioButton::onSessionChanged( unicorn::Session* session )
+UserRadioButton::onSessionChanged( const unicorn::Session& session )
 {
-    if( ui.username->text() == session->userInfo().name() )
+    if( ui.username->text() == session.user().name() )
         ui.loggedIn->setText( tr( "(currently logged in)" ) );
     else
         ui.loggedIn->clear();
@@ -228,7 +228,7 @@ UserManagerWidget::onUserAdded()
     bool alreadyAdded = false;
     foreach ( UserRadioButton* b, findChildren<UserRadioButton*>() )
     {
-        if ( s->userInfo().name() == b->user() )
+        if ( s->user().name() == b->user() )
         {
             alreadyAdded = true;
             break;
@@ -237,7 +237,7 @@ UserManagerWidget::onUserAdded()
 
     if ( !alreadyAdded )
     {
-        User user( s->userInfo().name() );
+        User user( s->user().name() );
         UserRadioButton* urb = new UserRadioButton( user );
 
         add( urb );

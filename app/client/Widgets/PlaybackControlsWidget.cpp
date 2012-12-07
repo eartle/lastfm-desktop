@@ -66,6 +66,25 @@ PlaybackControlsWidget::PlaybackControlsWidget(QWidget *parent) :
     connect( ui->ban, SIGNAL(clicked()), aApp->banAction(), SLOT(trigger()));
     connect( ui->play, SIGNAL(clicked()), aApp->playAction(), SLOT(trigger()));
     connect( ui->skip, SIGNAL(clicked()), aApp->skipAction(), SLOT(trigger()));
+
+    connect( aApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)) );
+
+    onSessionChanged( *aApp->currentSession() );
+}
+
+void
+PlaybackControlsWidget::onSessionChanged( const unicorn::Session& session )
+{
+    // don't change them until the session is valid
+    if ( session.isValid() )
+    {
+        aApp->playAction()->setVisible( session.youRadio() );
+        aApp->skipAction()->setVisible( session.youRadio() );
+        aApp->banAction()->setVisible( session.youRadio() );
+        m_playAction->setVisible( session.youRadio() );
+
+        onActionsChanged();
+    }
 }
 
 void
@@ -122,9 +141,9 @@ PlaybackControlsWidget::onActionsChanged()
    m_playAction->setText( aApp->playAction()->isChecked() ? tr( "Pause" ) : RadioService::instance().state() == Stopped ? tr( "Play" ) : tr( "Resume" ) );
 
    ui->love->setEnabled( aApp->loveAction()->isEnabled() );
-   ui->ban->setEnabled( aApp->banAction()->isEnabled() );
-   ui->play->setEnabled( aApp->playAction()->isEnabled() );
-   ui->skip->setEnabled( aApp->skipAction()->isEnabled() );
+   ui->ban->setEnabled( aApp->banAction()->isEnabled() && aApp->currentSession()->youRadio()  );
+   ui->play->setEnabled( aApp->playAction()->isEnabled() && aApp->currentSession()->youRadio()  );
+   ui->skip->setEnabled( aApp->skipAction()->isEnabled() && aApp->currentSession()->youRadio()  );
 
    ui->love->setToolTip( ui->love->isChecked() ? tr("Unlove") : tr("Love") );
    ui->ban->setToolTip( tr("Ban") );

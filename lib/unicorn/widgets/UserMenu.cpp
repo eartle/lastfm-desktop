@@ -16,26 +16,20 @@ UserMenu::UserMenu( QWidget* p )
     :QMenu( p )
 {
     connect( qApp, SIGNAL(rosterUpdated()), SLOT(refresh()));
-    connect( qApp, SIGNAL(sessionChanged( unicorn::Session* ) ), SLOT( onSessionChanged( unicorn::Session* ) ) );
+    connect( qApp, SIGNAL(sessionChanged(unicorn::Session) ), SLOT( onSessionChanged( unicorn::Session) ) );
 
     refresh();
 }
 
-
 void
-UserMenu::onSessionChanged( unicorn::Session* s )
+UserMenu::onSessionChanged( const unicorn::Session& session )
 {
-    if ( !s )
-        return;
-
     foreach( QAction* a, actions() )
-    {
-        if( a->text() == s->userInfo().name() )
-            return a->setChecked( true );
-    }
+        if( a->text() == session.user().name() )
+            a->setChecked( true );
 
-    if ( m_subscribe )
-        m_subscribe->setVisible( !s->userInfo().isSubscriber() );
+    // show the subscribe link if they don't have radio and could get it by subscribing
+    m_subscribe->setVisible( !session.youRadio() && session.subscriberRadio() );
 }
 
 void
@@ -94,6 +88,6 @@ UserMenu::refresh()
     ag->setExclusive( true );
     connect( ag, SIGNAL(triggered(QAction*)), SLOT( onTriggered(QAction*)));
 
-    onSessionChanged( qobject_cast<unicorn::Application*>(qApp)->currentSession());
+    onSessionChanged( *qobject_cast<unicorn::Application*>(qApp)->currentSession());
 }
 

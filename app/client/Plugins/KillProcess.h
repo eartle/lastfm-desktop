@@ -213,7 +213,7 @@ public:
         else
             bResult = TRUE; 
         CloseHandle(hProcess);
-        return bResult == TRUE;
+        return static_cast<bool>(bResult != FALSE);
     }
     HANDLE FindProcess(IN const char* pstrProcessName,
     OUT DWORD& dwId)
@@ -264,7 +264,7 @@ private:
             else
                 pstrExeName++; // skip the backslash
             // ok now compare against our process name
-            if(stricmp(pstrExeName, pstrProcessName) == 0) 
+            if(_stricmp(pstrExeName, pstrProcessName) == 0)
                 // wee weee we found it
             {
                 // let's get a HANDLE on it
@@ -330,7 +330,7 @@ private:
             WideCharToMultiByte(CP_ACP, 0, pszProcessName, 
                 -1,szProcessName, MAX_PATH, NULL, NULL);
 
-            if(stricmp(szProcessName, pstrProcessName) 
+            if(_stricmp(szProcessName, pstrProcessName)
                 == 0) // found it
             {
                 hResult=OpenProcess(

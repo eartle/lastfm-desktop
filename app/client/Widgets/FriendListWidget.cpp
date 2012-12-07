@@ -71,8 +71,7 @@ FriendListWidget::FriendListWidget(QWidget *parent) :
 
     connect( ui->filter, SIGNAL(textChanged(QString)), SLOT(onTextChanged(QString)));
 
-    connect( aApp, SIGNAL(sessionChanged(unicorn::Session*)), SLOT(onSessionChanged(unicorn::Session*)) );
-    connect( aApp, SIGNAL(gotUserInfo(lastfm::User)), SLOT(onGotUserInfo(lastfm::User)) );
+    connect( aApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)) );
 
     m_movie = new QMovie( ":/loading_meta.gif", "GIF", this );
     m_movie->setCacheMode( QMovie::CacheAll );
@@ -81,7 +80,7 @@ FriendListWidget::FriendListWidget(QWidget *parent) :
     ui->stackedWidget->setCurrentWidget( ui->spinnerPage );
     m_movie->start();
 
-    onSessionChanged( aApp->currentSession() );
+    onSessionChanged( *aApp->currentSession() );
 }
 
 #ifdef Q_OS_MAC
@@ -94,23 +93,12 @@ FriendListWidget::scroll()
 #endif
 
 void
-FriendListWidget::onSessionChanged( unicorn::Session* session )
+FriendListWidget::onSessionChanged( const unicorn::Session& session )
 {
-    changeUser( session->userInfo().name() );
-}
-
-
-void
-FriendListWidget::onGotUserInfo( const lastfm::User& userDetails )
-{
-    changeUser( userDetails.name() );
-}
-
-void
-FriendListWidget::changeUser( const QString& newUsername )
-{
-    if ( !newUsername.isEmpty() && (newUsername != m_currentUsername) )
+    if ( session.user().name() != m_currentUser )
     {
+        m_currentUser = session.user().name();
+
         if ( m_reply )
             m_reply->abort();
 
@@ -128,9 +116,7 @@ FriendListWidget::changeUser( const QString& newUsername )
         ui->stackedWidget->setCurrentWidget( ui->spinnerPage );
         m_movie->start();
 
-        m_currentUsername = newUsername;
-
-        m_reply = User( newUsername ).getFriends( true, 50, 1 );
+        m_reply = session.user().getFriends( true, 50, 1 );
         connect( m_reply, SIGNAL(finished()), SLOT(onGotFriends()));
     }
 }

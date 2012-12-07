@@ -10,7 +10,7 @@ ITunesPluginInfo::ITunesPluginInfo( QObject* parent )
 Version
 ITunesPluginInfo::version() const
 {
-    return Version( 5, 0, 4, 1 );
+    return Version( 5, 0, 5, 1 );
 }
 
 QString
@@ -56,6 +56,6 @@ ITunesPluginInfo::bootstrapType() const
 QString
 ITunesPluginInfo::pluginInstaller() const
 {
-    return "iTunesPluginWinSetup_5.0.4.1.exe";
+    return "iTunesPluginWinSetup_5.0.5.1.exe";
 }
 

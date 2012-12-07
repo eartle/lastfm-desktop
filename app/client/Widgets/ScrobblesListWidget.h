@@ -33,8 +33,7 @@ private slots:
 
     void onTrackStarted( const Track& track, const Track& );
 
-    void onSessionChanged( unicorn::Session* session );
-    void onSessionChanged( const QString& username );
+    void onSessionChanged( const unicorn::Session& session );
 
     void onResumed();
     void onPaused();

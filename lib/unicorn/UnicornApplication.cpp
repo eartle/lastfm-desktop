@@ -72,8 +72,10 @@ unicorn::Application::Application( int& argc, char** argv ) throw( StubbornUserE
 {
     m_bus = new unicorn::Bus( this );
 
+    qsrand( QDateTime::currentDateTime().toTime_t() + QCoreApplication::applicationPid() );
+
 #ifdef Q_OS_MAC
-    m_delegate = new UnicornApplicationDelegate( this );
+    m_delegate = new unicorn::UnicornApplicationDelegate( this );
 #endif
 }
 
@@ -241,25 +243,6 @@ unicorn::Application::~Application()
 {
 }
 
-void
-unicorn::Application::onUserGotInfo()
-{
-    QNetworkReply* reply = (QNetworkReply*)sender();
-    XmlQuery lfm;
-
-    if ( lfm.parse( reply ) )
-    {
-        lastfm::User userInfo( lfm["user"] );
-
-        const char* key = UserSettings::subscriptionKey();
-        Settings().setValue( key, userInfo.isSubscriber() );
-        emit gotUserInfo( userInfo );
-    }
-    else
-    {
-        qDebug() << lfm.parseError().message() << lfm.parseError().enumValue();
-    }
-}
 
 void
 unicorn::Application::setWizardRunning( bool running )
@@ -288,7 +271,7 @@ unicorn::Application::onBusSessionQuery( const QString& uuid )
     QByteArray ba;
     QDataStream s( &ba, QIODevice::WriteOnly );
     QMap<QString, QString> sessionData;
-    sessionData[ "username" ] = currentSession()->userInfo().name();
+    sessionData[ "username" ] = currentSession()->user().name();
     sessionData[ "sessionKey" ] = currentSession()->sessionKey();
     s << sessionData;
     m_bus->sendQueryResponse( uuid, ba );
@@ -298,7 +281,7 @@ unicorn::Application::onBusSessionQuery( const QString& uuid )
 void 
 unicorn::Application::onBusSessionChanged( const unicorn::Session& session )
 {
-    unicorn::Session* newSession = new unicorn::Session( session.userInfo().name(), session.sessionKey() );
+    unicorn::Session* newSession = new unicorn::Session( session.user().name(), session.sessionKey() );
     changeSession( newSession, false );
 }
 
@@ -317,7 +300,7 @@ unicorn::Application::changeSession( Session* newSession, bool announce )
         int result = QMessageBoxBuilder( findMainWindow() ).setTitle( tr( "Changing User" ) )
            .setText( tr( "%1 will be logged into the Scrobbler and Last.fm Radio. "
                          "All music will now be scrobbled to this account. Do you want to continue?" )
-                         .arg( newSession->userInfo().name() ))
+                         .arg( newSession->user().name() ))
            .setIcon( QMessageBox::Information )
            .setButtons( QMessageBox::Yes | QMessageBox::Cancel )
            .dontAskAgain()
@@ -328,18 +311,23 @@ unicorn::Application::changeSession( Session* newSession, bool announce )
             return 0;
     }
 
+    disconnect( m_currentSession, SIGNAL(userInfoUpdated(lastfm::User)), this, SIGNAL(gotUserInfo(lastfm::User)) );
+    connect( newSession, SIGNAL(userInfoUpdated(lastfm::User)), SIGNAL(gotUserInfo(lastfm::User)) );
+
+    disconnect( m_currentSession, SIGNAL(sessionChanged(unicorn::Session)), this, SIGNAL(sessionChanged(unicorn::Session)) );
+    connect( newSession, SIGNAL(sessionChanged(unicorn::Session)), SIGNAL(sessionChanged(unicorn::Session)) );
+
     delete m_currentSession;
     m_currentSession = newSession;
 
-    lastfm::ws::Username = m_currentSession->userInfo().name();
+    lastfm::ws::Username = m_currentSession->user().name();
     lastfm::ws::SessionKey = m_currentSession->sessionKey();
-
-    connect( lastfm::User::getInfo(), SIGNAL( finished() ), SLOT( onUserGotInfo() ) );
     
     if( announce )
         m_bus->announceSessionChange( currentSession() );
 
-    emit sessionChanged( currentSession() );
+    emit sessionChanged( *currentSession() );
+
     return currentSession();
 }
 

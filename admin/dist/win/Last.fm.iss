@@ -2,13 +2,13 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 [CustomMessages]
-Version=2.1.25
+Version=2.1.26
 
 
 [Setup]
-OutputBaseFilename=Last.fm-2.1.25
-VersionInfoVersion=2.1.25
-VersionInfoTextVersion=2.1.25
+OutputBaseFilename=Last.fm-2.1.26
+VersionInfoVersion=2.1.26
+VersionInfoTextVersion=2.1.26
 AppName="Last.fm Scrobbler"
 AppVerName="Last.fm Scrobbler {cm:Version}"
 VersionInfoDescription=Last.fm Installer
@@ -65,6 +65,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 ; icon to the standard user's folder location. Sucks.
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0, 6;
 
+[Dirs]
+Name: "{localappdata}\Last.fm\Client"
 
 [Files]
 ; Main files
@@ -130,7 +132,7 @@ Source: "..\..\..\_bin\plugins\misc\liblogger_plugin.dll"; DestDir: "{app}\plugi
 
 ;media player plugin installers
 Source: "..\..\..\_bin\plugins\FooPlugin0.9.4Setup_2.3.1.3.exe"; DestDir: "{app}\plugins"; Flags: ignoreversion
-Source: "..\..\..\_bin\plugins\iTunesPluginWinSetup_5.0.4.1.exe"; DestDir: "{app}\plugins"; Flags: ignoreversion
+Source: "..\..\..\_bin\plugins\iTunesPluginWinSetup_5.0.5.1.exe"; DestDir: "{app}\plugins"; Flags: ignoreversion
 Source: "..\..\..\_bin\plugins\WinampPluginSetup_2.1.0.10.exe"; DestDir: "{app}\plugins"; Flags: ignoreversion
 Source: "..\..\..\_bin\plugins\WmpPluginSetup_2.1.0.7.exe"; DestDir: "{app}\plugins"; Flags: ignoreversion
 
@@ -176,7 +178,6 @@ Root: HKCU; Subkey: "Software\Last.fm\Last.fm"; ValueType: string; ValueName: "P
 Root: HKCR; Subkey: "lastfm"; ValueType: string; ValueName: ""; ValueData: "URL:lastfm"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "lastfm"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Flags: uninsdeletekey
 Root: HKCR; Subkey: "lastfm\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\Last.fm Scrobbler.exe"" ""%1"""; Flags: uninsdeletekey
-Root: HKCR; Subkey: "lastfm"; ValueType: string; ValueName: "URL Protocol"; ValueData: ""; Flags: uninsdeletekey
 
 ; WinSparkle - This stop it asking the user if they want to check for updates on first run.
 Root: HKCU; Subkey: "Software\Last.fm\Last.fm Desktop App\WinSparkle"; ValueType: string; ValueName: "CheckForUpdates"; ValueData: "1"; Flags: uninsdeletekey
@@ -190,7 +191,6 @@ Name: "{group}\Last.fm Scrobbler"; Filename: "{app}\Last.fm Scrobbler.exe"
 Name: "{commondesktop}\Last.fm Scrobbler"; Filename: "{app}\Last.fm Scrobbler.exe"; Tasks: desktopicon
 
 ;Uninstall
-Name: "{group}\Uninstall Last.fm Scrobbler"; Filename: "{uninstallexe}"
 Name: "{group}\Uninstall Last.fm Scrobbler"; Filename: "{app}\UninsHs.exe"; Parameters: "/u0=LastFM"
 
 ; The OnlyBelowVersion flag disables this on Vista as an admin-run installer can't install a quick launch
@@ -227,6 +227,15 @@ Type: filesandordirs; Name: "{app}\plugins\*"
 Type: Files; Name: "{app}\Last.fm.css"
 Type: Files; Name: "{app}\Last.fm Scrobbler.css"
 
+Type: Files; Name: "{group}\Last.fm"
+Type: Files; Name: "{commondesktop}\Last.fm"
+Type: Files; Name: "{group}\Uninstall Last.fm"
+Type: Files; Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Last.fm"
+
+Type: Files; Name: "{group}\Last.fm Scrobbler"
+Type: Files; Name: "{commondesktop}\Last.fm Scrobbler"
+Type: Files; Name: "{group}\Uninstall Last.fm Scrobbler"
+Type: Files; Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Last.fm Scrobbler"
 
 ; This is the LAST step of uninstallation
 [UninstallDelete]

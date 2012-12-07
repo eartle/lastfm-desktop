@@ -33,11 +33,15 @@
     #else
         #define LISTENER_DLLEXPORT __declspec(dllimport)
     #endif
-    #ifdef _LOGGER_DLLEXPORT
-        #define LOGGER_DLLEXPORT __declspec(dllexport)
-    #else
-        #define LOGGER_DLLEXPORT __declspec(dllimport)
-    #endif
+	#ifndef ITUNES_PLUGIN
+		#ifdef _LOGGER_DLLEXPORT
+			#define LOGGER_DLLEXPORT __declspec(dllexport)
+		#else
+			#define LOGGER_DLLEXPORT __declspec(dllimport)
+		#endif
+	#else
+		#define LOGGER_DLLEXPORT
+	#endif
 #else
     #define UNICORN_DLLEXPORT
     #define LISTENER_DLLEXPORT

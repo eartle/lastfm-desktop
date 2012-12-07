@@ -18,54 +18,65 @@ class UNICORN_DLLEXPORT Session : public QObject
     Q_OBJECT
 public:
     /** Return session object from stored session */
-    Session();
+    Session( QDataStream& dataStream );
     Session( const QString& username, QString sessionKey = "" );
 
+    bool isValid() const;
+
+    // client radio permissions
+    bool youRadio() const;
+    bool registeredRadio() const;
+    bool subscriberRadio() const;
+
+    // web radio permissions
+    bool youWebRadio() const;
+    bool registeredWebRadio() const;
+    bool subscriberWebRadio() const;
+
+    QString subscriptionPriceString() const;
+
     QString sessionKey() const;
+    lastfm::User user() const;
 
-    lastfm::User userInfo() const;
-
-    static QNetworkReply* 
-    getToken()
-    {
-        QMap<QString, QString> params;
-        params["method"] = "auth.getToken";
-        return lastfm::ws::get( params );
-    }
-
-    static QNetworkReply*
-    getSession( QString token )
-    {
-        QMap<QString, QString> params;
-        params["method"] = "auth.getSession";
-        params["token"] = token;
-        return lastfm::ws::post( params, false );
-    }
-
-    static QMap<QString, QString>
-    lastSessionData();
+    static QNetworkReply* getToken();
+    static QNetworkReply* getSession( QString token );
+    static QMap<QString, QString> lastSessionData();
 
     QDataStream& write( QDataStream& out ) const;
     QDataStream& read( QDataStream& in );
 
 signals:
-    void userInfoUpdated( const lastfm::User& userInfo );
+    void userInfoUpdated( const lastfm::User& user );
+    void sessionChanged( const unicorn::Session& session );
 
 protected:
     void init( const QString& username, const QString& sessionKey );
 
 private:
-    void cacheUserInfo( const lastfm::User& userInfo );
+    void cacheUserInfo( const lastfm::User& user );
+    void cacheSessionInfo( const unicorn::Session& session );
 
 private slots:
-    void fetchUserInfo();
+    void fetchInfo();
     void onUserGotInfo();
     void onAuthGotSessionInfo();
 
 private:
     QString m_prevUsername;
     QString m_sessionKey;
-    lastfm::User m_userInfo;
+    lastfm::User m_user;
+
+    QString m_subscriptionPrice;
+
+    bool m_valid;
+
+    bool m_youRadio;
+    bool m_registeredRadio;
+    bool m_subscriberRadio;
+
+    bool m_youWebRadio;
+    bool m_registeredWebRadio;
+    bool m_subscriberWebRadio;
 };
 
 }

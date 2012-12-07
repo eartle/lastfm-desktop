@@ -222,13 +222,18 @@ ITunesTrack::albumArtist() const
 
     BSTR bstrAlbumArtist = 0;
 
-    IITFileOrCDTrack* fileOrCDTrack = static_cast<IITFileOrCDTrack*>(m_comTrack);
-    m_comTrack->QueryInterface(IID_IITFileOrCDTrack, (void**)&fileOrCDTrack);
+    IITFileOrCDTrack* fileTrack = static_cast<IITFileOrCDTrack*>(m_comTrack);
+    HRESULT res = m_comTrack->QueryInterface(IID_IITFileOrCDTrack, (void**)&fileTrack);
 
-    HRESULT res = S_FALSE;
-
-    if (fileOrCDTrack)
-    	res = fileOrCDTrack->get_AlbumArtist( &bstrAlbumArtist );
+    if ( res != S_OK || fileTrack == 0 )
+    {
+        ITunesComWrapper::logComError( res, L"Casting IITrack to IITFileOrCDTrack failed" );
+    }
+    else
+    {
+        res = fileTrack->get_AlbumArtist( &bstrAlbumArtist );
+        fileTrack->Release();
+    }
 
     ITunesComWrapper::handleComResult( res, L"Failed to read album artist of track" );
 

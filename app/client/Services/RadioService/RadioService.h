@@ -42,8 +42,8 @@ namespace Phonon
     class Path;
 }
 
-
 class Spotify;
+namespace unicorn { class Session; }
 
 /** @author <max@last.fm>
  */
@@ -69,9 +69,6 @@ public:
     Phonon::MediaObject* mediaObject() const { return m_mediaObject; }
 
     static RadioService& instance(){ static RadioService r; return r; }
-
-    bool isRadioUsageAllowed(bool showError=true);
-    void IncrementRadioUsageCount();
 
 public slots:
     void play( const RadioStation& station );
@@ -106,6 +103,8 @@ signals:
     void message( const QString& message );
 
 private slots:
+    void onSessionChanged( const unicorn::Session& session );
+
     void enqueue();
     void onPhononStateChanged( Phonon::State, Phonon::State );
     void onPhononCurrentSourceChanged( const Phonon::MediaSource &);
@@ -148,8 +147,8 @@ private:
     RadioStation m_station;
     bool m_bErrorRecover;
     int m_maxUsageCount;
-
     QPointer<Spotify> m_spotify;
+    QString m_currentUser;
 };
 
 

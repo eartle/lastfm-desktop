@@ -27,12 +27,12 @@ ProfileWidget::ProfileWidget(QWidget *parent)
     ui->scrobbles->setText( tr( "Scrobble(s)", "", 0 ) );
     ui->loved->setText( tr( "Loved track(s)", "", 0 ) );
 
-    connect( aApp, SIGNAL(sessionChanged(unicorn::Session*)), SLOT(onSessionChanged(unicorn::Session*)) );
+    connect( aApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)) );
     connect( aApp, SIGNAL(gotUserInfo(lastfm::User)), SLOT(onGotUserInfo(lastfm::User)) );
 
     connect( &ScrobbleService::instance(), SIGNAL(scrobblesCached(QList<lastfm::Track>)), SLOT(onScrobblesCached(QList<lastfm::Track>)));
 
-    onSessionChanged( aApp->currentSession() );
+    onSessionChanged( *aApp->currentSession() );
 }
 
 ProfileWidget::~ProfileWidget()
@@ -41,22 +41,51 @@ ProfileWidget::~ProfileWidget()
 }
 
 void
-ProfileWidget::onSessionChanged( unicorn::Session* session )
+ProfileWidget::onSessionChanged( const unicorn::Session& session )
 {  
-    onGotUserInfo( session->userInfo() );
+    if ( session.user().name() != m_currentUser )
+    {
+        m_currentUser = session.user().name();
+        ui->avatar->setPixmap( QPixmap( ":/user_default.png" ) );
+        onGotUserInfo( session.user() );
+
+        refresh();
+    }
 }
 
 
 void
-ProfileWidget::onGotUserInfo( const lastfm::User& userDetails )
+ProfileWidget::onGotUserInfo( const lastfm::User& user )
 {
-    changeUser( userDetails );
+     ui->avatar->setAlignment( Qt::AlignCenter );
+
+     ui->avatar->setUser( user );
+     ui->avatar->loadUrl( user.imageUrl( User::LargeImage, true ), HttpImageWidget::ScaleNone );
+     ui->avatar->setHref( user.www() );
+
+     ui->infoString->setText( user.getInfoString() );
+
+     ui->scrobbles->setText( tr( "Scrobble(s) since %1", "", user.scrobbleCount() ).arg( user.dateRegistered().toString( Qt::DefaultLocaleShortDate ) ) );
+
+     m_scrobbleCount = user.scrobbleCount();
+     setScrobbleCount();
+
+     ui->name->setText( unicorn::Label::boldLinkStyle( unicorn::Label::anchor( user.www().toString(), user.name() ), Qt::black ) );
 }
 
 void
 ProfileWidget::refresh()
 {
-    changeUser( aApp->currentSession()->userInfo() );
+    // Make sure we don't recieve any updates about the last session
+    disconnect( this, SLOT(onGotLovedTracks()));
+    disconnect( this, SLOT(onGotTopOverallArtists()));
+    disconnect( this, SLOT(onGotTopWeeklyArtists()));
+    disconnect( this, SLOT(onGotLibraryArtists()));
+
+    connect( aApp->currentSession()->user().getLovedTracks( 1 ), SIGNAL(finished()), SLOT(onGotLovedTracks()) );
+    connect( aApp->currentSession()->user().getTopArtists( "overall", 5, 1 ), SIGNAL(finished()), SLOT(onGotTopOverallArtists()));
+    connect( aApp->currentSession()->user().getTopArtists( "7day", 5, 1 ), SIGNAL(finished()), SLOT(onGotTopWeeklyArtists()));
+    connect( lastfm::Library::getArtists( aApp->currentSession()->user().name(), 1 ), SIGNAL(finished()), SLOT(onGotLibraryArtists()));
 }
 
 void
@@ -73,7 +102,7 @@ ProfileWidget::onGotLibraryArtists()
 
     if ( lfm.parse( static_cast<QNetworkReply*>(sender()) ) )
     {
-        int scrobblesPerDay = aApp->currentSession()->userInfo().scrobbleCount() / aApp->currentSession()->userInfo().dateRegistered().daysTo( QDateTime::currentDateTime() );
+        int scrobblesPerDay = aApp->currentSession()->user().scrobbleCount() / (aApp->currentSession()->user().dateRegistered().daysTo( QDateTime::currentDateTime() ) + 1 );
         int totalArtists = lfm["artists"].attribute( "total" ).toInt();
 
         QString artistsString = tr( "%L1 artist(s)", "", totalArtists ).arg( totalArtists );
@@ -86,37 +115,6 @@ ProfileWidget::onGotLibraryArtists()
     {
         qDebug() << lfm.parseError().message() << lfm.parseError().enumValue();
     }
-}
-
-void
-ProfileWidget::changeUser( const lastfm::User& user )
-{
-    // Make sure we don't recieve any updates about the last session
-    disconnect( this, SLOT(onGotLovedTracks()) );
-    disconnect( this, SLOT(onGotTopOverallArtists()));
-    disconnect( this, SLOT(onGotTopWeeklyArtists()));
-    disconnect( this, SLOT(onGotLibraryArtists()));
-
-    ui->avatar->setAlignment( Qt::AlignCenter );
-
-    ui->avatar->setUser( user );
-    ui->avatar->loadUrl( user.imageUrl( User::LargeImage, true ), HttpImageWidget::ScaleNone );
-    ui->avatar->setHref( user.www() );
-
-    ui->infoString->setText( user.getInfoString() );
-
-    ui->scrobbles->setText( tr( "Scrobble(s) since %1", "", user.scrobbleCount() ).arg( user.dateRegistered().toString( "d MMMM yyyy" ) ) );
-
-    m_scrobbleCount = user.scrobbleCount();
-    setScrobbleCount();
-
-    ui->name->setText( unicorn::Label::boldLinkStyle( unicorn::Label::anchor( user.www().toString(), user.name() ), Qt::black ) );
-
-    connect( user.getLovedTracks( 1 ), SIGNAL(finished()), SLOT(onGotLovedTracks()) );
-    connect( user.getTopArtists( "overall", 5, 1 ), SIGNAL(finished()), SLOT(onGotTopOverallArtists()));
-    connect( user.getTopArtists( "7day", 5, 1 ), SIGNAL(finished()), SLOT(onGotTopWeeklyArtists()));
-
-    connect( lastfm::Library::getArtists( user.name(), 1 ), SIGNAL(finished()), SLOT(onGotLibraryArtists()));
 }
 
 
@@ -219,6 +217,6 @@ ProfileWidget::onScrobbleStatusChanged( short scrobbleStatus )
 void
 ProfileWidget::setScrobbleCount()
 {
-    ui->scrobbles->setText( tr( "Scrobble(s) since %1", "", aApp->currentSession()->userInfo().scrobbleCount() ).arg( aApp->currentSession()->userInfo().dateRegistered().toString( "d MMMM yyyy" ) ) );
+    ui->scrobbles->setText( tr( "Scrobble(s) since %1", "", aApp->currentSession()->user().scrobbleCount() ).arg( aApp->currentSession()->user().dateRegistered().toString( "d MMMM yyyy" ) ) );
     ui->scrobbleCount->setText( QString( "%L1" ).arg( m_scrobbleCount ) );
 }

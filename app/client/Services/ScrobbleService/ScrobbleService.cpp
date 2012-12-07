@@ -24,6 +24,7 @@
 #ifdef QT_DBUS_LIB
 #include "lib/listener/DBusListener.h"
 #endif
+#include "../../Application.h"
 #include "lib/listener/legacy/LegacyPlayerListener.h"
 #include "lib/listener/PlayerConnection.h"
 #include "lib/listener/PlayerListener.h"
@@ -78,6 +79,8 @@ ScrobbleService::ScrobbleService()
 
     m_mediator->follow( new RadioConnection( this ) );
 
+
+    connect( aApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)) );
     resetScrobbler();
 }
 
@@ -120,7 +123,7 @@ ScrobbleService::submitCache()
 }
 
 void 
-ScrobbleService::onSessionChanged( unicorn::Session* ) 
+ScrobbleService::onSessionChanged( const unicorn::Session& )
 {
     resetScrobbler();
 }
@@ -305,11 +308,6 @@ ScrobbleService::onScrobble()
 
     if( m_as && scrobblableTrack( m_trackToScrobble ) )
         m_as->cache( m_trackToScrobble );
-
-    if(RadioService::instance().state() == Playing)
-    {
-        RadioService::instance().IncrementRadioUsageCount();
-    }
 }
 
 void 

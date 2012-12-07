@@ -25,6 +25,8 @@
 
 class QMouseEvent;
 
+namespace unicorn { class Session; }
+
 class PlayableItemWidget : public QPushButton
 {
     Q_OBJECT
@@ -61,6 +63,9 @@ public slots:
     void playNext();
     void playMulti();
     void playMultiNext();
+
+private slots:
+    void onSessionChanged( const unicorn::Session& session );
 
 private:
     RadioStation getMultiStation() const;

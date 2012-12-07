@@ -26,6 +26,7 @@
 #include "lib/DllExportMacro.h"
 
 namespace lastfm { class User; }
+namespace unicorn { class Session; }
 
 class UNICORN_DLLEXPORT UserToolButton : public QToolButton
 {
@@ -34,7 +35,7 @@ public:
     UserToolButton();
 
 protected slots:
-    void onSessionChanged();
+    void onSessionChanged( const unicorn::Session& session );
     void onUserGotInfo( const lastfm::User& user );
     void onImageDownloaded();
     void onRosterUpdated();

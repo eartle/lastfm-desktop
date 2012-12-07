@@ -41,6 +41,10 @@ GeneralSettingsWidget::GeneralSettingsWidget( QWidget* parent )
 #ifdef Q_OS_MAC
     ui->showAs->hide();
 
+    ui->mediaKeys->setChecked( unicorn::Settings().value( "mediaKeys", true ).toBool() );
+
+    connect( ui->mediaKeys, SIGNAL(stateChanged(int)), SLOT(onSettingsChanged()) );
+
     ui->showWhere->addItem( tr("Menu bar and dock icons") );
     ui->showWhere->addItem( tr("Only dock icon (hide menu bar icon)") );
     ui->showWhere->addItem( tr("Only menu bar icon (hide dock icon)") );
@@ -60,6 +64,7 @@ GeneralSettingsWidget::GeneralSettingsWidget( QWidget* parent )
 
 #else
     ui->showWhere->hide();
+    ui->mediaKeys->hide();
 
     ui->showAs->setChecked( unicorn::Settings().value( SETTING_SHOW_AS, ui->showAs->isChecked() ).toBool() );
     connect( ui->showAs, SIGNAL(stateChanged(int)), SLOT( onSettingsChanged() ) );
@@ -150,6 +155,9 @@ GeneralSettingsWidget::saveSettings()
         us.setValue( "SpotifyPass", ui->spotifyPassword->text() );
 
 #ifdef Q_OS_MAC
+        unicorn::Settings().setValue( "mediaKeys", ui->mediaKeys->isChecked() );
+        aApp->setMediaKeysEnabled( ui->mediaKeys->isChecked() );
+
         int showWhereIndex = unicorn::Settings().value( SETTING_SHOW_WHERE, -1 ).toInt();
         bool showAs = ui->showWhere->currentIndex() != 1;
 

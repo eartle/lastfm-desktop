@@ -6,7 +6,7 @@
 #version = ARGV[0]
 
 # TODO: find out the app version from the app's plist.info
-$version = '2.1.25'
+$version = '2.1.26'
 
 # TODO: get the version numbers from the argument list
 $deltas = []

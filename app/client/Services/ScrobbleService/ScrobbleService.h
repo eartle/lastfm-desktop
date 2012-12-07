@@ -56,12 +56,12 @@ public:
     static ScrobbleService& instance() { static ScrobbleService s; return s; }
 
 public slots:
-    void onSessionChanged( unicorn::Session* );
+    void onSessionChanged( const unicorn::Session& session );
     void onScrobble();
     void scrobbleSettingsChanged();
 
 signals:
-    void trackStarted( Track, Track );
+    void trackStarted( const Track& newTrack, const Track& oldTrack );
     void resumed();
     void paused();
     void stopped();

@@ -2,13 +2,13 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 [CustomMessages]
-Version=5.0.4.1
+Version=5.0.5.1
 
 [Setup]
-OutputBaseFilename=iTunesPluginWinSetup_5.0.4.1
+OutputBaseFilename=iTunesPluginWinSetup_5.0.5.1
 ; setup.exe version
-VersionInfoVersion=5.0.4.1
-VersionInfoTextVersion=5.0.4.1
+VersionInfoVersion=5.0.5.1
+VersionInfoTextVersion=5.0.5.1
 AppName=Last.fm iTunes Plugin
 AppVerName=Last.fm iTunes Plugin {cm:Version}
 VersionInfoDescription=Last.fm iTunes Plugin Installer
@@ -30,6 +30,9 @@ DisableReadyPage=yes
 ; compatibility.
 AppId=Audioscrobbler iTunes Plugin
 CreateUninstallRegKey=no
+
+[Dirs]
+Name: "{localappdata}\Last.fm\Client"
 
 [Registry]
 ; The name of the final subkey here must match the one in plugins.data

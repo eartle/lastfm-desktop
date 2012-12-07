@@ -57,8 +57,7 @@ unicorn::Bus::onMessage( const QByteArray& message )
     if( stringMessage == "SESSIONCHANGED" )
     {
         qDebug() << "and it's a session change alert";
-        unicorn::Session* session = new unicorn::Session;
-        ds >> *session;
+        unicorn::Session* session = new unicorn::Session( ds );
         emit sessionChanged( *session );
         delete session;
     }

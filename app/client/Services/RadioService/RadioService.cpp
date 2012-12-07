@@ -30,9 +30,8 @@
 
 #include "lib/unicorn/UnicornSettings.h"
 
+#include "../../Application.h"
 #include "RadioService.h"
-
-
 
 #define ALLOW_ALL_USAGE -1
 
@@ -54,6 +53,10 @@ RadioService::RadioService( )
     connect( m_spotify, SIGNAL(stopped()), SLOT(skip()));
     connect( m_spotify, SIGNAL(error(Spotify::SpotifyError,int,QString)), SLOT(onSpotifyError(Spotify::SpotifyError,int,QString)) );
     connect( m_spotify, SIGNAL(loginFinished(bool)), SIGNAL(spotifyLoginStatusChanged(bool)) );
+
+    onSessionChanged( *aApp->currentSession() );
+
+    connect( aApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)) );
 }
 
 bool
@@ -88,46 +91,23 @@ RadioService::onSpotifyError( Spotify::SpotifyError error, int code, const QStri
 }
 
 void
+RadioService::onSessionChanged( const unicorn::Session& session )
+{
+    if ( session.user().name() != m_currentUser )
+    {
+        m_currentUser = session.user().name();
+
+        // if they change user, make sure we stop the radio
+        if ( m_mediaObject && m_mediaObject->state() != Phonon::StoppedState )
+            stop();
+    }
+}
+
+void
 RadioService::onLastFmUrl( const QUrl& url )
 {
     RadioStation rs( url.toString() );
     play( rs );
-}
-
-bool
-RadioService::isRadioUsageAllowed(bool showError)
-{
-    bool isAllowed = true;
-    unicorn::UserSettings us;
-    bool isSubscriber = us.value(unicorn::UserSettings::subscriptionKey(), false).toBool();
-    if(!isSubscriber)
-    {
-        int usageCount = us.value("usageCount", 0).toInt();
-        if(usageCount >= m_maxUsageCount && m_maxUsageCount != ALLOW_ALL_USAGE)
-        {
-            if(showError)
-                emit message(tr( "Sorry, you've reached your limit of %n track(s). <a href=\"http://www.last.fm/subscribe\">Subscribe</a> for unlimited listening, or visit <a href=\"http://www.last.fm/listen\">last.fm/listen</a>", "", m_maxUsageCount ) );
-
-            deInitRadio();
-            changeState( Stopped );
-            isAllowed = false;
-        }
-    }
-
-    return isAllowed;
-}
-
-void
-RadioService::IncrementRadioUsageCount()
-{
-    unicorn::UserSettings us;
-    bool isSubscriber = us.value(unicorn::UserSettings::subscriptionKey(), false).toBool();
-    if(!isSubscriber)
-    {
-        int count = us.value("usageCount", 0).toInt();
-        ++count;
-        us.setValue("usageCount", count);
-    }
 }
 
 // fixme:
@@ -137,7 +117,14 @@ RadioService::IncrementRadioUsageCount()
 // then we *don't* retune.  norman is quite emphatic about this.  :)
 void
 RadioService::play( const RadioStation& station )
-{
+{  
+    if ( !aApp->currentSession()->user().isSubscriber() )
+    {
+        // they are not a subscriber so don't let them start the radio
+        emit error( lastfm::ws::SubscribersOnly, tr( "You need to be a subscriber to listen to radio" ) );
+        return;
+    }
+
     if( m_state == Paused
             && (station.url() == "" || station.url() == m_station.url() ) )
     {
@@ -196,7 +183,6 @@ RadioService::play( const RadioStation& station )
     connect( m_tuner, SIGNAL(error( lastfm::ws::Error, QString )), SLOT(onTunerError( lastfm::ws::Error, QString )) );
 
     changeState( TuningIn );
-    IncrementRadioUsageCount();
 }
 
 // play this radio station after the current track has finished
@@ -246,16 +232,37 @@ RadioService::enqueue()
 void
 RadioService::skip()
 {
-    if(!isRadioUsageAllowed())
+    if (!m_mediaObject)
         return;
-
-    // make sure we have stopped the current track
-    doPause( false );
-
+    
     // attempt to refill the phonon queue if it's empty
-    phononEnqueue();
+    if (m_mediaObject->queue().isEmpty())
+        phononEnqueue();
+    
+    QList<Phonon::MediaSource> q = m_mediaObject->queue();
 
-    IncrementRadioUsageCount();
+    if ( q.size() )
+    {
+        m_mediaObject->setCurrentSource( q[0] );
+
+        //if the error returns a 403 permission denied error, the mediaObject is uninitialised
+        if( m_mediaObject )
+            m_mediaObject->play();
+        else {
+            initRadio();
+            play( RadioStation());
+        }
+    }
+    else if (m_state != Stopped)
+    {
+        qDebug() << "queue empty";
+        // we are still waiting for a playlist to come back from the tuner
+        m_mediaObject->blockSignals( true );    //don't tell outside world that we stopped
+        m_mediaObject->stop();
+        m_mediaObject->setCurrentSource( QUrl() );
+        m_mediaObject->blockSignals( false );
+        changeState( TuningIn );
+    }
 }
 
 

@@ -12,35 +12,17 @@ using lastfm::Track;
 
 namespace unicorn { class Session; }
 
+namespace Ui { class RadioWidget; }
+
 class RadioWidget : public QFrame
 {
     Q_OBJECT
-private:
-    struct
-    {
-        class QFrame* nowPlayingFrame;
-        class QFrame* nowPlayingSection;
-        class QLabel* nowPlaying;
-
-        class QFrame* personal;
-        class QFrame* network;
-        class QFrame* recentStations;
-
-        class PlayableItemWidget* lastStation;
-
-        class PlayableItemWidget* library;
-        class PlayableItemWidget* mix;
-        class PlayableItemWidget* rec;
-        class PlayableItemWidget* friends;
-        class PlayableItemWidget* neighbours;
-    } ui;
-
 public:
     explicit RadioWidget(QWidget *parent = 0);
+    ~RadioWidget();
 
 private slots:
-    void onSessionChanged( unicorn::Session* session );
-    void onGotUserInfo( const lastfm::User& userDetails );
+    void onSessionChanged( const unicorn::Session& session );
 
     void onTuningIn( const RadioStation& station );
     void onRadioStopped();
@@ -48,13 +30,18 @@ private slots:
 
     void onGotRecentStations();
 
-private:
-    void changeUser( const QString& newUsername );
+    void onSubscribeClicked();
+    void onListenClicked();
 
 private:
-    QPointer<QWidget> m_main;
+    void refresh( const unicorn::Session& session );
+
+private:
+    Ui::RadioWidget* ui;
 
     QString m_currentUsername;
+
+    QPointer<QMovie> m_movie;
 };
 
 #endif // RADIOWIDGET_H

@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = "Last.fm Scrobbler"
-VERSION = 2.1.25
+VERSION = 2.1.26
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 QT = core gui xml network sql webkit
 CONFIG += lastfm unicorn listener logger phonon fingerprint ffmpeg spotify
@@ -104,7 +104,6 @@ SOURCES += \
     Widgets/ScrobblesWidget.cpp \
     Widgets/ScrobblesListWidget.cpp \
     Fingerprinter/Fingerprinter.cpp \
-    Fingerprinter/LAV_Source.cpp \
     Services/AnalyticsService/AnalyticsService.cpp \
     Services/AnalyticsService/PersistentCookieJar.cpp
 
@@ -185,11 +184,15 @@ HEADERS += \
     Widgets/ScrobblesListWidget.h \
     Widgets/ScrobblesWidget.h \
     Fingerprinter/Fingerprinter.h \
-    Fingerprinter/LAV_Source.h \
     Services/AnalyticsService.h \
     Services/AnalyticsService/AnalyticsService.h \
     Services/AnalyticsService/PersistentCookieJar.h \
     Spotify/Spotify.h
+
+contains(DEFINES, FFMPEG_FINGERPRINTING) {
+    SOURCES += Fingerprinter/LAV_Source.cpp
+    HEADERS += Fingerprinter/LAV_Source.h
+}
 
 win32:HEADERS += Plugins/FooBar08PluginInfo.h \
                     Plugins/FooBar09PluginInfo.h \
@@ -245,7 +248,8 @@ FORMS += \
     Widgets/TrackWidget.ui \
     Dialogs/LicensesDialog.ui \
     Widgets/ScrobblesWidget.ui \
-    Widgets/ProfileWidget.ui
+    Widgets/ProfileWidget.ui \
+    Widgets/RadioWidget.ui
 
 unix:!mac:HEADERS += MediaDevices/IpodDevice_linux.h
 unix:!mac:SOURCES += MediaDevices/IpodDevice_linux.cpp

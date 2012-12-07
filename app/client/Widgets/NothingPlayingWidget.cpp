@@ -28,7 +28,7 @@ NothingPlayingWidget::NothingPlayingWidget( QWidget* parent )
 
     ui->contents->setAttribute( Qt::WA_LayoutUsesWidgetRect );
 
-    setUser( User() );
+    onSessionChanged( *aApp->currentSession() );
 
     ui->scrobble->setText( tr( "<h2>Scrobble from your music player</h2>"
                                "<p>Start listening to some music in your media player. You can see more information about the tracks you play on the Now Playing tab.</p>") );
@@ -55,21 +55,23 @@ NothingPlayingWidget::NothingPlayingWidget( QWidget* parent )
 #endif
 #endif
 
-    connect( aApp, SIGNAL(sessionChanged(unicorn::Session*)), SLOT(onSessionChanged(unicorn::Session*)) );
-}
-
-
-void
-NothingPlayingWidget::onSessionChanged( unicorn::Session* session )
-{
-    setUser( session->userInfo() );
+    connect( aApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)) );
 }
 
 void
-NothingPlayingWidget::setUser( const lastfm::User& user )
+NothingPlayingWidget::onSessionChanged( const unicorn::Session& session )
 {
-    if ( !user.name().isEmpty() )
-        ui->top->setText( tr(  "Hello, %1!" ).arg( user.name() ) );
+    if ( !session.user().name().isEmpty() )
+        ui->top->setText( tr(  "Hello, %1!" ).arg( session.user().name() ) );
+
+    // leave them in their current state until the sessioninfo is valid
+    // this stops them getting hidden and shown again when adding a new subscriber
+    if ( session.isValid() )
+    {
+        ui->splitter->setVisible( session.youRadio() );
+        ui->quickStart->setVisible( session.youRadio() );
+        ui->start->setVisible( session.youRadio() );
+    }
 }
 
 #ifndef Q_OS_MAC

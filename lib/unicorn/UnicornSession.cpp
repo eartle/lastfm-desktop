@@ -1,6 +1,7 @@
 
 #include <QApplication>
 #include <QDebug>
+#include <QTimer>
 
 #include <lastfm/User.h>
 #include <lastfm/Auth.h>
@@ -35,19 +36,82 @@ Session::lastSessionData()
     return sessionData;
 }
 
-Session::Session()
-{
-}
-
 Session::Session( const QString& username, QString sessionKey )
 {
-    m_userInfo.setName( username );
-    m_sessionKey = sessionKey;
-
-    Settings s;
-    s.setValue( "Username", username );
-
     init( username, sessionKey );
+    connect( qApp, SIGNAL( internetConnectionUp() ), SLOT( fetchInfo() ) );
+}
+
+Session::Session( QDataStream& dataStream )
+{
+    dataStream >> *this;
+    connect( qApp, SIGNAL( internetConnectionUp() ), SLOT( fetchInfo() ) );
+}
+
+QNetworkReply*
+Session::getToken()
+{
+    QMap<QString, QString> params;
+    params["method"] = "auth.getToken";
+    return lastfm::ws::get( params );
+}
+
+QNetworkReply*
+Session::getSession( QString token )
+{
+    QMap<QString, QString> params;
+    params["method"] = "auth.getSession";
+    params["token"] = token;
+    return lastfm::ws::post( params, false );
+}
+
+QString
+Session::subscriptionPriceString() const
+{
+    return m_subscriptionPrice;
+}
+
+bool
+Session::isValid() const
+{
+    return m_valid;
+}
+
+
+bool
+Session::youRadio() const
+{
+    return m_youRadio;
+}
+
+bool
+Session::registeredRadio() const
+{
+    return m_registeredRadio;
+}
+
+bool
+Session::subscriberRadio() const
+{
+    return m_subscriberRadio;
+}
+
+bool
+Session::youWebRadio() const
+{
+    return m_youWebRadio;
+}
+
+bool
+Session::registeredWebRadio() const
+{
+    return m_registeredWebRadio;
+}
+
+bool
+Session::subscriberWebRadio() const
+{
+    return m_subscriberWebRadio;
 }
 
 QString 
@@ -57,51 +121,64 @@ Session::sessionKey() const
 }
 
 lastfm::User
-Session::userInfo() const
+Session::user() const
 {
-    return m_userInfo;
+    return m_user;
 }
 
 void 
 Session::init( const QString& username, const QString& sessionKey )
 {
+    Settings s;
+    s.setValue( "Username", username );
+
+    m_user.setName( username );
     m_sessionKey = sessionKey;
 
-    UserSettings s( username );
-    m_userInfo.setName( username );
-    m_userInfo.setScrobbleCount( s.value( "ScrobbleCount", 0 ).toInt() );
-    m_userInfo.setDateRegistered( s.value( "DateRegistered", QDateTime() ).toDateTime() );
-
-    m_userInfo.setRealName( Settings().value( "RealName", "" ).toString() );
+    UserSettings us( username );
+    m_user.setName( username );
+    m_user.setScrobbleCount( us.value( "ScrobbleCount", 0 ).toInt() );
+    m_user.setDateRegistered( us.value( "DateRegistered", QDateTime() ).toDateTime() );
+    m_user.setRealName( us.value( "RealName", "" ).toString() );
+    m_user.setIsSubscriber( us.value( UserSettings::subscriptionKey(), false ).toBool() );
+    m_user.setType( static_cast<lastfm::User::Type>( us.value( "Type", lastfm::User::TypeUser ).toInt() ) );
 
     QList<QUrl> imageUrls;
-    int imageCount = s.beginReadArray( "ImageUrls" );
+    int imageCount = us.beginReadArray( "ImageUrls" );
 
     for ( int i = 0; i < imageCount; i++ )
     {
-        s.setArrayIndex( i );
-        imageUrls.append( s.value( "Url", QUrl() ).toUrl() );
+        us.setArrayIndex( i );
+        imageUrls.append( us.value( "Url", QUrl() ).toUrl() );
     }
 
-    s.endArray();
+    us.endArray();
 
-    m_userInfo.setImages( imageUrls );
+    m_user.setImages( imageUrls );
 
     if ( sessionKey.isEmpty() )
         Q_ASSERT( false );
     else
-        s.setValue( "SessionKey", sessionKey );
+        us.setValue( "SessionKey", sessionKey );
 
-    fetchUserInfo();
+    us.beginGroup( "Session" );
+    m_valid = us.value( "valid", false ).toBool();
+    m_youRadio = us.value( "youRadio", false ).toBool();
+    m_registeredRadio = us.value( "registeredRadio", false ).toBool();
+    m_subscriberRadio = us.value( "subscriberRadio", false ).toBool();
+    m_youWebRadio = us.value( "youWebRadio", false ).toBool();
+    m_registeredWebRadio = us.value( "registeredWebRadio", false ).toBool();
+    m_subscriberWebRadio = us.value( "subscriberWebRadio", false ).toBool();
+    us.endGroup();
 
-    connect( qApp, SIGNAL( internetConnectionUp() ), SLOT( fetchUserInfo() ) );
+    fetchInfo();
 }
 
 void
-Session::fetchUserInfo()
+Session::fetchInfo()
 {
     qDebug() << "fetching user info";
-    lastfm::ws::Username = m_userInfo.name();
+    lastfm::ws::Username = m_user.name();
     lastfm::ws::SessionKey = m_sessionKey;
     connect( lastfm::User::getInfo(), SIGNAL( finished() ), SLOT( onUserGotInfo() ) );
     connect( lastfm::Auth::getSessionInfo(), SIGNAL(finished()), SLOT(onAuthGotSessionInfo()) );
@@ -112,68 +189,16 @@ Session::onUserGotInfo()
 {
     QNetworkReply* reply = ( QNetworkReply* )sender();
 
-    if ( reply->error() == QNetworkReply::NoError  )
-    {
-        XmlQuery lfm;
-        if ( lfm.parse( reply ) )
-        {
-            lastfm::User userInfo( lfm["user"] );
-
-            m_userInfo = userInfo;
-            emit userInfoUpdated( m_userInfo );
-            cacheUserInfo( m_userInfo );
-        }
-        else
-        {
-            qDebug() << lfm.parseError().message() << lfm.parseError().enumValue();
-        }
-    }
-    else
-    {
-        qDebug() << "error getting user info: " << reply->errorString();
-    }
-}
-
-void
-Session::onAuthGotSessionInfo()
-{
     XmlQuery lfm;
 
-    /*
-    <lfm status="ok">
-        <application>
-          <session>
-            <name>eartle</name>
-            <key>5be299e899764d175ebff77beb40d54b</key>
-            <subscriber>1</subscriber>
-          </session>
-          <country>GB</country>
-          <radioPermission>
-            <user type="you">
-              <radio>0</radio>
-              <freetrial>0</freetrial>
-            </user>
-            <user type="registered">
-              <radio>1</radio>
-              <freetrial>0</freetrial>
-            </user>
-            <user type="subscriber">
-              <radio>1</radio>
-              <freetrial>0</freetrial>
-            </user>
-          </radioPermission>
-        </application>
-      </lfm>
-
-     */
-
-    if ( lfm.parse( static_cast<QNetworkReply*>( sender() ) ) )
+    if ( lfm.parse( reply ) )
     {
-        qDebug() << lfm;
+        lastfm::User user( lfm["user"] );
 
-        //bool radio = lfm["application"]["radioPermission"]["user type=you"]["radio"].text() != "0";
-        //bool canUpgrade = lfm["application"]["radioPermission"]["user type=subscriber"]["radio"].text() != "0";
-        //bool freeTrial = lfm["application"]["radioPermission"]["user type=you"]["freetrial"].text() != "0";
+        m_user = user;
+        cacheUserInfo( m_user );
+
+        emit userInfoUpdated( m_user );
     }
     else
     {
@@ -182,34 +207,86 @@ Session::onAuthGotSessionInfo()
 }
 
 void
-Session::cacheUserInfo( const lastfm::User& userInfo )
+Session::onAuthGotSessionInfo()
 {
-    const char* key = UserSettings::subscriptionKey();
+    XmlQuery lfm;
 
-    UserSettings s( userInfo.name() );
-    s.setValue( key, userInfo.isSubscriber() );
-    s.setValue( "ScrobbleCount", userInfo.scrobbleCount() );
-    s.setValue( "DateRegistered", userInfo.dateRegistered() );
-    s.setValue( "RealName", userInfo.realName() );
+    if ( lfm.parse( static_cast<QNetworkReply*>( sender() ) ) )
+    {
+        qDebug() << lfm;
+
+        m_valid = true;
+
+        m_subscriptionPrice = lfm["application"]["radioprice"]["formatted"].text();
+
+        XmlQuery you = lfm["application"]["radioPermission"]["user type=you"];
+        m_youRadio = you["radio"].text() == "1";
+        m_youWebRadio = you["webradio"].text() == "1";
+
+        XmlQuery registered = lfm["application"]["radioPermission"]["user type=registered"];
+        m_registeredRadio = registered["radio"].text() == "1";
+        m_registeredWebRadio = registered["webradio"].text() == "1";
+
+        XmlQuery subscriber = lfm["application"]["radioPermission"]["user type=subscriber"];
+        m_subscriberRadio = subscriber["radio"].text() == "1";
+        m_subscriberWebRadio = subscriber["webradio"].text() == "1";
+
+        bool isSubscriber = lfm["application"]["session"]["subscriber"].text() == "1";
+        m_user.setIsSubscriber( isSubscriber );
+
+        cacheUserInfo( m_user ); // make sure the subscriber flag gets cached
+        cacheSessionInfo( *this );
+
+        emit sessionChanged( *this );
+    }
+    else
+    {
+        qDebug() << lfm.parseError().message() << lfm.parseError().enumValue();
+    }
+}
+
+void
+Session::cacheUserInfo( const lastfm::User& user )
+{
+    UserSettings us( user.name() );
+    us.setValue( UserSettings::subscriptionKey(), user.isSubscriber() );
+    us.setValue( "ScrobbleCount", user.scrobbleCount() );
+    us.setValue( "DateRegistered", user.dateRegistered() );
+    us.setValue( "RealName", user.realName() );
+    us.setValue( "Type", user.type() );
 
     QList<User::ImageSize> sizes;
     sizes << User::SmallImage << User::MediumImage << User::LargeImage;
 
-    s.beginWriteArray( "ImageUrls", sizes.count() );
+    us.beginWriteArray( "ImageUrls", sizes.count() );
     for ( int i = 0; i < sizes.count(); i++ )
     {
-        s.setArrayIndex( i );
-        s.setValue( "Url", userInfo.imageUrl( sizes[ i ] ) );
+        us.setArrayIndex( i );
+        us.setValue( "Url", user.imageUrl( sizes[ i ] ) );
     }
-    s.endArray();
+    us.endArray();
+}
 
+void
+Session::cacheSessionInfo( const unicorn::Session& session )
+{
+    UserSettings us( session.user().name() );
+    us.beginGroup( "Session" );
+    us.setValue( "valid", m_valid );
+    us.setValue( "youRadio", session.m_youRadio );
+    us.setValue( "registeredRadio", session.m_registeredRadio );
+    us.setValue( "subscriberRadio", session.m_subscriberRadio );
+    us.setValue( "youWebRadio", session.m_youWebRadio );
+    us.setValue( "registeredWebRadio", session.m_registeredWebRadio );
+    us.setValue( "subscriberWebRadio", session.m_subscriberWebRadio );
+    us.endGroup();
 }
 
 QDataStream&
 Session::write( QDataStream& out ) const
 {
     QMap<QString, QString> data;
-    data[ "username" ] = userInfo().name();
+    data[ "username" ] = user().name();
     data[ "sessionkey" ] = m_sessionKey;
     out << data;
     return out;

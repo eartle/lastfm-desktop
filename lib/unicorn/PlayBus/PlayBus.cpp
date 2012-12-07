@@ -83,7 +83,6 @@ unicorn::PlayBus::onSocketConnected()
 #ifndef WIN32
     //throw-away uuid generation to initialize random seed
     QUuid::createUuid();
-    qsrand( (uint)QDateTime::currentDateTime().toTime_t() + QCoreApplication::applicationPid());
 #endif
 
     QLocalSocket* socket = qobject_cast<QLocalSocket*>(sender());

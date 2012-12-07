@@ -989,10 +989,54 @@ background-image: url(":/radio_play_small_PRESS.png");
 RadioWidget QLabel#title,
 ProfileWidget QLabel#weekTitle,
 ProfileWidget QLabel#overallTitle {
+color: #333;
 padding: 0px 0px 10px;
 border: none;
 font-weight: bold;
 font-size: 15px;
+}
+
+RadioWidget QFrame#nonSubFrame {
+	padding: 20px 10px 0px;
+	background-repeat: none;
+	background-image: url(":/subscribe_bg.png");
+	background-position: center top;
+}
+
+RadioWidget QFrame#nonSubFrame QLabel#title {
+	color: #333;
+	font-size: 18px;
+}
+
+RadioWidget QLabel#headphones {
+	color: transparent;
+	background-repeat: none;
+	background-image: url(":/subscribe_radio.png");
+	min-width: 218px;
+	min-height: 144px;
+	margin: 20px 0px 30px;
+}
+
+RadioWidget QLabel#description {
+	color: #333;
+	font-weight: bold;
+	font-size: 13px;
+	margin-bottom: 20px;
+}
+
+RadioWidget PushButton {
+color: #333;
+text-align: center center;
+font-weight: bold;
+font-size: 14px;
+background-color: transparent;
+min-height: 49px;
+max-height: 49px;
+}
+
+RadioWidget PushButton#subscribe {
+	color: #fff;
+	qproperty-dark: true;
 }
 
 PlaybackControlsWidget {

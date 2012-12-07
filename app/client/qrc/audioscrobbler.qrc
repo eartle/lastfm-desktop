@@ -188,5 +188,16 @@
         <file>beta_sash.png</file>
         <file>control_bar_radio_as.png</file>
         <file>scrobble_OFF.png</file>
+        <file>subscribe_bg.png</file>
+        <file>subscribe_radio.png</file>
+        <file>button_dark_LEFT_HOVER.png</file>
+        <file>button_dark_LEFT_PRESS.png</file>
+        <file>button_dark_LEFT_REST.png</file>
+        <file>button_dark_MIDDLE_HOVER.png</file>
+        <file>button_dark_MIDDLE_PRESS.png</file>
+        <file>button_dark_MIDDLE_REST.png</file>
+        <file>button_dark_RIGHT_HOVER.png</file>
+        <file>button_dark_RIGHT_PRESS.png</file>
+        <file>button_dark_RIGHT_REST.png</file>
     </qresource>
 </RCC>

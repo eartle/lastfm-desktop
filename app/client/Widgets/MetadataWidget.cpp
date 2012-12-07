@@ -147,7 +147,7 @@ MetadataWidget::fetchTrackInfo()
         connect( m_track.artist().getTags(), SIGNAL(finished()), SLOT(onArtistGotYourTags()));
         connect( m_track.artist().getEvents(), SIGNAL(finished()), SLOT(onArtistGotEvents()));
 
-        QString country = aApp->currentSession()->userInfo().country();
+        QString country = aApp->currentSession()->user().country();
         connect( m_track.getBuyLinks( country ), SIGNAL(finished()), SLOT(onTrackGotBuyLinks()) );
     }
 }
@@ -287,9 +287,9 @@ MetadataWidget::onArtistGotInfo()
             for ( int i = 0 ; i < tags.count() ; ++i )
             {
                 if ( i == 0 )
-                    tagString.append( tr( " %1" ).arg( Label::anchor( tags.at(i)["url"].text(), tags.at(i)["name"].text() ) ) );
+                    tagString.append( QString( " %1" ).arg( Label::anchor( tags.at(i)["url"].text(), tags.at(i)["name"].text() ) ) );
                 else
-                    tagString.append( tr( " %1 %2" ).arg( QString::fromUtf8( "・" ), Label::anchor( tags.at(i)["url"].text(), tags.at(i)["name"].text() ) ) );
+                    tagString.append( QString( " %1 %2" ).arg( QString::fromUtf8( "·" ), Label::anchor( tags.at(i)["url"].text(), tags.at(i)["name"].text() ) ) );
             }
 
             ui->artistPopTags->setText( tagString );
@@ -320,7 +320,7 @@ MetadataWidget::onArtistGotInfo()
         QDateTime published;
         published.fromString( lfm["artist"]["bio"]["published"].text(), "ddd, d MMM yyyy HH:mm:ss" );
 
-        ui->artistBioEdit->setText( tr( "Edited on %1 | %2 Edit" ).arg( published.toString( "" ), QString::fromUtf8( "" ) ) );
+        ui->artistBioEdit->setText( tr( "Edited on %1 | %2 Edit" ).arg( published.toString( "" ), QString::fromUtf8( "✎" ) ) );
 
         connect( ui->artistBio, SIGNAL(finished()), SLOT(checkFinished()) );
         ++m_numCalls;
@@ -359,7 +359,7 @@ MetadataWidget::onArtistGotYourTags()
                 if ( i ==0 )
                     tagString.append( tr( " %1" ).arg( Label::anchor( tags.at(i)["url"].text(), tags.at(i)["name"].text() ) ) );
                 else
-                    tagString.append( tr( " %1 %2" ).arg( QString::fromUtf8( "・" ), Label::anchor( tags.at(i)["url"].text(), tags.at(i)["name"].text() ) ) );
+                    tagString.append( tr( " %1 %2" ).arg( QString::fromUtf8( "·" ), Label::anchor( tags.at(i)["url"].text(), tags.at(i)["name"].text() ) ) );
             }
 
             ui->artistYourTags->setText( tagString );
@@ -525,7 +525,7 @@ MetadataWidget::onTrackGotInfo( const QByteArray& data )
                 if ( i ==0 )
                     tagString.append( tr( " %1" ).arg( Label::anchor( tags.at(i)["url"].text(), tags.at(i)["name"].text() ) ) );
                 else
-                    tagString.append( tr( " %1 %2" ).arg( QString::fromUtf8( "・" ), Label::anchor( tags.at(i)["url"].text(), tags.at(i)["name"].text() ) ) );
+                    tagString.append( tr( " %1 %2" ).arg( QString::fromUtf8( "·" ), Label::anchor( tags.at(i)["url"].text(), tags.at(i)["name"].text() ) ) );
             }
 
             ui->trackPopTags->setText( tagString );
@@ -567,7 +567,7 @@ MetadataWidget::onTrackGotYourTags()
                 if ( i ==0 )
                     tagString.append( tr( " %1" ).arg( Label::anchor( tags.at(i)["url"].text(), tags.at(i)["name"].text() ) ) );
                 else
-                    tagString.append( tr( " %1 %2" ).arg( QString::fromUtf8( "・" ), Label::anchor( tags.at(i)["url"].text(), tags.at(i)["name"].text() ) ) );
+                    tagString.append( tr( " %1 %2" ).arg( QString::fromUtf8( "·" ), Label::anchor( tags.at(i)["url"].text(), tags.at(i)["name"].text() ) ) );
             }
 
             ui->trackYourTags->setText( tagString );
@@ -668,11 +668,11 @@ MetadataWidget::getContextString( const Track& track )
            switch ( context.values().count() )
                {
                default:
-               case 1: contextString = tr( "From %2%1s library." ).arg( QChar( 0x2019 ), userLibrary( context.values().at(0), track.artist().name() ) ); break;
-               case 2: contextString = tr( "From %2 and %3%1s libraries." ).arg( QChar( 0x2019 ), userLibrary( context.values().at(0), track.artist().name() ), userLibrary( context.values().at(1), track.artist().name() ) ); break;
-               case 3: contextString = tr( "From %2, %3, and %4%1s libraries." ).arg( QChar( 0x2019 ), userLibrary( context.values().at(0), track.artist().name() ), userLibrary( context.values().at(1), track.artist().name() ), userLibrary( context.values().at(2), track.artist().name() ) ); break;
-               case 4: contextString = tr( "From %2, %3, %4, and %5%1s libraries." ).arg( QChar( 0x2019 ), userLibrary( context.values().at(0), track.artist().name() ),userLibrary(  context.values().at(1), track.artist().name() ), userLibrary( context.values().at(2), track.artist().name() ), userLibrary( context.values().at(3), track.artist().name() ) ); break;
-               case 5: contextString = tr( "From %2, %3, %4, %5, and %6%1s libraries." ).arg( QChar( 0x2019 ), userLibrary( context.values().at(0), track.artist().name() ), userLibrary( context.values().at(1), track.artist().name() ), userLibrary( context.values().at(2), track.artist().name() ), userLibrary( context.values().at(3), track.artist().name() ), userLibrary( context.values().at(4), track.artist().name() ) ); break;
+               case 1: contextString = tr( "From %1's library." ).arg( userLibrary( context.values().at(0), track.artist().name() ) ); break;
+               case 2: contextString = tr( "From %1 and %2's libraries." ).arg( userLibrary( context.values().at(0), track.artist().name() ), userLibrary( context.values().at(1), track.artist().name() ) ); break;
+               case 3: contextString = tr( "From %1, %2, and %3's libraries." ).arg( userLibrary( context.values().at(0), track.artist().name() ), userLibrary( context.values().at(1), track.artist().name() ), userLibrary( context.values().at(2), track.artist().name() ) ); break;
+               case 4: contextString = tr( "From %1, %2, %3, and %4's libraries." ).arg( userLibrary( context.values().at(0), track.artist().name() ),userLibrary(  context.values().at(1), track.artist().name() ), userLibrary( context.values().at(2), track.artist().name() ), userLibrary( context.values().at(3), track.artist().name() ) ); break;
+               case 5: contextString = tr( "From %1, %2, %3, %4, and %5's libraries." ).arg( userLibrary( context.values().at(0), track.artist().name() ), userLibrary( context.values().at(1), track.artist().name() ), userLibrary( context.values().at(2), track.artist().name() ), userLibrary( context.values().at(3), track.artist().name() ), userLibrary( context.values().at(4), track.artist().name() ) ); break;
                }
            }
            break;

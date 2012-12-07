@@ -44,15 +44,15 @@ UserToolButton::UserToolButton()
     }
 
     connect( this, SIGNAL( toggled( bool )), window(), SLOT( toggleProfile( bool )));
-    connect( qApp, SIGNAL( sessionChanged( unicorn::Session, unicorn::Session )), SLOT( onSessionChanged()));
+    connect( qApp, SIGNAL( sessionChanged(unicorn::Session)), SLOT( onSessionChanged(unicorn::Session)));
     connect( qApp, SIGNAL( gotUserInfo( lastfm::User )), SLOT( onUserGotInfo( lastfm::User )));
     connect( qApp, SIGNAL( rosterUpdated()), SLOT( onRosterUpdated()));
 }
 
 void 
-UserToolButton::onSessionChanged()
+UserToolButton::onSessionChanged( const unicorn::Session& /*session*/ )
 {
-    setIcon( QIcon());
+    setIcon( QIcon() );
 }
 
 void 

@@ -49,18 +49,15 @@ StationSearch::onFinished()
         lastfm::XmlQuery station = lfm["stations"]["station"];
         RadioStation rs( QUrl::fromPercentEncoding( station["url"].text().toUtf8() ) );
 
-        if(RadioService::instance().isRadioUsageAllowed())
+        if (rs.url().length())
         {
-            if (rs.url().length())
-            {
-                rs.setTitle( station["name"].text() );
-                emit searchResult(rs);
-                return;
-            }
-            else
-            {
-                emit error( tr("Could not start radio: %1").arg( tr( "no results for \"%1\"" ).arg( m_name ) ), "radio" );
-            }
+            rs.setTitle( station["name"].text() );
+            emit searchResult(rs);
+            return;
+        }
+        else
+        {
+            emit error( tr("Could not start radio: %1").arg( tr( "no results for \"%1\"" ).arg( m_name ) ), "radio" );
         }
     }
     else

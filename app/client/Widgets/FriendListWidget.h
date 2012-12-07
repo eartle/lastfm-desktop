@@ -22,8 +22,8 @@ public slots:
     void onCurrentChanged(int);
 
 private slots:
-    void onSessionChanged( unicorn::Session* session );
-    void onGotUserInfo( const lastfm::User& userDetails );
+    void onSessionChanged( const unicorn::Session& session );
+
     void onGotFriends();
     void onGotFriendsListeningNow();
     void onTextChanged( const QString& text );
@@ -37,12 +37,10 @@ private slots:
 #endif
 
 private:
-    void changeUser( const QString& newUsername );
-
     void showList();
 
 private:
-    QString m_currentUsername;
+    QString m_currentUser;
 
     Ui::FriendListWidget* ui;
     QPointer<QMovie> m_movie;
