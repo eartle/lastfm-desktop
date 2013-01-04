@@ -72,7 +72,7 @@ QuickStartWidget::QuickStartWidget( QWidget* parent )
     connect( ui.button, SIGNAL(clicked()), SLOT(play()));
     connect( ui.button, SIGNAL(customContextMenuRequested(QPoint)), SLOT(customContextMenuRequested(QPoint)));
 
-    layout->addWidget( ui.whyNotTry = new Label( "", this ) );
+    layout->addWidget( ui.whyNotTry = new unicorn::Label( "", this ) );
     ui.whyNotTry->setObjectName( "whyNotTry" );
     ui.whyNotTry->setTextFormat( Qt::RichText );
     ui.whyNotTry->setWordWrap( true );
@@ -201,10 +201,10 @@ QuickStartWidget::setSuggestions()
 
         // -- if they can play music, allow them to click on tags
         QStringList suggestions;
-        suggestions << Label::anchor( RadioStation::similar( artist1 ).url(), artist1.name()  )
-                    << Label::anchor( RadioStation::similar( artist2 ).url(), artist2.name() )
-                    << Label::anchor( RadioStation::tag( tag1 ).url(), tag1 )
-                    << Label::anchor( RadioStation::tag( tag2 ).url(), tag2 );
+            suggestions << unicorn::Label::anchor( RadioStation::similar( artist1 ).url(), artist1.name()  )
+                        << unicorn::Label::anchor( RadioStation::similar( artist2 ).url(), artist2.name() )
+                        << unicorn::Label::anchor( RadioStation::tag( tag1 ).url(), tag1 )
+                        << unicorn::Label::anchor( RadioStation::tag( tag2 ).url(), tag2 );
 
         ui.whyNotTry->setText( tr( "Why not try %1, %2, %3 or %4?" ).arg( suggestions.takeAt(qrand() % suggestions.count()),
                                                                           suggestions.takeAt(qrand() % suggestions.count()),

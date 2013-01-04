@@ -34,6 +34,7 @@ SOURCES += \
     AudioscrobblerSettings.cpp \
     Application.cpp \
     StationSearch.cpp \
+    SkipListener.cpp \
     ScrobSocket.cpp \
     MediaDevices/MediaDevice.cpp \
     MediaDevices/IpodDevice.cpp \
@@ -114,6 +115,7 @@ HEADERS += \
     Application.h \
     MainWindow.h \
     StationSearch.h \
+    SkipListener.h \
     Services/RadioService/RadioConnection.h \
     Services/ScrobbleService.h \
     Services/ScrobbleService/StopWatch.h \
@@ -187,7 +189,6 @@ HEADERS += \
     Services/AnalyticsService.h \
     Services/AnalyticsService/AnalyticsService.h \
     Services/AnalyticsService/PersistentCookieJar.h \
-    Widgets/ProxyWidget.h \
     Dialogs/ProxyDialog.h
 
 contains(DEFINES, FFMPEG_FINGERPRINTING) {

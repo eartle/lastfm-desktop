@@ -14,6 +14,10 @@ class GeneralSettingsWidget : public SettingsWidget
 public:
     GeneralSettingsWidget( QWidget* parent = 0 );
 
+private slots:
+    void onSpotifyLoginStatusChanged(bool);
+    void onSpotifyLoginClicked();
+
 private:
     void saveSettings();
     void populateLanguages();

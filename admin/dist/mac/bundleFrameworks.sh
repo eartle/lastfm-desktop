@@ -148,6 +148,7 @@ echo ======= Copying 3rd party frameworks ===========
 
 cp -R -H -f /Library/Frameworks/Growl.framework "$bundlePath/Contents/Frameworks"
 cp -R -H -f /Library/Frameworks/Sparkle.framework "$bundlePath/Contents/Frameworks"
+cp -R -H -f /Library/Frameworks/CocoaLibSpotify.framework "$bundlePath/Contents/Frameworks"
 #cp -R -L -f /Library/Frameworks/Breakpad.framework "$bundlePath/Contents/Frameworks"
 
 echo
