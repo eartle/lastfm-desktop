@@ -37,7 +37,11 @@
 using namespace std;
 
 // We use a custom message to tell our thread message loop to sync
-#define WM_SYNC_PLAYS_DB    WM_USER
+enum {
+	WM_SYNC_PLAYS_DB = WM_USER,
+	WM_STOP,
+	WM_IS_PLAYING
+};
     
 /******************************************************************************
     ITunesComThread
@@ -119,6 +123,52 @@ ITunesComThread::syncTrack( const VisualPluginTrack& vpt )
     LeaveCriticalSection( &m_critSect );
     
     PostMessage( m_hWnd, WM_SYNC_PLAYS_DB, reinterpret_cast<WPARAM>( this ), 0 );
+}
+
+void
+ITunesComThread::stop()
+{
+	// If the com thread was closed due to a close signal
+	// but iTunes didn't actaully close we should start up our thread again
+	if ( !m_com )
+		startComThread();
+    
+    PostMessage( m_hWnd, WM_STOP, reinterpret_cast<WPARAM>( this ), 0 );
+}
+
+void
+ITunesComThread::callbackIfStopped( void (*callback)() )
+{
+	if ( !m_com )
+		startComThread();
+
+	SendMessageCallback( m_hWnd, WM_IS_PLAYING, reinterpret_cast<WPARAM>( this ), 0, ITunesComThread::isPlayingCallback, reinterpret_cast<WPARAM>( callback ) );
+}
+
+bool
+ITunesComThread::isPlaying()
+{
+	bool isPlaying = true;
+
+	try
+	{
+		m_com->currentTrack();
+	}
+	catch (...)
+	{
+		isPlaying = false;
+	}
+
+	return isPlaying;
+}
+
+VOID
+ITunesComThread::isPlayingCallback( HWND hwnd, UINT uMsg, ULONG_PTR dwData, LRESULT isPlaying )
+{
+	void (*callback)() = reinterpret_cast<void (*)()>( dwData );
+
+	if ( !isPlaying )
+		callback();
 }
 
 
@@ -217,6 +267,48 @@ ITunesComThread::onStop( ITunesTrack )
     // to see if we're looping the same track.
     //m_lastTrack = ExtendedITunesTrack();
 }
+
+void
+ITunesComThread::doStop()
+{
+    //LOGWL( 3, "onStop m_lastTrack: " << m_lastTrack.toString() << " " << m_lastTrack.initialPlayCount() );
+    //LOGWL( 3, "onStop current track: " << m_com->currentTrack().toString() << " " << m_com->currentTrack().playCount() );
+    
+    // We compare the current track to last track here so as to prevent syncing when
+    // we're in 1x loop mode. Once iTunes changes to a different track we will sync.
+    // This conditional will also not hit when the user pressed stop on a track as iTunes
+    // considers the stopped track still current (it's still displayed in the iTunes
+    // current track window thingie). However, this is not a problem as the playcount
+    // hasn't increased in this case, so a sync isn't necessary.
+
+	ITunesTrack currentTrack;
+	
+	try
+	{
+		currentTrack = m_com->currentTrack();
+	}
+	catch (...)
+	{
+	}
+
+    if ( !m_lastTrack.isSameAs( currentTrack ) )
+    {
+        // We sync here because otherwise we will miss the sync at end of playlist.
+        // We blank the m_lastTrack to prevent a double sync from happening when
+        // we come into onPlay after leaving loop mode by skipping.
+        syncComTrackInThread( m_lastTrack );
+        m_lastTrack = ExtendedITunesTrack();    
+    }
+    else
+        LOGL( 3, "Same track, not syncing" );
+    
+
+    // Why do we clear this here?
+    // If we don't, we know that we always have an m_lastTrack in onPlay and can compare
+    // to see if we're looping the same track.
+    //m_lastTrack = ExtendedITunesTrack();
+}
+
 
 
 void
@@ -365,6 +457,17 @@ ITunesComThread::wndProc( HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
         ITunesComThread* instance = reinterpret_cast<ITunesComThread*>( wParam );
         instance->syncVisTrackInThread();
         return 0;
+    }
+	else if ( uMsg == WM_STOP )
+    {
+        ITunesComThread* instance = reinterpret_cast<ITunesComThread*>( wParam );
+        instance->doStop();
+        return 0;
+    }
+	else if ( uMsg == WM_IS_PLAYING )
+    {
+        ITunesComThread* instance = reinterpret_cast<ITunesComThread*>( wParam );
+        return instance->isPlaying();
     }
     else if ( uMsg == WM_TIMER )
     {

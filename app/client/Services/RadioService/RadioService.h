@@ -32,7 +32,6 @@
 #include <QThread>
 #include <QVariant>
 #include "lib/listener/State.h"
-#include "../Spotify/Spotify.h"
 
 namespace Phonon
 {
@@ -42,7 +41,6 @@ namespace Phonon
     class Path;
 }
 
-class Spotify;
 namespace unicorn { class Session; }
 
 /** @author <max@last.fm>
@@ -54,11 +52,6 @@ class RadioService : public QObject
 
 public:
     RadioService();
-
-    void spotifyLogin( const QString& username, const QString& password );
-    bool spotifyLoggedIn() const;
-
-    void queueSpotifyTrack( const QString& spotifyId );
 
     RadioStation station() const { return m_station; }
     Track currentTrack() const {return m_track;}
@@ -93,8 +86,6 @@ signals:
     void resumed();
     void stopped();
     void supportsDisco( bool supportsDisco );
-
-    void spotifyLoginStatusChanged( bool loggedIn );
 	
     /** the error is one of lastfm::ws::Error,
       * if UnknownError, then data is a fatal error from Phonon */
@@ -113,8 +104,6 @@ private slots:
     void onBuffering( int );
     void onFinished();
 
-    void onSpotifyError(Spotify::SpotifyError error, int code, const QString& description );
-
     void onMutedChanged(bool);
     void onOutputDeviceChanged(const Phonon::AudioOutputDevice&);
     void onVolumeChanged(qreal);
@@ -131,10 +120,7 @@ private:
     void deInitRadio();
 
     void restoreVolume();
-
-    bool enqueueTrack( const lastfm::Track& track );
-    void doPause( bool broadcast );
-
+    
     /** emits signals if appropriate */
     void changeState( State );
 	
@@ -147,7 +133,6 @@ private:
     RadioStation m_station;
     bool m_bErrorRecover;
     int m_maxUsageCount;
-    QPointer<Spotify> m_spotify;
     QString m_currentUser;
 };
 

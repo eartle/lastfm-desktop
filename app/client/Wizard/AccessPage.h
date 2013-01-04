@@ -47,14 +47,19 @@ public:
     bool validatePage();
     void cleanupPage();
 
+private:
+    void checkComplete();
+
 private slots:
-    void onAuthenticated( unicorn::Session* );
     void tryAgain();
+
     void onGotUserInfo( const lastfm::User& user );
+    void onSessionChanged( const unicorn::Session& session );
 
 protected:
     QList<unicorn::LoginProcess*> m_loginProcesses;
     bool m_valid;
+    bool m_gotUserInfo;
 };
 
 #endif //AUTH_IN_PROGRESS_PAGE_H

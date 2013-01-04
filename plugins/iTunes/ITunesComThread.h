@@ -55,35 +55,25 @@ public:
     ITunesComThread();
     ~ITunesComThread();
 
-    // These are the COM event handlers
-    virtual void
-    onDatabaseChanged( std::vector<ITunesEventInterface::ITunesIdSet> deletedObjects,
-                       std::vector<ITunesEventInterface::ITunesIdSet> changedObjects );
-    
-    virtual void
-    onPlay( ITunesTrack );
-
-    virtual void
-    onStop( ITunesTrack );
-
-    virtual void
-    onTrackChanged( ITunesTrack );
-
-    virtual void
-    onAboutToPromptUserToQuit();
-    
-    virtual void
-    onComCallsDisabled();
-
-    virtual void
-    onComCallsEnabled();
+	void callbackIfStopped( void (*callback)() );
 
     // But because the COM interface has a bug which delivers wonky events
     // when looping a track, we use this function to sync instead, which is
     // driven by the visualizer plugin stop/start events.
     void syncTrack( const VisualPluginTrack& vpt );
+	void stop();
 
 private:
+	// These are the COM event handlers
+    virtual void
+    onDatabaseChanged( std::vector<ITunesEventInterface::ITunesIdSet> deletedObjects,
+                       std::vector<ITunesEventInterface::ITunesIdSet> changedObjects );
+    virtual void onPlay( ITunesTrack );
+    virtual void onStop( ITunesTrack );
+    virtual void onTrackChanged( ITunesTrack );
+    virtual void onAboutToPromptUserToQuit();
+    virtual void onComCallsDisabled();
+    virtual void onComCallsEnabled();
 
 	void startComThread();
     
@@ -102,9 +92,12 @@ private:
 
     void syncComTrackInThread( const ExtendedITunesTrack& track );
     void syncVisTrackInThread();
+	bool isPlaying();
+	static VOID CALLBACK isPlayingCallback( HWND hwnd, UINT uMsg, ULONG_PTR dwData, LRESULT lResult );
 
     /// Syncs tracks that were put on the queue while COM was disabled
     void syncQueue();
+	void doStop();
 
     class ITunesComWrapper* m_com;
     class ITunesPlaysDatabase* m_db;

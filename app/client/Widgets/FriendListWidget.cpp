@@ -80,7 +80,7 @@ FriendListWidget::FriendListWidget(QWidget *parent) :
     ui->stackedWidget->setCurrentWidget( ui->spinnerPage );
     m_movie->start();
 
-    onSessionChanged( *aApp->currentSession() );
+    onSessionChanged( aApp->currentSession() );
 }
 
 #ifdef Q_OS_MAC

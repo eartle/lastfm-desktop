@@ -2,13 +2,13 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 [CustomMessages]
-Version=2.1.26
+Version=2.1.27
 
 
 [Setup]
-OutputBaseFilename=Last.fm-2.1.26
-VersionInfoVersion=2.1.26
-VersionInfoTextVersion=2.1.26
+OutputBaseFilename=Last.fm-2.1.27
+VersionInfoVersion=2.1.27
+VersionInfoTextVersion=2.1.27
 AppName="Last.fm Scrobbler"
 AppVerName="Last.fm Scrobbler {cm:Version}"
 VersionInfoDescription=Last.fm Installer
@@ -132,7 +132,7 @@ Source: "..\..\..\_bin\plugins\misc\liblogger_plugin.dll"; DestDir: "{app}\plugi
 
 ;media player plugin installers
 Source: "..\..\..\_bin\plugins\FooPlugin0.9.4Setup_2.3.1.3.exe"; DestDir: "{app}\plugins"; Flags: ignoreversion
-Source: "..\..\..\_bin\plugins\iTunesPluginWinSetup_5.0.5.1.exe"; DestDir: "{app}\plugins"; Flags: ignoreversion
+Source: "..\..\..\_bin\plugins\iTunesPluginWinSetup_5.0.5.3.exe"; DestDir: "{app}\plugins"; Flags: ignoreversion
 Source: "..\..\..\_bin\plugins\WinampPluginSetup_2.1.0.10.exe"; DestDir: "{app}\plugins"; Flags: ignoreversion
 Source: "..\..\..\_bin\plugins\WmpPluginSetup_2.1.0.7.exe"; DestDir: "{app}\plugins"; Flags: ignoreversion
 

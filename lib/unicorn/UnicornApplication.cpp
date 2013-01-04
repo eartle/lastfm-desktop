@@ -66,7 +66,7 @@
 unicorn::Application::Application( int& argc, char** argv ) throw( StubbornUserException )
                     : QtSingleApplication( argc, argv ),
                       m_logoutAtQuit( false ),
-                      m_currentSession( 0 ),
+                      m_currentSession( new unicorn::Session ),
                       m_wizardRunning( true ),
                       m_icm( 0 )
 {
@@ -236,6 +236,10 @@ unicorn::Application::translate()
 
     installTranslator( t1 );
     installTranslator( t2 );
+
+#ifdef Q_OS_MAC
+    macTranslate( qmExt );
+#endif
 }
 
 
@@ -271,8 +275,8 @@ unicorn::Application::onBusSessionQuery( const QString& uuid )
     QByteArray ba;
     QDataStream s( &ba, QIODevice::WriteOnly );
     QMap<QString, QString> sessionData;
-    sessionData[ "username" ] = currentSession()->user().name();
-    sessionData[ "sessionKey" ] = currentSession()->sessionKey();
+    sessionData[ "username" ] = currentSession().user().name();
+    sessionData[ "sessionKey" ] = currentSession().sessionKey();
     s << sessionData;
     m_bus->sendQueryResponse( uuid, ba );
 }
@@ -285,13 +289,13 @@ unicorn::Application::onBusSessionChanged( const unicorn::Session& session )
     changeSession( newSession, false );
 }
 
-unicorn::Session*
+void
 unicorn::Application::changeSession( const QString& username, const QString& sessionKey, bool announce )
 {
     return changeSession( new unicorn::Session( username, sessionKey ), announce );
 }
 
-unicorn::Session*
+void
 unicorn::Application::changeSession( Session* newSession, bool announce )
 {
     if( m_currentSession && !m_wizardRunning &&  Settings().value( "changeSessionConfirmation", true ).toBool() )
@@ -308,7 +312,7 @@ unicorn::Application::changeSession( Session* newSession, bool announce )
 
         Settings().setValue( "changeSessionConfirmation", !dontAskAgain );
         if( result != QMessageBox::Yes )
-            return 0;
+            return;
     }
 
     disconnect( m_currentSession, SIGNAL(userInfoUpdated(lastfm::User)), this, SIGNAL(gotUserInfo(lastfm::User)) );
@@ -326,9 +330,13 @@ unicorn::Application::changeSession( Session* newSession, bool announce )
     if( announce )
         m_bus->announceSessionChange( currentSession() );
 
-    emit sessionChanged( *currentSession() );
+    emit sessionChanged( currentSession() );
+}
 
-    return currentSession();
+unicorn::Session&
+unicorn::Application::currentSession() const
+{
+    return *m_currentSession;
 }
 
 void
@@ -588,7 +596,8 @@ unicorn::Application::restart()
     // In Mac OS the full path of aplication binary is:
     //    <base-path>/myApp.app/Contents/MacOS/myApp
     QStringList args;
-    args << applicationDirPath() + "/../../../Last.fm.app";
+    args << "-b";
+    args << "fm.last.Scrobbler";
     args << "-n"; // open a new instance even if one is running
     qDebug() << QProcess::startDetached( "open", args );
 #endif

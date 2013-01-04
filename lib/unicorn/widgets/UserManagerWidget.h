@@ -91,7 +91,7 @@ protected:
 
 
 private slots:
-    void onGotSession( unicorn::Session* s );
+    void onLoginComplete();
 
 private:
     QPointer<unicorn::LoginProcess> m_loginProcess;

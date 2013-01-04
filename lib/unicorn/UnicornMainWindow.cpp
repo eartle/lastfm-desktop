@@ -36,6 +36,7 @@
 #endif
 
 #define SETTINGS_POSITION_KEY "MainWindowPosition"
+#define SETTINGS_GEOMETRY_KEY "Geo"
 
 
 unicorn::MainWindow::MainWindow( QMenuBar* menuBar, QWidget* parent )
@@ -206,8 +207,8 @@ void
 unicorn::MainWindow::storeGeometry() const
 {
     AppSettings s;
-    s.beginGroup( metaObject()->className());
-    s.setValue( "geometry", frameGeometry());
+    s.beginGroup( metaObject()->className() );
+    s.setValue( SETTINGS_GEOMETRY_KEY, saveGeometry() );
     s.endGroup();
 }
 
@@ -231,15 +232,11 @@ unicorn::MainWindow::cleverlyPosition()
 {
     AppSettings s;
     s.beginGroup( metaObject()->className() );
-    QRect geo = s.value( "geometry", QRect()).toRect();
-    s.endGroup();
 
-    if( geo.isValid() )
-    {
-        // there is a saved geometry so restore it
-        move( geo.topLeft() );
-        resize( geo.size() );
-    }
+    if ( s.contains( SETTINGS_GEOMETRY_KEY ) )
+        restoreGeometry( s.value( SETTINGS_GEOMETRY_KEY, "" ).toByteArray() );
+
+    s.endGroup();
 
     int screenNum = qApp->desktop()->screenNumber( this );
     QRect screenRect = qApp->desktop()->availableGeometry( screenNum );

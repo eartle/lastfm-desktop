@@ -36,7 +36,7 @@
 
     keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
 
-    bool actualEnabled = unicorn::Settings().value( "mediaKeys", true ).toBool() && aApp->currentSession()->youRadio() && lastTrackRadio;
+    bool actualEnabled = unicorn::Settings().value( "mediaKeys", true ).toBool() && aApp->currentSession().youRadio() && lastTrackRadio;
 
     if ( [SPMediaKeyTap usesGlobalMediaKeyTap] && actualEnabled )
         [keyTap startWatchingMediaKeys];
@@ -153,7 +153,7 @@ MediaKey::applicationDidFinishLaunching( void* aNotification )
 void
 MediaKey::setEnabled( bool enabled )
 {
-    bool actualEnabled = enabled && aApp->currentSession()->youRadio() && m_lastTrackRadio;
+    bool actualEnabled = enabled && aApp->currentSession().youRadio() && m_lastTrackRadio;
     [g_tapDelegate setEnabled:actualEnabled];
 }
 
@@ -162,6 +162,6 @@ void
 MediaKey::onTrackStarted( const Track& newTrack, const Track& /*oldTrack*/ )
 {
     m_lastTrackRadio = newTrack.source() == Track::LastFmRadio;
-    bool actualEnabled = unicorn::Settings().value( "mediaKeys", true ).toBool() && aApp->currentSession()->youRadio() && m_lastTrackRadio;
+    bool actualEnabled = unicorn::Settings().value( "mediaKeys", true ).toBool() && aApp->currentSession().youRadio() && m_lastTrackRadio;
     [g_tapDelegate setEnabled:actualEnabled];
 }

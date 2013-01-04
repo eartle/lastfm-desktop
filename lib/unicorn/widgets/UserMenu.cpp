@@ -88,6 +88,6 @@ UserMenu::refresh()
     ag->setExclusive( true );
     connect( ag, SIGNAL(triggered(QAction*)), SLOT( onTriggered(QAction*)));
 
-    onSessionChanged( *qobject_cast<unicorn::Application*>(qApp)->currentSession());
+    onSessionChanged( qobject_cast<unicorn::Application*>(qApp)->currentSession() );
 }
 

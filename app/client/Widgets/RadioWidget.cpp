@@ -54,7 +54,7 @@ RadioWidget::RadioWidget(QWidget *parent)
     m_movie->setCacheMode( QMovie::CacheAll );
     ui->spinner->setMovie( m_movie );
 
-    refresh( *aApp->currentSession() );
+    refresh( aApp->currentSession() );
 }
 
 RadioWidget::~RadioWidget()

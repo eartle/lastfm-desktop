@@ -18,7 +18,7 @@ BetaDialog::BetaDialog(QWidget *parent) :
 
     ui->description->setText( "This is a beta version of the new Last.fm Desktop App. Please be gentle!" );
 
-    if ( aApp->currentSession()->user().type() == lastfm::User::TypeStaff )
+    if ( aApp->currentSession().user().type() == lastfm::User::TypeStaff )
     {
         ui->feedback->setText( "If you've' noticed a problem, create a Jira issue and we'll fix it immediately. Thanks!" );
 
@@ -35,7 +35,7 @@ BetaDialog::BetaDialog(QWidget *parent) :
 void
 BetaDialog::createIssue()
 {
-    if ( aApp->currentSession()->user().type() == lastfm::User::TypeStaff )
+    if ( aApp->currentSession().user().type() == lastfm::User::TypeStaff )
         unicorn::DesktopServices::openUrl( QUrl( "https://jira.last.fm/secure/CreateIssue.jspa?pid=10011&issuetype=1&Create=Create" ) );
     else
         unicorn::DesktopServices::openUrl( QUrl( "http://www.last.fm/group/Audioscrobbler+Beta" ) );

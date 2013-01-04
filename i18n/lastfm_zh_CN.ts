@@ -17,27 +17,27 @@
 <context>
     <name>AccessPage</name>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="45"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="46"/>
         <source>&lt;p&gt;Please click the &lt;strong&gt;Yes, Allow Access&lt;/strong&gt; button in your web browser to connect your Last.fm account to the Last.fm Desktop App.&lt;/p&gt;&lt;p&gt;If you haven&#x27;t connected because you closed the browser window or you clicked cancel, please try again.&lt;p /&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;请点击浏览器中的&lt;strong&gt;允许访问&lt;/strong&gt;按钮，将您的 Last.fm 帐户连接到 Last.fm 桌面程序。&lt;/p&gt;&lt;p&gt;如果您关闭了浏览器窗口或点击了取消而未能连接，请再试一次。&lt;p /&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="56"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="57"/>
         <source>We&#x27;re waiting for you to connect to Last.fm</source>
         <translation>我们正等待您连接到 Last.fm</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="61"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="62"/>
         <source>&lt;&lt; Back</source>
         <translation> &lt;&lt; 返回</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="62"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="63"/>
         <source>Continue</source>
         <translation>继续</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="63"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="64"/>
         <source>Try Again</source>
         <translation>再试一次</translation>
     </message>
@@ -55,7 +55,7 @@
         <translation>显示/隐藏 Last.fm</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="48"/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="58"/>
         <source>Proxy:</source>
         <translation>代理：</translation>
     </message>
@@ -95,7 +95,7 @@
         <translation>要使用直接连接，请留空这些字段</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="128"/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="48"/>
         <source>Cache Size:</source>
         <translation>缓存大小：</translation>
     </message>
@@ -231,42 +231,42 @@
 <context>
     <name>DeviceScrobbler</name>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="421"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="412"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="382"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="372"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="326"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="316"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="425"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="416"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="386"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="376"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="330"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="320"/>
         <source>Scrobble iPod</source>
         <translation>iPod 音乐记录</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="317"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="321"/>
         <source>Do you want to associate the device %1 to your audioscrobbler user account?</source>
         <translation>要将 %1 设备关联到 audioscrobbler 帐户吗？</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="327"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="331"/>
         <source>Device successfully associated to your user account. From now on you can scrobble the tracks you listen on this device.</source>
         <translation>设备与帐户成功关联。从现在起，在这台设备上收听的内容可以记录到帐户了。</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="373"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="377"/>
         <source>%1 tracks scrobbled.</source>
         <translation>记录了 %1 首单曲。</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="383"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="387"/>
         <source>No tracks to scrobble since your last sync.</source>
         <translation>上次同步后还未记录任何单曲。</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="413"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="417"/>
         <source>The iPod database could not be opened.</source>
         <translation>无法打开 iPod 数据库。</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="422"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="426"/>
         <source>An unknown error occurred while trying to access the iPod database.</source>
         <translation>访问 iPod 数据库时发生未知错误。</translation>
     </message>
@@ -362,17 +362,17 @@
         <translation>Last.fm 桌面程序</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/FirstRunWizard.cpp" line="215"/>
+        <location filename="../app/client/Wizard/FirstRunWizard.cpp" line="203"/>
         <source>Thanks &lt;strong&gt;%1&lt;/strong&gt;, your account is now connected!</source>
         <translation>谢谢您，&lt;strong&gt;%1&lt;/strong&gt;，帐户已连接！</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/FirstRunWizard.cpp" line="322"/>
+        <location filename="../app/client/Wizard/FirstRunWizard.cpp" line="313"/>
         <source>Importing...</source>
         <translation>导入中...</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/FirstRunWizard.cpp" line="339"/>
+        <location filename="../app/client/Wizard/FirstRunWizard.cpp" line="330"/>
         <source>Import complete!</source>
         <translation>导入完成！</translation>
     </message>
@@ -395,13 +395,13 @@
         <translation>通过用户名或真名搜索好友</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="307"/>
-        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="122"/>
+        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="293"/>
+        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="110"/>
         <source>Refresh Friends</source>
         <translation>刷新好友</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="189"/>
+        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="175"/>
         <source>Refreshing...</source>
         <translation>正在刷新...</translation>
     </message>
@@ -424,7 +424,7 @@
         <translation>男</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/FriendWidget.cpp" line="137"/>
+        <location filename="../app/client/Widgets/FriendWidget.cpp" line="164"/>
         <source>Scrobbling now from %1</source>
         <translation>正从 %1 记录音乐</translation>
     </message>
@@ -434,7 +434,7 @@
         <translation>女</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/FriendWidget.cpp" line="139"/>
+        <location filename="../app/client/Widgets/FriendWidget.cpp" line="166"/>
         <source>Scrobbling now</source>
         <translation>正在记录音乐</translation>
     </message>
@@ -500,17 +500,17 @@
         <translation>自动检查更新</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="32"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="36"/>
         <source>Menu bar and dock icons</source>
         <translation>菜单栏和 Dock 图标</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="33"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="37"/>
         <source>Only dock icon (hide menu bar icon)</source>
         <translation>仅限 Dock 图标（隐藏菜单栏图标）</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="34"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="38"/>
         <source>Only menu bar icon (hide dock icon)</source>
         <translation>仅限菜单栏图标（隐藏 Dock 图标）</translation>
     </message>
@@ -520,17 +520,17 @@
         <translation>启用媒体密钥</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="70"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="76"/>
         <source>System Language</source>
         <translation>系统语言</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="148"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="161"/>
         <source>Restart now?</source>
         <translation>现在重启？</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="149"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="162"/>
         <source>An application restart is required for the change to take effect. Would you like to restart now?</source>
         <translation>要使更改生效，需要重启程序。要现在重启程序？</translation>
     </message>
@@ -660,172 +660,176 @@
         <source>Sign up</source>
         <translation>注册</translation>
     </message>
+    <message>
+        <location filename="../app/client/Wizard/LoginPage.cpp" line="67"/>
+        <source>Proxy?</source>
+        <translation>代理？</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="221"/>
+        <location filename="../app/client/MainWindow.cpp" line="217"/>
         <source>There are updates to your media player plugins. Would you like to install them now?</source>
         <translation>您的媒体播放器插件有更新，想现在安装吗？</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="241"/>
+        <location filename="../app/client/MainWindow.cpp" line="237"/>
         <source>Your plugins haven&#x27;t been installed</source>
         <translation>还没安装插件</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="243"/>
+        <location filename="../app/client/MainWindow.cpp" line="239"/>
         <source>You can install them later through the file menu</source>
         <translation>稍后可从文件菜单安装插件</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="261"/>
+        <location filename="../app/client/MainWindow.cpp" line="257"/>
         <source>File</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="264"/>
+        <location filename="../app/client/MainWindow.cpp" line="260"/>
         <source>Install plugins</source>
         <translation>安装插件</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="272"/>
+        <location filename="../app/client/MainWindow.cpp" line="268"/>
         <source>&amp;Quit</source>
         <translation>退出(&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="281"/>
+        <location filename="../app/client/MainWindow.cpp" line="277"/>
         <source>View</source>
         <translation>视图</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="284"/>
+        <location filename="../app/client/MainWindow.cpp" line="280"/>
         <source>My Last.fm Profile</source>
         <translation>我的 Last.fm 专页</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="287"/>
+        <location filename="../app/client/MainWindow.cpp" line="283"/>
         <source>Scrobbles</source>
         <translation>音乐记录</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="288"/>
+        <location filename="../app/client/MainWindow.cpp" line="284"/>
         <source>Refresh</source>
         <translation>刷新</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="291"/>
+        <location filename="../app/client/MainWindow.cpp" line="287"/>
         <source>Controls</source>
         <translation>控制</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="295"/>
+        <location filename="../app/client/MainWindow.cpp" line="291"/>
         <source>Account</source>
         <translation>帐户</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="298"/>
+        <location filename="../app/client/MainWindow.cpp" line="294"/>
         <source>Tools</source>
         <translation>工具</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="300"/>
+        <location filename="../app/client/MainWindow.cpp" line="296"/>
         <source>Check for Updates</source>
         <translation>检查更新</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="303"/>
+        <location filename="../app/client/MainWindow.cpp" line="299"/>
         <source>Options</source>
         <translation>选项</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="307"/>
+        <location filename="../app/client/MainWindow.cpp" line="303"/>
         <source>Window</source>
         <translation>窗口</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="308"/>
+        <location filename="../app/client/MainWindow.cpp" line="304"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="309"/>
+        <location filename="../app/client/MainWindow.cpp" line="305"/>
         <source>Zoom</source>
         <translation>缩放</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="311"/>
+        <location filename="../app/client/MainWindow.cpp" line="307"/>
         <source>Last.fm</source>
         <translation>Last.fm</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="313"/>
+        <location filename="../app/client/MainWindow.cpp" line="309"/>
         <source>Bring All to Front</source>
         <translation>前置全部窗口</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="316"/>
+        <location filename="../app/client/MainWindow.cpp" line="312"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="317"/>
+        <location filename="../app/client/MainWindow.cpp" line="313"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="320"/>
+        <location filename="../app/client/MainWindow.cpp" line="316"/>
         <source>FAQ</source>
         <translation>常见问题</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="321"/>
+        <location filename="../app/client/MainWindow.cpp" line="317"/>
         <source>Forums</source>
         <translation>论坛</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="323"/>
+        <location filename="../app/client/MainWindow.cpp" line="319"/>
         <source>Tour</source>
         <translation>功能介绍</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="325"/>
+        <location filename="../app/client/MainWindow.cpp" line="321"/>
         <source>Show Licenses</source>
         <translation>显示许可证</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="328"/>
+        <location filename="../app/client/MainWindow.cpp" line="324"/>
         <source>Diagnostics</source>
         <translation>诊断</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="464"/>
-        <location filename="../app/client/MainWindow.cpp" line="445"/>
+        <location filename="../app/client/MainWindow.cpp" line="460"/>
+        <location filename="../app/client/MainWindow.cpp" line="441"/>
         <source>%1 - %2 - %3</source>
         <translation>%1 - %2 - %3</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="474"/>
-        <location filename="../app/client/MainWindow.cpp" line="466"/>
-        <location filename="../app/client/MainWindow.cpp" line="447"/>
+        <location filename="../app/client/MainWindow.cpp" line="470"/>
+        <location filename="../app/client/MainWindow.cpp" line="462"/>
+        <location filename="../app/client/MainWindow.cpp" line="443"/>
         <source>%1 - %2</source>
         <translation>%1 - %2</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="476"/>
+        <location filename="../app/client/MainWindow.cpp" line="472"/>
         <source>%1</source>
         <translation>%1</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="483"/>
+        <location filename="../app/client/MainWindow.cpp" line="479"/>
         <source>%1: %2</source>
         <translation>%1: %2</translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/MainWindow.cpp" line="504"/>
+        <location filename="../app/client/MainWindow.cpp" line="500"/>
         <source>&lt;a href=&quot;tracks&quot;&gt;%n play(s)&lt;/a&gt; ha(s|ve) been scrobbled from a device</source>
         <translation>
-            <numerusform>已从设备记录 &lt;a href=&quot;tracks&quot;&gt;%n 次播放&lt;/a&gt;</numerusform>
             <numerusform>已从设备记录 &lt;a href=&quot;tracks&quot;&gt;%n 次播放&lt;/a&gt;</numerusform>
         </translation>
     </message>
@@ -892,7 +896,6 @@
         <source>Play(s)</source>
         <translation>
             <numerusform>次播放</numerusform>
-            <numerusform>次播放</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -900,7 +903,6 @@
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="242"/>
         <source>Play(s) in your library</source>
         <translation>
-            <numerusform>次播放（在音乐库中）</numerusform>
             <numerusform>次播放（在音乐库中）</numerusform>
         </translation>
     </message>
@@ -923,7 +925,6 @@
         <translation>包括%1、%2等艺术家。</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="290"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="568"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="526"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="360"/>
@@ -931,7 +932,6 @@
         <translation> %1</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="292"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="570"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="528"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="362"/>
@@ -1102,7 +1102,7 @@
         <translation>&lt;h2&gt;从您的音乐播放器记录音乐&lt;/h2&gt;&lt;p&gt;在媒体播放器中播放些音乐，其详细信息会显示在“正在播放”页面。&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.cpp" line="72"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.cpp" line="65"/>
         <source>Hello, %1!</source>
         <translation>%1，您好！</translation>
     </message>
@@ -1110,33 +1110,33 @@
 <context>
     <name>PlayableItemWidget</name>
     <message>
-        <location filename="../app/client/Widgets/PlayableItemWidget.cpp" line="105"/>
+        <location filename="../app/client/Widgets/PlayableItemWidget.cpp" line="118"/>
         <source>A Radio Station</source>
         <translation>电台</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlayableItemWidget.cpp" line="317"/>
-        <location filename="../app/client/Widgets/PlayableItemWidget.cpp" line="106"/>
+        <location filename="../app/client/Widgets/PlayableItemWidget.cpp" line="119"/>
+        <location filename="../app/client/Widgets/PlayableItemWidget.cpp" line="318"/>
         <source>Play %1</source>
         <translation>播放%1</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlayableItemWidget.cpp" line="158"/>
+        <location filename="../app/client/Widgets/PlayableItemWidget.cpp" line="165"/>
         <source>Multi-Library Radio</source>
         <translation>多音乐库电台</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlayableItemWidget.cpp" line="320"/>
+        <location filename="../app/client/Widgets/PlayableItemWidget.cpp" line="321"/>
         <source>Cue %1</source>
         <translation>接下来播放%1</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlayableItemWidget.cpp" line="333"/>
+        <location filename="../app/client/Widgets/PlayableItemWidget.cpp" line="334"/>
         <source>Play %1 and %2 Library Radio</source>
         <translation>播放 %1 和 %2 音乐库电台</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlayableItemWidget.cpp" line="335"/>
+        <location filename="../app/client/Widgets/PlayableItemWidget.cpp" line="336"/>
         <source>Cue %1 and %2 Library Radio</source>
         <translation>接下来播放%1和%2音乐库电台</translation>
     </message>
@@ -1144,25 +1144,25 @@
 <context>
     <name>PlaybackControlsWidget</name>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="134"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="129"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="153"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="148"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="116"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="113"/>
         <source>Love</source>
         <translation>喜欢</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="135"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="130"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="154"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="149"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="138"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="135"/>
         <source>Ban</source>
         <translation>禁止</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="136"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="131"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="122"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="155"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="150"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="141"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="45"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="154"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="151"/>
@@ -1170,50 +1170,50 @@
         <translation>播放</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="137"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="132"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="156"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="151"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="176"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="173"/>
         <source>Skip</source>
         <translation>跳过</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="136"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="131"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="122"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="155"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="150"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="141"/>
         <source>Pause</source>
         <translation>暂停</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="122"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="141"/>
         <source>Resume</source>
         <translation>继续</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="134"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="129"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="153"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="148"/>
         <source>Unlove</source>
         <translation>不喜欢</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="235"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="254"/>
         <source>Tuning</source>
         <translation>正在找台</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="296"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="236"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="315"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="255"/>
         <source>A Radio Station</source>
         <translation>某电台</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="305"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="294"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="324"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="313"/>
         <source>Listening to</source>
         <translation>正在收听</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="307"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="326"/>
         <source>Scrobbling from</source>
         <translation>记录自</translation>
     </message>
@@ -1224,7 +1224,6 @@
         <location filename="../app/client/Widgets/ProfileArtistWidget.cpp" line="38"/>
         <source>%L1 play(s)</source>
         <translation>
-            <numerusform>%L1 次播放</numerusform>
             <numerusform>%L1 次播放</numerusform>
         </translation>
     </message>
@@ -1289,7 +1288,7 @@
         <source>Last.fm has submitted your listening history to the server.
 Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>Last.fm 已将您的收听历史提交到服务器。
-新曲目将在几分钟后更新到您的专页中。</translation>
+新曲目将在几分钟后更新到您的专页。</translation>
     </message>
     <message>
         <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="144"/>
@@ -1344,32 +1343,37 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>&lt;p&gt;要记录播放的音乐，您的媒体播放器需要一个 Last.fm 专用插件。&lt;/p&gt;&lt;p&gt;请选择要用来记录音乐的媒体播放器，然后点击&lt;strong&gt;安装插件&lt;/strong&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/PluginsPage.cpp" line="97"/>
+        <location filename="../app/client/Wizard/PluginsPage.cpp" line="89"/>
         <source>(newer version)</source>
         <translation>（更新版本）</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/PluginsPage.cpp" line="102"/>
+        <location filename="../app/client/Wizard/PluginsPage.cpp" line="94"/>
         <source>(Plugin installed tick to reinstall)</source>
         <translation>（插件已安装，选择后重新安装）</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/PluginsPage.cpp" line="110"/>
+        <location filename="../app/client/Wizard/PluginsPage.cpp" line="102"/>
         <source>Next step, install the Last.fm plugins to be able to scrobble the music you listen to.</source>
         <translation>下一步，请安装 Last.fm 插件，以便记录您收听的音乐。</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/PluginsPage.cpp" line="112"/>
+        <location filename="../app/client/Wizard/PluginsPage.cpp" line="117"/>
         <source>Install Plugins</source>
         <translation>安装插件</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/PluginsPage.cpp" line="114"/>
+        <location filename="../app/client/Wizard/PluginsPage.cpp" line="118"/>
+        <source>Continue</source>
+        <translation>继续</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Wizard/PluginsPage.cpp" line="106"/>
         <source>&lt;&lt; Back</source>
         <translation>&lt;&lt; 返回</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/PluginsPage.cpp" line="115"/>
+        <location filename="../app/client/Wizard/PluginsPage.cpp" line="114"/>
         <source>Skip &gt;&gt;</source>
         <translation>跳过 &gt;&gt;</translation>
     </message>
@@ -1414,7 +1418,6 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <source>%L1 play(s)</source>
         <translation>
             <numerusform>%L1 次播放</numerusform>
-            <numerusform>%L1 次播放</numerusform>
         </translation>
     </message>
 </context>
@@ -1431,49 +1434,44 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>整体最佳艺术家</translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="27"/>
+        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="28"/>
         <source>Scrobble(s)</source>
         <translation>
             <numerusform>次记录</numerusform>
-            <numerusform>次记录</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="192"/>
-        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="28"/>
+        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="191"/>
+        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="29"/>
         <source>Loved track(s)</source>
         <translation>
             <numerusform>首喜爱曲目</numerusform>
-            <numerusform>首喜爱曲目</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="79"/>
+        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="109"/>
         <source>%L1 artist(s)</source>
         <translation>
             <numerusform>%L1 位艺术家</numerusform>
-            <numerusform>%L1 位艺术家</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="80"/>
+        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="110"/>
         <source>%L1 track(s)</source>
         <translation>
-            <numerusform>%L1 首曲目</numerusform>
             <numerusform>%L1 首曲目</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="82"/>
+        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="112"/>
         <source>You have %1 in your library and on average listen to %2 per day.</source>
         <translation>您的音乐库中有 %1，平均每天收听 %2。</translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="222"/>
-        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="108"/>
+        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="221"/>
+        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="69"/>
         <source>Scrobble(s) since %1</source>
         <translation>
-            <numerusform>次记录（自 %1）</numerusform>
             <numerusform>次记录（自 %1）</numerusform>
         </translation>
     </message>
@@ -1512,6 +1510,57 @@ Your profile will be updated with the new tracks in a few minutes.</source>
     </message>
 </context>
 <context>
+    <name>ProxyDialog</name>
+    <message>
+        <location filename="../app/client/Dialogs/ProxyDialog.ui" line="20"/>
+        <source>Proxy Settings</source>
+        <translation>代理设置</translation>
+    </message>
+</context>
+<context>
+    <name>ProxyWidget</name>
+    <message>
+        <location filename="../app/client/Widgets/ProxyWidget.ui" line="23"/>
+        <source>Host:</source>
+        <translation>主机：</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Widgets/ProxyWidget.ui" line="33"/>
+        <source>Username:</source>
+        <translation>用户名：</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Widgets/ProxyWidget.ui" line="40"/>
+        <source>Port:</source>
+        <translation>端口：</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Widgets/ProxyWidget.ui" line="50"/>
+        <source>Password:</source>
+        <translation>密码：</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Widgets/ProxyWidget.cpp" line="19"/>
+        <source>Auto-detect</source>
+        <translation>自动检测</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Widgets/ProxyWidget.cpp" line="19"/>
+        <source>No-proxy</source>
+        <translation>无代理</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Widgets/ProxyWidget.cpp" line="19"/>
+        <source>HTTP</source>
+        <translation>HTTP</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Widgets/ProxyWidget.cpp" line="19"/>
+        <source>SOCKS5</source>
+        <translation>SOCKS5</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <location filename="../lib/listener/PlayerCommandParser.h" line="58"/>
@@ -1519,7 +1568,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>无法识别的媒体播放器</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="282"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="286"/>
         <source>Where is your iPod mounted?</source>
         <translation>您的 iPod 安装在何处？</translation>
     </message>
@@ -1532,19 +1581,19 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>输入艺术家名称或标签，然后按右边的播放按钮</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="293"/>
+        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="283"/>
         <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="68"/>
         <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="67"/>
         <source>Play</source>
         <translation>播放</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="208"/>
+        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="209"/>
         <source>Why not try %1, %2, %3 or %4?</source>
         <translation>试试%1、%2、%3或%4吧！</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="296"/>
+        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="286"/>
         <source>Play next</source>
         <translation>播放下一首</translation>
     </message>
@@ -1559,35 +1608,11 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         </translation>
     </message>
     <message>
-        <location filename="../app/client/Services/RadioService/RadioService.cpp" line="172"/>
-        <location filename="../app/client/Services/RadioService/RadioService.cpp" line="137"/>
+        <location filename="../app/client/Services/RadioService/RadioService.cpp" line="162"/>
+        <location filename="../app/client/Services/RadioService/RadioService.cpp" line="128"/>
         <source>A Radio Station</source>
         <translation>某电台</translation>
     </message>
-</context>
-<context>
-    <name>RadioWidget</name>
-    <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="255"/>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="242"/>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="86"/>
-        <source>Last Station</source>
-        <translation>上次收听的电台</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="201"/>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="96"/>
-        <source>A Radio Station</source>
-        <translation>某电台</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="113"/>
-        <source>Personal Stations</source>
-        <translation>个人电台</translation>
-    </message>
-</context>
-<context>
-    <name>RadioService</name>
     <message>
         <location filename="../app/client/Services/RadioService/RadioService.cpp" line="85"/>
         <source>You need to be a subscriber to listen to radio</source>
@@ -1597,17 +1622,36 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>RadioWidget</name>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="121"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="220"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="207"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui" line="68"/>
+        <source>Last Station</source>
+        <translation>上次收听的电台</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="166"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="82"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui" line="75"/>
+        <source>A Radio Station</source>
+        <translation>某电台</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="113"/>
+        <source>Personal Stations</source>
+        <translation>个人电台</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="93"/>
         <source>My Library Radio</source>
         <translation>音乐库电台</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="121"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="93"/>
         <source>Music you know and love</source>
         <translation>您收听过的和喜爱的音乐</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="123"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="94"/>
         <source>My Mix Radio</source>
         <translation>混合电台</translation>
     </message>
@@ -1617,12 +1661,12 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>个人</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="123"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="94"/>
         <source>Your library plus new music</source>
         <translation>音乐库与新音乐</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="125"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="95"/>
         <source>My Recommended Radio</source>
         <translation>推荐电台</translation>
     </message>
@@ -1632,7 +1676,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>成为付费用户以收听电台</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="125"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="95"/>
         <source>New music from Last.fm</source>
         <translation>来自 Last.fm 的新音乐</translation>
     </message>
@@ -1642,7 +1686,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>只有 Last.fm 付费用户才能通过此应用程序收听电台。现在就订购服务吧，马上可以收听电台，同时获得其它更酷的功能！</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="134"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui" line="151"/>
         <source>Network Stations</source>
         <translation>社交圈电台</translation>
     </message>
@@ -1657,35 +1701,40 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>在 www.last.fm 免费收听</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="142"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="97"/>
         <source>My Friends&#x27; Radio</source>
         <translation>好友电台</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="142"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="97"/>
         <source>Music your friends like</source>
         <translation>好友喜欢的音乐</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="144"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="98"/>
         <source>My Neighbourhood Radio</source>
         <translation>邻居电台</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="144"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="98"/>
         <source>Music from listeners like you</source>
         <translation>来自相似听众的音乐</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="153"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui" line="200"/>
         <source>Recent Stations</source>
         <translation>最近收听的电台</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="251"/>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="200"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="216"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="165"/>
         <source>Now Playing</source>
         <translation>正在播放</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="125"/>
+        <source>Subscribe to listen to radio, only %1 a month</source>
+        <translation>成为付费用户以收听电台，每月只需 %1</translation>
     </message>
 </context>
 <context>
@@ -1700,17 +1749,6 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <source>It looks like you&#x27;ve played these tracks. Would you like to scrobble them?</source>
         <translation>您好像播放了这些歌曲，想记录到专页吗？</translation>
     </message>
-</context>
-<context>
-    <name>RadioWidget</name>
-    <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="125"/>
-        <source>Subscribe to listen to radio, only %1 a month</source>
-        <translation>成为付费用户以收听电台，每月只需 %1</translation>
-    </message>
-</context>
-<context>
-    <name>ScrobbleConfirmationDialog</name>
     <message>
         <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line="76"/>
         <source>Scrobble devices automatically</source>
@@ -1725,7 +1763,6 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.cpp" line="72"/>
         <source>%n play(s) ha(s|ve) been scrobbled from a device</source>
         <translation>
-            <numerusform>已从设备记录过 %n 次播放</numerusform>
             <numerusform>已从设备记录过 %n 次播放</numerusform>
         </translation>
     </message>
@@ -1817,17 +1854,17 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>ScrobblesListWidget</name>
     <message>
-        <location filename="../app/client/Widgets/ScrobblesListWidget.cpp" line="239"/>
+        <location filename="../app/client/Widgets/ScrobblesListWidget.cpp" line="232"/>
         <source>More Scrobbles at Last.fm</source>
         <translation>在 Last.fm 查看更多音乐记录</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ScrobblesListWidget.cpp" line="391"/>
+        <location filename="../app/client/Widgets/ScrobblesListWidget.cpp" line="384"/>
         <source>Refreshing...</source>
         <translation>正在刷新...</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ScrobblesListWidget.cpp" line="391"/>
+        <location filename="../app/client/Widgets/ScrobblesListWidget.cpp" line="384"/>
         <source>Refresh Scrobbles</source>
         <translation>刷新音乐记录</translation>
     </message>
@@ -1877,7 +1914,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
     <message>
         <location filename="../lib/unicorn/ScrobblesModel.cpp" line="168"/>
         <source>Invalid track title</source>
-        <translation>曲目名错误</translation>
+        <translation>歌曲名错误</translation>
     </message>
     <message>
         <location filename="../lib/unicorn/ScrobblesModel.cpp" line="170"/>
@@ -1966,7 +2003,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
     <message>
         <location filename="../app/client/Widgets/SideBar.cpp" line="64"/>
         <source>Profile</source>
-        <translation>我的信息</translation>
+        <translation>我</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/SideBar.cpp" line="66"/>
@@ -1983,17 +2020,27 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <source>Sash</source>
         <translation>Sash</translation>
     </message>
+    <message>
+        <location filename="../app/client/Widgets/SideBar.cpp" line="123"/>
+        <source>Next Section</source>
+        <translation>下一视图</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Widgets/SideBar.cpp" line="124"/>
+        <source>Previous Section</source>
+        <translation>上一视图</translation>
+    </message>
 </context>
 <context>
     <name>StationSearch</name>
     <message>
-        <location filename="../app/client/StationSearch.cpp" line="68"/>
-        <location filename="../app/client/StationSearch.cpp" line="62"/>
+        <location filename="../app/client/StationSearch.cpp" line="65"/>
+        <location filename="../app/client/StationSearch.cpp" line="60"/>
         <source>Could not start radio: %1</source>
         <translation>无法启动电台：%1</translation>
     </message>
     <message>
-        <location filename="../app/client/StationSearch.cpp" line="62"/>
+        <location filename="../app/client/StationSearch.cpp" line="60"/>
         <source>no results for &quot;%1&quot;</source>
         <translation>未找到有关“%1”的结果</translation>
     </message>
@@ -2006,17 +2053,17 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>音乐记录已关闭</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/StatusBar.cpp" line="116"/>
+        <location filename="../app/client/Widgets/StatusBar.cpp" line="109"/>
         <source>%1 (%2)</source>
         <translation>%1 (%2)</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/StatusBar.cpp" line="116"/>
+        <location filename="../app/client/Widgets/StatusBar.cpp" line="109"/>
         <source>Online</source>
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/StatusBar.cpp" line="116"/>
+        <location filename="../app/client/Widgets/StatusBar.cpp" line="109"/>
         <source>Offline</source>
         <translation>已断开</translation>
     </message>
@@ -2103,7 +2150,7 @@ or choose from below</source>
     <message>
         <location filename="../app/client/Wizard/TourFinishPage.cpp" line="16"/>
         <source>&lt;p&gt;Now you&#x27;re ready to get started! Just click &lt;strong&gt;Finish&lt;/strong&gt; and start exploring.&lt;/p&gt;&lt;p&gt;We&#x27;ve also finished importing your listening history and have added it to your Last.fm profile.&lt;/p&gt;&lt;p&gt;Thanks for installing the Last.fm Desktop App, we hope you enjoy using it!&lt;/p&gt;</source>
-        <translation>&lt;p&gt;现在一切就绪，可以使用了！请点击&lt;strong&gt;完成&lt;/strong&gt;开始发现之旅吧。&lt;/p&gt;&lt;p&gt;我们还导入了您的收听历史，并更新了您的 Last.fm 专页。&lt;/p&gt;&lt;p&gt;感谢您安装 Last.fm 桌面程序，祝您使用愉快！&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;现在一切就绪，可以使用了！请点击&lt;strong&gt;完成&lt;/strong&gt;，开始音乐之旅吧。&lt;/p&gt;&lt;p&gt;我们还导入了您的收听历史，并更新了您的 Last.fm 专页。&lt;/p&gt;&lt;p&gt;感谢您安装 Last.fm 桌面程序，祝您使用愉快！&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/TourFinishPage.cpp" line="29"/>
@@ -2180,7 +2227,7 @@ or choose from below</source>
 <context>
     <name>TourRadioPage</name>
     <message>
-        <location filename="../app/client/Wizard/TourRadioPage.cpp" line="35"/>
+        <location filename="../app/client/Wizard/TourRadioPage.cpp" line="37"/>
         <source>Listen to non-stop, personalised radio</source>
         <translation>无间断收听个性化电台</translation>
     </message>
@@ -2190,22 +2237,37 @@ or choose from below</source>
         <translation>成为付费用户，无间断地收听个性化电台*</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/TourRadioPage.cpp" line="46"/>
+        <location filename="../app/client/Wizard/TourRadioPage.cpp" line="38"/>
+        <source>&lt;p&gt;Use the Last.fm Desktop App to listen to personalised radio based on the music you want to hear.&lt;/p&gt;&lt;p&gt;Every play of every Last.fm station is totally different, from stations based on artists and tags to brand new recommendations tailored to your music taste.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;使用 Last.fm 桌面程序收听个性化电台，根据您的喜好播放音乐。&lt;/p&gt;&lt;p&gt;从艺术家和标签电台，到随您的音乐品味变换的全新推荐，每个 Last.fm 电台播放的音乐都不尽相同。&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Wizard/TourRadioPage.cpp" line="43"/>
+        <source>Subscribe and listen to non-stop, personalised radio</source>
+        <translation>成为付费用户，无间断地收听个性化电台</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Wizard/TourRadioPage.cpp" line="44"/>
+        <source>&lt;p&gt;Subscribe to Last.fm and use the Last.fm Desktop App to listen to personalised radio based on the music you want to hear.&lt;/p&gt;&lt;p&gt;Every play of every Last.fm station is totally different, from stations based on artists and tags to brand new recommendations tailored to your music taste.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;订购 Last.fm 服务，使用 Last.fm 桌面程序收听个性化电台，根据您的喜好播放音乐。&lt;/p&gt;&lt;p&gt;从艺术家和标签电台，到随您的音乐品味变换的全新推荐，每个 Last.fm 电台播放的音乐都不尽相同。&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Wizard/TourRadioPage.cpp" line="47"/>
         <source>Subscribe</source>
         <translation>订购</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/TourRadioPage.cpp" line="50"/>
+        <location filename="../app/client/Wizard/TourRadioPage.cpp" line="51"/>
         <source>Continue</source>
         <translation>继续</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/TourRadioPage.cpp" line="52"/>
+        <location filename="../app/client/Wizard/TourRadioPage.cpp" line="53"/>
         <source>&lt;&lt; Back</source>
         <translation>&lt;&lt; 返回</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/TourRadioPage.cpp" line="53"/>
+        <location filename="../app/client/Wizard/TourRadioPage.cpp" line="54"/>
         <source>Skip Tour &gt;&gt;</source>
         <translation>跳过介绍 &gt;&gt;</translation>
     </message>
@@ -2394,7 +2456,7 @@ or choose from below</source>
 <context>
     <name>UserMenu</name>
     <message>
-        <location filename="../lib/unicorn/widgets/UserMenu.cpp" line="80"/>
+        <location filename="../lib/unicorn/widgets/UserMenu.cpp" line="74"/>
         <source>Subscribe</source>
         <translation>订购</translation>
     </message>
@@ -2416,77 +2478,82 @@ or choose from below</source>
 <context>
     <name>audioscrobbler::Application</name>
     <message>
-        <location filename="../app/client/Application.cpp" line="162"/>
+        <location filename="../app/client/Application.cpp" line="181"/>
+        <source>Accounts</source>
+        <translation>帐户</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Application.cpp" line="183"/>
         <source>Show Scrobbler</source>
         <translation>显示 Scrobbler</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="167"/>
+        <location filename="../app/client/Application.cpp" line="188"/>
         <source>Love</source>
         <translation>喜欢</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="179"/>
+        <location filename="../app/client/Application.cpp" line="200"/>
         <source>Play</source>
         <translation>播放</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="188"/>
+        <location filename="../app/client/Application.cpp" line="209"/>
         <source>Skip</source>
         <translation>跳过</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="196"/>
+        <location filename="../app/client/Application.cpp" line="217"/>
         <source>Tag</source>
         <translation>标签</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="203"/>
+        <location filename="../app/client/Application.cpp" line="224"/>
         <source>Share</source>
         <translation>分享</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="210"/>
+        <location filename="../app/client/Application.cpp" line="231"/>
         <source>Ban</source>
         <translation>禁止</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="218"/>
+        <location filename="../app/client/Application.cpp" line="239"/>
         <source>Mute</source>
         <translation>静音</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="225"/>
+        <location filename="../app/client/Application.cpp" line="246"/>
         <source>Scrobble iPod...</source>
         <translation>记录 iPod...</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="231"/>
+        <location filename="../app/client/Application.cpp" line="252"/>
         <source>Visit Last.fm profile</source>
         <translation>访问 Last.fm 专页</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="236"/>
+        <location filename="../app/client/Application.cpp" line="257"/>
         <source>Enable Scrobbling</source>
         <translation>启用音乐记录</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="247"/>
+        <location filename="../app/client/Application.cpp" line="268"/>
         <source>Quit %1</source>
         <translation>退出 %1</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="423"/>
+        <location filename="../app/client/Application.cpp" line="451"/>
         <source>from %1</source>
         <translation>专辑：%1</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="719"/>
+        <location filename="../app/client/Application.cpp" line="758"/>
         <source>Are you sure you want to quit %1?</source>
         <translation>确定要退出 %1 吗？</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="720"/>
+        <location filename="../app/client/Application.cpp" line="759"/>
         <source>%1 is about to quit. Tracks played will not be scrobbled if you continue.</source>
         <translation>%1 即将退出，如果继续，播放的曲目不会得到记录。</translation>
     </message>
@@ -2494,12 +2561,12 @@ or choose from below</source>
 <context>
     <name>unicorn::Application</name>
     <message>
-        <location filename="../lib/unicorn/UnicornApplication.cpp" line="317"/>
+        <location filename="../lib/unicorn/UnicornApplication.cpp" line="304"/>
         <source>Changing User</source>
         <translation>切换用户</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/UnicornApplication.cpp" line="318"/>
+        <location filename="../lib/unicorn/UnicornApplication.cpp" line="305"/>
         <source>%1 will be logged into the Scrobbler and Last.fm Radio. All music will now be scrobbled to this account. Do you want to continue?</source>
         <translation>%1 将登录到 Scrobbler 和 Last.fm 电台。所有音乐将记录到该帐户，要继续吗？</translation>
     </message>

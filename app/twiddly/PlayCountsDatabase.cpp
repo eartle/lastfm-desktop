@@ -103,6 +103,22 @@ PlayCountsDatabase::PlayCountsDatabase( const QString& path )
         query.exec( "CREATE TABLE " TABLE_NAME " ( " SCHEMA " );" );
         query.exec( "CREATE INDEX " INDEX "_idx ON " TABLE_NAME " ( " INDEX " );" );
     }
+
+    m_query = new QSqlQuery( m_db );
+#ifdef WIN32
+    m_query->prepare( "SELECT play_count FROM itunes_db "
+                   "WHERE path = :path LIMIT 1" );
+#else
+    m_query->prepare( "SELECT play_count FROM itunes_db "
+                   "WHERE persistent_id = :pid LIMIT 1" );
+#endif
+
+    m_snapshotQuery = new QSqlQuery( m_db );
+#ifdef WIN32
+    m_snapshotQuery->exec( "SELECT path, play_count FROM itunes_db ORDER BY path ASC" );
+#else
+    m_snapshotQuery->exec( "SELECT persistent_id, play_count FROM itunes_db ORDER BY persistent_id ASC" );
+#endif
 }
 
 
@@ -111,32 +127,50 @@ PlayCountsDatabase::~PlayCountsDatabase()
     // NOTE don't do this! It closes any copies too, but if we let Qt handle it
     // it only closes the connection for the last db instance
     //m_db.close();
+
+    delete m_query;
+    delete m_snapshotQuery;
 }
 
 
 PlayCountsDatabase::Track
 PlayCountsDatabase::operator[]( const QString& uid )
 {
-    QSqlQuery query( m_db );
+    if ( m_snapshotQuery->first() )
+    {
+        do
+        {
+            if ( m_snapshotQuery->value( 0 ).toString() == uid )
+            {
+                bool ok;
+                int count = m_snapshotQuery->value( 1 ).toInt( &ok );
 
+                if ( ok )
+                    return Track( uid, count );
+                else
+                    return Track();
+            }
+        } while ( m_snapshotQuery->next() );
+    }
+}
+
+PlayCountsDatabase::Track
+PlayCountsDatabase::track( const QString& uid )
+{
 #ifdef WIN32
     QString path = uid;
-    query.prepare( "SELECT play_count FROM itunes_db "
-                   "WHERE path = :path LIMIT 1" );
-    query.bindValue( ":path", path );
+    m_query->bindValue( ":path", path );
 #else
-    query.prepare( "SELECT play_count FROM itunes_db "
-                   "WHERE persistent_id = :pid LIMIT 1" );
-    query.bindValue( ":pid", uid );
+    m_query->bindValue( ":pid", uid );
 #endif
-    query.exec();
+    m_query->exec();
 
-    Q_ASSERT( query.size() < 2 );
+    Q_ASSERT( m_query->size() < 2 );
 
-    if ( query.first() )
+    if ( m_query->first() )
     {
         bool ok;
-        int count = query.value( 0 ).toInt( &ok );
+        int count = m_query->value( 0 ).toInt( &ok );
         
         if ( ok )
         {
@@ -151,6 +185,8 @@ PlayCountsDatabase::operator[]( const QString& uid )
 void
 PlayCountsDatabase::beginTransaction()
 {
+    qDebug() << "beginTransaction";
+
     // we try until blue in the face to begin the transaction, as we really,
     // really want db lock
     
@@ -172,6 +208,8 @@ PlayCountsDatabase::beginTransaction()
 void
 PlayCountsDatabase::endTransaction()
 {
+    qDebug() << "endTransaction";
+
     // FIXME: what happens if exec returns false?
     QSqlQuery( m_db ).exec( "END TRANSACTION;" );
 }

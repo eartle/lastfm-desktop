@@ -45,12 +45,14 @@ mac {
 
 win32 {
     SOURCES += win/SpotifyListener.cpp \
+               win/NamedPipeServer.cpp \
                ../../plugins/iTunes/ITunesTrack.cpp \
                ../../plugins/iTunes/ITunesComWrapper.cpp \
                $$ROOT_DIR/plugins/scrobsub/EncodingUtils.cpp \
                $$ROOT_DIR/lib/3rdparty/iTunesCOMAPI/iTunesCOMInterface_i.c
 
     HEADERS += win/SpotifyListener.h \
+               win/NamedPipeServer.h \
                ../../plugins/iTunes/ITunesTrack.h \
                ../../plugins/iTunes/ITunesComWrapper.h \
                ../../plugins/iTunes/ITunesEventInterface.h \

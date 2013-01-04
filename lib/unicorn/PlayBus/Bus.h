@@ -15,7 +15,7 @@ public:
 
     bool isWizardRunning();
     QMap<QString, QString> getSessionData();
-    void announceSessionChange( unicorn::Session* s );
+    void announceSessionChange( unicorn::Session& s );
 
 private slots:
     void onMessage( const QByteArray& message );

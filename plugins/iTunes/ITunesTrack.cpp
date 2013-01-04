@@ -390,7 +390,9 @@ ITunesTrack::pathForTrack( IITTrack* track )
     HRESULT res = track->QueryInterface( IID_IITFileOrCDTrack, (void**)&fileTrack );
     if ( res != S_OK || fileTrack == 0 )
     {
-        ITunesComWrapper::logComError( res, L"Casting IITrack to IITFileOrCDTrack failed" );
+        // Not ideal, but logging this makes the iPodScrobbler log
+        // really messy for mostly iTunes Match track libraries
+        //ITunesComWrapper::logComError( res, L"Casting IITrack to IITFileOrCDTrack failed" );
     }
     else
     {

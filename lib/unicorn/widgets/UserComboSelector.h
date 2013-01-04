@@ -40,9 +40,9 @@ protected:
     }
 
 protected slots:
-    void onSessionChanged( unicorn::Session* s )
+    void onSessionChanged( unicorn::Session& s )
     {
-        int index = findText( s->user().name() );
+        int index = findText( s.user().name() );
         setCurrentIndex( index );
     }
 

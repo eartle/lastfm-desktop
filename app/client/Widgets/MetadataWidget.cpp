@@ -147,7 +147,7 @@ MetadataWidget::fetchTrackInfo()
         connect( m_track.artist().getTags(), SIGNAL(finished()), SLOT(onArtistGotYourTags()));
         connect( m_track.artist().getEvents(), SIGNAL(finished()), SLOT(onArtistGotEvents()));
 
-        QString country = aApp->currentSession()->user().country();
+        QString country = aApp->currentSession().user().country();
         connect( m_track.getBuyLinks( country ), SIGNAL(finished()), SLOT(onTrackGotBuyLinks()) );
     }
 }

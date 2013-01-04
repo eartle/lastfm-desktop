@@ -35,7 +35,7 @@
 
 #define ALLOW_ALL_USAGE -1
 
-RadioService::RadioService( )
+RadioService::RadioService()
      : m_audioOutput( 0 ),
        m_mediaObject( 0 ),
        m_state( Stopped ),
@@ -46,48 +46,9 @@ RadioService::RadioService( )
 
     QDesktopServices::setUrlHandler( "lastfm", this, "onLastFmUrl" );
 
-    unicorn::UserSettings us;
-    m_spotify = new Spotify( us.value( "SpotifyUser", "" ).toString(), us.value( "SpotifyPass", "" ).toString(), this );
-    connect( m_spotify, SIGNAL(started(Track)), SIGNAL(trackSpooled(Track)));
-    connect( m_spotify, SIGNAL(tick(qint64)), SIGNAL(tick(qint64)));
-    connect( m_spotify, SIGNAL(stopped()), SLOT(skip()));
-    connect( m_spotify, SIGNAL(error(Spotify::SpotifyError,int,QString)), SLOT(onSpotifyError(Spotify::SpotifyError,int,QString)) );
-    connect( m_spotify, SIGNAL(loginFinished(bool)), SIGNAL(spotifyLoginStatusChanged(bool)) );
-
-    onSessionChanged( *aApp->currentSession() );
+    onSessionChanged( aApp->currentSession() );
 
     connect( aApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)) );
-}
-
-bool
-RadioService::spotifyLoggedIn() const
-{
-    return ( m_spotify && m_spotify->loggedIn() );
-}
-
-void
-RadioService::spotifyLogin( const QString& username, const QString& password )
-{
-    if ( m_spotify )
-        m_spotify->login( username, password );
-}
-
-void
-RadioService::onSpotifyError( Spotify::SpotifyError error, int code, const QString& description )
-{
-    qDebug() << "ERROR:" << error << code << description;
-
-    if ( m_track.extra( "streamSource" ) != "Spotify"
-         && ( error == Spotify::TrackNotFound || (error == Spotify::PlaybackError && code == 3 ) ) )
-    {
-        // we were unable to find the track on Spotify
-        // so try to play the last.fm version
-
-        if ( !enqueueTrack( m_track ) )
-            skip();
-    }
-    else
-        skip();
 }
 
 void
@@ -118,7 +79,7 @@ RadioService::onLastFmUrl( const QUrl& url )
 void
 RadioService::play( const RadioStation& station )
 {  
-    if ( !aApp->currentSession()->user().isSubscriber() )
+    if ( !aApp->currentSession().youRadio() )
     {
         // they are not a subscriber so don't let them start the radio
         emit error( lastfm::ws::SubscribersOnly, tr( "You need to be a subscriber to listen to radio" ) );
@@ -128,7 +89,7 @@ RadioService::play( const RadioStation& station )
     if( m_state == Paused
             && (station.url() == "" || station.url() == m_station.url() ) )
     {
-        resume();
+        m_mediaObject->play();
         return;
     }
 
@@ -177,6 +138,7 @@ RadioService::play( const RadioStation& station )
     m_station.setDisco( unicorn::AppSettings().value( "disco", false ).toBool() );
 
     m_tuner = new lastfm::RadioTuner( m_station );
+
     connect( m_tuner, SIGNAL(title( QString )), SLOT(setStationName( QString )) );
     connect( m_tuner, SIGNAL(supportsDisco( bool )), SLOT(setSupportsDisco( bool )) );
     connect( m_tuner, SIGNAL(trackAvailable()), SLOT(enqueue()) );
@@ -288,9 +250,6 @@ RadioService::stop()
     m_mediaObject->setCurrentSource( QUrl() );
     m_mediaObject->blockSignals( false );
 
-    if ( spotifyLoggedIn() )
-        m_spotify->pause();
-
     clear();
     
     changeState( Stopped );
@@ -300,37 +259,21 @@ RadioService::stop()
 void
 RadioService::pause()
 {
-    //Q_ASSERT( m_mediaObject );
-
-    doPause( true );
-}
-
-void
-RadioService::doPause( bool broadcast )
-{
-    // just make sure that both streams are paused
-
-    if ( m_spotify )
-        m_spotify->pause();
+    Q_ASSERT( m_mediaObject );
 
     if ( m_mediaObject )
+    {
         m_mediaObject->pause();
-
-    if ( broadcast )
         changeState( Paused );
+    }
 }
 
 void
 RadioService::resume()
 {
-    //Q_ASSERT( m_mediaObject );
+    Q_ASSERT( m_mediaObject );
 
-    if ( spotifyLoggedIn() && m_track.extra( "streamSource" ) == "Spotify" )
-    {
-        m_spotify->resume();
-        changeState( Playing );
-    }
-    else if ( m_mediaObject )
+    if ( m_mediaObject )
     {
         m_mediaObject->play();
         changeState( Playing );
@@ -434,92 +377,50 @@ RadioService::restoreVolume()
 }
 
 void
-RadioService::queueSpotifyTrack( const QString& spotifyId )
-{
-    MutableTrack track;
-    track.setUrl( QUrl( "http://www.spotify.com" ) );
-    track.setExtra( "spotifyId", spotifyId );
-
-    if ( m_tuner )
-        m_tuner->queueTrack( track );
-}
-
-
-void
 RadioService::phononEnqueue()
 {
     qDebug() << "phononEnqueue";
+    qDebug() << "queue size: " << m_mediaObject->queue().size();
 
-    if ( m_tuner )
+    if (m_mediaObject->queue().size() || !m_tuner)
+        return;
+
+    // keep only one track in the phononQueue
+    // Loop until we get a null url or a valid url.
+    forever
     {
-        // keep only one track in the phononQueue
-        // Loop until we get a null url or a valid url.
-        forever
+        // consume next track from the track source. a null track 
+        // response means wait until the trackAvailable signal
+        Track t = m_tuner->takeNextTrack();
+
+        if (t.isNull())
         {
-            // consume next track from the track source. a null track
-            // response means wait until the trackAvailable signal
-            Track t = m_tuner->takeNextTrack();
-
-            if (t.isNull())
-            {
-                m_track = t;
-                changeState( TuningIn );
-                break;
-            }
-
-            // Invalid urls won't trigger the correct phonon
-            // state changes, so we must filter them.
-            if ( !t.url().isValid() )
-                continue;
-
             m_track = t;
-
-            if ( m_spotify && m_spotify->loggedIn() && !t.extra( "spotifyId" ).isEmpty() )
-            {
-                m_spotify->play( t );
-                changeState( Playing );
-            }
-            else
-            {
-                if ( !enqueueTrack( t ) )
-                    continue;
-            }
-
+            changeState( TuningIn );
             break;
         }
-    }
-}
 
-bool
-RadioService::enqueueTrack( const lastfm::Track& track )
-{
-    Phonon::MediaSource ms( track.url() );
+        // Invalid urls won't trigger the correct phonon
+        // state changes, so we must filter them.
+        if (!t.url().isValid())
+            continue;
+        
+        m_track = t;
+        Phonon::MediaSource ms( t.url() );
 
-    qDebug() << "enqueuing " << track;
-
-    try
-    {
-        if ( !m_mediaObject )
-            initRadio();
-
-        m_mediaObject->enqueue( ms );
-        m_mediaObject->setCurrentSource( ms );
-
-        //if the error returns a 403 permission denied error, the mediaObject is uninitialised
-        if ( m_mediaObject )
-            m_mediaObject->play();
-        else
+        qDebug() << "enqueuing " << t;
+        try
         {
-            initRadio();
-            play( RadioStation() );
+            m_mediaObject->enqueue( ms );
+            m_mediaObject->play();
         }
-    }
-    catch (...)
-    {
-        return false;
-    }
+        catch (...)
+        {
+            continue;
+        }
 
-    return true;
+        break;
+    }
 }
 
 

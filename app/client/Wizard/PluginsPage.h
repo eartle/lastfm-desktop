@@ -44,6 +44,9 @@ private:
     void cleanupPage();
     void initializePage();
 
+private slots:
+    void checkPluginsSelected();
+
 private:
     class QVBoxLayout* m_pluginsLayout;
 };

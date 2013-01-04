@@ -69,7 +69,7 @@ PlaybackControlsWidget::PlaybackControlsWidget(QWidget *parent) :
 
     connect( aApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)) );
 
-    onSessionChanged( *aApp->currentSession() );
+    onSessionChanged( aApp->currentSession() );
 }
 
 void
@@ -141,9 +141,9 @@ PlaybackControlsWidget::onActionsChanged()
    m_playAction->setText( aApp->playAction()->isChecked() ? tr( "Pause" ) : RadioService::instance().state() == Stopped ? tr( "Play" ) : tr( "Resume" ) );
 
    ui->love->setEnabled( aApp->loveAction()->isEnabled() );
-   ui->ban->setEnabled( aApp->banAction()->isEnabled() && aApp->currentSession()->youRadio()  );
-   ui->play->setEnabled( aApp->playAction()->isEnabled() && aApp->currentSession()->youRadio()  );
-   ui->skip->setEnabled( aApp->skipAction()->isEnabled() && aApp->currentSession()->youRadio()  );
+   ui->ban->setEnabled( aApp->banAction()->isEnabled() && aApp->currentSession().youRadio()  );
+   ui->play->setEnabled( aApp->playAction()->isEnabled() && aApp->currentSession().youRadio()  );
+   ui->skip->setEnabled( aApp->skipAction()->isEnabled() && aApp->currentSession().youRadio()  );
 
    ui->love->setToolTip( ui->love->isChecked() ? tr("Unlove") : tr("Love") );
    ui->ban->setToolTip( tr("Ban") );

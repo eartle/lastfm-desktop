@@ -79,7 +79,7 @@ SideBar::SideBar(QWidget *parent)
 
     connect( aApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)) );
 
-    onSessionChanged( *aApp->currentSession() );
+    onSessionChanged( aApp->currentSession() );
 }
 
 void
@@ -116,7 +116,7 @@ SideBar::addToMenu( QMenu& menu )
     menu.addAction( ui.profile->text(), ui.profile, SLOT(click()), Qt::CTRL + Qt::Key_3);
     menu.addAction( ui.friends->text(), ui.friends, SLOT(click()), Qt::CTRL + Qt::Key_4);
     m_radioAction = menu.addAction( ui.radio->text(), ui.radio, SLOT(click()), Qt::CTRL + Qt::Key_5);
-    m_radioAction->setVisible( !aApp->currentSession()->isValid() || aApp->currentSession()->subscriberRadio() );
+    m_radioAction->setVisible( !aApp->currentSession().isValid() || aApp->currentSession().subscriberRadio() );
 
     menu.addSeparator();
 
@@ -129,7 +129,7 @@ SideBar::onUp()
 {
     if ( ui.nowPlaying->isChecked() )
     {
-        if ( !aApp->currentSession()->isValid() || aApp->currentSession()->subscriberRadio() )
+        if ( !aApp->currentSession().isValid() || aApp->currentSession().subscriberRadio() )
             ui.radio->click();
         else
             ui.friends->click();
@@ -148,7 +148,7 @@ SideBar::onDown()
     else if ( ui.profile->isChecked() ) ui.friends->click();
     else if ( ui.friends->isChecked() )
     {
-        if ( !aApp->currentSession()->isValid() || aApp->currentSession()->subscriberRadio() )
+        if ( !aApp->currentSession().isValid() || aApp->currentSession().subscriberRadio() )
             ui.radio->click();
         else
              ui.nowPlaying->click();

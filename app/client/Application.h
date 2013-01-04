@@ -129,6 +129,8 @@ namespace audioscrobbler
         QAction* scrobbleToggleAction() const { return m_submit_scrobbles_toggle; }
         QSystemTrayIcon* tray();
 
+        QWidget* mainWindow() const;
+
         void setRaiseHotKey( Qt::KeyboardModifiers mods, int key );
 
         void startBootstrap( const QString& pluginId );

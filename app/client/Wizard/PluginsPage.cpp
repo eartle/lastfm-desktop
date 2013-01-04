@@ -57,15 +57,6 @@ PluginsPage::PluginsPage()
 bool
 PluginsPage::validatePage()
 {
-    /// Check if media players are running and wait for them to be exited
-
-    // we're not going to use this anymore we should bundle the installers
-    // and just run them ourselves
-
-
-    // For all the plugins that have been selected install them to the correct loaction
-    // and write to the reistry which version we have installed
-
     return true;
 }
 
@@ -84,6 +75,7 @@ PluginsPage::initializePage()
         QCheckBox* cb;
         m_pluginsLayout->addWidget( cb = new QCheckBox( plugin->name(), this ));
         connect( cb, SIGNAL(toggled(bool)), plugin, SLOT(install(bool)));
+        connect( cb, SIGNAL(toggled(bool)), SLOT(checkPluginsSelected()));
 
         cb->setObjectName( plugin->id() );
         cb->setChecked( plugin->isAppInstalled() );
@@ -103,14 +95,26 @@ PluginsPage::initializePage()
             }
         }
     }
-#endif
+
 
     m_pluginsLayout->addStretch();
 
     setTitle( tr( "Next step, install the Last.fm plugins to be able to scrobble the music you listen to." ));
 
-    wizard()->setButton( FirstRunWizard::NextButton, tr( "Install Plugins" ) );
+    checkPluginsSelected();
     if ( wizard()->canGoBack() )
         wizard()->setButton( FirstRunWizard::BackButton, tr( "<< Back" ) );
-    wizard()->setButton( FirstRunWizard::SkipButton, tr( "Skip >>" ) );
+#endif
+}
+
+void
+PluginsPage::checkPluginsSelected()
+{
+#ifdef Q_OS_WIN32
+    wizard()->setButton( FirstRunWizard::SkipButton, tr( "Skip >>" ) )->setVisible( wizard()->pluginList()->installList().count() > 0 );
+    wizard()->setButton( FirstRunWizard::NextButton,
+                         wizard()->pluginList()->installList().count() > 0 ?
+                             tr( "Install Plugins" ):
+                             tr( "Continue" ) );
+#endif Q_OS_WIN32
 }

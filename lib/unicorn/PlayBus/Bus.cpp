@@ -30,14 +30,14 @@ unicorn::Bus::getSessionData()
 }
 
 void
-unicorn::Bus::announceSessionChange( unicorn::Session* s )
+unicorn::Bus::announceSessionChange( unicorn::Session& s )
 {
     qDebug() << "Session change, let's spread the message through the bus!";
     QByteArray ba;
     QDataStream ds( &ba, QIODevice::WriteOnly | QIODevice::Truncate );
 
     ds << QString( "SESSIONCHANGED" );
-    ds << ( *s );
+    ds << ( s );
 
     sendMessage( ba );
 }

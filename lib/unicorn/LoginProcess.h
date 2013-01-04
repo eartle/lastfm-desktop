@@ -72,9 +72,6 @@ public slots:
     void getSession( QString token );
     void cancel();
 
-signals:
-    void gotSession( unicorn::Session* s );
-
 private slots:
     void onGotToken();
     void onGotSession();

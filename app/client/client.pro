@@ -1,9 +1,9 @@
 TEMPLATE = app
 TARGET = "Last.fm Scrobbler"
-VERSION = 2.1.26
+VERSION = 2.1.27
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 QT = core gui xml network sql webkit
-CONFIG += lastfm unicorn listener logger phonon fingerprint ffmpeg spotify
+CONFIG += lastfm unicorn listener logger phonon fingerprint ffmpeg
 win32:LIBS += user32.lib kernel32.lib psapi.lib
 DEFINES += LASTFM_COLLAPSE_NAMESPACE
 
@@ -105,7 +105,9 @@ SOURCES += \
     Widgets/ScrobblesListWidget.cpp \
     Fingerprinter/Fingerprinter.cpp \
     Services/AnalyticsService/AnalyticsService.cpp \
-    Services/AnalyticsService/PersistentCookieJar.cpp
+    Services/AnalyticsService/PersistentCookieJar.cpp \
+    Widgets/ProxyWidget.cpp \
+    Dialogs/ProxyDialog.cpp
 
 HEADERS += \
     ScrobSocket.h \
@@ -187,7 +189,8 @@ HEADERS += \
     Services/AnalyticsService.h \
     Services/AnalyticsService/AnalyticsService.h \
     Services/AnalyticsService/PersistentCookieJar.h \
-    Spotify/Spotify.h
+    Widgets/ProxyWidget.h \
+    Dialogs/ProxyDialog.h
 
 contains(DEFINES, FFMPEG_FINGERPRINTING) {
     SOURCES += Fingerprinter/LAV_Source.cpp
@@ -226,8 +229,7 @@ mac:OBJECTIVE_SOURCES += CommandReciever/CommandReciever.mm \
                             MediaKeys/MediaKey.mm \
                             ../../lib/3rdparty/SPMediaKeyTap/SPMediaKeyTap.m \
                             ../../lib/3rdparty/SPMediaKeyTap/SPInvocationGrabbing/NSObject+SPInvocationGrabbing.m \
-                            Dialogs/CloseAppsDialog_mac.mm \
-                            Spotify/Spotify.mm
+                            Dialogs/CloseAppsDialog_mac.mm
 
 FORMS += \
     Widgets/PlaybackControlsWidget.ui \
@@ -249,7 +251,9 @@ FORMS += \
     Dialogs/LicensesDialog.ui \
     Widgets/ScrobblesWidget.ui \
     Widgets/ProfileWidget.ui \
-    Widgets/RadioWidget.ui
+    Widgets/RadioWidget.ui \
+    Widgets/ProxyWidget.ui \
+    Dialogs/ProxyDialog.ui
 
 unix:!mac:HEADERS += MediaDevices/IpodDevice_linux.h
 unix:!mac:SOURCES += MediaDevices/IpodDevice_linux.cpp

@@ -41,6 +41,7 @@ public:
  
 private slots:
     void onSignUpClicked();
+    void onProxyClicked();
 };
 
 #endif //LOGIN_PAGE_H_

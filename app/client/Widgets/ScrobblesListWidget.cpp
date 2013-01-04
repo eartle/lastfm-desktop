@@ -117,7 +117,7 @@ ScrobblesListWidget::ScrobblesListWidget( QWidget* parent )
     connect( &ScrobbleService::instance(), SIGNAL(resumed()), SLOT(onResumed()));
     connect( &ScrobbleService::instance(), SIGNAL(stopped()), SLOT(onStopped()));
 
-    onSessionChanged( *aApp->currentSession() );
+    onSessionChanged( aApp->currentSession() );
 }
 
 #ifdef Q_OS_MAC

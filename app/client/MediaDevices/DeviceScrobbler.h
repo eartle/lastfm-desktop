@@ -22,7 +22,8 @@ class DeviceScrobbler : public QObject
 {
     Q_OBJECT
 public:
-    DeviceScrobbler( QObject* parent = 0 );
+    explicit DeviceScrobbler( QObject* parent = 0 );
+    ~DeviceScrobbler();
 
 signals:
     void foundScrobbles( const QList<lastfm::Track>& tracks );
@@ -54,6 +55,7 @@ private:
 #ifdef Q_WS_X11
     QPointer<IpodDeviceLinux> iPod;
 #endif
+    bool isITunesPluginInstalled();
     void twiddled( const QStringList& arguments );
     void scrobbleIpodFiles( const QStringList& files );
     QList<lastfm::Track> scrobblesFromFiles( const QStringList& files );

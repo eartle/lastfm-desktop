@@ -16,7 +16,6 @@ public:
 private slots:
     void onTrackSpooled();
     void onNewConnection();
-    void onSpotifyLookup();
 
 private:
     QStringList users( const lastfm::RadioStation& rs );

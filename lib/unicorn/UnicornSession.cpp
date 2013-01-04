@@ -36,6 +36,11 @@ Session::lastSessionData()
     return sessionData;
 }
 
+Session::Session()
+    :m_valid( false )
+{
+}
+
 Session::Session( const QString& username, QString sessionKey )
 {
     init( username, sessionKey );

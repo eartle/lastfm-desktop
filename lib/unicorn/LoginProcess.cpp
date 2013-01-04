@@ -162,8 +162,6 @@ LoginProcess::onGotToken()
         {
            m_lastNetworkError = static_cast<QNetworkReply*>( sender() )->error();
         }
-
-        emit gotSession( 0 );
     }
 }
 
@@ -186,8 +184,9 @@ LoginProcess::onGotSession()
         QString username = lfm["session"]["name"].text();
         QString sessionKey = lfm["session"]["key"].text();
 
-        Session* session = qobject_cast<unicorn::Application*>( qApp )->changeSession( username, sessionKey );
-        emit gotSession( session );
+        unicorn::Application* app = qobject_cast<unicorn::Application*>( qApp );
+        app->changeSession( username, sessionKey );
+
         delete m_webServer;
     }
     else
@@ -200,8 +199,6 @@ LoginProcess::onGotSession()
         {
            m_lastNetworkError = static_cast<QNetworkReply*>( sender() )->error();
         }
-
-        emit gotSession( 0 );
     }
 }
 

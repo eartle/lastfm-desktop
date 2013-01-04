@@ -194,7 +194,7 @@ UserManagerWidget::onLoginDialogAccepted()
     ld->deleteLater();
 
 
-    connect( m_loginProcess, SIGNAL(gotSession(unicorn::Session*)), SLOT( onGotSession( unicorn::Session* ) ) );
+    connect( qApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onLoginComplete()) );
 
     m_loginProcess->authenticate();
 
@@ -205,9 +205,8 @@ UserManagerWidget::onLoginDialogAccepted()
 
 
 void
-UserManagerWidget::onGotSession( unicorn::Session* s )
+UserManagerWidget::onLoginComplete()
 {
-    Q_UNUSED( s )
     m_lcd->accept();
 }
 
@@ -216,9 +215,11 @@ UserManagerWidget::onUserAdded()
 {
     Q_ASSERT( m_loginProcess );
 
-    unicorn::Session* s = qobject_cast<unicorn::Application*>( qApp )->currentSession();
+    disconnect( qApp, SIGNAL(sessionChanged(unicorn::Session)), this, SLOT(onLoginComplete()) );
 
-    if ( !s )
+    unicorn::Session& s = qobject_cast<unicorn::Application*>( qApp )->currentSession();
+
+    if ( s.user().name().isEmpty() )
     {
         m_loginProcess->cancel();
         m_loginProcess->showError();
@@ -228,7 +229,7 @@ UserManagerWidget::onUserAdded()
     bool alreadyAdded = false;
     foreach ( UserRadioButton* b, findChildren<UserRadioButton*>() )
     {
-        if ( s->user().name() == b->user() )
+        if ( s.user().name() == b->user() )
         {
             alreadyAdded = true;
             break;
@@ -237,7 +238,7 @@ UserManagerWidget::onUserAdded()
 
     if ( !alreadyAdded )
     {
-        User user( s->user().name() );
+        User user( s.user().name() );
         UserRadioButton* urb = new UserRadioButton( user );
 
         add( urb );
@@ -306,13 +307,15 @@ UserManagerWidget::onUserRemoved()
         }
     }
 
-    // delete all the widgets, that this layout has
-    QLayoutItem* item;
-    while ( (item = urb->takeAt( 0 )) != 0  )
+    for ( int i = 0 ; i < layout()->count() ; ++i )
     {
-        QWidget* widget = item->widget();
-        if ( widget )
-            widget->deleteLater();
+        QLayoutItem* item = layout()->itemAt( i );
+
+        if ( qobject_cast<UserRadioButton*>( item->widget() ) == urb )
+        {
+            delete layout()->takeAt( i );
+            break;
+        }
     }
 
     urb->deleteLater();

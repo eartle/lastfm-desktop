@@ -25,7 +25,7 @@
 #include <QList>
 #include <QPointer>
 
-#include <lastfm/User.h>
+#include "lib/unicorn/UnicornSession.h"
 
 #ifdef Q_OS_WIN32
 #include "../Plugins/PluginList.h"
@@ -49,9 +49,6 @@ public:
 public:
     FirstRunWizard( bool startFromTour = false, QWidget* parent = 0 );
     ~FirstRunWizard();
-
-    lastfm::User user() const;
-    void setUser( const lastfm::User& user );
 
     void setTitle( const QString& title );
 
@@ -92,7 +89,6 @@ private:
 
     bool m_commitPage;
     bool m_showWelcome;
-    lastfm::User m_user;
 };
 
 #endif //FIRST_RUN_WIZARD_H_

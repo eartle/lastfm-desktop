@@ -80,6 +80,9 @@ public slots:
     void onPrefsTriggered();
     void onBetaTriggered();
     void onDiagnosticsTriggered();
+    void onMinimizeTriggered();
+    void onZoomTriggered();
+    void onBringAllToFrontTriggered();
 
 private slots:
     void onVisitProfile();

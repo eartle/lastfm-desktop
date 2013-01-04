@@ -17,17 +17,6 @@
    You should have received a copy of the GNU General Public License
    along with lastfm-desktop.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-#include "FirstRunWizard.h"
-#include "LoginPage.h"
-#include "../Application.h"
-
-#include <lastfm/UrlBuilder.h>
-
-#include "lib/unicorn/LoginProcess.h"
-#include "lib/unicorn/UnicornSession.h"
-#include "lib/unicorn/DesktopServices.h"
-
 #include <QDebug>
 #include <QGridLayout>
 #include <QHBoxLayout>
@@ -37,6 +26,17 @@
 #include <QVBoxLayout>
 #include <QDesktopServices>
 #include <QStyle>
+
+#include <lastfm/UrlBuilder.h>
+
+#include "lib/unicorn/LoginProcess.h"
+#include "lib/unicorn/UnicornSession.h"
+#include "lib/unicorn/DesktopServices.h"
+
+#include "FirstRunWizard.h"
+#include "LoginPage.h"
+#include "../Application.h"
+#include "../Dialogs/ProxyDialog.h"
 
 LoginPage::LoginPage()
 {
@@ -64,8 +64,10 @@ LoginPage::initializePage()
 
     wizard()->setButton( FirstRunWizard::NextButton, tr( "Connect Your Account" ) );
     QAbstractButton* custom = wizard()->setButton( FirstRunWizard::CustomButton, tr( "Sign up" ) );
+    QAbstractButton* proxy = wizard()->setButton( FirstRunWizard::BackButton, tr( "Proxy?" ) );
 
     connect( custom, SIGNAL(clicked()), SLOT(onSignUpClicked()));
+    connect( proxy, SIGNAL(clicked()), SLOT(onProxyClicked()));
 }
 
 
@@ -78,4 +80,11 @@ void
 LoginPage::onSignUpClicked()
 {
     unicorn::DesktopServices::openUrl( lastfm::UrlBuilder( "join" ).url() );
+}
+
+void
+LoginPage::onProxyClicked()
+{
+    ProxyDialog proxy;
+    proxy.exec();
 }

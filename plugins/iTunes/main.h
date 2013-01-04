@@ -43,7 +43,7 @@
 #define	kTVisualPluginMajorVersion		5
 #define	kTVisualPluginMinorVersion		0
 #define	kTVisualPluginReleaseStage		5
-#define	kTVisualPluginNonFinalRelease	1
+#define	kTVisualPluginNonFinalRelease	3
 
 struct VisualPluginData;
 

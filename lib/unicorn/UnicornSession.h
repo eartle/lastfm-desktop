@@ -18,6 +18,7 @@ class UNICORN_DLLEXPORT Session : public QObject
     Q_OBJECT
 public:
     /** Return session object from stored session */
+    Session();
     Session( QDataStream& dataStream );
     Session( const QString& username, QString sessionKey = "" );
 

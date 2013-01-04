@@ -86,7 +86,7 @@ QuickStartWidget::QuickStartWidget( QWidget* parent )
 
     connect( aApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)) );
 
-    onSessionChanged( *aApp->currentSession() );
+    onSessionChanged( aApp->currentSession() );
 }
 
 void
@@ -205,7 +205,6 @@ QuickStartWidget::setSuggestions()
                     << unicorn::Label::anchor( RadioStation::similar( artist2 ).url(), artist2.name() )
                     << unicorn::Label::anchor( RadioStation::tag( tag1 ).url(), tag1 )
                     << unicorn::Label::anchor( RadioStation::tag( tag2 ).url(), tag2 );
-
         ui.whyNotTry->setText( tr( "Why not try %1, %2, %3 or %4?" ).arg( suggestions.takeAt(qrand() % suggestions.count()),
                                                                           suggestions.takeAt(qrand() % suggestions.count()),
                                                                           suggestions.takeAt(qrand() % suggestions.count()),
@@ -232,19 +231,12 @@ QuickStartWidget::play()
             RadioService::instance().play( RadioStation( trimmedText ) );
         else if ( ui.edit->text().length() )
         {
-            if ( trimmedText.startsWith("lastfm://") )
-                RadioService::instance().play( RadioStation( trimmedText ) );
-            else if ( trimmedText.startsWith("spotify:track:") )
-                RadioService::instance().queueSpotifyTrack( trimmedText );
-            else if ( ui.edit->text().length() )
-            {
-                StationSearch* search = new StationSearch();
+            StationSearch* search = new StationSearch();
 
-                connect( search, SIGNAL(searchResult(RadioStation)), &RadioService::instance(), SLOT(play(RadioStation)));
-                connect( search, SIGNAL(error(QString,QString)), aApp, SIGNAL(showMessage(QString,QString)));
+            connect( search, SIGNAL(searchResult(RadioStation)), &RadioService::instance(), SLOT(play(RadioStation)));
+            connect( search, SIGNAL(error(QString,QString)), aApp, SIGNAL(showMessage(QString,QString)));
 
-                search->startSearch( ui.edit->text() );
-            }
+            search->startSearch( ui.edit->text() );
         }
 
         ui.edit->clear();

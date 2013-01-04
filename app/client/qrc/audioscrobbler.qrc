@@ -199,5 +199,7 @@
         <file>button_dark_RIGHT_HOVER.png</file>
         <file>button_dark_RIGHT_PRESS.png</file>
         <file>button_dark_RIGHT_REST.png</file>
+        <file>meta_ban_REST.png</file>
+        <file>meta_skip_REST.png</file>
     </qresource>
 </RCC>

@@ -5,7 +5,6 @@
 #include "lib/unicorn/QMessageBoxBuilder.h"
 
 #include "../Application.h"
-#include "../Services/RadioService/RadioService.h"
 
 #include "ui_GeneralSettingsWidget.h"
 #include "GeneralSettingsWidget.h"
@@ -26,17 +25,6 @@ GeneralSettingsWidget::GeneralSettingsWidget( QWidget* parent )
     connect( ui->notifications, SIGNAL(stateChanged(int)), SLOT( onSettingsChanged() ) );
     connect( ui->lastRadio, SIGNAL(stateChanged(int)), SLOT( onSettingsChanged() ) );
     connect( ui->sendCrashReports, SIGNAL(stateChanged(int)), SLOT( onSettingsChanged() ) );
-
-    unicorn::UserSettings us;
-    ui->spotifyUsername->setText( us.value( "SpotifyUser", "" ).toString() );
-    ui->spotifyPassword->setText( us.value( "SpotifyPass", "" ).toString() );
-    onSpotifyLoginStatusChanged( RadioService::instance().spotifyLoggedIn() );
-
-    connect( ui->spotifyUsername, SIGNAL(textEdited(QString)), SLOT(onSettingsChanged()) );
-    connect( ui->spotifyPassword, SIGNAL(textEdited(QString)), SLOT(onSettingsChanged()) );
-    connect( ui->spotifyLoginButton, SIGNAL(clicked()), SLOT(onSpotifyLoginClicked()));
-
-    connect( &RadioService::instance(), SIGNAL(spotifyLoginStatusChanged(bool)), SLOT(onSpotifyLoginStatusChanged(bool)) );
 
 #ifdef Q_OS_MAC
     ui->showAs->hide();
@@ -64,6 +52,7 @@ GeneralSettingsWidget::GeneralSettingsWidget( QWidget* parent )
 
 #else
     ui->showWhere->hide();
+    ui->showWhereLabel->hide();
     ui->mediaKeys->hide();
 
     ui->showAs->setChecked( unicorn::Settings().value( SETTING_SHOW_AS, ui->showAs->isChecked() ).toBool() );
@@ -79,19 +68,6 @@ GeneralSettingsWidget::GeneralSettingsWidget( QWidget* parent )
     ui->launch->hide();
     ui->updates->hide();
 #endif
-}
-
-void
-GeneralSettingsWidget::onSpotifyLoginClicked()
-{
-    ui->spotifyStatus->setText( tr( "Logging in..." ) );
-    RadioService::instance().spotifyLogin( ui->spotifyUsername->text(), ui->spotifyPassword->text() );
-}
-
-void
-GeneralSettingsWidget::onSpotifyLoginStatusChanged( bool loggedIn )
-{
-    ui->spotifyStatus->setText( loggedIn ? tr( "Logged in!" ) : tr( "Failed :(" ) );
 }
 
 void
@@ -139,6 +115,10 @@ GeneralSettingsWidget::saveSettings()
 
             unicorn::AppSettings().setValue( "language", currLanguage );
 
+#ifdef Q_OS_MAC
+            aApp->translate();
+#endif
+
             restartNeeded = true;
         }
 
@@ -149,10 +129,6 @@ GeneralSettingsWidget::saveSettings()
         unicorn::Settings().setValue( SETTING_LAST_RADIO, ui->lastRadio->isChecked() );
         unicorn::Settings().setValue( SETTING_SEND_CRASH_REPORTS, ui->sendCrashReports->isChecked() );
         unicorn::Settings().setValue( SETTING_CHECK_UPDATES, ui->updates->isChecked() );
-
-        unicorn::UserSettings us;
-        us.setValue( "SpotifyUser", ui->spotifyUsername->text() );
-        us.setValue( "SpotifyPass", ui->spotifyPassword->text() );
 
 #ifdef Q_OS_MAC
         unicorn::Settings().setValue( "mediaKeys", ui->mediaKeys->isChecked() );

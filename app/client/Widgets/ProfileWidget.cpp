@@ -33,7 +33,7 @@ ProfileWidget::ProfileWidget(QWidget *parent)
 
     connect( &ScrobbleService::instance(), SIGNAL(scrobblesCached(QList<lastfm::Track>)), SLOT(onScrobblesCached(QList<lastfm::Track>)));
 
-    onSessionChanged( *aApp->currentSession() );
+    onSessionChanged( aApp->currentSession() );
 }
 
 ProfileWidget::~ProfileWidget()
@@ -83,10 +83,10 @@ ProfileWidget::refresh()
     disconnect( this, SLOT(onGotTopWeeklyArtists()));
     disconnect( this, SLOT(onGotLibraryArtists()));
 
-    connect( aApp->currentSession()->user().getLovedTracks( 1 ), SIGNAL(finished()), SLOT(onGotLovedTracks()) );
-    connect( aApp->currentSession()->user().getTopArtists( "overall", 5, 1 ), SIGNAL(finished()), SLOT(onGotTopOverallArtists()));
-    connect( aApp->currentSession()->user().getTopArtists( "7day", 5, 1 ), SIGNAL(finished()), SLOT(onGotTopWeeklyArtists()));
-    connect( lastfm::Library::getArtists( aApp->currentSession()->user().name(), 1 ), SIGNAL(finished()), SLOT(onGotLibraryArtists()));
+    connect( aApp->currentSession().user().getLovedTracks( 1 ), SIGNAL(finished()), SLOT(onGotLovedTracks()) );
+    connect( aApp->currentSession().user().getTopArtists( "overall", 5, 1 ), SIGNAL(finished()), SLOT(onGotTopOverallArtists()));
+    connect( aApp->currentSession().user().getTopArtists( "7day", 5, 1 ), SIGNAL(finished()), SLOT(onGotTopWeeklyArtists()));
+    connect( lastfm::Library::getArtists( aApp->currentSession().user().name(), 1 ), SIGNAL(finished()), SLOT(onGotLibraryArtists()));
 }
 
 void
@@ -103,7 +103,7 @@ ProfileWidget::onGotLibraryArtists()
 
     if ( lfm.parse( static_cast<QNetworkReply*>(sender()) ) )
     {
-        int scrobblesPerDay = aApp->currentSession()->user().scrobbleCount() / (aApp->currentSession()->user().dateRegistered().daysTo( QDateTime::currentDateTime() ) + 1 );
+        int scrobblesPerDay = aApp->currentSession().user().scrobbleCount() / (aApp->currentSession().user().dateRegistered().daysTo( QDateTime::currentDateTime() ) + 1 );
         int totalArtists = lfm["artists"].attribute( "total" ).toInt();
 
         QString artistsString = tr( "%L1 artist(s)", "", totalArtists ).arg( totalArtists );
@@ -218,6 +218,6 @@ ProfileWidget::onScrobbleStatusChanged( short scrobbleStatus )
 void
 ProfileWidget::setScrobbleCount()
 {
-    ui->scrobbles->setText( tr( "Scrobble(s) since %1", "", aApp->currentSession()->user().scrobbleCount() ).arg( aApp->currentSession()->user().dateRegistered().toString( "d MMMM yyyy" ) ) );
+    ui->scrobbles->setText( tr( "Scrobble(s) since %1", "", aApp->currentSession().user().scrobbleCount() ).arg( aApp->currentSession().user().dateRegistered().toString( "d MMMM yyyy" ) ) );
     ui->scrobbleCount->setText( QString( "%L1" ).arg( m_scrobbleCount ) );
 }

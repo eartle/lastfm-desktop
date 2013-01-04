@@ -87,7 +87,7 @@ PlayableItemWidget::event( QEvent* e )
         update();
         break;
     case QEvent::Show:
-        onSessionChanged( *aApp->currentSession() );
+        onSessionChanged( aApp->currentSession() );
         break;
     default:
         break;

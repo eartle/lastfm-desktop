@@ -45,8 +45,7 @@ FirstRunWizard::FirstRunWizard( bool startFromTour, QWidget* parent )
     :QDialog( parent ),
       ui( new Ui::FirstRunWizard ),
       m_commitPage( false ),
-      m_showWelcome( false ),
-      m_user( "" )
+      m_showWelcome( false )
 {
 #ifdef Q_OS_WIN32
     m_plugins = new PluginList;
@@ -85,18 +84,6 @@ FirstRunWizard::~FirstRunWizard()
 #ifdef Q_OS_WIN32
     delete m_plugins;
 #endif
-}
-
-lastfm::User
-FirstRunWizard::user() const
-{
-    return m_user;
-}
-
-void
-FirstRunWizard::setUser( const lastfm::User& user )
-{
-    m_user = user;
 }
 
 void
@@ -182,12 +169,12 @@ FirstRunWizard::next()
         else if ( currentPage == ui->pluginsPage )
             ui->stackedWidget->setCurrentWidget( ui->pluginsInstallPage );
         else if ( currentPage == ui->pluginsInstallPage )
-            if( m_user.canBootstrap() && (m_plugins->bootstrappablePlugins().count() > 0) )
+            if( aApp->currentSession().user().canBootstrap() && (m_plugins->bootstrappablePlugins().count() > 0) )
                 ui->stackedWidget->setCurrentWidget( ui->bootstrapPage );
             else
                 ui->stackedWidget->setCurrentWidget( ui->tourScrobblesPage );
 #elif defined Q_OS_MAC
-            if( m_user.canBootstrap() )
+            if( aApp->currentSession().user().canBootstrap() )
                 ui->stackedWidget->setCurrentWidget( ui->bootstrapPage );
             else
                 ui->stackedWidget->setCurrentWidget( ui->tourScrobblesPage );
@@ -198,10 +185,11 @@ FirstRunWizard::next()
             ui->stackedWidget->setCurrentWidget( ui->tourScrobblesPage );
         else if ( currentPage == ui->tourScrobblesPage )
             ui->stackedWidget->setCurrentWidget( ui->tourMetadataPage );
-        else if ( currentPage == ui->tourMetadataPage )
+        // only show the radio page if you can subscribe to get radio
+        else if ( currentPage == ui->tourMetadataPage && aApp->currentSession().subscriberRadio() )
             ui->stackedWidget->setCurrentWidget( ui->tourRadioPage );
         else if ( currentPage == ui->tourRadioPage )
-#ifndef Q_WS_X11 // don't show the sys tray page on linux because therer isn't one
+#ifndef Q_WS_X11 // don't show the sys tray page on linux because there isn't one
             ui->stackedWidget->setCurrentWidget( ui->tourLocationPage );
         else if ( currentPage == ui->tourLocationPage )
 #endif
@@ -212,7 +200,7 @@ FirstRunWizard::next()
         if ( m_showWelcome )
         {
             m_showWelcome = false;
-            ui->welcome->setText( tr( "Thanks <strong>%1</strong>, your account is now connected!" ).arg( m_user.name() ) );
+            ui->welcome->setText( tr( "Thanks <strong>%1</strong>, your account is now connected!" ).arg( aApp->currentSession().user().name() ) );
             ui->welcome->show();
         }
 
@@ -225,13 +213,16 @@ FirstRunWizard::next()
 void
 FirstRunWizard::back()
 {
-    setCommitPage( false );
+    if ( canGoBack() )
+    {
+        setCommitPage( false );
 
-    ui->welcome->hide();
+        ui->welcome->hide();
 
-    cleanupPage( ui->stackedWidget->currentWidget() );
-    ui->stackedWidget->setCurrentWidget( m_pages.takeLast() );
-    initializePage( ui->stackedWidget->currentWidget() );
+        cleanupPage( ui->stackedWidget->currentWidget() );
+        ui->stackedWidget->setCurrentWidget( m_pages.takeLast() );
+        initializePage( ui->stackedWidget->currentWidget() );
+    }
 }
 
 void
@@ -256,12 +247,12 @@ FirstRunWizard::skip()
     else if ( currentPage == ui->pluginsPage )
         ui->stackedWidget->setCurrentWidget( ui->pluginsInstallPage );
     else if ( currentPage == ui->pluginsInstallPage )
-        if( m_user.canBootstrap() && (m_plugins->bootstrappablePlugins().count() > 0) )
+        if( aApp->currentSession().user().canBootstrap() && (m_plugins->bootstrappablePlugins().count() > 0) )
             ui->stackedWidget->setCurrentWidget( ui->bootstrapPage );
         else
             ui->stackedWidget->setCurrentWidget( ui->tourScrobblesPage );
 #elif defined Q_OS_MAC
-        if( m_user.canBootstrap() )
+        if( aApp->currentSession().user().canBootstrap() )
             ui->stackedWidget->setCurrentWidget( ui->bootstrapPage );
         else
             ui->stackedWidget->setCurrentWidget( ui->tourScrobblesPage );

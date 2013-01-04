@@ -322,7 +322,7 @@ IpodDeviceLinux::tableName() const
     audioscrobbler::Application* app = qobject_cast<audioscrobbler::Application* >( qApp );
     if ( app )
     {
-        return app->currentSession()->userInfo().name() + "_" + m_deviceId;
+        return app->currentSession().userInfo().name() + "_" + m_deviceId;
     }
     return QString();
 }

@@ -136,8 +136,11 @@ IPod::twiddle()
 {
     PlayCountsDatabase& db = *playCountsDatabase();
     ITunesLibrary& library = *iTunesLibrary();
-    
-    db.beginTransaction();
+
+    QList<ITunesLibrary::Track> tracksToUpdate;
+    QList<ITunesLibrary::Track> tracksToInsert;
+
+    int nullTrackCount = 0;
 
     #ifdef Q_OS_WIN32
         QSet<QString> diffedTrackPaths;
@@ -153,8 +156,13 @@ IPod::twiddle()
 
             if ( track.isNull() )
             {
-                qWarning() << "Failed to read current iTunes track. Either something went wrong, "
-                              "or the track was not found on the disk despite being in the iTunes library.";
+                // Failed to read current iTunes track. Either something went wrong,
+                // or the track was not found on the disk despite being in the iTunes library.
+
+                // Don't log every error as this could be a library full of iTunes Match tracks
+                // just count how many failed and say at the end
+
+                ++nullTrackCount;
                 continue;
             }
 
@@ -183,13 +191,15 @@ IPod::twiddle()
             //      matching up this track up with its previous incarnation. Thus
             //      we don't scrobble it as we have no idea if it was played or not
             //      chances are, it wasn't
-            if ( db[id].isNull() )
+            PlayCountsDatabase::Track dbTrack = db[id];
+
+            if ( dbTrack.isNull() )
             {
-	            db.insert( track );  // can throw
+                tracksToInsert << track;
                 continue;
             }
 
-            const int diff = track.playCount() - db[id].playCount(); // can throw
+            const int diff = track.playCount() - dbTrack.playCount(); // can throw
         
             if ( diff > 0 )
             {
@@ -219,7 +229,7 @@ IPod::twiddle()
             // a worthwhile optimisation since updatePlayCount() is really slow
             // NOTE negative diffs *are* possible
             if ( diff != 0 )
-                db.update( track ); // can throw
+                tracksToUpdate << track; // can throw
         }
         catch ( ITunesException& )
         {
@@ -227,7 +237,22 @@ IPod::twiddle()
         }
     }
 
-    db.endTransaction();
+    qDebug() << "There were " << nullTrackCount << " null tracks";
+
+    if ( tracksToUpdate.count() + tracksToInsert.count() > 0 )
+    {
+        // We've got some updates and inserts to do so lock the database and do them
+
+        db.beginTransaction();
+
+        foreach ( const ITunesLibrary::Track& track, tracksToUpdate )
+            db.update( track );
+
+        foreach ( const ITunesLibrary::Track& track, tracksToInsert )
+            db.insert( track );
+
+        db.endTransaction();
+    }
 
     delete &db;
     delete &library;

@@ -28,17 +28,12 @@
 #include <sys/stat.h>
 
 #ifndef WIN32
-    #include <unistd.h>
-    #include <sqlite3.h>
-    
-    // this function is apparently not in the library deployed with OSX
-    int sqlite3_sleep( int ms )
-    {
-        return ::usleep( ms * 1000 );
-    }
-#else
-    #include "sqlite3.h"
+#include <pthread.h>
+#include <unistd.h>   
 #endif
+
+#include "sqlite3.h"
+
 
 // this is a macro to ensure useful location information in the log
 #define logError( db ) \
@@ -87,6 +82,168 @@ ITunesPlaysDatabase::~ITunesPlaysDatabase()
     sqlite3_close( m_db ); //docs says passing NULL is harmless noop
 }
 
+#ifdef WIN32
+/*
+** A pointer to an instance of this structure is passed as the user-context
+** pointer when registering for an unlock-notify callback.
+*/
+typedef struct UnlockNotification UnlockNotification;
+
+struct UnlockNotification
+{
+	int fired;                         /* True after unlock event has occurred */
+	CRITICAL_SECTION mutex;
+	CONDITION_VARIABLE cond;
+};
+
+/*
+** This function is an unlock-notify callback registered with SQLite.
+*/
+static void unlock_notify_cb(void **apArg, int nArg)
+{
+	for( int i = 0; i < nArg ; i++)
+	{
+		UnlockNotification *p = (UnlockNotification *)apArg[i];
+		EnterCriticalSection( &p->mutex );
+		p->fired = 1;
+		WakeConditionVariable ( &p->cond );
+		LeaveCriticalSection( &p->mutex );
+	}
+}
+
+/*
+** This function assumes that an SQLite API call (either sqlite3_prepare_v2() 
+** or sqlite3_step()) has just returned SQLITE_LOCKED. The argument is the
+** associated database connection.
+**
+** This function calls sqlite3_unlock_notify() to register for an 
+** unlock-notify callback, then blocks until that callback is delivered 
+** and returns SQLITE_OK. The caller should then retry the failed operation.
+**
+** Or, if sqlite3_unlock_notify() indicates that to block would deadlock 
+** the system, then this function returns SQLITE_LOCKED immediately. In 
+** this case the caller should not retry the operation and should roll 
+** back the current transaction (if any).
+*/
+static int wait_for_unlock_notify(sqlite3 *db){
+	int rc;
+	UnlockNotification un;
+
+	/* Initialize the UnlockNotification structure. */
+	un.fired = 0;
+	InitializeCriticalSection( &un.mutex );
+	InitializeConditionVariable( &un.cond );
+
+	/* Register for an unlock-notify callback. */
+	rc = sqlite3_unlock_notify( db, unlock_notify_cb, (void *)&un );
+
+	//assert( rc==SQLITE_LOCKED || rc==SQLITE_OK );
+
+	/* The call to sqlite3_unlock_notify() always returns either SQLITE_LOCKED 
+	** or SQLITE_OK. 
+	**
+	** If SQLITE_LOCKED was returned, then the system is deadlocked. In this
+	** case this function needs to return SQLITE_LOCKED to the caller so 
+	** that the current transaction can be rolled back. Otherwise, block
+	** until the unlock-notify callback is invoked, then return SQLITE_OK.
+	*/
+	if( rc==SQLITE_OK )
+	{
+		EnterCriticalSection( &un.mutex );
+
+		if( !un.fired )
+		{
+			SleepConditionVariableCS( &un.cond, &un.mutex, INFINITE );
+		}
+
+		LeaveCriticalSection( &un.mutex );
+	}
+
+	/* Destroy the mutex and condition variables. */
+	//pthread_cond_destroy(&un.cond);
+	DeleteCriticalSection( &un.mutex );
+
+	return rc;
+}
+
+#else
+
+/*
+ ** A pointer to an instance of this structure is passed as the user-context
+ ** pointer when registering for an unlock-notify callback.
+ */
+typedef struct UnlockNotification UnlockNotification;
+struct UnlockNotification {
+    int fired;                         /* True after unlock event has occurred */
+    pthread_cond_t cond;               /* Condition variable to wait on */
+    pthread_mutex_t mutex;             /* Mutex to protect structure */
+};
+
+/*
+ ** This function is an unlock-notify callback registered with SQLite.
+ */
+static void unlock_notify_cb(void **apArg, int nArg){
+    int i;
+    for(i=0; i<nArg; i++){
+        UnlockNotification *p = (UnlockNotification *)apArg[i];
+        pthread_mutex_lock(&p->mutex);
+        p->fired = 1;
+        pthread_cond_signal(&p->cond);
+        pthread_mutex_unlock(&p->mutex);
+    }
+}
+
+/*
+ ** This function assumes that an SQLite API call (either sqlite3_prepare_v2()
+ ** or sqlite3_step()) has just returned SQLITE_LOCKED. The argument is the
+ ** associated database connection.
+ **
+ ** This function calls sqlite3_unlock_notify() to register for an
+ ** unlock-notify callback, then blocks until that callback is delivered
+ ** and returns SQLITE_OK. The caller should then retry the failed operation.
+ **
+ ** Or, if sqlite3_unlock_notify() indicates that to block would deadlock
+ ** the system, then this function returns SQLITE_LOCKED immediately. In
+ ** this case the caller should not retry the operation and should roll
+ ** back the current transaction (if any).
+ */
+static int wait_for_unlock_notify(sqlite3 *db){
+    int rc;
+    UnlockNotification un;
+    
+    /* Initialize the UnlockNotification structure. */
+    un.fired = 0;
+    pthread_mutex_init(&un.mutex, 0);
+    pthread_cond_init(&un.cond, 0);
+    
+    /* Register for an unlock-notify callback. */
+    rc = sqlite3_unlock_notify(db, unlock_notify_cb, (void *)&un);
+    assert( rc==SQLITE_LOCKED || rc==SQLITE_OK );
+    
+    /* The call to sqlite3_unlock_notify() always returns either SQLITE_LOCKED
+     ** or SQLITE_OK.
+     **
+     ** If SQLITE_LOCKED was returned, then the system is deadlocked. In this
+     ** case this function needs to return SQLITE_LOCKED to the caller so
+     ** that the current transaction can be rolled back. Otherwise, block
+     ** until the unlock-notify callback is invoked, then return SQLITE_OK.
+     */
+    if( rc==SQLITE_OK ){
+        pthread_mutex_lock(&un.mutex);
+        if( !un.fired ){
+            pthread_cond_wait(&un.cond, &un.mutex);
+        }
+        pthread_mutex_unlock(&un.mutex);
+    }
+    
+    /* Destroy the mutex and condition variables. */
+    pthread_cond_destroy(&un.cond);
+    pthread_mutex_destroy(&un.mutex);
+    
+    return rc;
+}
+
+#endif
 
 bool
 ITunesPlaysDatabase::query( /* utf-8 */ const char* statement, std::string* result )
@@ -132,6 +289,11 @@ ITunesPlaysDatabase::query( /* utf-8 */ const char* statement, std::string* resu
 
                 case SQLITE_DONE:
                     break;
+
+				case SQLITE_LOCKED:
+					LOG( 3, "Database locked. Waiting for unlock." );
+					wait_for_unlock_notify( m_db );
+					break;
 
                 default:
                     throw "Unhandled sqlite3_step() return value";

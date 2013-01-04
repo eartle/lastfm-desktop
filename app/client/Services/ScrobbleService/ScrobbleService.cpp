@@ -131,26 +131,27 @@ ScrobbleService::onSessionChanged( const unicorn::Session& )
 void
 ScrobbleService::resetScrobbler()
 {
-/// audioscrobbler
-    if( m_as )
+    if ( !aApp->currentSession().user().name().isEmpty() )
+    {
+        // only create the scrobble cache, etc if we have a user
+        // we won't have a user during the first run wizard
+
+        /// audioscrobbler
         delete m_as;
+        m_as = new Audioscrobbler( "ass" );
+        connect( m_as, SIGNAL(scrobblesCached(QList<lastfm::Track>)), SIGNAL(scrobblesCached(QList<lastfm::Track>)));
+        connect( m_as, SIGNAL(scrobblesSubmitted(QList<lastfm::Track>)), SIGNAL(scrobblesSubmitted(QList<lastfm::Track>)));
 
-    m_as = new Audioscrobbler( "ass" );
-    connect( m_as, SIGNAL(scrobblesCached(QList<lastfm::Track>)), SIGNAL(scrobblesCached(QList<lastfm::Track>)));
-    connect( m_as, SIGNAL(scrobblesSubmitted(QList<lastfm::Track>)), SIGNAL(scrobblesSubmitted(QList<lastfm::Track>)));
-
-/// DeviceScrobbler
-    if( m_deviceScrobbler )
+        /// DeviceScrobbler
         delete m_deviceScrobbler;
+        m_deviceScrobbler = new DeviceScrobbler( this );
+        connect( m_deviceScrobbler, SIGNAL(foundScrobbles(QList<lastfm::Track>)), SLOT(onFoundScrobbles(QList<lastfm::Track>)));
+        connect( m_deviceScrobbler, SIGNAL(foundScrobbles(QList<lastfm::Track>)), SIGNAL(foundIPodScrobbles(QList<lastfm::Track>)));
 
-    m_deviceScrobbler = new DeviceScrobbler( this );
-
-    connect( m_deviceScrobbler, SIGNAL(foundScrobbles(QList<lastfm::Track>)), SLOT(onFoundScrobbles(QList<lastfm::Track>)));
-    connect( m_deviceScrobbler, SIGNAL(foundScrobbles(QList<lastfm::Track>)), SIGNAL(foundIPodScrobbles(QList<lastfm::Track>)));
-
-    // Do this a bit later to as it's nicer for the user and
-    // it gives the main window time to be diplayed on boot
-    QTimer::singleShot( 3000, m_deviceScrobbler, SLOT(checkCachedIPodScrobbles()) );
+        // Do this a bit later to as it's nicer for the user and
+        // it gives the main window time to be diplayed on boot
+        QTimer::singleShot( 3000, m_deviceScrobbler, SLOT(checkCachedIPodScrobbles()) );
+    }
 }
 
 void

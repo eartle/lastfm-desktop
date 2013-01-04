@@ -33,7 +33,8 @@
 #include "AccessPage.h"
 
 AccessPage::AccessPage()
-    :m_valid( false )
+    :m_valid( false ),
+      m_gotUserInfo( false )
 {
     QHBoxLayout* layout = new QHBoxLayout( this );
     layout->setContentsMargins( 0, 0, 0, 0 );
@@ -48,6 +49,9 @@ AccessPage::AccessPage()
 
     ui.description->setObjectName( "description" );
     ui.description->setWordWrap( true );
+
+
+
 }
 
 void
@@ -64,6 +68,11 @@ AccessPage::initializePage()
 
     connect( custom, SIGNAL(clicked()), SLOT(tryAgain()));
 
+    disconnect( aApp, SIGNAL(sessionChanged(unicorn::Session)), this, SLOT(onSessionChanged(unicorn::Session)));
+    disconnect( aApp, SIGNAL(gotUserInfo(lastfm::User)), this, SLOT(onGotUserInfo(lastfm::User)));
+    connect( aApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onSessionChanged(unicorn::Session)));
+    connect( aApp, SIGNAL(gotUserInfo(lastfm::User)), SLOT(onGotUserInfo(lastfm::User)));
+
     tryAgain();
 }
 
@@ -72,32 +81,33 @@ AccessPage::tryAgain()
 {
     unicorn::LoginProcess* loginProcess = new unicorn::LoginProcess( this );
     m_loginProcesses << loginProcess;
-    connect( loginProcess, SIGNAL( gotSession( unicorn::Session* ) ), SLOT( onAuthenticated( unicorn::Session* ) ) );
     loginProcess->authenticate();
 }
 
 void
-AccessPage::onAuthenticated( unicorn::Session* session )
+AccessPage::onGotUserInfo( const lastfm::User& /*user*/ )
 {
-    if ( session )
-    {
-        // Wait to find out they're details such as canBootstrap, subscriber, etc
-        connect( aApp, SIGNAL(gotUserInfo(lastfm::User)), SLOT(onGotUserInfo(lastfm::User)));
-    }
-    else
-    {
-        qobject_cast<unicorn::LoginProcess*>(sender())->showError();
-    }
+    m_gotUserInfo = true;
+
+    checkComplete();
 }
 
 void
-AccessPage::onGotUserInfo( const lastfm::User& user )
+AccessPage::onSessionChanged( const unicorn::Session& session )
 {
-    qDebug() << user.name();
+    if ( session.isValid() )
+        checkComplete();
+}
 
-    if ( wizard()->user().name() != user.name() )
+void
+AccessPage::checkComplete()
+{
+    if ( aApp->currentSession().isValid() && m_gotUserInfo && !m_valid )
     {
-        wizard()->setUser( user );
+        disconnect( aApp, SIGNAL(sessionChanged(unicorn::Session)), this, SLOT(onSessionChanged(unicorn::Session)));
+        disconnect( aApp, SIGNAL(gotUserInfo(lastfm::User)), this, SLOT(onGotUserInfo(lastfm::User)));
+
+        // we've now got both the session info and the user info
         m_valid = true;
 
         // make sure the wizard is shown again after they allow access on the website.

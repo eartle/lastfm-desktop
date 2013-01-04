@@ -194,6 +194,18 @@ static void ASStop()
     gASState = AS_STOPPED;
 }
 
+static void StopCallback()
+{
+	// This gets called if we recieved a stop message
+	// and it's an actaul stop (not a pause)
+
+	// check that we are in the paused state before calling stop
+	// there's a small chance if a race condition where we may
+	// have resumed in the meantime
+	if ( gASState == AS_PAUSED )
+		ASStop();
+}
+
 
 static void ASPause()
 {
@@ -515,7 +527,7 @@ VisualPluginHandler( OSType message, VisualPluginMessageInfo* messageInfo, void*
         /** Sent when the visual plugin is registered.  The plugin should do 
           * minimal memory allocations here.  The resource fork of the plugin is 
           * still available. */
-	case kVisualPluginInitMessage:
+	case _(kVisualPluginInitMessage)
         {
             visualPluginData = (VisualPluginData *)malloc(sizeof(VisualPluginData));
             if (visualPluginData == nil)
@@ -535,7 +547,7 @@ VisualPluginHandler( OSType message, VisualPluginMessageInfo* messageInfo, void*
         break;
 
         /** Sent when the visual plugin is unloaded */
-	case kVisualPluginCleanupMessage:
+	case _(kVisualPluginCleanupMessage)
         {
             ASStop();
 
@@ -547,10 +559,10 @@ VisualPluginHandler( OSType message, VisualPluginMessageInfo* messageInfo, void*
         /** Sent when the visual plugin is enabled.  iTunes currently enables
           * all loaded visual plugins.  The plugin should not do anything here.
           */
-	case kVisualPluginEnableMessage:
+	case _(kVisualPluginEnableMessage)
             break;
 
-	case kVisualPluginDisableMessage:
+	case _(kVisualPluginDisableMessage)
             ASStop();
             break;
 
@@ -572,16 +584,16 @@ VisualPluginHandler( OSType message, VisualPluginMessageInfo* messageInfo, void*
         /** Sent if the plugin requests the ability for the user to configure 
           * it.  Do this by setting the kVisualWantsConfigure option in the 
           * PlayerRegisterVisualPluginMessage.options field. */
-		case kVisualPluginConfigureMessage:
+		case _(kVisualPluginConfigureMessage)
             break;
 
         /** Sent when iTunes is going to show the visual plugin in a port.  At
           * this point, the plugin should allocate any large buffers it needs.
           * Gets called once when window is first displayed. */
-		case kVisualPluginActivateMessage:
+		case _(kVisualPluginActivateMessage)
         /** Sent when iTunes needs to change the port or rectangle of the
           * currently displayed visual. Resize. */
-        case kVisualPluginWindowChangedMessage:
+        case _(kVisualPluginWindowChangedMessage)
         {
  			status = MoveVisual( visualPluginData, messageInfo->u.windowChangedMessage.options );
 			break;
@@ -589,7 +601,7 @@ VisualPluginHandler( OSType message, VisualPluginMessageInfo* messageInfo, void*
         break;
 
         /** Sent when iTunes is no longer displayed. */
-		case kVisualPluginDeactivateMessage:
+		case _(kVisualPluginDeactivateMessage)
         {
             status = DeactivateVisual( visualPluginData );
         }
@@ -597,12 +609,12 @@ VisualPluginHandler( OSType message, VisualPluginMessageInfo* messageInfo, void*
 
         /** Sent for the visual plugin to render a frame. Only get these when 
           * playing. */
-        case kVisualPluginDrawMessage:
+        case _(kVisualPluginDrawMessage)
             DrawVisual( visualPluginData );
             break;
 
         /** Sent when the playback starts */
-		case kVisualPluginPlayMessage:
+		case _(kVisualPluginPlayMessage)
 			HandleTrack( messageInfo->u.playMessage.trackInfo );
             visualPluginData->playing = true;
             break;
@@ -611,12 +623,12 @@ VisualPluginHandler( OSType message, VisualPluginMessageInfo* messageInfo, void*
          * used when the information about a track changes, or when the CD moves
          * onto the next track. The visual plugin should update any displayed
          * information about the currently playing song. */
-		case kVisualPluginChangeTrackMessage:
+		case _(kVisualPluginChangeTrackMessage)
             HandleTrack( messageInfo->u.changeTrackMessage.trackInfo );
             break;
 
         /** Sent when the player stops. */
-		case kVisualPluginStopMessage:
+		case _(kVisualPluginStopMessage)
         {
             if ( gASState == AS_PLAYING )
             {
@@ -628,11 +640,25 @@ VisualPluginHandler( OSType message, VisualPluginMessageInfo* messageInfo, void*
 
             ResetRenderData(visualPluginData);
             DrawVisual(visualPluginData);
-        }
+
+			if ( gCom )
+			{
+				// There is not a pause message to we take all
+				// stopped messages as pause
+
+				// this will mean we get called back if there is no current track
+				// i.e. we have actual stopped (probably at the end of a playlist)
+				gCom->callbackIfStopped( StopCallback );
+
+				// This means that the com thread will sync the plays database
+				// is an actual stop happened
+				gCom->stop();
+			}
+		}
         break;
 
         /** Sent when the player changes the track position. */
-		case kVisualPluginSetPositionMessage:
+		case _(kVisualPluginSetPositionMessage)
             break;
 
         default:

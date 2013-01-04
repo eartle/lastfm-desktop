@@ -55,6 +55,12 @@ main( int argc, char** argv )
 
     TwiddlyApplication app( argc, argv );
 
+    if ( app.isRunning() )
+    {
+        qDebug() << "The iPod Scrobbler is already running. Shutting down" << app.arguments();
+        return 1;
+    }
+
 #ifdef Q_OS_MAC
     // We need to tell twiddly where to load the plugins because it
     // loads system ones when not in the /Contents/MacOS directory

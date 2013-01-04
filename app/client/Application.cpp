@@ -90,6 +90,8 @@ using audioscrobbler::Application;
 Application::Application(int& argc, char** argv) 
     :unicorn::Application(argc, argv), m_raiseHotKeyId( (void*)-1 )
 {
+    setAttribute( Qt::AA_DontShowIconsInMenus );
+
     unicorn::AppSettings appSettings;
     int proxyType = appSettings.value( "proxyType", 0 ).toInt();
     QString proxyHost = appSettings.value( "proxyHost", "" ).toString();
@@ -157,7 +159,7 @@ Application::init()
     setWindowIcon( QIcon( ":/as.png" ) );
 #endif
 
-    if ( !currentSession() )
+    if ( !currentSession().isValid() )
     {
         // there won't be a current session if one wasn't created by the wizard
 
@@ -166,7 +168,7 @@ Application::init()
             changeSession( lastSession[ "username" ], lastSession[ "sessionKey" ] );
     }
 
-    initiateLogin( !currentSession() );
+    initiateLogin( !currentSession().isValid() );
 
 //    QNetworkDiskCache* diskCache = new QNetworkDiskCache(this);
 //    diskCache->setCacheDirectory( lastfm::dir::cache().path() );
@@ -189,11 +191,12 @@ Application::init()
         m_love_action = new QAction( tr("Love"), this );
         m_love_action->setIconVisibleInMenu( false );
         m_love_action->setCheckable( true );
+#ifdef Q_OS_WIN
         QIcon loveIcon;
-        loveIcon.addFile( ":/meta_love_OFF_REST.png", QSize( 16, 16 ), QIcon::Normal, QIcon::Off );
-        loveIcon.addFile( ":/meta_love_ON_REST.png", QSize( 16, 16 ), QIcon::Normal, QIcon::On );
-
+        loveIcon.addFile( ":/controls_love_OFF_REST.png", QSize( 16, 16 ), QIcon::Normal, QIcon::Off );
+        loveIcon.addFile( ":/controls_love_ON_REST.png", QSize( 16, 16 ), QIcon::Normal, QIcon::On );
         m_love_action->setIcon( loveIcon );
+#endif
         m_love_action->setEnabled( false );
         connect( m_love_action, SIGNAL(triggered(bool)), SLOT(changeLovedState(bool)));
     }
@@ -201,39 +204,45 @@ Application::init()
         m_play_action = new QAction( tr( "Play" ), this );
         m_play_action->setIconVisibleInMenu( false );
         m_play_action->setCheckable( true );
+#ifdef Q_OS_WIN
         QIcon playIcon;
         playIcon.addFile( ":/controls_pause_REST.png", QSize(), QIcon::Normal, QIcon::On );
         playIcon.addFile( ":/controls_play_REST.png", QSize(), QIcon::Normal, QIcon::Off );
         m_play_action->setIcon( playIcon );
+#endif
     }
     {
         m_skip_action = new QAction( tr( "Skip" ), this );
         m_skip_action->setIconVisibleInMenu( false );
-        QIcon skipIcon;
-        skipIcon.addFile( ":/controls_skip_REST.png" );
-        m_skip_action->setIcon( skipIcon );
+#ifdef Q_OS_WIN
+        m_skip_action->setIcon( QIcon( ":/controls_skip_REST.png" ) );
+#endif
         m_skip_action->setEnabled( false );
     }
     {
         m_tag_action = new QAction( tr( "Tag" ) + ELLIPSIS, this );
         m_tag_action->setIconVisibleInMenu( false );
-        m_tag_action->setIcon( QIcon( ":/meta_tag_REST.png" ) );
+#ifdef Q_OS_WIN
+        m_tag_action->setIcon( QIcon( ":/controls_tag_REST.png" ) );
+#endif
         m_tag_action->setEnabled( false );
         connect( m_tag_action, SIGNAL(triggered()), SLOT(onTagTriggered()));
     }
     {
         m_share_action = new QAction( tr( "Share" ) + ELLIPSIS, this );
         m_share_action->setIconVisibleInMenu( false );
-        m_share_action->setIcon( QIcon( ":/meta_share_REST.png" ) );
+#ifdef Q_OS_WIN
+        m_share_action->setIcon( QIcon( ":/controls_share_REST.png" ) );
+#endif
         m_share_action->setEnabled( false );
         connect( m_share_action, SIGNAL(triggered()), SLOT(onShareTriggered()));
     }
     {
         m_ban_action = new QAction( tr( "Ban" ), this );
         m_ban_action->setIconVisibleInMenu( false );
-        QIcon banIcon;
-        banIcon.addFile( ":/controls_ban_REST.png" );
-        m_ban_action->setIcon( banIcon );
+#ifdef Q_OS_WIN
+        m_ban_action->setIcon( QIcon( ":/controls_ban_REST.png" ) );
+#endif
         m_ban_action->setEnabled( false );
     }
     {
@@ -348,6 +357,12 @@ Application::init()
 #endif
 
     new SkipListener( this );
+}
+
+QWidget*
+Application::mainWindow() const
+{
+    return m_mw;
 }
 
 QSystemTrayIcon*
