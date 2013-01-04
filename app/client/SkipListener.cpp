@@ -70,30 +70,6 @@ SkipListener::sendMessage( const QString& message )
 }
 
 void
-SkipListener::onSpotifyLookup()
-{
-    lastfm::XmlQuery lfm;
-
-    QNetworkReply* reply = static_cast<QNetworkReply*>( sender() );
-    QByteArray data = reply->readAll();
-
-    qDebug() << reply->url() << data;
-
-    if ( lfm.parse( data ) )
-    {
-        RadioService::instance().queueSpotifyTrack( reply->url().queryItemValue( "uri" ) );
-
-        MutableTrack track;
-        track.setTitle( lfm["name"].text() );
-        track.setAlbum( lfm["album"]["name"].text() );
-        track.setArtist( lfm["artist"]["name"].text() );
-        sendMessage( QString( "Queued Spotify track: %1" ).arg( track.toString() ) );
-    }
-    else
-        sendMessage( "There was an error queuing the Spotify track!" );
-}
-
-void
 SkipListener::onNewConnection()
 {
     QTcpSocket* rx = m_server->nextPendingConnection();
@@ -214,29 +190,6 @@ SkipListener::onNewConnection()
 
                     sendMessage( QString( "Starting %1" ).arg( station.url() ) );
                 }
-            }
-        }
-        else if ( data[1].compare( "cue", Qt::CaseInsensitive ) == 0 )
-        {
-            QDateTime time = m_cueRequests.value( data[0] );
-
-            if ( time.isNull() || (!time.isNull() && time.addSecs( 60 * 60 ) < QDateTime::currentDateTime()) )
-            {
-                m_cueRequests[ data[0] ] = QDateTime::currentDateTime();
-
-                if ( data.count() == 3 && data[2].startsWith( "spotify:track:" ) )
-                {
-                    QUrl lookup( "http://ws.spotify.com/lookup/1/" );
-                    lookup.addQueryItem( "uri", data[2] );
-
-                    connect( lastfm::nam()->get( QNetworkRequest( lookup ) ), SIGNAL(finished()), SLOT(onSpotifyLookup()) );
-                }
-                else
-                    sendMessage( QString( "%1: Please provide 1 Spotify URI" ).arg( data[0] ) );
-            }
-            else
-            {
-                sendMessage( QString( "%1: You can't cue a track again until %2" ).arg( data[0], time.addSecs( 60 * 60 ).toString( Qt::DefaultLocaleShortDate ) ) );
             }
         }
         else

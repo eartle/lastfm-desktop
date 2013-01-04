@@ -189,6 +189,7 @@ HEADERS += \
     Services/AnalyticsService.h \
     Services/AnalyticsService/AnalyticsService.h \
     Services/AnalyticsService/PersistentCookieJar.h \
+    Widgets/ProxyWidget.h \
     Dialogs/ProxyDialog.h
 
 contains(DEFINES, FFMPEG_FINGERPRINTING) {
