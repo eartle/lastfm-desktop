@@ -1283,7 +1283,7 @@ Dein Profil wird in ein paar Minuten mit den neuen Titeln aktualisiert.</transla
     <message>
         <location filename="../app/client/Widgets/ProfileArtistWidget.cpp" line="87"/>
         <source>%1 Radio</source>
-        <translation>1%-Radio</translation>
+        <translation>%1-Radio</translation>
     </message>
     <message numerus="yes">
         <location filename="../app/client/Widgets/ProfileArtistWidget.cpp" line="94"/>
@@ -2213,7 +2213,7 @@ oder wähle unten eines aus</translation>
         <location filename="../app/client/Widgets/TrackWidget.cpp" line="108"/>
         <location filename="../app/client/Widgets/TrackWidget.cpp" line="116"/>
         <source>%1 Radio</source>
-        <translation>1%-Radio</translation>
+        <translation>%1-Radio</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/TrackWidget.cpp" line="233"/>

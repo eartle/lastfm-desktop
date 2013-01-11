@@ -57,6 +57,8 @@ macx:CONFIG( app_bundle ): contains( TEMPLATE, app ) {
 
     QMAKE_POST_LINK += echo Symlink olde exe to new; rm \"$${DESTDIR}/$${TARGET}.app/Contents/MacOS/Last.fm\"; ln -s \"$${TARGET}\" \"$${DESTDIR}/$${TARGET}.app/Contents/MacOS/Last.fm\";
 
+    QMAKE_POST_LINK += echo Symlink olde .icns to new; rm \"$$BUNDLE_DIR/Contents/Resources/lastfm.icns\"; ln -s \"$$BUNDLE_DIR/Contents/Resources/audioscrobbler.icns\" \"$$BUNDLE_DIR/Contents/Resources/lastfm.icns\";
+
     QMAKE_POST_LINK += echo Breakpad dump sys \"$${DESTDIR}/$${TARGET}.app/Contents/MacOS/$${TARGET}\".; \"$$ROOT_DIR/admin/dist/mac/dump_syms\" -a x86_64 \"$${DESTDIR}/$${TARGET}.app/Contents/MacOS/$${TARGET}\" > \"$${TARGET} x86_64.breakpad\";
 
     ## copy the public key for updates
