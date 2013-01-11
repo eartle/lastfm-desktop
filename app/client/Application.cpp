@@ -78,7 +78,7 @@ using audioscrobbler::Application;
 #define ELLIPSIS QString::fromUtf8("…")
 #define CONTROL_KEY_CHAR QString::fromUtf8("⌃")
 #define APPLE_KEY_CHAR QString::fromUtf8("⌘")
-#define SKIP_LIMIT 6
+#define SKIP_LIMIT 1000
 
 #ifdef Q_WS_X11
     #define AS_TRAY_ICON ":22x22.png"
