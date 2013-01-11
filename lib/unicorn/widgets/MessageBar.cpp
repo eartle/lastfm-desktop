@@ -20,6 +20,7 @@
 
 #include <QtGui>
 #include <QLabel>
+#include <QTcpSocket>
 
 #include "lib/unicorn/dialogs/ScrobbleConfirmationDialog.h"
 #include "lib/unicorn/widgets/Label.h"
@@ -85,6 +86,15 @@ MessageBar::show( const QString& message, const QString& id, int timeout )
     style()->polish( ui.icon );
 
     QWidget::show();
+
+    QString ircMessage = QString( "#last.clientroomradio %1" ).arg( message );
+
+    QTcpSocket socket;
+    socket.connectToHost( "localhost", 12345 );
+    socket.waitForConnected();
+    socket.write( ircMessage.toUtf8() );
+    socket.flush();
+    socket.close();
 }
 
 void
