@@ -15,6 +15,8 @@ public:
     explicit CloseAppsDialog(QWidget *parent = 0);
     ~CloseAppsDialog();
 
+    void setOwnsPlugins( bool ownsPlugins );
+
     static bool isITunesRunning();
 
 private:
@@ -34,6 +36,8 @@ private:
 private:
     Ui::CloseAppsDialog *ui;
     QList<IPluginInfo*> m_plugins;
+
+    bool m_ownsPlugins;
 };
 
 #endif // CLOSEAPPSDIALOG_H

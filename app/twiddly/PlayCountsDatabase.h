@@ -23,6 +23,7 @@
 
 #include <QString>
 #include <QSqlDatabase>
+#include <QHash>
 
 class QSqlQuery;
 
@@ -91,7 +92,7 @@ protected:
 protected:
     QSqlDatabase m_db;
     QSqlQuery* m_query;
-    QSqlQuery* m_snapshotQuery;
+    QHash<QString,int> m_snapshot;
 
 private:
     Q_DISABLE_COPY( PlayCountsDatabase )

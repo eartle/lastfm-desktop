@@ -113,12 +113,24 @@ PlayCountsDatabase::PlayCountsDatabase( const QString& path )
                    "WHERE persistent_id = :pid LIMIT 1" );
 #endif
 
-    m_snapshotQuery = new QSqlQuery( m_db );
+    QSqlQuery snapshotQuery( m_db );
 #ifdef WIN32
-    m_snapshotQuery->exec( "SELECT path, play_count FROM itunes_db ORDER BY path ASC" );
+    snapshotQuery.exec( "SELECT path, play_count FROM itunes_db WHERE path IS NOT '' ORDER BY path ASC" );
 #else
-    m_snapshotQuery->exec( "SELECT persistent_id, play_count FROM itunes_db ORDER BY persistent_id ASC" );
+    snapshotQuery.exec( "SELECT persistent_id, play_count FROM itunes_db ORDER BY persistent_id ASC" );
 #endif
+
+    if ( snapshotQuery.first() )
+    {
+        do {
+            bool ok;
+            int count = snapshotQuery.value( 1 ).toInt( &ok );
+
+            if ( ok )
+                m_snapshot[snapshotQuery.value(0).toString()] = count;
+
+        } while ( snapshotQuery.next() );
+    }
 }
 
 
@@ -129,29 +141,17 @@ PlayCountsDatabase::~PlayCountsDatabase()
     //m_db.close();
 
     delete m_query;
-    delete m_snapshotQuery;
+
 }
 
 
 PlayCountsDatabase::Track
 PlayCountsDatabase::operator[]( const QString& uid )
 {
-    if ( m_snapshotQuery->first() )
-    {
-        do
-        {
-            if ( m_snapshotQuery->value( 0 ).toString() == uid )
-            {
-                bool ok;
-                int count = m_snapshotQuery->value( 1 ).toInt( &ok );
+    if ( m_snapshot.contains( uid ) )
+        return Track( uid, m_snapshot[uid] );
 
-                if ( ok )
-                    return Track( uid, count );
-                else
-                    return Track();
-            }
-        } while ( m_snapshotQuery->next() );
-    }
+    return Track();
 }
 
 PlayCountsDatabase::Track

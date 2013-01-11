@@ -10,7 +10,7 @@ WinampPluginInfo::WinampPluginInfo( QObject* parent )
 Version
 WinampPluginInfo::version() const
 {
-    return Version( 2, 1, 0, 10 );
+    return Version( 2, 1, 0, 11 );
 }
 
 QString
@@ -52,5 +52,5 @@ WinampPluginInfo::bootstrapType() const
 QString
 WinampPluginInfo::pluginInstaller() const
 {
-    return "WinampPluginSetup_2.1.0.10.exe";
+    return "WinampPluginSetup_2.1.0.11.exe";
 }

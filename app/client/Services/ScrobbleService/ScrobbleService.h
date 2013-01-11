@@ -40,8 +40,6 @@ class ScrobbleService : public QObject
 
 public:
     ScrobbleService();
-    ~ScrobbleService();
-
 
     bool scrobblableTrack( const lastfm::Track& track ) const;
 
@@ -102,6 +100,7 @@ protected:
     QPointer <DeviceScrobbler> m_deviceScrobbler;
     Track m_currentTrack;
     Track m_trackToScrobble;
+    QString m_currentUsername;
 };
 
 

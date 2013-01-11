@@ -47,6 +47,19 @@ header( "Substituting strings in various files" );
 
 header( "Translations" );
     system( "lrelease  -removeidentical ../../../Last.fm.pro" );
+    system( "lrelease  -removeidentical ../../../i18n/lastfm_de.ts" );
+    system( "lrelease  -removeidentical ../../../i18n/lastfm_en.ts" );
+    system( "lrelease  -removeidentical ../../../i18n/lastfm_es.ts" );
+    system( "lrelease  -removeidentical ../../../i18n/lastfm_fr.ts" );
+    system( "lrelease  -removeidentical ../../../i18n/lastfm_it.ts" );
+    system( "lrelease  -removeidentical ../../../i18n/lastfm_ja.ts" );
+    system( "lrelease  -removeidentical ../../../i18n/lastfm_pl.ts" );
+    system( "lrelease  -removeidentical ../../../i18n/lastfm_pt.ts" );
+    system( "lrelease  -removeidentical ../../../i18n/lastfm_ru.ts" );
+    system( "lrelease  -removeidentical ../../../i18n/lastfm_sv.ts" );
+    system( "lrelease  -removeidentical ../../../i18n/lastfm_tr.ts" );
+    system( "lrelease  -removeidentical ../../../i18n/lastfm_zh_CN.ts" );
+
 
 header( "Installer" );
     #my $ISDIR = $ENV{'ISDIR'} or "c:\\Program Files\\Inno Setup 5";

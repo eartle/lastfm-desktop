@@ -97,8 +97,6 @@ MainWindow::MainWindow( QMenuBar* menuBar )
 
     layout->addWidget( ui.messageBar = new MessageBar( this ) );
 
-    connect( &RadioService::instance(), SIGNAL(tuningIn(RadioStation)), ui.messageBar, SLOT(hide()) );
-
     QHBoxLayout* h = new QHBoxLayout();
     h->setContentsMargins( 0, 0, 0, 0 );
     h->setSpacing( 0 );
@@ -201,10 +199,16 @@ MainWindow::MainWindow( QMenuBar* menuBar )
     connect( lastfm::nam()->get( QNetworkRequest( CONFIG_URL ) ), SIGNAL(finished()), SLOT(onConfigRetrieved()) );
 }
 
+void
+MainWindow::showMessage( const QString& message, const QString& id, int timeout )
+{
+    ui.messageBar->show( message, id, timeout );
+}
+
 QString
 MainWindow::applicationName()
 {
-    return QCoreApplication::applicationName() + " Beta";
+    return QCoreApplication::applicationName();
 }
 
 #ifdef Q_OS_WIN32
@@ -302,7 +306,7 @@ MainWindow::setupMenuBar()
 
     /// Window
     QMenu* windowMenu = appMenuBar()->addMenu( tr("Window") );
-    windowMenu->addAction( tr( "Minimize" ), this, SLOT(onMinimizeTriggered()) );
+    windowMenu->addAction( tr( "Minimize" ), this, SLOT(onMinimizeTriggered()), Qt::CTRL + Qt::Key_M );
     windowMenu->addAction( tr( "Zoom" ), this, SLOT(onZoomTriggered()) );
     //windowMenu->addSeparator();
     //windowMenu->addAction( tr( "Last.fm" ), this, SLOT(onZoomTriggered()) );
@@ -396,16 +400,6 @@ MainWindow::onPrefsTriggered()
     m_preferences->adjustSize();
 
     AnalyticsService::instance().sendEvent( aApp->currentCategory(), BASIC_SETTINGS, "SettingsOpened");
-}
-
-void
-MainWindow::onBetaTriggered()
-{
-    if ( !m_beta )
-        m_beta = new BetaDialog( this );
-
-    m_beta->show();
-    m_beta->activateWindow();
 }
 
 void

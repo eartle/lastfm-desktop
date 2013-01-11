@@ -53,7 +53,8 @@ bool WinampBootStrap::start()
 
         std::wstringstream playcount;
         playcount << curItem->playcount;
-        BootStrapItem bootStrapItem = { curItem->artist ? curItem->artist : L"", 
+        BootStrapItem bootStrapItem = { curItem->artist ? curItem->artist : L"",
+										curItem->albumartist ? curItem->albumartist : L"",
                                         curItem->title ? curItem->title : L"", 
                                         curItem->album ? curItem->album : L"", 
                                         length.str(), 

@@ -44,7 +44,7 @@ AccessPage::AccessPage()
     ui.image->setObjectName( "image" );
 
     layout->addWidget( ui.description = new QLabel( tr( "<p>Please click the <strong>Yes, Allow Access</strong> button in your web browser to connect your Last.fm account to the Last.fm Desktop App.</p>"
-                                                        "<p>If you haven't connected because you closed the browser window or you clicked cancel, please try again.<p/>" )),
+                                                        "<p>If you haven't connected because you closed the browser window or you clicked cancel, please try again.</p>" )),
                        0, Qt::AlignTop);
 
     ui.description->setObjectName( "description" );

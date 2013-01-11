@@ -55,7 +55,7 @@ macx:CONFIG( app_bundle ): contains( TEMPLATE, app ) {
         }
     }
 
-    QMAKE_POST_LINK += echo Symlink olde exe to new; ln -s \"$${DESTDIR}/$${TARGET}.app/Contents/MacOS/$${TARGET}\" \"$${DESTDIR}/$${TARGET}.app/Contents/MacOS/Last.fm\";
+    QMAKE_POST_LINK += echo Symlink olde exe to new; rm \"$${DESTDIR}/$${TARGET}.app/Contents/MacOS/Last.fm\"; ln -s \"$${TARGET}\" \"$${DESTDIR}/$${TARGET}.app/Contents/MacOS/Last.fm\";
 
     QMAKE_POST_LINK += echo Breakpad dump sys \"$${DESTDIR}/$${TARGET}.app/Contents/MacOS/$${TARGET}\".; \"$$ROOT_DIR/admin/dist/mac/dump_syms\" -a x86_64 \"$${DESTDIR}/$${TARGET}.app/Contents/MacOS/$${TARGET}\" > \"$${TARGET} x86_64.breakpad\";
 

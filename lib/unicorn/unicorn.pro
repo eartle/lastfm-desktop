@@ -153,7 +153,6 @@ CONFIG( break ) {
                           
 FORMS += \
 	dialogs/ShareDialog.ui \
-	dialogs/LoginDialog.ui \
     dialogs/TagDialog.ui \
     dialogs/AboutDialog.ui \
     dialogs/ScrobbleConfirmationDialog.ui

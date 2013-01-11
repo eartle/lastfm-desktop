@@ -59,7 +59,7 @@ FriendListWidget::FriendListWidget(QWidget *parent) :
 #endif
 
     ui->noFriends->setText( tr( "<h3>You haven't made any friends on Last.fm yet.</h3>"
-                                "<p>Find your Facebook friends and email contacts on Last.fm quickly and easily using the friend finder.<p>" ) );
+                                "<p>Find your Facebook friends and email contacts on Last.fm quickly and easily using the friend finder.</p>" ) );
 
     connect( ui->findFriends, SIGNAL(clicked()), SLOT(onFindFriends()) );
 

@@ -4,7 +4,7 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <location filename="../lib/unicorn/dialogs/AboutDialog.ui" line="14"/>
+        <location filename="../lib/unicorn/dialogs/AboutDialog.ui"/>
         <source>About</source>
         <translation>Om</translation>
     </message>
@@ -18,26 +18,26 @@
     <name>AccessPage</name>
     <message>
         <location filename="../app/client/Wizard/AccessPage.cpp" line="46"/>
-        <source>&lt;p&gt;Please click the &lt;strong&gt;Yes, Allow Access&lt;/strong&gt; button in your web browser to connect your Last.fm account to the Last.fm Desktop App.&lt;/p&gt;&lt;p&gt;If you haven&#x27;t connected because you closed the browser window or you clicked cancel, please try again.&lt;p /&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Klicka på knappen &lt;strong&gt;Ja, tillåt åtkomst&lt;/strong&gt; i din webbläsare för att ansluta ditt Last.fm-konto till Last.fm-programmet.&lt;/p&gt;&lt;p&gt;Om du inte anslutit för att du stängt webbläsaren eller klickat på avbryt, försök igen.&lt;p /&gt;&lt;/p&gt;</translation>
+        <source>&lt;p&gt;Please click the &lt;strong&gt;Yes, Allow Access&lt;/strong&gt; button in your web browser to connect your Last.fm account to the Last.fm Desktop App.&lt;/p&gt;&lt;p&gt;If you haven&apos;t connected because you closed the browser window or you clicked cancel, please try again.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Klicka på knappen &lt;strong&gt;Ja, tillåt åtkomst&lt;/strong&gt; i din webbläsare för att ansluta ditt Last.fm-konto till Last.fm-programmet.&lt;/p&gt;&lt;p&gt;Om du inte anslutit för att du stängt webbläsaren eller klickat på avbryt, försök igen.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="57"/>
-        <source>We&#x27;re waiting for you to connect to Last.fm</source>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="60"/>
+        <source>We&apos;re waiting for you to connect to Last.fm</source>
         <translation>Vi väntar på att du ska ansluta dig till Last.fm</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="62"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="65"/>
         <source>&lt;&lt; Back</source>
         <translation>&lt;&lt; Tillbaka</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="63"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="66"/>
         <source>Continue</source>
         <translation>Fortsätt</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="64"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="67"/>
         <source>Try Again</source>
         <translation>Försök igen</translation>
     </message>
@@ -45,57 +45,22 @@
 <context>
     <name>AdvancedSettingsWidget</name>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="20"/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
         <source>Keyboard Shortcuts:</source>
         <translation>Tangentbordsgenvägar</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="29"/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
         <source>Raise/Hide Last.fm</source>
         <translation>Visa/dölj Last.fm</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="58"/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
         <source>Proxy:</source>
         <translation>Proxy:</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="54"/>
-        <source>Automatic</source>
-        <translation>Automatiskt</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="64"/>
-        <source>Manual</source>
-        <translation>Manuellt</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="73"/>
-        <source>Host:</source>
-        <translation>Värd:</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="80"/>
-        <source>Username:</source>
-        <translation>Användarnamn:</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="87"/>
-        <source>Password:</source>
-        <translation>Lösenord:</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="100"/>
-        <source>Port:</source>
-        <translation>Port:</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="113"/>
-        <source>Leave fields blank to use a direct connection</source>
-        <translation>Lämna fälten tomma för att använda en direkt anslutning</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="48"/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
         <source>Cache Size:</source>
         <translation>Cachestorlek:</translation>
     </message>
@@ -129,24 +94,6 @@
     </message>
 </context>
 <context>
-    <name>BetaDialog</name>
-    <message>
-        <location filename="../app/client/Dialogs/BetaDialog.ui" line="40"/>
-        <source>Create Issue</source>
-        <translation>Skapa fråga</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Dialogs/BetaDialog.ui" line="14"/>
-        <source>Beta</source>
-        <translation>Beta</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Dialogs/BetaDialog.cpp" line="28"/>
-        <source>Visit Audioscrobbler Beta group</source>
-        <translation>Besök Audioscrobbler Beta-gruppen</translation>
-    </message>
-</context>
-<context>
     <name>BioWidget</name>
     <message>
         <location filename="../app/client/Widgets/BioWidget.cpp" line="34"/>
@@ -163,7 +110,7 @@
     </message>
     <message>
         <location filename="../app/client/Wizard/BootstrapPage.cpp" line="79"/>
-        <source>Your plugins haven&#x27;t been installed</source>
+        <source>Your plugins haven&apos;t been installed</source>
         <translation>Dina insticksprogram har inte installerats</translation>
     </message>
     <message>
@@ -178,7 +125,7 @@
     </message>
     <message>
         <location filename="../app/client/Wizard/BootstrapPage.cpp" line="132"/>
-        <source>Now let&#x27;s import your listening history</source>
+        <source>Now let&apos;s import your listening history</source>
         <translation>Låt oss nu importera din lyssningshistorik</translation>
     </message>
     <message>
@@ -201,7 +148,7 @@
     <name>BootstrapProgressPage</name>
     <message>
         <location filename="../app/client/Wizard/BootstrapProgressPage.cpp" line="18"/>
-        <source>&lt;p&gt;Don&#x27;t worry, the upload process shouldn&#x27;t take more than a couple of minutes, depending on the size of your music library.&lt;/p&gt;&lt;p&gt;While we&#x27;re hard at work adding your listening history to your Last.fm profile, why don&#x27;t you check out the main features of the Last.fm Desktop App. Click &lt;strong&gt;Continue&lt;/strong&gt; to take the tour.&lt;/p&gt;</source>
+        <source>&lt;p&gt;Don&apos;t worry, the upload process shouldn&apos;t take more than a couple of minutes, depending on the size of your music library.&lt;/p&gt;&lt;p&gt;While we&apos;re hard at work adding your listening history to your Last.fm profile, why don&apos;t you check out the main features of the Last.fm Desktop App. Click &lt;strong&gt;Continue&lt;/strong&gt; to take the tour.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Oroa dig inte, uppladdningsprocessen bör inte ta mer än några minuter beroende på storleken på ditt musikbibliotek.&lt;/p&gt;&lt;p&gt;Medan vi jobbar hårt med att lägga till din lyssningshistorik till din Last.fm-profil kan du kolla in Last.fm-programmets huvudfunktioner. Klicka på &lt;strong&gt;Fortsätt&lt;/strong&gt; för att ta turen.&lt;/p&gt;</translation>
     </message>
     <message>
@@ -218,7 +165,7 @@
 <context>
     <name>CloseAppsDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/CloseAppsDialog.ui" line="14"/>
+        <location filename="../app/client/Dialogs/CloseAppsDialog.ui"/>
         <source>Close Apps</source>
         <translation>Stäng program</translation>
     </message>
@@ -231,42 +178,42 @@
 <context>
     <name>DeviceScrobbler</name>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="425"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="416"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="386"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="376"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="330"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="320"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="344"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="354"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="400"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="410"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="440"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="449"/>
         <source>Scrobble iPod</source>
         <translation>Skrobbla iPod</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="321"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="345"/>
         <source>Do you want to associate the device %1 to your audioscrobbler user account?</source>
         <translation>Vill du associera enheten %1 till ditt audioscrobbler-användarkonto?</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="331"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="355"/>
         <source>Device successfully associated to your user account. From now on you can scrobble the tracks you listen on this device.</source>
         <translation>Enheten har framgångsrikt associerats till ditt användarkonto. Från och med nu kan du skrobbla låtarna du lyssnar på på denna enhet.</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="377"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="401"/>
         <source>%1 tracks scrobbled.</source>
         <translation>%1 låtar skrobblade.</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="387"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="411"/>
         <source>No tracks to scrobble since your last sync.</source>
         <translation>Inga låtar att skrobbla sedan din senaste synkning.</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="417"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="441"/>
         <source>The iPod database could not be opened.</source>
         <translation>iPod-databasen kunde inte öppnas.</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="426"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="450"/>
         <source>An unknown error occurred while trying to access the iPod database.</source>
         <translation>Ett okänt fel uppstod vid försöket att komma åt iPod-databasen.</translation>
     </message>
@@ -274,75 +221,72 @@
 <context>
     <name>DiagnosticsDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="14"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Diagnostics</source>
         <translation>Diagnostik</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="33"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Scrobbling</source>
         <translation>Skrobbling</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="57"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>This is an easter egg!</source>
         <translation>Detta är ett påskägg!</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="174"/>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="114"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Artist</source>
         <translation>Artist</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="179"/>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="119"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Track</source>
         <translation>Låt</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="184"/>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="124"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Album</source>
         <translation>Album</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="133"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Fingerprinting</source>
         <translation>Fingeravtryck</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="145"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Recently Fingerprinted Tracks</source>
         <translation>Nyligen fingerprintade låtar</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="193"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>iPod Scrobbling</source>
         <translation>iPod-skrobbling</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="208"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>iTunes automatically manages my iPod</source>
         <translation>iTunes hanterar min iPod automatiskt</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="213"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>I manually manage my iPod</source>
         <translation>Jag hanterar min iPod manuellt</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="221"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Scrobble iPod</source>
         <translation>Skrobbla iPod</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="254"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Logs</source>
         <translation>Loggar</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="293"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>&amp;Close</source>
         <translation>&amp;Stäng</translation>
     </message>
@@ -358,7 +302,7 @@
 <context>
     <name>FirstRunWizard</name>
     <message>
-        <location filename="../app/client/Wizard/FirstRunWizard.ui" line="20"/>
+        <location filename="../app/client/Wizard/FirstRunWizard.ui"/>
         <source>Last.fm Desktop App</source>
         <translation>Last.fm-programmet</translation>
     </message>
@@ -381,14 +325,14 @@
 <context>
     <name>FriendListWidget</name>
     <message>
-        <location filename="../app/client/Widgets/FriendListWidget.ui" line="93"/>
+        <location filename="../app/client/Widgets/FriendListWidget.ui"/>
         <source>Find your friends on Last.fm</source>
         <translation>Hitta dina vänner på Last.fm</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/FriendListWidget.cpp" line="61"/>
-        <source>&lt;h3&gt;You haven&#x27;t made any friends on Last.fm yet.&lt;/h3&gt;&lt;p&gt;Find your Facebook friends and email contacts on Last.fm quickly and easily using the friend finder.&lt;p /&gt;&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;Du har inga vänner på Last.fm än.&lt;/h3&gt;&lt;p&gt;Hitta dina Facebook-vänner och e-postkontakter snabbt och enkelt med vänsökaren.&lt;p /&gt;&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;You haven&apos;t made any friends on Last.fm yet.&lt;/h3&gt;&lt;p&gt;Find your Facebook friends and email contacts on Last.fm quickly and easily using the friend finder.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;Du har inga vänner på Last.fm än.&lt;/h3&gt;&lt;p&gt;Hitta dina Facebook-vänner och e-postkontakter snabbt och enkelt med vänsökaren.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/FriendListWidget.cpp" line="66"/>
@@ -396,8 +340,8 @@
         <translation>Sök efter en vän med användarnamn eller riktigt namn</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="293"/>
         <location filename="../app/client/Widgets/FriendListWidget.cpp" line="110"/>
+        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="293"/>
         <source>Refresh Friends</source>
         <translation>Uppdatera vänner</translation>
     </message>
@@ -411,12 +355,7 @@
     <name>FriendWidget</name>
     <message>
         <location filename="../app/client/Widgets/FriendWidget.cpp" line="41"/>
-        <source>%1%2s Library Radio</source>
-        <translation>%1%2s biblioteksradio</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Widgets/FriendWidget.cpp" line="41"/>
-        <source>%1&#x27;s Library Radio</source>
+        <source>%1&apos;s Library Radio</source>
         <translation>%1s biblioteksradio</translation>
     </message>
     <message>
@@ -461,42 +400,42 @@
 <context>
     <name>GeneralSettingsWidget</name>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="23"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Language:</source>
         <translation>Språk:</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="37"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Show application icon in menu bar</source>
         <translation>Visa programikon i menylistan</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="47"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Show:</source>
         <translation>Visa:</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="60"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Launch application with media players</source>
         <translation>Starta program med mediaspelare</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="73"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Show desktop notifications</source>
         <translation>Visa skrivbordsmeddelanden</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="86"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Remember last radio station and tune in on start up</source>
         <translation>Kom ihåg senaste radiostationen och lyssna vid uppstart</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="96"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Send crash reports to Last.fm</source>
         <translation>Skicka kraschrapporter till Last.fm</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="106"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Check for updates automatically</source>
         <translation>Leta automatiskt efter uppdateringar</translation>
     </message>
@@ -516,7 +455,7 @@
         <translation>Endast menyrad (dölj dockikon)</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="129"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Enable media keys</source>
         <translation>Aktivera mediaknappar</translation>
     </message>
@@ -540,12 +479,12 @@
     <name>IPluginInfo</name>
     <message>
         <location filename="../app/client/Plugins/IPluginInfo.cpp" line="73"/>
-        <source>The %1 plugin hasn&#x27;t been installed</source>
+        <source>The %1 plugin hasn&apos;t been installed</source>
         <translation>Insticksprogrammet %1 har inte installerats</translation>
     </message>
     <message>
         <location filename="../app/client/Plugins/IPluginInfo.cpp" line="75"/>
-        <source>You didn&#x27;t close %1 so its plugin hasn&#x27;t been installed.</source>
+        <source>You didn&apos;t close %1 so its plugin hasn&apos;t been installed.</source>
         <translation>Du stängde inte %1 så dess insticksprogram har inte installerats.</translation>
     </message>
 </context>
@@ -560,22 +499,27 @@
 <context>
     <name>IpodSettingsWidget</name>
     <message>
-        <location filename="../app/client/Settings/IpodSettingsWidget.cpp" line="111"/>
+        <location filename="../app/client/Settings/IpodSettingsWidget.cpp" line="72"/>
+        <source>&lt;p&gt;Please note:&lt;/p&gt;&lt;p&gt;Using an iOS scrobbling app, like %1, may result in double scrobbles. Please only enable scrobbling in one of them.&lt;/p&gt;&lt;p&gt;iTunes Match synchronises play counts, but not last played times, across multiple devices. This will lead to duplicate scrobbles, at incorrect times. For now, we recommend iTunes Match users disable device scrobbling on desktop devices and scrobble iPhones/iPods using an iOS scrobbling app, like %1.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/client/Settings/IpodSettingsWidget.cpp" line="116"/>
         <source>Setting not changed</source>
         <translation>Inställningen har inte ändrats</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/IpodSettingsWidget.cpp" line="113"/>
+        <location filename="../app/client/Settings/IpodSettingsWidget.cpp" line="118"/>
         <source>You did not close iTunes for this setting to change</source>
         <translation>Du stängde inte iTunes så denna inställning kunde ändras</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/IpodSettingsWidget.ui" line="20"/>
+        <location filename="../app/client/Settings/IpodSettingsWidget.ui"/>
         <source>Enable Device Scrobbling</source>
         <translation>Aktivera enhetsskrobbling</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/IpodSettingsWidget.ui" line="27"/>
+        <location filename="../app/client/Settings/IpodSettingsWidget.ui"/>
         <source>Confirm Device Scrobbles</source>
         <translation>Bekräfta enhetsskrobbling</translation>
     </message>
@@ -583,7 +527,7 @@
 <context>
     <name>LicensesDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/LicensesDialog.ui" line="14"/>
+        <location filename="../app/client/Dialogs/LicensesDialog.ui"/>
         <source>Licenses</source>
         <translation>Licenser</translation>
     </message>
@@ -602,53 +546,15 @@
     </message>
 </context>
 <context>
-    <name>LoginDialog</name>
-    <message>
-        <location filename="../lib/unicorn/dialogs/LoginDialog.ui" line="20"/>
-        <source>Log in to Last.fm</source>
-        <translation>Logga in på Last.fm</translation>
-    </message>
-    <message>
-        <location filename="../lib/unicorn/dialogs/LoginDialog.ui" line="48"/>
-        <source>Username:</source>
-        <translation>Användarnamn:</translation>
-    </message>
-    <message>
-        <location filename="../lib/unicorn/dialogs/LoginDialog.ui" line="61"/>
-        <source>Password:</source>
-        <translation>Lösenord:</translation>
-    </message>
-    <message>
-        <location filename="../lib/unicorn/dialogs/LoginDialog.ui" line="90"/>
-        <source>Remember Me</source>
-        <translation>Kom ihåg mig</translation>
-    </message>
-    <message>
-        <location filename="../lib/unicorn/dialogs/LoginDialog.ui" line="168"/>
-        <source>&lt;a href=&quot;http://last.fm/join/&quot;&gt;Sign up&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://last.fm/settings/lostpassword/&quot;&gt;Forgot your password?&lt;/a&gt;&lt;/br&gt;</source>
-        <translation>&lt;a href=&quot;http://last.fm/join/&quot;&gt;Registrera dig&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://last.fm/settings/lostpassword/&quot;&gt;Glömt ditt lösenord?&lt;/a&gt;&lt;/br&gt;</translation>
-    </message>
-    <message>
-        <location filename="../lib/unicorn/dialogs/LoginDialog.cpp" line="31"/>
-        <source>Last.fm needs your permission first!</source>
-        <translation>Last.fm behöver din tillåtelse först!</translation>
-    </message>
-    <message>
-        <location filename="../lib/unicorn/dialogs/LoginDialog.cpp" line="34"/>
-        <source>This application needs your permission to connect to your Last.fm profile.  Click OK to go to the Last.fm website and do this.</source>
-        <translation>Detta program behöver din tillåtelse för att ansluta till din Last.fm-profil. Klicka på OK för att gå till Last.fm-webbsidan och göra detta.</translation>
-    </message>
-</context>
-<context>
     <name>LoginPage</name>
     <message>
         <location filename="../app/client/Wizard/LoginPage.cpp" line="50"/>
-        <source>&lt;p&gt;Already a Last.fm user? Connect your account with the Last.fm Desktop App and it&#x27;ll update your profile with the music you&#x27;re listening to.&lt;/p&gt;&lt;p&gt;If you don&#x27;t have an account you can sign up now for free now.&lt;/p&gt;</source>
+        <source>&lt;p&gt;Already a Last.fm user? Connect your account with the Last.fm Desktop App and it&apos;ll update your profile with the music you&apos;re listening to.&lt;/p&gt;&lt;p&gt;If you don&apos;t have an account you can sign up now for free now.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Redan Last.fm-användare? Anslut ditt konto till Last.fm-programmet så kommer din profil att uppdateras med den musik du lyssnar på.&lt;/p&gt;&lt;p&gt;Om du inte har ett konto kan du registrera dig gratis nu.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/LoginPage.cpp" line="63"/>
-        <source>Let&#x27;s get started by connecting your Last.fm account</source>
+        <source>Let&apos;s get started by connecting your Last.fm account</source>
         <translation>Kom igång genom att ansluta ditt Last.fm-konto</translation>
     </message>
     <message>
@@ -670,165 +576,160 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="217"/>
+        <location filename="../app/client/MainWindow.cpp" line="222"/>
         <source>There are updates to your media player plugins. Would you like to install them now?</source>
         <translation>Det finns uppdateringar för insticksprogrammen för dina mediaspelare. Vill du installera dem nu?</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="237"/>
-        <source>Your plugins haven&#x27;t been installed</source>
+        <location filename="../app/client/MainWindow.cpp" line="242"/>
+        <source>Your plugins haven&apos;t been installed</source>
         <translation>Dina insticksprogram har inte installerats</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="239"/>
+        <location filename="../app/client/MainWindow.cpp" line="244"/>
         <source>You can install them later through the file menu</source>
         <translation>Du kan installera dem senare genom filmenyn</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="257"/>
+        <location filename="../app/client/MainWindow.cpp" line="262"/>
         <source>File</source>
         <translation>Fil</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="260"/>
+        <location filename="../app/client/MainWindow.cpp" line="265"/>
         <source>Install plugins</source>
         <translation>Installera insticksprogram</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="268"/>
+        <location filename="../app/client/MainWindow.cpp" line="273"/>
         <source>&amp;Quit</source>
         <translation>&amp;Avsluta</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="277"/>
+        <location filename="../app/client/MainWindow.cpp" line="282"/>
         <source>View</source>
         <translation>Visa</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="280"/>
+        <location filename="../app/client/MainWindow.cpp" line="285"/>
         <source>My Last.fm Profile</source>
         <translation>Min Last.fm-profil</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="283"/>
+        <location filename="../app/client/MainWindow.cpp" line="288"/>
         <source>Scrobbles</source>
         <translation>Skrobblingar</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="284"/>
+        <location filename="../app/client/MainWindow.cpp" line="289"/>
         <source>Refresh</source>
         <translation>Uppdatera</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="287"/>
+        <location filename="../app/client/MainWindow.cpp" line="292"/>
         <source>Controls</source>
         <translation>Kontroller</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="291"/>
+        <location filename="../app/client/MainWindow.cpp" line="296"/>
         <source>Account</source>
         <translation>Konto</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="294"/>
+        <location filename="../app/client/MainWindow.cpp" line="299"/>
         <source>Tools</source>
         <translation>Verktyg</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="296"/>
+        <location filename="../app/client/MainWindow.cpp" line="301"/>
         <source>Check for Updates</source>
         <translation>Kontrollera om det finns uppdateringar</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="299"/>
+        <location filename="../app/client/MainWindow.cpp" line="304"/>
         <source>Options</source>
         <translation>Alternativ</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="303"/>
+        <location filename="../app/client/MainWindow.cpp" line="308"/>
         <source>Window</source>
         <translation>Fönster</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="304"/>
+        <location filename="../app/client/MainWindow.cpp" line="309"/>
         <source>Minimize</source>
         <translation>Minimera</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="305"/>
+        <location filename="../app/client/MainWindow.cpp" line="310"/>
         <source>Zoom</source>
         <translation>Zoom</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="307"/>
-        <source>Last.fm</source>
-        <translation>Last.fm</translation>
-    </message>
-    <message>
-        <location filename="../app/client/MainWindow.cpp" line="309"/>
+        <location filename="../app/client/MainWindow.cpp" line="314"/>
         <source>Bring All to Front</source>
         <translation>Ta fram alla</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="312"/>
+        <location filename="../app/client/MainWindow.cpp" line="317"/>
         <source>Help</source>
         <translation>Hjälp</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="313"/>
+        <location filename="../app/client/MainWindow.cpp" line="318"/>
         <source>About</source>
         <translation>Om</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="316"/>
+        <location filename="../app/client/MainWindow.cpp" line="321"/>
         <source>FAQ</source>
         <translation>FAQ</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="317"/>
+        <location filename="../app/client/MainWindow.cpp" line="322"/>
         <source>Forums</source>
         <translation>Forum</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="319"/>
+        <location filename="../app/client/MainWindow.cpp" line="324"/>
         <source>Tour</source>
         <translation>Guide</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="321"/>
+        <location filename="../app/client/MainWindow.cpp" line="326"/>
         <source>Show Licenses</source>
         <translation>Visa licenser</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="324"/>
+        <location filename="../app/client/MainWindow.cpp" line="329"/>
         <source>Diagnostics</source>
         <translation>Diagnostik</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="460"/>
-        <location filename="../app/client/MainWindow.cpp" line="441"/>
+        <location filename="../app/client/MainWindow.cpp" line="466"/>
+        <location filename="../app/client/MainWindow.cpp" line="485"/>
         <source>%1 - %2 - %3</source>
         <translation>%1 - %2 - %3</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="470"/>
-        <location filename="../app/client/MainWindow.cpp" line="462"/>
-        <location filename="../app/client/MainWindow.cpp" line="443"/>
+        <location filename="../app/client/MainWindow.cpp" line="468"/>
+        <location filename="../app/client/MainWindow.cpp" line="487"/>
+        <location filename="../app/client/MainWindow.cpp" line="495"/>
         <source>%1 - %2</source>
         <translation>%1 - %2</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="472"/>
+        <location filename="../app/client/MainWindow.cpp" line="497"/>
         <source>%1</source>
         <translation>%1</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="479"/>
+        <location filename="../app/client/MainWindow.cpp" line="504"/>
         <source>%1: %2</source>
         <translation>%1: %2</translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/MainWindow.cpp" line="500"/>
+        <location filename="../app/client/MainWindow.cpp" line="525"/>
         <source>&lt;a href=&quot;tracks&quot;&gt;%n play(s)&lt;/a&gt; ha(s|ve) been scrobbled from a device</source>
         <translation>
             <numerusform>&lt;a href=&quot;tracks&quot;&gt;%n spelad låt&lt;/a&gt; har skrobblats från enheten</numerusform>
@@ -839,28 +740,26 @@
 <context>
     <name>MetadataWidget</name>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line="26"/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
         <source>Back to Scrobbles</source>
         <translation>Tillbaka till skrobblingar</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="521"/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="285"/>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line="382"/>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line="210"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="521"/>
         <source>Popular tags:</source>
         <translation>Populära taggar:</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="563"/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="355"/>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line="395"/>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line="223"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="563"/>
         <source>Your tags:</source>
         <translation>Dina taggar:</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line="421"/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
         <source>Similar Artists</source>
         <translation>Liknande artister</translation>
     </message>
@@ -870,8 +769,8 @@
         <translation>av %1</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="208"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="202"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="208"/>
         <source>from %1</source>
         <translation>från %1</translation>
     </message>
@@ -886,15 +785,15 @@
         <translation>Automatiskt korrigerat från: %1</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="239"/>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="238"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="237"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="238"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="239"/>
         <source>%L1</source>
         <translation>%L1</translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="614"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="241"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="614"/>
         <source>Play(s)</source>
         <translation>
             <numerusform>Spelad låt</numerusform>
@@ -902,8 +801,8 @@
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="615"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="242"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="615"/>
         <source>Play(s) in your library</source>
         <translation>
             <numerusform>Spelad låt i ditt bibliotek</numerusform>
@@ -911,8 +810,8 @@
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="616"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="243"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="616"/>
         <source>Listener(s)</source>
         <translation>
             <numerusform>Lyssnare</numerusform>
@@ -930,16 +829,16 @@
         <translation>Med %1, %2 och mer.</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="568"/>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="526"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="360"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="526"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="568"/>
         <source> %1</source>
         <translation> %1</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="570"/>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="528"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="362"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="528"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="570"/>
         <source> %1 %2</source>
         <translation> %1 %2</translation>
     </message>
@@ -954,14 +853,14 @@
         <translation>Nedladdningar</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="464"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="445"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="464"/>
         <source>Search on %1</source>
         <translation>Sök på %1</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="466"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="447"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="466"/>
         <source>Buy on %1 %2</source>
         <translation>Köp på %1 %2</translation>
     </message>
@@ -997,42 +896,17 @@
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="671"/>
-        <source>From %2%1s library.</source>
-        <translation>Från %2%1s bibliotek.</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="672"/>
-        <source>From %2 and %3%1s libraries.</source>
-        <translation>Från %2 och %3%1s bibliotek.</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="673"/>
-        <source>From %2, %3, and %4%1s libraries.</source>
-        <translation>Från %2, %3 och %4%1s bibliotek.</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="674"/>
-        <source>From %2, %3, %4, and %5%1s libraries.</source>
-        <translation>Från %2, %3, %4 och %5%1s bibliotek.</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="671"/>
-        <source>From %1&#x27;s library.</source>
+        <source>From %1&apos;s library.</source>
         <translation>Från %1s bibliotek.</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="675"/>
-        <source>From %2, %3, %4, %5, and %6%1s libraries.</source>
-        <translation>Från %2, %3, %4, %5 och %6%1s bibliotek.</translation>
-    </message>
-    <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="672"/>
-        <source>From %1 and %2&#x27;s libraries.</source>
+        <source>From %1 and %2&apos;s libraries.</source>
         <translation>Från %1 och %2s bibliotek.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="711"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="710"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="711"/>
         <source>%L1 time(s)</source>
         <translation>
             <numerusform>%L1 gång</numerusform>
@@ -1041,64 +915,64 @@
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="673"/>
-        <source>From %1, %2, and %3&#x27;s libraries.</source>
+        <source>From %1, %2, and %3&apos;s libraries.</source>
         <translation>Från %1, %2 och %3s bibliotek.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="718"/>
-        <source>You&#x27;ve listened to %1 %2 and %3 %4.</source>
+        <source>You&apos;ve listened to %1 %2 and %3 %4.</source>
         <translation>Du har lyssnat på %1 %2 och %3 %4.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="674"/>
-        <source>From %1, %2, %3, and %4&#x27;s libraries.</source>
+        <source>From %1, %2, %3, and %4&apos;s libraries.</source>
         <translation>Från %1, %2, %3 och %4s bibliotek.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="722"/>
-        <source>You&#x27;ve listened to %1 %2, but not this track.</source>
+        <source>You&apos;ve listened to %1 %2, but not this track.</source>
         <translation>Du har lyssnat på %1 %2, men inte denna låt.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="675"/>
-        <source>From %1, %2, %3, %4, and %5&#x27;s libraries.</source>
+        <source>From %1, %2, %3, %4, and %5&apos;s libraries.</source>
         <translation>Från %1, %2, %3, %4 och %5s bibliotek.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="724"/>
-        <source>This is the first time you&#x27;ve listened to %1.</source>
+        <source>This is the first time you&apos;ve listened to %1.</source>
         <translation>Detta är första gången du lyssnar på %1.</translation>
     </message>
 </context>
 <context>
     <name>NothingPlayingWidget</name>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line="29"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Hello!</source>
         <translation>Hej!</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line="51"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Start a radio station</source>
         <translation>Starta en radiostation</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line="81"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Open iTunes</source>
         <translation>Öppna iTunes</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line="88"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Open Windows Media Player</source>
         <translation>Öppna Windows Media Player</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line="95"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Open Winamp</source>
         <translation>Öppna Winamp</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line="102"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Open Foobar</source>
         <translation>Öppna Foobar</translation>
     </message>
@@ -1150,43 +1024,39 @@
 <context>
     <name>PlaybackControlsWidget</name>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="153"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="148"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="116"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="113"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="153"/>
         <source>Love</source>
         <translation>Älska</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="154"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="149"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="138"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="135"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="154"/>
         <source>Ban</source>
         <translation>Blockera</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="155"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="150"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="141"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="45"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="154"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="151"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="141"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="150"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="155"/>
         <source>Play</source>
         <translation>Spela</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="156"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="151"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="176"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="173"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="156"/>
         <source>Skip</source>
         <translation>Hoppa över</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="155"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="150"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="141"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="150"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="155"/>
         <source>Pause</source>
         <translation>Pausa</translation>
     </message>
@@ -1196,8 +1066,8 @@
         <translation>Återuppta</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="153"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="148"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="153"/>
         <source>Unlove</source>
         <translation>Sluta älska</translation>
     </message>
@@ -1207,14 +1077,14 @@
         <translation>Inställning</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="315"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="255"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="315"/>
         <source>A Radio Station</source>
         <translation>En radiostation</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="324"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="313"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="324"/>
         <source>Listening to</source>
         <translation>Lyssnar på</translation>
     </message>
@@ -1238,11 +1108,6 @@
 <context>
     <name>PluginBootstrapper</name>
     <message>
-        <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="50"/>
-        <source>test! Last.fm is importing your current media library...</source>
-        <translation>test! Last.fm importerar ditt aktuella mediabibliotek ...</translation>
-    </message>
-    <message>
         <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="51"/>
         <source>Last.fm has imported your media library.
 
@@ -1263,7 +1128,7 @@
     </message>
     <message>
         <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="54"/>
-        <source>Last.fm couldn&#x27;t find any played tracks in your media library.
+        <source>Last.fm couldn&apos;t find any played tracks in your media library.
 
  Click OK to continue.</source>
         <translation>Last.fm kunde inte hitta några spelade låtar i ditt mediabibliotek.
@@ -1304,7 +1169,7 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
     </message>
     <message>
         <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="145"/>
-        <source>Sorry, Last.fm was unable to import your listening history. This is probably because you&#x27;ve already scrobbled too many tracks. Listening history can only be imported to brand new profiles.</source>
+        <source>Sorry, Last.fm was unable to import your listening history. This is probably because you&apos;ve already scrobbled too many tracks. Listening history can only be imported to brand new profiles.</source>
         <translation>Ledsen, Last.fm kunde inte importera din lyssningshistorik. Du har förmodligen redan skrobblat för många låtar. Lyssningshistoriken kan bara importeras till nya profiler.</translation>
     </message>
 </context>
@@ -1321,8 +1186,8 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
         <translation>Dina insticksprogram installeras nu</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/PluginsInstallPage.cpp" line="88"/>
         <location filename="../app/client/Wizard/PluginsInstallPage.cpp" line="38"/>
+        <location filename="../app/client/Wizard/PluginsInstallPage.cpp" line="88"/>
         <source>Continue</source>
         <translation>Fortsätt</translation>
     </message>
@@ -1333,7 +1198,7 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
     </message>
     <message>
         <location filename="../app/client/Wizard/PluginsInstallPage.cpp" line="80"/>
-        <source>Your plugins haven&#x27;t been installed</source>
+        <source>Your plugins haven&apos;t been installed</source>
         <translation>Dina insticksprogram har inte installerats</translation>
     </message>
     <message>
@@ -1388,27 +1253,27 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui" line="103"/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
         <source>General</source>
         <translation>Allmänt</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui" line="115"/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
         <source>Accounts</source>
         <translation>Konton</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui" line="127"/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
         <source>Scrobbling</source>
         <translation>Skrobbling</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui" line="139"/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
         <source>Devices</source>
         <translation>Enheter</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui" line="151"/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
         <source>Advanced</source>
         <translation>Avancerat</translation>
     </message>
@@ -1432,12 +1297,12 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
 <context>
     <name>ProfileWidget</name>
     <message>
-        <location filename="../app/client/Widgets/ProfileWidget.ui" line="168"/>
+        <location filename="../app/client/Widgets/ProfileWidget.ui"/>
         <source>Top Artists This Week</source>
         <translation>Toppartister denna vecka</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProfileWidget.ui" line="213"/>
+        <location filename="../app/client/Widgets/ProfileWidget.ui"/>
         <source>Top Artists Overall</source>
         <translation>Toppartister generellt</translation>
     </message>
@@ -1450,8 +1315,8 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="191"/>
         <location filename="../app/client/Widgets/ProfileWidget.cpp" line="29"/>
+        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="191"/>
         <source>Loved track(s)</source>
         <translation>
             <numerusform>Älskad låt</numerusform>
@@ -1480,8 +1345,8 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
         <translation>Du har %1 i ditt bibliotek och lyssnar i genomsnitt på %2 per dag.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="221"/>
         <location filename="../app/client/Widgets/ProfileWidget.cpp" line="69"/>
+        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="221"/>
         <source>Scrobble(s) since %1</source>
         <translation>
             <numerusform>Skrobbling sedan %1</numerusform>
@@ -1518,14 +1383,14 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
     </message>
     <message>
         <location filename="../app/client/Widgets/ProgressBar.cpp" line="207"/>
-        <source>Enable scrobbling in Spotify&#x27;s preferences!</source>
+        <source>Enable scrobbling in Spotify&apos;s preferences!</source>
         <translation>Aktivera skrobbling i Spotifys inställningar!</translation>
     </message>
 </context>
 <context>
     <name>ProxyDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/ProxyDialog.ui" line="20"/>
+        <location filename="../app/client/Dialogs/ProxyDialog.ui"/>
         <source>Proxy Settings</source>
         <translation>Proxy-inställningar</translation>
     </message>
@@ -1533,22 +1398,22 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
 <context>
     <name>ProxyWidget</name>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui" line="23"/>
+        <location filename="../app/client/Widgets/ProxyWidget.ui"/>
         <source>Host:</source>
         <translation>Värd:</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui" line="33"/>
+        <location filename="../app/client/Widgets/ProxyWidget.ui"/>
         <source>Username:</source>
         <translation>Användarnamn:</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui" line="40"/>
+        <location filename="../app/client/Widgets/ProxyWidget.ui"/>
         <source>Port:</source>
         <translation>Port:</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui" line="50"/>
+        <location filename="../app/client/Widgets/ProxyWidget.ui"/>
         <source>Password:</source>
         <translation>Lösenord:</translation>
     </message>
@@ -1581,7 +1446,7 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
         <translation>okänd mediaspelare</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="286"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="310"/>
         <source>Where is your iPod mounted?</source>
         <translation>Var är din iPod placerad?</translation>
     </message>
@@ -1594,9 +1459,9 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
         <translation>Ange en artist eller tagg och tryck play</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="283"/>
-        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="68"/>
         <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="67"/>
+        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="68"/>
+        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="283"/>
         <source>Play</source>
         <translation>Spela</translation>
     </message>
@@ -1613,17 +1478,9 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
 </context>
 <context>
     <name>RadioService</name>
-    <message numerus="yes">
-        <location filename="../app/client/Services/RadioService/RadioService.cpp" line="66"/>
-        <source>Sorry, you&#x27;ve reached your limit of %n track(s). &lt;a href=&quot;http://www.last.fm/subscribe&quot;&gt;Subscribe&lt;/a&gt; for unlimited listening, or visit &lt;a href=&quot;http://www.last.fm/listen&quot;&gt;last.fm/listen&lt;/a&gt;</source>
-        <translation>
-            <numerusform>Du har tyvärr nått din gräns på %n låt. &lt;a href=&quot;http://www.last.fm/subscribe&quot;&gt;Abonnera&lt;/a&gt; för obegränsad lyssning eller besök &lt;a href=&quot;http://www.last.fm/listen&quot;&gt;last.fm/listen&lt;/a&gt;</numerusform>
-            <numerusform>Du har tyvärr nått din gräns på %n låtar. &lt;a href=&quot;http://www.last.fm/subscribe&quot;&gt;Abonnera&lt;/a&gt; för obegränsad lyssning eller besök &lt;a href=&quot;http://www.last.fm/listen&quot;&gt;last.fm/listen&lt;/a&gt;</numerusform>
-        </translation>
-    </message>
     <message>
-        <location filename="../app/client/Services/RadioService/RadioService.cpp" line="162"/>
         <location filename="../app/client/Services/RadioService/RadioService.cpp" line="128"/>
+        <location filename="../app/client/Services/RadioService/RadioService.cpp" line="162"/>
         <source>A Radio Station</source>
         <translation>En radiostation</translation>
     </message>
@@ -1636,23 +1493,23 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
 <context>
     <name>RadioWidget</name>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="220"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="207"/>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="68"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="220"/>
         <source>Last Station</source>
         <translation>Senaste station</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="166"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="82"/>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="75"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="166"/>
         <source>A Radio Station</source>
         <translation>En radiostation</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="113"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Personal Stations</source>
-        <translation>Personliga stationer</translation>
+        <translation type="unfinished">Personliga stationer</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="93"/>
@@ -1670,11 +1527,6 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
         <translation>Min blandradio</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="95"/>
-        <source>Personal</source>
-        <translation>Personlig</translation>
-    </message>
-    <message>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="94"/>
         <source>Your library plus new music</source>
         <translation>Ditt bibliotek plus ny musik</translation>
@@ -1685,7 +1537,7 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
         <translation>Min rekommenderade radio</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="271"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Subscribe to listen to radio</source>
         <translation>Abonnera för att lyssna på radio</translation>
     </message>
@@ -1695,28 +1547,28 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
         <translation>Ny musik från Last.fm</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="321"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>You need to be a Last.fm subscriber to listen to radio in this app. Subscribe now to start listening and take advantage of other great benefits too!</source>
         <translation>Du måste vara Last.fm-abonnent för att lyssna på radio i detta program. Abonnera nu för att börja lyssna och utnyttja andra bra fördelar!</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="151"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Network Stations</source>
         <translation>Nätverksstationer</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="331"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Subscribe to Last.fm</source>
         <translation>Abonnera på Last.fm</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="338"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Listen free on www.last.fm</source>
         <translation>Lyssna gratis på www.last.fm</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="97"/>
-        <source>My Friends&#x27; Radio</source>
+        <source>My Friends&apos; Radio</source>
         <translation>Mina vänners radio</translation>
     </message>
     <message>
@@ -1735,13 +1587,13 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
         <translation>Musik från lyssnare som du</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="200"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Recent Stations</source>
         <translation>Senaste stationer</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="216"/>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="165"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="216"/>
         <source>Now Playing</source>
         <translation>Nu spelas</translation>
     </message>
@@ -1754,22 +1606,22 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
 <context>
     <name>ScrobbleConfirmationDialog</name>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line="14"/>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
         <source>Device Scrobbles</source>
         <translation>Enhetsskrobblingar</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line="20"/>
-        <source>It looks like you&#x27;ve played these tracks. Would you like to scrobble them?</source>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
+        <source>It looks like you&apos;ve played these tracks. Would you like to scrobble them?</source>
         <translation>Det ser ut som om du har spelat dessa låtar. Vill du skrobbla dem?</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line="76"/>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
         <source>Scrobble devices automatically</source>
         <translation>Skrobbla enheter automatiskt</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line="90"/>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
         <source>Toggle selection</source>
         <translation>Växla urval</translation>
     </message>
@@ -1785,8 +1637,8 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
 <context>
     <name>ScrobbleControls</name>
     <message>
-        <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="108"/>
         <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="46"/>
+        <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="108"/>
         <source>Love track</source>
         <translation>Älska låt</translation>
     </message>
@@ -1806,8 +1658,8 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
         <translation>Tagga</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="55"/>
         <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="53"/>
+        <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="55"/>
         <source>Share</source>
         <translation>Dela</translation>
     </message>
@@ -1827,8 +1679,8 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
         <translation>Dela på Facebook</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="65"/>
         <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="63"/>
+        <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="65"/>
         <source>Buy</source>
         <translation>Köp</translation>
     </message>
@@ -1841,27 +1693,27 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
 <context>
     <name>ScrobbleSettingsWidget</name>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line="22"/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
         <source>Scrobble at</source>
         <translation>Skrobbla vid</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line="58"/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
         <source>percent of the track</source>
         <translation>procent av låten</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line="67"/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
         <source>Enable scrobbling</source>
         <translation>Aktivera skrobbling</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line="80"/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
         <source>Scrobble podcasts</source>
         <translation>Skrobbla podcasts</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line="103"/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
         <source>Allow Last.fm to fingerprint my tracks</source>
         <translation>Tillåt Last.fm att fingerprinta mina låtar</translation>
     </message>
@@ -1955,12 +1807,12 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
 <context>
     <name>ScrobblesWidget</name>
     <message>
-        <location filename="../app/client/Widgets/ScrobblesWidget.ui" line="44"/>
-        <source>You haven&#x27;t scrobbled any music to Last.fm yet.</source>
+        <location filename="../app/client/Widgets/ScrobblesWidget.ui"/>
+        <source>You haven&apos;t scrobbled any music to Last.fm yet.</source>
         <translation>Du har inte skrobblat någon musik till Last.fm än.</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ScrobblesWidget.ui" line="54"/>
+        <location filename="../app/client/Widgets/ScrobblesWidget.ui"/>
         <source>Start listening to some music in your media player or start a radio station:</source>
         <translation>Börja lyssna på musik i din mediaspelare eller starta en radiostation:</translation>
     </message>
@@ -1968,22 +1820,22 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
 <context>
     <name>ShareDialog</name>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line="14"/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
         <source>Share with Friends</source>
         <translation>Dela med vänner</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line="106"/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
         <source>With:</source>
         <translation>Med:</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line="129"/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
         <source>Message (optional):</source>
         <translation>Meddelande (valfritt):</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line="151"/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
         <source>include in my recent activity</source>
         <translation>inkludera i min senaste aktivitet</translation>
     </message>
@@ -2031,17 +1883,12 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
         <translation>Radio</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/SideBar.cpp" line="72"/>
-        <source>Sash</source>
-        <translation>Sash</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Widgets/SideBar.cpp" line="123"/>
+        <location filename="../app/client/Widgets/SideBar.cpp" line="119"/>
         <source>Next Section</source>
         <translation>Nästa sektion</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/SideBar.cpp" line="124"/>
+        <location filename="../app/client/Widgets/SideBar.cpp" line="120"/>
         <source>Previous Section</source>
         <translation>Föregående sektion</translation>
     </message>
@@ -2049,8 +1896,8 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
 <context>
     <name>StationSearch</name>
     <message>
-        <location filename="../app/client/StationSearch.cpp" line="65"/>
         <location filename="../app/client/StationSearch.cpp" line="60"/>
+        <location filename="../app/client/StationSearch.cpp" line="65"/>
         <source>Could not start radio: %1</source>
         <translation>Kunde inte starta radio: %1</translation>
     </message>
@@ -2086,38 +1933,38 @@ Din profil kommer att uppdateras med de nya låtarna om några minuter.</transla
 <context>
     <name>TagDialog</name>
     <message>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <location filename="../lib/unicorn/dialogs/TagDialog.cpp" line="69"/>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line="14"/>
         <source>Tag</source>
         <translation>Tagg</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line="22"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>Choose something to tag:</source>
         <translation>Välj något att tagga:</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line="29"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>Track</source>
         <translation>Låt</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line="36"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>Artist</source>
         <translation>Artist</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line="43"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>Album</source>
         <translation>Album</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line="67"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>icon</source>
         <translation>ikon</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line="123"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>Add tags:</source>
         <translation>Lägg till taggar:</translation>
     </message>
@@ -2164,12 +2011,12 @@ eller välj från nedanstående</translation>
     <name>TourFinishPage</name>
     <message>
         <location filename="../app/client/Wizard/TourFinishPage.cpp" line="16"/>
-        <source>&lt;p&gt;Now you&#x27;re ready to get started! Just click &lt;strong&gt;Finish&lt;/strong&gt; and start exploring.&lt;/p&gt;&lt;p&gt;We&#x27;ve also finished importing your listening history and have added it to your Last.fm profile.&lt;/p&gt;&lt;p&gt;Thanks for installing the Last.fm Desktop App, we hope you enjoy using it!&lt;/p&gt;</source>
+        <source>&lt;p&gt;Now you&apos;re ready to get started! Just click &lt;strong&gt;Finish&lt;/strong&gt; and start exploring.&lt;/p&gt;&lt;p&gt;We&apos;ve also finished importing your listening history and have added it to your Last.fm profile.&lt;/p&gt;&lt;p&gt;Thanks for installing the Last.fm Desktop App, we hope you enjoy using it!&lt;/p&gt;</source>
         <translation>&lt;p&gt;Nu kan du komma igång! Klicka bara på &lt;strong&gt;Avsluta&lt;/strong&gt; och börja utforska.&lt;/p&gt;&lt;p&gt;Vi är också klara med importen av din lyssningshistorik och har lagt till den i din Last.fm-profil.&lt;/p&gt;&lt;p&gt;Tack för att du har installerat Last.fm-programmet, vi hoppas att du kommer att ha glädje av den!&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/TourFinishPage.cpp" line="29"/>
-        <source>That&#x27;s it, you&#x27;re good to go!</source>
+        <source>That&apos;s it, you&apos;re good to go!</source>
         <translation>Det var det, du är klar att börja!</translation>
     </message>
     <message>
@@ -2215,7 +2062,7 @@ eller välj från nedanstående</translation>
     <name>TourMetadataPage</name>
     <message>
         <location filename="../app/client/Wizard/TourMetadataPage.cpp" line="20"/>
-        <source>&lt;p&gt;Find out more about the music you&#x27;re listening to, including biographies, listening stats, photos and similar artists, as well as the tags listeners use to describe them.&lt;/p&gt;&lt;p&gt;Check out the &lt;strong&gt;Now Playing&lt;/strong&gt; tab, or simply click on any track in your &lt;strong&gt;Scrobbles&lt;/strong&gt; tab to learn more.&lt;/p&gt;</source>
+        <source>&lt;p&gt;Find out more about the music you&apos;re listening to, including biographies, listening stats, photos and similar artists, as well as the tags listeners use to describe them.&lt;/p&gt;&lt;p&gt;Check out the &lt;strong&gt;Now Playing&lt;/strong&gt; tab, or simply click on any track in your &lt;strong&gt;Scrobbles&lt;/strong&gt; tab to learn more.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Få mer information om musiken du lyssnar på, inklusive biografier, lyssningsstatistik, foton och liknande artister samt taggar som lyssnare använder för att beskriva dem.&lt;/p&gt;&lt;p&gt;Kolla in fliken &lt;strong&gt;Spelas nu&lt;/strong&gt; eller klicka bara på en låt på din flik &lt;strong&gt;Skrobblingar&lt;/strong&gt; för mer information.&lt;/p&gt;</translation>
     </message>
     <message>
@@ -2245,11 +2092,6 @@ eller välj från nedanstående</translation>
         <location filename="../app/client/Wizard/TourRadioPage.cpp" line="37"/>
         <source>Listen to non-stop, personalised radio</source>
         <translation>Lyssna på nonstop, personlig radio</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Wizard/TourRadioPage.cpp" line="41"/>
-        <source>Subscribe and listen to non-stop, personalised radio*</source>
-        <translation>Abonnera och lyssna på nonstop, personlig radio*</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/TourRadioPage.cpp" line="38"/>
@@ -2291,7 +2133,7 @@ eller välj från nedanstående</translation>
     <name>TourScrobblesPage</name>
     <message>
         <location filename="../app/client/Wizard/TourScrobblesPage.cpp" line="16"/>
-        <source>&lt;p&gt;The desktop client runs in the background, quietly updating your Last.fm profile with the music you&#x27;re playing, which you can use to get music recommendations, gig tips and more. &lt;/p&gt;&lt;p&gt;You can also use the Last.fm Desktop App to find out more about the artist you&#x27;re listening to, and to play personalised radio.&lt;/p&gt;</source>
+        <source>&lt;p&gt;The desktop client runs in the background, quietly updating your Last.fm profile with the music you&apos;re playing, which you can use to get music recommendations, gig tips and more. &lt;/p&gt;&lt;p&gt;You can also use the Last.fm Desktop App to find out more about the artist you&apos;re listening to, and to play personalised radio.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Programmet körs i bakgrunden och uppdaterar tyst din Last.fm-profil i bakgrunden med musiken du spelar, vilket du kan använda för att få musikrekommendationer, spelningstips med mera. &lt;/p&gt;&lt;p&gt;Du kan också använda Last.fm-programmet för att få mer information om artisten du lyssnar på och spela personlig radio.&lt;/p&gt;</translation>
     </message>
     <message>
@@ -2333,26 +2175,22 @@ eller välj från nedanstående</translation>
         <translation>Artist</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="167"/>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="164"/>
+        <location filename="../app/client/Widgets/TrackWidget.ui"/>
         <source>Love</source>
         <translation>Älska</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="180"/>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="177"/>
+        <location filename="../app/client/Widgets/TrackWidget.ui"/>
         <source>Tag</source>
         <translation>Tagga</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="190"/>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="187"/>
+        <location filename="../app/client/Widgets/TrackWidget.ui"/>
         <source>Share</source>
         <translation>Dela</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="200"/>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="197"/>
+        <location filename="../app/client/Widgets/TrackWidget.ui"/>
         <source>Buy</source>
         <translation>Köp</translation>
     </message>
@@ -2372,8 +2210,8 @@ eller välj från nedanstående</translation>
         <translation>Köa %1 radio</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.cpp" line="116"/>
         <location filename="../app/client/Widgets/TrackWidget.cpp" line="108"/>
+        <location filename="../app/client/Widgets/TrackWidget.cpp" line="116"/>
         <source>%1 Radio</source>
         <translation>%1-radio</translation>
     </message>
@@ -2418,14 +2256,14 @@ eller välj från nedanstående</translation>
         <translation>Hämtningar</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.cpp" line="429"/>
         <location filename="../app/client/Widgets/TrackWidget.cpp" line="410"/>
+        <location filename="../app/client/Widgets/TrackWidget.cpp" line="429"/>
         <source>Search on %1</source>
         <translation>Sök på %1</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.cpp" line="431"/>
         <location filename="../app/client/Widgets/TrackWidget.cpp" line="412"/>
+        <location filename="../app/client/Widgets/TrackWidget.cpp" line="431"/>
         <source>Buy on %1 %2</source>
         <translation>Köp på %1 %2</translation>
     </message>
@@ -2448,22 +2286,22 @@ eller välj från nedanstående</translation>
         <translation>Lägg till nytt användarkonto</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="251"/>
+        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="252"/>
         <source>Add User Error</source>
         <translation>Lägg till användarfel</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="252"/>
+        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="253"/>
         <source>To add a new account you must connect it to the Last.fm user permissions.</source>
         <translation>För att lägga till ett nytt konto måste du ansluta det till Last.fm-användartillstånd.</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="264"/>
+        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="265"/>
         <source>Removing %1</source>
         <translation>Tar bort %1</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="265"/>
+        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="266"/>
         <source>Are you sure you want to remove this user? All user settings will be lost and you will need to re authenticate in order to scrobble in the future.</source>
         <translation>Är du säker på att du vill ta bort denna användare? Alla användarinställningar kommer att gå förlorade och du måste ge tillstånd igen för att skrobbla i framtiden.</translation>
     </message>
@@ -2484,8 +2322,8 @@ eller välj från nedanstående</translation>
         <translation>Ta bort</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="94"/>
         <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="68"/>
+        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="94"/>
         <source>(currently logged in)</source>
         <translation>(inloggad för tillfället)</translation>
     </message>
@@ -2493,82 +2331,99 @@ eller välj från nedanstående</translation>
 <context>
     <name>audioscrobbler::Application</name>
     <message>
-        <location filename="../app/client/Application.cpp" line="181"/>
+        <location filename="../app/client/Application.cpp" line="186"/>
         <source>Accounts</source>
         <translation>Konton</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="183"/>
+        <location filename="../app/client/Application.cpp" line="188"/>
         <source>Show Scrobbler</source>
         <translation>Visa skrobblare</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="188"/>
+        <location filename="../app/client/Application.cpp" line="193"/>
         <source>Love</source>
         <translation>Älska</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="200"/>
+        <location filename="../app/client/Application.cpp" line="206"/>
         <source>Play</source>
         <translation>Spela</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="209"/>
+        <location filename="../app/client/Application.cpp" line="217"/>
         <source>Skip</source>
         <translation>Hoppa över</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="217"/>
+        <location filename="../app/client/Application.cpp" line="226"/>
         <source>Tag</source>
         <translation>Tagga</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="224"/>
+        <location filename="../app/client/Application.cpp" line="235"/>
         <source>Share</source>
         <translation>Dela</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="231"/>
+        <location filename="../app/client/Application.cpp" line="244"/>
         <source>Ban</source>
         <translation>Blockera</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="239"/>
+        <location filename="../app/client/Application.cpp" line="252"/>
         <source>Mute</source>
         <translation>Stäng av ljud</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="246"/>
+        <location filename="../app/client/Application.cpp" line="259"/>
         <source>Scrobble iPod...</source>
         <translation>Skrobbla iPod ...</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="252"/>
+        <location filename="../app/client/Application.cpp" line="265"/>
         <source>Visit Last.fm profile</source>
         <translation>Besök Last.fm-profil</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="257"/>
+        <location filename="../app/client/Application.cpp" line="270"/>
         <source>Enable Scrobbling</source>
         <translation>Aktivera skrobbling</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="268"/>
+        <location filename="../app/client/Application.cpp" line="281"/>
         <source>Quit %1</source>
         <translation>Avsluta %1</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="451"/>
+        <location filename="../app/client/Application.cpp" line="464"/>
         <source>from %1</source>
         <translation>från %1</translation>
     </message>
+    <message numerus="yes">
+        <location filename="../app/client/Application.cpp" line="578"/>
+        <location filename="../app/client/Application.cpp" line="592"/>
+        <source>You&apos;ve reached this station&apos;s skip limit. Skip again in %n minute(s).</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../app/client/Application.cpp" line="594"/>
+        <source>You have %n skip(s) remaining on this station.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="758"/>
+        <location filename="../app/client/Application.cpp" line="850"/>
         <source>Are you sure you want to quit %1?</source>
         <translation>Är du säker på att du vill avsluta %1?</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="759"/>
+        <location filename="../app/client/Application.cpp" line="851"/>
         <source>%1 is about to quit. Tracks played will not be scrobbled if you continue.</source>
         <translation>%1 håller på att avslutas. Låtar som spelas kommer inte att skrobblas om du fortsätter.</translation>
     </message>
@@ -2613,32 +2468,32 @@ eller välj från nedanstående</translation>
 <context>
     <name>unicorn::LoginProcess</name>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="224"/>
+        <location filename="../lib/unicorn/LoginProcess.cpp" line="221"/>
         <source>Login Failed</source>
         <translation>Inloggningen misslyckades</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="225"/>
-        <source>Sorry, we don&#x27;t recognise that username, or you typed the password wrongly.</source>
+        <location filename="../lib/unicorn/LoginProcess.cpp" line="222"/>
+        <source>Sorry, we don&apos;t recognise that username, or you typed the password wrongly.</source>
         <translation>Ledsen, vi känner inte igen det användarnamnet eller så angav du fel lösenord.</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="233"/>
+        <location filename="../lib/unicorn/LoginProcess.cpp" line="230"/>
         <source>Last.fm Unavailable</source>
         <translation>Last.fm otillgänglig</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="234"/>
+        <location filename="../lib/unicorn/LoginProcess.cpp" line="231"/>
         <source>There was a problem communicating with the Last.fm services. Please try again later.</source>
         <translation>Det uppstod ett problen under anslutningen till Last.fm-tjänsten. Försök igen senare.</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="258"/>
+        <location filename="../lib/unicorn/LoginProcess.cpp" line="255"/>
         <source>Cannot connect to Last.fm</source>
         <translation>Kan inte ansluta till Last.fm</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="259"/>
+        <location filename="../lib/unicorn/LoginProcess.cpp" line="256"/>
         <source>Last.fm cannot be reached. Please check your firewall or proxy settings.</source>
         <translation>Last.fm kan inte nås. Kontrollera dina brandväggs- eller proxy-inställningar.</translation>
     </message>
@@ -2646,7 +2501,7 @@ eller välj från nedanstående</translation>
 <context>
     <name>unicorn::MainWindow</name>
     <message>
-        <location filename="../lib/unicorn/UnicornMainWindow.cpp" line="63"/>
+        <location filename="../lib/unicorn/UnicornMainWindow.cpp" line="64"/>
         <source>Refresh Stylesheet</source>
         <translation>Uppdatera Stylesheet</translation>
     </message>
@@ -2655,7 +2510,8 @@ eller välj från nedanstående</translation>
     <name>unicorn::MessageDialog</name>
     <message>
         <location filename="../lib/unicorn/QMessageBoxBuilder.cpp" line="54"/>
-        <source>Don&#x27;t ask this again</source>
+        <source>Don&apos;t ask this again</source>
         <translation>Fråga inte detta igen</translation>
     </message>
-</context></TS>
+</context>
+</TS>

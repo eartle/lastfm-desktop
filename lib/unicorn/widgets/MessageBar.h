@@ -44,7 +44,7 @@ public:
     const QList<lastfm::Track>& tracks() const;
     
 public slots:
-    void show( const QString& message, const QString& id = QString() );
+    void show( const QString& message, const QString& id = QString(), int timeout = -1 );
 
 private slots:
     void onLinkActivated( const QString& link );
@@ -52,6 +52,7 @@ private slots:
 
 private:
     QList<lastfm::Track> m_tracks;
+    QPointer<QTimer> m_timeout;
 };
 
 #endif

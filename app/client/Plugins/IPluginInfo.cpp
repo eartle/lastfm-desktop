@@ -62,7 +62,7 @@ IPluginInfo::doInstall()
         QString installer = QString( "\"%1\"" ).arg( QCoreApplication::applicationDirPath() + "/plugins/" + pluginInstaller() );
         qDebug() << installer;
         QProcess* installerProcess = new QProcess( this );
-        installerProcess->start( installer );
+        installerProcess->start( installer, QStringList() << "/SILENT" );
         bool finished = installerProcess->waitForFinished( -1 );
         qDebug() << finished << installerProcess->error() << installerProcess->errorString();
 

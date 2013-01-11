@@ -42,7 +42,8 @@ DeviceScrobbler::DeviceScrobbler( QObject *parent )
 
 DeviceScrobbler::~DeviceScrobbler()
 {
-    delete m_confirmDialog;
+    if ( m_confirmDialog )
+        m_confirmDialog->deleteLater();
 }
 
 bool

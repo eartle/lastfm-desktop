@@ -78,6 +78,7 @@ using audioscrobbler::Application;
 #define ELLIPSIS QString::fromUtf8("…")
 #define CONTROL_KEY_CHAR QString::fromUtf8("⌃")
 #define APPLE_KEY_CHAR QString::fromUtf8("⌘")
+#define SKIP_LIMIT 6
 
 #ifdef Q_WS_X11
     #define AS_TRAY_ICON ":22x22.png"
@@ -170,6 +171,8 @@ Application::init()
 
     initiateLogin( !currentSession().isValid() );
 
+    onSessionChanged( currentSession() );
+
 //    QNetworkDiskCache* diskCache = new QNetworkDiskCache(this);
 //    diskCache->setCacheDirectory( lastfm::dir::cache().path() );
 //    lastfm::nam()->setCache( diskCache );
@@ -218,6 +221,7 @@ Application::init()
         m_skip_action->setIcon( QIcon( ":/controls_skip_REST.png" ) );
 #endif
         m_skip_action->setEnabled( false );
+        connect( m_skip_action, SIGNAL(triggered()), SLOT(onSkipTriggered()));
     }
     {
         m_tag_action = new QAction( tr( "Tag" ) + ELLIPSIS, this );
@@ -470,10 +474,16 @@ Application::onTrackStarted( const lastfm::Track& track, const Track& oldTrack )
          && track.url().isLocalFile()
 #endif
        )
-    {
-        Fingerprinter* fingerprinter = new Fingerprinter( track, this );
-        connect( fingerprinter, SIGNAL(finished()), fingerprinter, SLOT(deleteLater()) );
-        fingerprinter->start();
+    {       
+        QFileInfo trackFileInfo( track.url().toLocalFile() );
+
+        if ( trackFileInfo.exists()
+             && trackFileInfo.isWritable() ) // this stops us fingerprinting CDs (but maybe other things)
+        {
+            Fingerprinter* fingerprinter = new Fingerprinter( track, this );
+            connect( fingerprinter, SIGNAL(finished()), fingerprinter, SLOT(deleteLater()) );
+            fingerprinter->start();
+        }
     }
 
     m_tray->setToolTip( track.toString() );
@@ -506,6 +516,31 @@ Application::setMediaKeysEnabled( bool enabled )
 #endif
 
 void
+Application::onSessionChanged( unicorn::Session& session )
+{
+    unicorn::UserSettings us( session.user().name() );
+    QByteArray skipsData = us.value( "skips" ).toByteArray();
+    QDataStream skipsDataStream( &skipsData, QIODevice::ReadWrite );
+
+    skipsDataStream >> m_skips;
+
+    qDebug() << m_skips;
+}
+
+void
+Application::saveSkips() const
+{
+    QByteArray skipsData;
+    QDataStream skipsDataStream( &skipsData, QIODevice::ReadWrite );
+    skipsDataStream << m_skips;
+
+    unicorn::UserSettings us;
+    us.setValue( "skips", skipsData );
+
+    qDebug() << m_skips;
+}
+
+void
 Application::onTrackSpooled( const Track& track )
 {
     QString strippedContextString = MetadataWidget::getContextString( track );
@@ -530,6 +565,60 @@ Application::onTrackSpooled( const Track& track )
 void
 Application::onTrackPaused( bool )
 {
+}
+
+int
+Application::minutesUntilNextSkip( const lastfm::RadioStation& station )
+{
+    // the next skip can happen 10 minutes after the last skip
+    // or when the earliest skip becomes more than an hour old
+
+    int secondsSinceLastSkip = m_skips[ station.url() ].last().secsTo( QDateTime::currentDateTimeUtc() );
+    int secondsUntilFirstSkipExpires = (60 * 60) - (m_skips[ station.url() ].first().secsTo( QDateTime::currentDateTimeUtc() ));
+    secondsSinceLastSkip = secondsSinceLastSkip == 0 ? 1 : secondsSinceLastSkip; // this stops us saying that there's 11 minutes until the next skip
+    return 1 + (qMin( (10 * 60) - secondsSinceLastSkip, secondsUntilFirstSkipExpires ) / 60);
+}
+
+void
+Application::onSkipTriggered()
+{
+    QString station = RadioService::instance().station().url();
+
+    // remove skips for this station that are older than an hour
+    while ( (m_skips[ station ].count()
+            && m_skips[ station ].head().secsTo( QDateTime::currentDateTimeUtc() ) >= 60 * 60 ) // limit to skips in the last hour
+            || m_skips[ station ].count() > SKIP_LIMIT ) // limit to the last SKIP_LIMIT skips
+        m_skips[ station ].dequeue();
+
+    if ( m_skips[ station ].count() == SKIP_LIMIT
+         && m_skips[ station ].last().secsTo( QDateTime::currentDateTimeUtc() ) < 10 * 60 )
+    {
+        // There have been SKIP_LIMIT skips in the last hour
+        // and the last skip was under 10 minutes ago
+        m_mw->showMessage( tr( "You've reached this station's skip limit. Skip again in %n minute(s).", "", minutesUntilNextSkip( RadioService::instance().station() ) ), "skips", 10 );
+    }
+    else
+    {
+        // Make a note of the station and the time that it was skipped
+        m_skips[ station ].enqueue( QDateTime::currentDateTimeUtc() );
+
+        if ( m_skips[ station ].count() >= 4 )
+        {
+            // show a warning that there are only a few skips left
+            int skipsLeft = SKIP_LIMIT - m_skips[ station ].count();
+
+            // if skips is 0 and we got here it's because there were no skips in the last 10 minutes
+            if ( skipsLeft <= 0 || m_skips[ station ].last().secsTo( QDateTime::currentDateTimeUtc() ) >= 10 * 60 )
+                m_mw->showMessage( tr( "You've reached this station's skip limit. Skip again in %n minute(s).", "", minutesUntilNextSkip( RadioService::instance().station() ) ), "skips", 10 );
+            else
+                m_mw->showMessage( tr( "You have %n skip(s) remaining on this station.", "", skipsLeft ), "skips", 10 );
+        }
+
+        // propagate the skip to the DO skipper
+        emit skipTriggered();
+    }
+
+    saveSkips();
 }
 
 void 
@@ -686,12 +775,6 @@ void
 Application::onPrefsTriggered()
 {
     m_mw->onPrefsTriggered();
-}
-
-void
-Application::onBetaTriggered()
-{
-    m_mw->onBetaTriggered();
 }
 
 void

@@ -15,7 +15,9 @@
 
 CloseAppsDialog::CloseAppsDialog( const QList<IPluginInfo*>& plugins, QWidget *parent )
     :QDialog( parent ),
-      ui(new Ui::CloseAppsDialog), m_plugins( plugins )
+      ui(new Ui::CloseAppsDialog),
+      m_plugins( plugins ),
+      m_ownsPlugins( false )
 {
     commonSetup();
 }
@@ -42,6 +44,12 @@ CloseAppsDialog::commonSetup()
     connect( timer, SIGNAL(timeout()), SLOT(checkApps()) );
     timer->setInterval( 1000 );
     timer->start();
+}
+
+void
+CloseAppsDialog::setOwnsPlugins( bool ownsPlugins )
+{
+    m_ownsPlugins = ownsPlugins;
 }
 
 bool
@@ -144,4 +152,9 @@ CloseAppsDialog::runningApps( const QList<IPluginInfo*>& plugins )
 CloseAppsDialog::~CloseAppsDialog()
 {
     delete ui;
+
+    if ( m_ownsPlugins )
+        foreach ( IPluginInfo* plugin, m_plugins )
+            delete plugin;
+
 }

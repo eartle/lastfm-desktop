@@ -4,7 +4,7 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <location filename="../lib/unicorn/dialogs/AboutDialog.ui" line="14"/>
+        <location filename="../lib/unicorn/dialogs/AboutDialog.ui"/>
         <source>About</source>
         <translation>バージョン情報</translation>
     </message>
@@ -18,26 +18,26 @@
     <name>AccessPage</name>
     <message>
         <location filename="../app/client/Wizard/AccessPage.cpp" line="46"/>
-        <source>&lt;p&gt;Please click the &lt;strong&gt;Yes, Allow Access&lt;/strong&gt; button in your web browser to connect your Last.fm account to the Last.fm Desktop App.&lt;/p&gt;&lt;p&gt;If you haven&#x27;t connected because you closed the browser window or you clicked cancel, please try again.&lt;p /&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;ウェブブラウザ上の&lt;strong&gt;｢アクセスを許可する｣&lt;/strong&gt;ボタンをクリックし、Last.fm デスクトップ・アプリに Last.fm アカウントを接続してください。&lt;/p&gt;&lt;p&gt;ブラウザのウインドウを閉じたためもしくはキャンセルをクリックしたため接続していない場合は、もう一度試してください。&lt;p /&gt;&lt;/p&gt;</translation>
+        <source>&lt;p&gt;Please click the &lt;strong&gt;Yes, Allow Access&lt;/strong&gt; button in your web browser to connect your Last.fm account to the Last.fm Desktop App.&lt;/p&gt;&lt;p&gt;If you haven&apos;t connected because you closed the browser window or you clicked cancel, please try again.&lt;/p&gt;</source>
+        <translation>lt;p&gt;ウェブブラウザ上の&lt;strong&gt;｢アクセスを許可する｣&lt;/strong&gt;ボタンをクリックし、Last.fm デスクトップ・アプリに Last.fm アカウントを接続してください。&lt;/p&gt;&lt;p&gt;ブラウザのウインドウを閉じたためもしくはキャンセルをクリックしたため接続していない場合は、もう一度試してください。&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="57"/>
-        <source>We&#x27;re waiting for you to connect to Last.fm</source>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="60"/>
+        <source>We&apos;re waiting for you to connect to Last.fm</source>
         <translation>Last.fm への接続をお待ちしています</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="62"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="65"/>
         <source>&lt;&lt; Back</source>
         <translation>&lt;&lt; 戻る</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="63"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="66"/>
         <source>Continue</source>
         <translation>続行</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="64"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="67"/>
         <source>Try Again</source>
         <translation>再実行</translation>
     </message>
@@ -45,57 +45,22 @@
 <context>
     <name>AdvancedSettingsWidget</name>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="20"/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
         <source>Keyboard Shortcuts:</source>
         <translation>キーボードショートカット：</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="29"/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
         <source>Raise/Hide Last.fm</source>
         <translation>Last.fm 表示/非表示</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="58"/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
         <source>Proxy:</source>
         <translation>プロキシ：</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="54"/>
-        <source>Automatic</source>
-        <translation>自動</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="64"/>
-        <source>Manual</source>
-        <translation>手動</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="73"/>
-        <source>Host:</source>
-        <translation>ホスト:</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="80"/>
-        <source>Username:</source>
-        <translation>ユーザー名:</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="87"/>
-        <source>Password:</source>
-        <translation>パスワード:</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="100"/>
-        <source>Port:</source>
-        <translation>ポート:</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="113"/>
-        <source>Leave fields blank to use a direct connection</source>
-        <translation>ダイレクト接続利用のため、フィールドをブランクにしてください</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line="48"/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
         <source>Cache Size:</source>
         <translation>キャッシュサイズ：</translation>
     </message>
@@ -129,24 +94,6 @@
     </message>
 </context>
 <context>
-    <name>BetaDialog</name>
-    <message>
-        <location filename="../app/client/Dialogs/BetaDialog.ui" line="40"/>
-        <source>Create Issue</source>
-        <translation>問題を報告</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Dialogs/BetaDialog.ui" line="14"/>
-        <source>Beta</source>
-        <translation>ベータ</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Dialogs/BetaDialog.cpp" line="28"/>
-        <source>Visit Audioscrobbler Beta group</source>
-        <translation>Audioscrobbler ベータグループにアクセス</translation>
-    </message>
-</context>
-<context>
     <name>BioWidget</name>
     <message>
         <location filename="../app/client/Widgets/BioWidget.cpp" line="34"/>
@@ -163,7 +110,7 @@
     </message>
     <message>
         <location filename="../app/client/Wizard/BootstrapPage.cpp" line="79"/>
-        <source>Your plugins haven&#x27;t been installed</source>
+        <source>Your plugins haven&apos;t been installed</source>
         <translation>マイ プラグインはインストールされませんでした</translation>
     </message>
     <message>
@@ -178,7 +125,7 @@
     </message>
     <message>
         <location filename="../app/client/Wizard/BootstrapPage.cpp" line="132"/>
-        <source>Now let&#x27;s import your listening history</source>
+        <source>Now let&apos;s import your listening history</source>
         <translation>再生履歴をインポートしましょう</translation>
     </message>
     <message>
@@ -201,7 +148,7 @@
     <name>BootstrapProgressPage</name>
     <message>
         <location filename="../app/client/Wizard/BootstrapProgressPage.cpp" line="18"/>
-        <source>&lt;p&gt;Don&#x27;t worry, the upload process shouldn&#x27;t take more than a couple of minutes, depending on the size of your music library.&lt;/p&gt;&lt;p&gt;While we&#x27;re hard at work adding your listening history to your Last.fm profile, why don&#x27;t you check out the main features of the Last.fm Desktop App. Click &lt;strong&gt;Continue&lt;/strong&gt; to take the tour.&lt;/p&gt;</source>
+        <source>&lt;p&gt;Don&apos;t worry, the upload process shouldn&apos;t take more than a couple of minutes, depending on the size of your music library.&lt;/p&gt;&lt;p&gt;While we&apos;re hard at work adding your listening history to your Last.fm profile, why don&apos;t you check out the main features of the Last.fm Desktop App. Click &lt;strong&gt;Continue&lt;/strong&gt; to take the tour.&lt;/p&gt;</source>
         <translation>&lt;p&gt;ご安心ください。マイ ライブラリのサイズにもよりますが、アップロード処理にかかる時間は数分です。&lt;/p&gt;&lt;p&gt;再生履歴を Last.fm プロフィールに追加している間、Last.fm デスクトップ・アプリのメイン機能をチェックしてみませんか？&lt;strong&gt;続行&lt;/strong&gt;をクリックしてサイトツアー開始。&lt;/p&gt;</translation>
     </message>
     <message>
@@ -218,7 +165,7 @@
 <context>
     <name>CloseAppsDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/CloseAppsDialog.ui" line="14"/>
+        <location filename="../app/client/Dialogs/CloseAppsDialog.ui"/>
         <source>Close Apps</source>
         <translation>アプリを閉じる</translation>
     </message>
@@ -231,42 +178,42 @@
 <context>
     <name>DeviceScrobbler</name>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="425"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="416"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="386"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="376"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="330"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="320"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="344"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="354"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="400"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="410"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="440"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="449"/>
         <source>Scrobble iPod</source>
         <translation>iPod を Scrobble</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="321"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="345"/>
         <source>Do you want to associate the device %1 to your audioscrobbler user account?</source>
         <translation>デバイス %1 を audioscrobbler ユーザーアカウントに関連付けますか？</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="331"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="355"/>
         <source>Device successfully associated to your user account. From now on you can scrobble the tracks you listen on this device.</source>
         <translation>デバイスをユーザーアカウントに関連付けるのに成功しました。今後はこのデバイスで再生したトラックを Scrobble できます。</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="377"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="401"/>
         <source>%1 tracks scrobbled.</source>
         <translation>%1 トラック Scrobble 済。</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="387"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="411"/>
         <source>No tracks to scrobble since your last sync.</source>
         <translation>最終同期から Scrobble されたトラックはありません。</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="417"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="441"/>
         <source>The iPod database could not be opened.</source>
         <translation>iPod データベースを開くことができませんでした。</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="426"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="450"/>
         <source>An unknown error occurred while trying to access the iPod database.</source>
         <translation>iPod データベースにアクセスしようとした際、原因不明のエラーが発生しました。</translation>
     </message>
@@ -274,75 +221,72 @@
 <context>
     <name>DiagnosticsDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="14"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Diagnostics</source>
         <translation>診断</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="33"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Scrobbling</source>
         <translation>Scrobble 中</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="57"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>This is an easter egg!</source>
         <translation>これはイースターエッグ(隠しメッセージ)です！</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="174"/>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="114"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Artist</source>
         <translation>アーティスト</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="179"/>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="119"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Track</source>
         <translation>トラック</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="184"/>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="124"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Album</source>
         <translation>アルバム</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="133"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Fingerprinting</source>
         <translation>フィンガープリント中</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="145"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Recently Fingerprinted Tracks</source>
         <translation>最近フィンガープリントされたトラック</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="193"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>iPod Scrobbling</source>
         <translation>iPod Ｓcrobble 中</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="208"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>iTunes automatically manages my iPod</source>
         <translation>iTunes で iPod を自動管理</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="213"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>I manually manage my iPod</source>
         <translation>iPod を手動管理</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="221"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Scrobble iPod</source>
         <translation>iPod を Scrobble</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="254"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Logs</source>
         <translation>ログ</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line="293"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>&amp;Close</source>
         <translation>閉じる（&amp;C）</translation>
     </message>
@@ -357,7 +301,7 @@
 <context>
     <name>FirstRunWizard</name>
     <message>
-        <location filename="../app/client/Wizard/FirstRunWizard.ui" line="20"/>
+        <location filename="../app/client/Wizard/FirstRunWizard.ui"/>
         <source>Last.fm Desktop App</source>
         <translation>Last.fm デスクトップ・アプリ</translation>
     </message>
@@ -380,14 +324,14 @@
 <context>
     <name>FriendListWidget</name>
     <message>
-        <location filename="../app/client/Widgets/FriendListWidget.ui" line="93"/>
+        <location filename="../app/client/Widgets/FriendListWidget.ui"/>
         <source>Find your friends on Last.fm</source>
         <translation>Last.fm で友だち検索</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/FriendListWidget.cpp" line="61"/>
-        <source>&lt;h3&gt;You haven&#x27;t made any friends on Last.fm yet.&lt;/h3&gt;&lt;p&gt;Find your Facebook friends and email contacts on Last.fm quickly and easily using the friend finder.&lt;p /&gt;&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;まだ Last.fm 上に友だちはいません。&lt;/h3&gt;&lt;p&gt;友だち検索機能で素早く簡単に Facebook の友だちを探して Last.fm 上でメール連絡してみましょう。&lt;p /&gt;&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;You haven&apos;t made any friends on Last.fm yet.&lt;/h3&gt;&lt;p&gt;Find your Facebook friends and email contacts on Last.fm quickly and easily using the friend finder.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;まだ Last.fm 上に友だちはいません。&lt;/h3&gt;&lt;p&gt;友だち検索機能で素早く簡単に Facebook の友だちを探して Last.fm 上でメール連絡してみましょう。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/FriendListWidget.cpp" line="66"/>
@@ -395,8 +339,8 @@
         <translation>ユーザー名もしくは本名で友だち検索</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="293"/>
         <location filename="../app/client/Widgets/FriendListWidget.cpp" line="110"/>
+        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="293"/>
         <source>Refresh Friends</source>
         <translation>友だちを再読込</translation>
     </message>
@@ -410,12 +354,7 @@
     <name>FriendWidget</name>
     <message>
         <location filename="../app/client/Widgets/FriendWidget.cpp" line="41"/>
-        <source>%1%2s Library Radio</source>
-        <translation>%1, %2 のライブラリ・ラジオ</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Widgets/FriendWidget.cpp" line="41"/>
-        <source>%1&#x27;s Library Radio</source>
+        <source>%1&apos;s Library Radio</source>
         <translation>%1 さんのライブラリ・ラジオ</translation>
     </message>
     <message>
@@ -460,42 +399,42 @@
 <context>
     <name>GeneralSettingsWidget</name>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="23"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Language:</source>
         <translation>言語:</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="37"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Show application icon in menu bar</source>
         <translation>メニューバーにアプリケーションアイコンを表示</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="47"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Show:</source>
         <translation>表示：</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="60"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Launch application with media players</source>
         <translation>メディアプレイヤーでアプリケーションを起動</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="73"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Show desktop notifications</source>
         <translation>デスクトップ通知を表示</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="86"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Remember last radio station and tune in on start up</source>
         <translation>最終ラジオステーションを呼び出してスタート</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="96"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Send crash reports to Last.fm</source>
         <translation>クラッシュレポートを Last.fm に送信</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="106"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Check for updates automatically</source>
         <translation>自動的にアップデートをチェック</translation>
     </message>
@@ -515,7 +454,7 @@
         <translation>メニューバーアイコンのみ（ドックアイコン非表示）</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line="129"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Enable media keys</source>
         <translation>メディアキーを有効にする</translation>
     </message>
@@ -539,12 +478,12 @@
     <name>IPluginInfo</name>
     <message>
         <location filename="../app/client/Plugins/IPluginInfo.cpp" line="73"/>
-        <source>The %1 plugin hasn&#x27;t been installed</source>
+        <source>The %1 plugin hasn&apos;t been installed</source>
         <translation>%1 プラグインはインストールされていません。</translation>
     </message>
     <message>
         <location filename="../app/client/Plugins/IPluginInfo.cpp" line="75"/>
-        <source>You didn&#x27;t close %1 so its plugin hasn&#x27;t been installed.</source>
+        <source>You didn&apos;t close %1 so its plugin hasn&apos;t been installed.</source>
         <translation>%1 を閉じなかったのでプラグインはインストールされませんでした。</translation>
     </message>
 </context>
@@ -559,22 +498,27 @@
 <context>
     <name>IpodSettingsWidget</name>
     <message>
-        <location filename="../app/client/Settings/IpodSettingsWidget.cpp" line="111"/>
+        <location filename="../app/client/Settings/IpodSettingsWidget.cpp" line="72"/>
+        <source>&lt;p&gt;Please note:&lt;/p&gt;&lt;p&gt;Using an iOS scrobbling app, like %1, may result in double scrobbles. Please only enable scrobbling in one of them.&lt;/p&gt;&lt;p&gt;iTunes Match synchronises play counts, but not last played times, across multiple devices. This will lead to duplicate scrobbles, at incorrect times. For now, we recommend iTunes Match users disable device scrobbling on desktop devices and scrobble iPhones/iPods using an iOS scrobbling app, like %1.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/client/Settings/IpodSettingsWidget.cpp" line="116"/>
         <source>Setting not changed</source>
         <translation>設定は変更されていません</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/IpodSettingsWidget.cpp" line="113"/>
+        <location filename="../app/client/Settings/IpodSettingsWidget.cpp" line="118"/>
         <source>You did not close iTunes for this setting to change</source>
         <translation>この設定変更のために iTunes を閉じませんでした</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/IpodSettingsWidget.ui" line="20"/>
+        <location filename="../app/client/Settings/IpodSettingsWidget.ui"/>
         <source>Enable Device Scrobbling</source>
         <translation>デバイスでの Scrobble を有効にする</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/IpodSettingsWidget.ui" line="27"/>
+        <location filename="../app/client/Settings/IpodSettingsWidget.ui"/>
         <source>Confirm Device Scrobbles</source>
         <translation>デバイス Scrobble を確認する</translation>
     </message>
@@ -582,7 +526,7 @@
 <context>
     <name>LicensesDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/LicensesDialog.ui" line="14"/>
+        <location filename="../app/client/Dialogs/LicensesDialog.ui"/>
         <source>Licenses</source>
         <translation>ライセンス</translation>
     </message>
@@ -601,53 +545,15 @@
     </message>
 </context>
 <context>
-    <name>LoginDialog</name>
-    <message>
-        <location filename="../lib/unicorn/dialogs/LoginDialog.ui" line="20"/>
-        <source>Log in to Last.fm</source>
-        <translation>Last.fm にログイン</translation>
-    </message>
-    <message>
-        <location filename="../lib/unicorn/dialogs/LoginDialog.ui" line="48"/>
-        <source>Username:</source>
-        <translation>ユーザ名</translation>
-    </message>
-    <message>
-        <location filename="../lib/unicorn/dialogs/LoginDialog.ui" line="61"/>
-        <source>Password:</source>
-        <translation>パスワード</translation>
-    </message>
-    <message>
-        <location filename="../lib/unicorn/dialogs/LoginDialog.ui" line="90"/>
-        <source>Remember Me</source>
-        <translation>ログイン情報を記憶</translation>
-    </message>
-    <message>
-        <location filename="../lib/unicorn/dialogs/LoginDialog.ui" line="168"/>
-        <source>&lt;a href=&quot;http://last.fm/join/&quot;&gt;Sign up&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://last.fm/settings/lostpassword/&quot;&gt;Forgot your password?&lt;/a&gt;&lt;/br&gt;</source>
-        <translation>&lt;a href=&quot;http://last.fm/join/&quot;&gt;登録&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://last.fm/settings/lostpassword/&quot;&gt;パスワードをお忘れですか？&lt;/a&gt;&lt;/br&gt;</translation>
-    </message>
-    <message>
-        <location filename="../lib/unicorn/dialogs/LoginDialog.cpp" line="31"/>
-        <source>Last.fm needs your permission first!</source>
-        <translation>Last.fm はまずあなたの許可が必要です！</translation>
-    </message>
-    <message>
-        <location filename="../lib/unicorn/dialogs/LoginDialog.cpp" line="34"/>
-        <source>This application needs your permission to connect to your Last.fm profile.  Click OK to go to the Last.fm website and do this.</source>
-        <translation>このアプリケーション使用には、Last.fm マイ プロフィールに接続する許可が必要です。OK をクリックして Last.fm ウェブサイトにアクセス後、実行してください。</translation>
-    </message>
-</context>
-<context>
     <name>LoginPage</name>
     <message>
         <location filename="../app/client/Wizard/LoginPage.cpp" line="50"/>
-        <source>&lt;p&gt;Already a Last.fm user? Connect your account with the Last.fm Desktop App and it&#x27;ll update your profile with the music you&#x27;re listening to.&lt;/p&gt;&lt;p&gt;If you don&#x27;t have an account you can sign up now for free now.&lt;/p&gt;</source>
+        <source>&lt;p&gt;Already a Last.fm user? Connect your account with the Last.fm Desktop App and it&apos;ll update your profile with the music you&apos;re listening to.&lt;/p&gt;&lt;p&gt;If you don&apos;t have an account you can sign up now for free now.&lt;/p&gt;</source>
         <translation>&lt;p&gt;すでに Last.fm ユーザーですか？アカウントを Last.fm デスクトップ・アプリに接続すると、再生した音楽でマイ プロフィールが更新されます。&lt;/p&gt;&lt;p&gt;アカウントをお持ちでな場合、今すぐ無料で登録できます。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/LoginPage.cpp" line="63"/>
-        <source>Let&#x27;s get started by connecting your Last.fm account</source>
+        <source>Let&apos;s get started by connecting your Last.fm account</source>
         <translation>Last.fm アカウントと接続してスタート</translation>
     </message>
     <message>
@@ -669,165 +575,160 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="217"/>
+        <location filename="../app/client/MainWindow.cpp" line="222"/>
         <source>There are updates to your media player plugins. Would you like to install them now?</source>
         <translation>メディア・プレイヤー プラグインのアップデートがあります。今すぐインストールしますか？</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="237"/>
-        <source>Your plugins haven&#x27;t been installed</source>
+        <location filename="../app/client/MainWindow.cpp" line="242"/>
+        <source>Your plugins haven&apos;t been installed</source>
         <translation>マイ プラグインはインストールされませんでした</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="239"/>
+        <location filename="../app/client/MainWindow.cpp" line="244"/>
         <source>You can install them later through the file menu</source>
         <translation>後でファイルメニューからインストール可能です</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="257"/>
+        <location filename="../app/client/MainWindow.cpp" line="262"/>
         <source>File</source>
         <translation>ファイル</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="260"/>
+        <location filename="../app/client/MainWindow.cpp" line="265"/>
         <source>Install plugins</source>
         <translation>プラグインのインストール</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="268"/>
+        <location filename="../app/client/MainWindow.cpp" line="273"/>
         <source>&amp;Quit</source>
         <translation>中止(&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="277"/>
+        <location filename="../app/client/MainWindow.cpp" line="282"/>
         <source>View</source>
         <translation>表示</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="280"/>
+        <location filename="../app/client/MainWindow.cpp" line="285"/>
         <source>My Last.fm Profile</source>
         <translation>Last.fm マイ プロフィール</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="283"/>
+        <location filename="../app/client/MainWindow.cpp" line="288"/>
         <source>Scrobbles</source>
         <translation>Scrobble</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="284"/>
+        <location filename="../app/client/MainWindow.cpp" line="289"/>
         <source>Refresh</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="287"/>
+        <location filename="../app/client/MainWindow.cpp" line="292"/>
         <source>Controls</source>
         <translation>コントロール</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="291"/>
+        <location filename="../app/client/MainWindow.cpp" line="296"/>
         <source>Account</source>
         <translation>アカウント</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="294"/>
+        <location filename="../app/client/MainWindow.cpp" line="299"/>
         <source>Tools</source>
         <translation>ツール</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="296"/>
+        <location filename="../app/client/MainWindow.cpp" line="301"/>
         <source>Check for Updates</source>
         <translation>更新のチェック</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="299"/>
+        <location filename="../app/client/MainWindow.cpp" line="304"/>
         <source>Options</source>
         <translation>オプション</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="303"/>
+        <location filename="../app/client/MainWindow.cpp" line="308"/>
         <source>Window</source>
         <translation>ウインドウ</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="304"/>
+        <location filename="../app/client/MainWindow.cpp" line="309"/>
         <source>Minimize</source>
         <translation>最小化</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="305"/>
+        <location filename="../app/client/MainWindow.cpp" line="310"/>
         <source>Zoom</source>
         <translation>拡大</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="307"/>
-        <source>Last.fm</source>
-        <translation>Last.fm</translation>
-    </message>
-    <message>
-        <location filename="../app/client/MainWindow.cpp" line="309"/>
+        <location filename="../app/client/MainWindow.cpp" line="314"/>
         <source>Bring All to Front</source>
         <translation>すべて前面に移動</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="312"/>
+        <location filename="../app/client/MainWindow.cpp" line="317"/>
         <source>Help</source>
         <translation>ヘルプ</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="313"/>
+        <location filename="../app/client/MainWindow.cpp" line="318"/>
         <source>About</source>
         <translation>バージョン情報</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="316"/>
+        <location filename="../app/client/MainWindow.cpp" line="321"/>
         <source>FAQ</source>
         <translation>FAQ</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="317"/>
+        <location filename="../app/client/MainWindow.cpp" line="322"/>
         <source>Forums</source>
         <translation>フォーラム</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="319"/>
+        <location filename="../app/client/MainWindow.cpp" line="324"/>
         <source>Tour</source>
         <translation>サイトツアー</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="321"/>
+        <location filename="../app/client/MainWindow.cpp" line="326"/>
         <source>Show Licenses</source>
         <translation>ライセンス表示</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="324"/>
+        <location filename="../app/client/MainWindow.cpp" line="329"/>
         <source>Diagnostics</source>
         <translation>診断</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="460"/>
-        <location filename="../app/client/MainWindow.cpp" line="441"/>
+        <location filename="../app/client/MainWindow.cpp" line="466"/>
+        <location filename="../app/client/MainWindow.cpp" line="485"/>
         <source>%1 - %2 - %3</source>
         <translation>%1 - %2 - %3</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="470"/>
-        <location filename="../app/client/MainWindow.cpp" line="462"/>
-        <location filename="../app/client/MainWindow.cpp" line="443"/>
+        <location filename="../app/client/MainWindow.cpp" line="468"/>
+        <location filename="../app/client/MainWindow.cpp" line="487"/>
+        <location filename="../app/client/MainWindow.cpp" line="495"/>
         <source>%1 - %2</source>
         <translation>%1 - %2</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="472"/>
+        <location filename="../app/client/MainWindow.cpp" line="497"/>
         <source>%1</source>
         <translation>%1</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="479"/>
+        <location filename="../app/client/MainWindow.cpp" line="504"/>
         <source>%1: %2</source>
         <translation>%1: %2</translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/MainWindow.cpp" line="500"/>
+        <location filename="../app/client/MainWindow.cpp" line="525"/>
         <source>&lt;a href=&quot;tracks&quot;&gt;%n play(s)&lt;/a&gt; ha(s|ve) been scrobbled from a device</source>
         <translation>
             <numerusform>デバイスから &lt;a href=&quot;tracks&quot;&gt;%n 回&lt;/a&gt; Scrobble</numerusform>
@@ -837,28 +738,26 @@
 <context>
     <name>MetadataWidget</name>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line="26"/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
         <source>Back to Scrobbles</source>
         <translation>Scrobble に戻る</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="521"/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="285"/>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line="382"/>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line="210"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="521"/>
         <source>Popular tags:</source>
         <translation>人気のタグ：</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="563"/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="355"/>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line="395"/>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line="223"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="563"/>
         <source>Your tags:</source>
         <translation>マイ タグ：</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line="421"/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
         <source>Similar Artists</source>
         <translation>似てるアーティスト</translation>
     </message>
@@ -868,8 +767,8 @@
         <translation>by %1</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="208"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="202"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="208"/>
         <source>from %1</source>
         <translation>from %1</translation>
     </message>
@@ -884,31 +783,31 @@
         <translation>オートコレクト：%1</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="239"/>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="238"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="237"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="238"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="239"/>
         <source>%L1</source>
         <translation>%L1</translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="614"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="241"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="614"/>
         <source>Play(s)</source>
         <translation>
             <numerusform>再生回数</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="615"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="242"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="615"/>
         <source>Play(s) in your library</source>
         <translation>
             <numerusform>マイ ライブラリでの再生回数</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="616"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="243"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="616"/>
         <source>Listener(s)</source>
         <translation>
             <numerusform>リスナー</numerusform>
@@ -925,16 +824,16 @@
         <translation>With %1, %2 など</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="568"/>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="526"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="360"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="526"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="568"/>
         <source> %1</source>
         <translation> %1</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="570"/>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="528"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="362"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="528"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="570"/>
         <source> %1 %2</source>
         <translation> %1 %2</translation>
     </message>
@@ -949,14 +848,14 @@
         <translation>ダウンロード</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="464"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="445"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="464"/>
         <source>Search on %1</source>
         <translation>%1 で検索</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="466"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="447"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="466"/>
         <source>Buy on %1 %2</source>
         <translation>%1 %2 で購入</translation>
     </message>
@@ -992,42 +891,17 @@
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="671"/>
-        <source>From %2%1s library.</source>
-        <translation>%2, %1 のライブラリから。</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="672"/>
-        <source>From %2 and %3%1s libraries.</source>
-        <translation>%2, %3, %1 のライブラリから。</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="673"/>
-        <source>From %2, %3, and %4%1s libraries.</source>
-        <translation>%2, %3, %4, %1 のライブラリから。</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="674"/>
-        <source>From %2, %3, %4, and %5%1s libraries.</source>
-        <translation>%2, %3, %4, %5, %1 のライブラリから。</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="671"/>
-        <source>From %1&#x27;s library.</source>
+        <source>From %1&apos;s library.</source>
         <translation>%1 さんのライブラリから。</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="675"/>
-        <source>From %2, %3, %4, %5, and %6%1s libraries.</source>
-        <translation>%2, %3, %4, %5, %6, %1 のライブラリから。</translation>
-    </message>
-    <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="672"/>
-        <source>From %1 and %2&#x27;s libraries.</source>
+        <source>From %1 and %2&apos;s libraries.</source>
         <translation>%1 ＆ %2 さんのライブラリから。</translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="711"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="710"/>
+        <location filename="../app/client/Widgets/MetadataWidget.cpp" line="711"/>
         <source>%L1 time(s)</source>
         <translation>
             <numerusform>%L1 回</numerusform>
@@ -1035,64 +909,64 @@
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="673"/>
-        <source>From %1, %2, and %3&#x27;s libraries.</source>
+        <source>From %1, %2, and %3&apos;s libraries.</source>
         <translation>%1, %2, ＆ %3 さんのライブラリから。</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="718"/>
-        <source>You&#x27;ve listened to %1 %2 and %3 %4.</source>
+        <source>You&apos;ve listened to %1 %2 and %3 %4.</source>
         <translation>%1 %2 と %3 %4 を再生しました。</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="674"/>
-        <source>From %1, %2, %3, and %4&#x27;s libraries.</source>
+        <source>From %1, %2, %3, and %4&apos;s libraries.</source>
         <translation>%1, %2, %3, ＆ %4 さんのライブラリから。</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="722"/>
-        <source>You&#x27;ve listened to %1 %2, but not this track.</source>
+        <source>You&apos;ve listened to %1 %2, but not this track.</source>
         <translation>%1 %2 は再生しましたが、このトラックは再生していません。</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="675"/>
-        <source>From %1, %2, %3, %4, and %5&#x27;s libraries.</source>
+        <source>From %1, %2, %3, %4, and %5&apos;s libraries.</source>
         <translation>%1, %2, %3, %4, ＆ %5 さんのライブラリから。</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="724"/>
-        <source>This is the first time you&#x27;ve listened to %1.</source>
+        <source>This is the first time you&apos;ve listened to %1.</source>
         <translation>%1 の初回再生です。</translation>
     </message>
 </context>
 <context>
     <name>NothingPlayingWidget</name>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line="29"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Hello!</source>
         <translation>こんにちは！</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line="51"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Start a radio station</source>
         <translation>ラジオステーションを開始</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line="81"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Open iTunes</source>
         <translation>iTunes を開く</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line="88"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Open Windows Media Player</source>
         <translation>Windows Media Player を開く</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line="95"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Open Winamp</source>
         <translation>Winamp を開く</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line="102"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Open Foobar</source>
         <translation>Foobar を開く</translation>
     </message>
@@ -1144,43 +1018,39 @@
 <context>
     <name>PlaybackControlsWidget</name>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="153"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="148"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="116"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="113"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="153"/>
         <source>Love</source>
         <translation>Love</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="154"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="149"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="138"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="135"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="154"/>
         <source>Ban</source>
         <translation>禁止</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="155"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="150"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="141"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="45"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="154"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="151"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="141"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="150"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="155"/>
         <source>Play</source>
         <translation>再生</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="156"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="151"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="176"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line="173"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="156"/>
         <source>Skip</source>
         <translation>スキップ</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="155"/>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="150"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="141"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="150"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="155"/>
         <source>Pause</source>
         <translation>一時停止</translation>
     </message>
@@ -1190,8 +1060,8 @@
         <translation>再開</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="153"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="148"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="153"/>
         <source>Unlove</source>
         <translation>Love じゃない</translation>
     </message>
@@ -1201,14 +1071,14 @@
         <translation>チューニング</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="315"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="255"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="315"/>
         <source>A Radio Station</source>
         <translation>ラジオステーション</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="324"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="313"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="324"/>
         <source>Listening to</source>
         <translation>再生：</translation>
     </message>
@@ -1231,11 +1101,6 @@
 <context>
     <name>PluginBootstrapper</name>
     <message>
-        <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="50"/>
-        <source>test! Last.fm is importing your current media library...</source>
-        <translation>テスト！Last.fm は現在お使いのメディア・ライブラリをインポート中…</translation>
-    </message>
-    <message>
         <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="51"/>
         <source>Last.fm has imported your media library.
 
@@ -1256,7 +1121,7 @@
     </message>
     <message>
         <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="54"/>
-        <source>Last.fm couldn&#x27;t find any played tracks in your media library.
+        <source>Last.fm couldn&apos;t find any played tracks in your media library.
 
  Click OK to continue.</source>
         <translation>Last.fm はメディアプレイヤーで再生されたトラックを検出できませんでした。
@@ -1297,7 +1162,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
     </message>
     <message>
         <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="145"/>
-        <source>Sorry, Last.fm was unable to import your listening history. This is probably because you&#x27;ve already scrobbled too many tracks. Listening history can only be imported to brand new profiles.</source>
+        <source>Sorry, Last.fm was unable to import your listening history. This is probably because you&apos;ve already scrobbled too many tracks. Listening history can only be imported to brand new profiles.</source>
         <translation>Sorry! Last.fm は再生履歴をインポートできませんでした。Scrobble 済みのトラック数が多すぎるようです。再生履歴は、新しいプロフィールページにのみインポート可能です。</translation>
     </message>
 </context>
@@ -1314,8 +1179,8 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>現在プラグインをインストール中です。</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/PluginsInstallPage.cpp" line="88"/>
         <location filename="../app/client/Wizard/PluginsInstallPage.cpp" line="38"/>
+        <location filename="../app/client/Wizard/PluginsInstallPage.cpp" line="88"/>
         <source>Continue</source>
         <translation>続行</translation>
     </message>
@@ -1326,7 +1191,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
     </message>
     <message>
         <location filename="../app/client/Wizard/PluginsInstallPage.cpp" line="80"/>
-        <source>Your plugins haven&#x27;t been installed</source>
+        <source>Your plugins haven&apos;t been installed</source>
         <translation>マイ プラグインはインストールされませんでした</translation>
     </message>
     <message>
@@ -1381,27 +1246,27 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui" line="103"/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
         <source>General</source>
         <translation>全般</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui" line="115"/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
         <source>Accounts</source>
         <translation>アカウント</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui" line="127"/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
         <source>Scrobbling</source>
         <translation>Scrobble 中</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui" line="139"/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
         <source>Devices</source>
         <translation>デバイス</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui" line="151"/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
         <source>Advanced</source>
         <translation>拡張</translation>
     </message>
@@ -1424,12 +1289,12 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>ProfileWidget</name>
     <message>
-        <location filename="../app/client/Widgets/ProfileWidget.ui" line="168"/>
+        <location filename="../app/client/Widgets/ProfileWidget.ui"/>
         <source>Top Artists This Week</source>
         <translation>今週の Top アーティスト</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProfileWidget.ui" line="213"/>
+        <location filename="../app/client/Widgets/ProfileWidget.ui"/>
         <source>Top Artists Overall</source>
         <translation>総合 Top アーティスト</translation>
     </message>
@@ -1441,8 +1306,8 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="191"/>
         <location filename="../app/client/Widgets/ProfileWidget.cpp" line="29"/>
+        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="191"/>
         <source>Loved track(s)</source>
         <translation>
             <numerusform>Love トラック</numerusform>
@@ -1468,8 +1333,8 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>マイ ライブラリに %1 があります。1日平均 %2 再生。</translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="221"/>
         <location filename="../app/client/Widgets/ProfileWidget.cpp" line="69"/>
+        <location filename="../app/client/Widgets/ProfileWidget.cpp" line="221"/>
         <source>Scrobble(s) since %1</source>
         <translation>
             <numerusform>%1 から Scrobble </numerusform>
@@ -1505,14 +1370,14 @@ Your profile will be updated with the new tracks in a few minutes.</source>
     </message>
     <message>
         <location filename="../app/client/Widgets/ProgressBar.cpp" line="207"/>
-        <source>Enable scrobbling in Spotify&#x27;s preferences!</source>
+        <source>Enable scrobbling in Spotify&apos;s preferences!</source>
         <translation>Spotify 設定で Scrobble を有効にする！</translation>
     </message>
 </context>
 <context>
     <name>ProxyDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/ProxyDialog.ui" line="20"/>
+        <location filename="../app/client/Dialogs/ProxyDialog.ui"/>
         <source>Proxy Settings</source>
         <translation>プロキシ設定</translation>
     </message>
@@ -1520,22 +1385,22 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>ProxyWidget</name>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui" line="23"/>
+        <location filename="../app/client/Widgets/ProxyWidget.ui"/>
         <source>Host:</source>
         <translation>ホスト：</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui" line="33"/>
+        <location filename="../app/client/Widgets/ProxyWidget.ui"/>
         <source>Username:</source>
         <translation>ユーザー名：</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui" line="40"/>
+        <location filename="../app/client/Widgets/ProxyWidget.ui"/>
         <source>Port:</source>
         <translation>ポート：</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui" line="50"/>
+        <location filename="../app/client/Widgets/ProxyWidget.ui"/>
         <source>Password:</source>
         <translation>パスワード：</translation>
     </message>
@@ -1568,7 +1433,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>不明なメディアプレイヤー</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="286"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="310"/>
         <source>Where is your iPod mounted?</source>
         <translation>iPod はどこに取り付けましたか?</translation>
     </message>
@@ -1581,9 +1446,9 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>アーティスト名もしくはタグ名を入力して再生ボタンをプッシュ</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="283"/>
-        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="68"/>
         <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="67"/>
+        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="68"/>
+        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="283"/>
         <source>Play</source>
         <translation>再生</translation>
     </message>
@@ -1600,16 +1465,9 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 </context>
 <context>
     <name>RadioService</name>
-    <message numerus="yes">
-        <location filename="../app/client/Services/RadioService/RadioService.cpp" line="66"/>
-        <source>Sorry, you&#x27;ve reached your limit of %n track(s). &lt;a href=&quot;http://www.last.fm/subscribe&quot;&gt;Subscribe&lt;/a&gt; for unlimited listening, or visit &lt;a href=&quot;http://www.last.fm/listen&quot;&gt;last.fm/listen&lt;/a&gt;</source>
-        <translation>
-            <numerusform>Sorry ! %n トラックの上限に達しました。無制限再生には&lt;a href=&quot;http://www.last.fm/subscribe&quot;&gt;有料メンバー登録&lt;/a&gt;するか&lt;a href=&quot;http://www.last.fm/listen&quot;&gt;last.fm/listen&lt;/a&gt; にアクセスしてください。</numerusform>
-        </translation>
-    </message>
     <message>
-        <location filename="../app/client/Services/RadioService/RadioService.cpp" line="162"/>
         <location filename="../app/client/Services/RadioService/RadioService.cpp" line="128"/>
+        <location filename="../app/client/Services/RadioService/RadioService.cpp" line="162"/>
         <source>A Radio Station</source>
         <translation>ラジオステーション</translation>
     </message>
@@ -1622,23 +1480,23 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>RadioWidget</name>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="220"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="207"/>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="68"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="220"/>
         <source>Last Station</source>
         <translation>最終ステーション</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="166"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="82"/>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="75"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="166"/>
         <source>A Radio Station</source>
         <translation>ラジオステーション</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="113"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Personal Stations</source>
-        <translation>パーソナル・ステーション</translation>
+        <translation type="unfinished">パーソナル・ステーション</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="93"/>
@@ -1656,11 +1514,6 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>マイ Mix ラジオ</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="95"/>
-        <source>Personal</source>
-        <translation>パーソナル</translation>
-    </message>
-    <message>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="94"/>
         <source>Your library plus new music</source>
         <translation>マイ ライブラリ +  新しい音楽</translation>
@@ -1671,7 +1524,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>おすすめ マイ ラジオ</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="271"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Subscribe to listen to radio</source>
         <translation>有料メンバー登録してラジオを再生</translation>
     </message>
@@ -1681,28 +1534,28 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>Last.fm から新しい音楽</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="321"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>You need to be a Last.fm subscriber to listen to radio in this app. Subscribe now to start listening and take advantage of other great benefits too!</source>
         <translation>このアプリでラジオ再生するには Last.fm 有料メンバー登録が必要です。今すぐメンバー登録してラジオ再生をスタートしましょう。その他素敵な特典もご利用ください。</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="151"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Network Stations</source>
         <translation>ネットワーク・ステーション</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="331"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Subscribe to Last.fm</source>
         <translation>Last.fm に有料メンバー登録</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="338"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Listen free on www.last.fm</source>
         <translation>www.last.fm で無料再生</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="97"/>
-        <source>My Friends&#x27; Radio</source>
+        <source>My Friends&apos; Radio</source>
         <translation>マイ 友だちラジオ</translation>
     </message>
     <message>
@@ -1721,13 +1574,13 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>あなたに似たリスナーからの音楽</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line="200"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Recent Stations</source>
         <translation>最近のステーション</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.cpp" line="216"/>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="165"/>
+        <location filename="../app/client/Widgets/RadioWidget.cpp" line="216"/>
         <source>Now Playing</source>
         <translation>再生中</translation>
     </message>
@@ -1740,22 +1593,22 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>ScrobbleConfirmationDialog</name>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line="14"/>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
         <source>Device Scrobbles</source>
         <translation>デバイス Scrobble</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line="20"/>
-        <source>It looks like you&#x27;ve played these tracks. Would you like to scrobble them?</source>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
+        <source>It looks like you&apos;ve played these tracks. Would you like to scrobble them?</source>
         <translation>これらのトラックを再生したようです。Scrobble しますか？</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line="76"/>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
         <source>Scrobble devices automatically</source>
         <translation>デバイスを自動的に Scrobble</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line="90"/>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
         <source>Toggle selection</source>
         <translation>選択を切り替える</translation>
     </message>
@@ -1770,8 +1623,8 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>ScrobbleControls</name>
     <message>
-        <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="108"/>
         <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="46"/>
+        <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="108"/>
         <source>Love track</source>
         <translation>Love トラック</translation>
     </message>
@@ -1791,8 +1644,8 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>タグ</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="55"/>
         <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="53"/>
+        <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="55"/>
         <source>Share</source>
         <translation>シェア</translation>
     </message>
@@ -1812,8 +1665,8 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>Facebook でシェア</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="65"/>
         <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="63"/>
+        <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="65"/>
         <source>Buy</source>
         <translation>購入</translation>
     </message>
@@ -1826,27 +1679,27 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>ScrobbleSettingsWidget</name>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line="22"/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
         <source>Scrobble at</source>
         <translation>Scrobble メディア</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line="58"/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
         <source>percent of the track</source>
         <translation>トラック%</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line="67"/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
         <source>Enable scrobbling</source>
         <translation>Scrobble を有効</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line="80"/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
         <source>Scrobble podcasts</source>
         <translation>ポッドキャストを Scrobble</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line="103"/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
         <source>Allow Last.fm to fingerprint my tracks</source>
         <translation>マイ トラックの Last.fm フィンガープリントを許可</translation>
     </message>
@@ -1940,12 +1793,12 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>ScrobblesWidget</name>
     <message>
-        <location filename="../app/client/Widgets/ScrobblesWidget.ui" line="44"/>
-        <source>You haven&#x27;t scrobbled any music to Last.fm yet.</source>
+        <location filename="../app/client/Widgets/ScrobblesWidget.ui"/>
+        <source>You haven&apos;t scrobbled any music to Last.fm yet.</source>
         <translation>まだ Last.fm で音楽を Scrobble していません。</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ScrobblesWidget.ui" line="54"/>
+        <location filename="../app/client/Widgets/ScrobblesWidget.ui"/>
         <source>Start listening to some music in your media player or start a radio station:</source>
         <translation>お使いのメディアプレイヤーで音楽再生を開始するかラジオステーションをスタート：</translation>
     </message>
@@ -1953,22 +1806,22 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>ShareDialog</name>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line="14"/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
         <source>Share with Friends</source>
         <translation>友だちとシェア</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line="106"/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
         <source>With:</source>
         <translation>シェア with:</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line="129"/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
         <source>Message (optional):</source>
         <translation>メッセージ（オプション）</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line="151"/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
         <source>include in my recent activity</source>
         <translation>最近のマイ アクティビティに組み込む</translation>
     </message>
@@ -2016,17 +1869,12 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>ラジオ</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/SideBar.cpp" line="72"/>
-        <source>Sash</source>
-        <translation>Sash</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Widgets/SideBar.cpp" line="123"/>
+        <location filename="../app/client/Widgets/SideBar.cpp" line="119"/>
         <source>Next Section</source>
         <translation>次項</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/SideBar.cpp" line="124"/>
+        <location filename="../app/client/Widgets/SideBar.cpp" line="120"/>
         <source>Previous Section</source>
         <translation>前項</translation>
     </message>
@@ -2034,8 +1882,8 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>StationSearch</name>
     <message>
-        <location filename="../app/client/StationSearch.cpp" line="65"/>
         <location filename="../app/client/StationSearch.cpp" line="60"/>
+        <location filename="../app/client/StationSearch.cpp" line="65"/>
         <source>Could not start radio: %1</source>
         <translation>ラジオを開始できませんでした：%1</translation>
     </message>
@@ -2071,38 +1919,38 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>TagDialog</name>
     <message>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <location filename="../lib/unicorn/dialogs/TagDialog.cpp" line="69"/>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line="14"/>
         <source>Tag</source>
         <translation>タグ</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line="22"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>Choose something to tag:</source>
         <translation>何かを選択してタグ付け：</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line="29"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>Track</source>
         <translation>トラック</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line="36"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>Artist</source>
         <translation>アーティスト</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line="43"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>Album</source>
         <translation>アルバム</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line="67"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>icon</source>
         <translation>アイコン</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line="123"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>Add tags:</source>
         <translation>タグを追加：</translation>
     </message>
@@ -2148,12 +1996,12 @@ or choose from below</source>
     <name>TourFinishPage</name>
     <message>
         <location filename="../app/client/Wizard/TourFinishPage.cpp" line="16"/>
-        <source>&lt;p&gt;Now you&#x27;re ready to get started! Just click &lt;strong&gt;Finish&lt;/strong&gt; and start exploring.&lt;/p&gt;&lt;p&gt;We&#x27;ve also finished importing your listening history and have added it to your Last.fm profile.&lt;/p&gt;&lt;p&gt;Thanks for installing the Last.fm Desktop App, we hope you enjoy using it!&lt;/p&gt;</source>
+        <source>&lt;p&gt;Now you&apos;re ready to get started! Just click &lt;strong&gt;Finish&lt;/strong&gt; and start exploring.&lt;/p&gt;&lt;p&gt;We&apos;ve also finished importing your listening history and have added it to your Last.fm profile.&lt;/p&gt;&lt;p&gt;Thanks for installing the Last.fm Desktop App, we hope you enjoy using it!&lt;/p&gt;</source>
         <translation>&lt;p&gt;スタート準備ができました！&lt;strong&gt;終了&lt;/strong&gt;をクリックして探索を開始してください。&lt;/p&gt;&lt;p&gt;再生履歴もインポート完了、Last.fm マイ プロフィールに追加しました。&lt;/p&gt;&lt;p&gt;Last.fm デスクトップ・アプリをインストールしていただきありがとうございます。Last.fm を楽しんでご利用ください！&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/TourFinishPage.cpp" line="29"/>
-        <source>That&#x27;s it, you&#x27;re good to go!</source>
+        <source>That&apos;s it, you&apos;re good to go!</source>
         <translation>これで終了、いよいよスタートです！</translation>
     </message>
     <message>
@@ -2199,7 +2047,7 @@ or choose from below</source>
     <name>TourMetadataPage</name>
     <message>
         <location filename="../app/client/Wizard/TourMetadataPage.cpp" line="20"/>
-        <source>&lt;p&gt;Find out more about the music you&#x27;re listening to, including biographies, listening stats, photos and similar artists, as well as the tags listeners use to describe them.&lt;/p&gt;&lt;p&gt;Check out the &lt;strong&gt;Now Playing&lt;/strong&gt; tab, or simply click on any track in your &lt;strong&gt;Scrobbles&lt;/strong&gt; tab to learn more.&lt;/p&gt;</source>
+        <source>&lt;p&gt;Find out more about the music you&apos;re listening to, including biographies, listening stats, photos and similar artists, as well as the tags listeners use to describe them.&lt;/p&gt;&lt;p&gt;Check out the &lt;strong&gt;Now Playing&lt;/strong&gt; tab, or simply click on any track in your &lt;strong&gt;Scrobbles&lt;/strong&gt; tab to learn more.&lt;/p&gt;</source>
         <translation>&lt;p&gt;バイオ、再生統計データ、写真や似てるアーティスト、さらにリスナーが分類に利用するタグなど、再生中の音楽について詳細情報を見つけてください。&lt;/p&gt;&lt;p&gt;&lt;strong&gt;ただ今再生中&lt;/strong&gt;タブをチェックするか &lt;strong&gt;Scrobble&lt;/strong&gt; タブ上のトラックをクリックするだけで詳細をご覧いただけます。&lt;/p&gt;</translation>
     </message>
     <message>
@@ -2229,11 +2077,6 @@ or choose from below</source>
         <location filename="../app/client/Wizard/TourRadioPage.cpp" line="37"/>
         <source>Listen to non-stop, personalised radio</source>
         <translation>ノンストップラジオ、カスタムラジオを再生</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Wizard/TourRadioPage.cpp" line="41"/>
-        <source>Subscribe and listen to non-stop, personalised radio*</source>
-        <translation>有料メンバー登録してノンストップラジオ、カスタムラジオを再生*</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/TourRadioPage.cpp" line="38"/>
@@ -2275,7 +2118,7 @@ or choose from below</source>
     <name>TourScrobblesPage</name>
     <message>
         <location filename="../app/client/Wizard/TourScrobblesPage.cpp" line="16"/>
-        <source>&lt;p&gt;The desktop client runs in the background, quietly updating your Last.fm profile with the music you&#x27;re playing, which you can use to get music recommendations, gig tips and more. &lt;/p&gt;&lt;p&gt;You can also use the Last.fm Desktop App to find out more about the artist you&#x27;re listening to, and to play personalised radio.&lt;/p&gt;</source>
+        <source>&lt;p&gt;The desktop client runs in the background, quietly updating your Last.fm profile with the music you&apos;re playing, which you can use to get music recommendations, gig tips and more. &lt;/p&gt;&lt;p&gt;You can also use the Last.fm Desktop App to find out more about the artist you&apos;re listening to, and to play personalised radio.&lt;/p&gt;</source>
         <translation>&lt;p&gt;デスクトップ・クライアントは、再生している音楽で Last.fm マイ プロフィールをひそかにアップデートしながら、バックグラウンドで動作し、おすすめ音楽やライブの内部情報などの入手に活用できます。&lt;/p&gt;&lt;p&gt;また Last.fm デスクトップ・アプリも再生中のアーティスト詳細情報チェックやカスタムラジオ再生にご利用いただけます。&lt;/p&gt;</translation>
     </message>
     <message>
@@ -2317,26 +2160,22 @@ or choose from below</source>
         <translation>アーティスト</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="167"/>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="164"/>
+        <location filename="../app/client/Widgets/TrackWidget.ui"/>
         <source>Love</source>
         <translation>Love</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="180"/>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="177"/>
+        <location filename="../app/client/Widgets/TrackWidget.ui"/>
         <source>Tag</source>
         <translation>タグ</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="190"/>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="187"/>
+        <location filename="../app/client/Widgets/TrackWidget.ui"/>
         <source>Share</source>
         <translation>共有</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="200"/>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line="197"/>
+        <location filename="../app/client/Widgets/TrackWidget.ui"/>
         <source>Buy</source>
         <translation>購入</translation>
     </message>
@@ -2356,8 +2195,8 @@ or choose from below</source>
         <translation>%1 ラジオを続けて再生</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.cpp" line="116"/>
         <location filename="../app/client/Widgets/TrackWidget.cpp" line="108"/>
+        <location filename="../app/client/Widgets/TrackWidget.cpp" line="116"/>
         <source>%1 Radio</source>
         <translation>%1 ラジオ</translation>
     </message>
@@ -2402,14 +2241,14 @@ or choose from below</source>
         <translation>ダウンロード</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.cpp" line="429"/>
         <location filename="../app/client/Widgets/TrackWidget.cpp" line="410"/>
+        <location filename="../app/client/Widgets/TrackWidget.cpp" line="429"/>
         <source>Search on %1</source>
         <translation>%1 で検索</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.cpp" line="431"/>
         <location filename="../app/client/Widgets/TrackWidget.cpp" line="412"/>
+        <location filename="../app/client/Widgets/TrackWidget.cpp" line="431"/>
         <source>Buy on %1 %2</source>
         <translation>%1 %2 で購入</translation>
     </message>
@@ -2432,22 +2271,22 @@ or choose from below</source>
         <translation>新しいユーザーアカウントを追加</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="251"/>
+        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="252"/>
         <source>Add User Error</source>
         <translation>ユーザーエラーを追加</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="252"/>
+        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="253"/>
         <source>To add a new account you must connect it to the Last.fm user permissions.</source>
         <translation>新しいアカウントを追加するには、Last.fm ユーザー許可に接続する必要があります。</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="264"/>
+        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="265"/>
         <source>Removing %1</source>
         <translation>%1 削除中</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="265"/>
+        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="266"/>
         <source>Are you sure you want to remove this user? All user settings will be lost and you will need to re authenticate in order to scrobble in the future.</source>
         <translation>このユーザーを本当に削除しますか？ユーザー設定はすべて失われ、今後 Scrobble するには再度認証が必要になります。</translation>
     </message>
@@ -2468,8 +2307,8 @@ or choose from below</source>
         <translation>削除</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="94"/>
         <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="68"/>
+        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="94"/>
         <source>(currently logged in)</source>
         <translation>（現在ログイン中）</translation>
     </message>
@@ -2477,82 +2316,97 @@ or choose from below</source>
 <context>
     <name>audioscrobbler::Application</name>
     <message>
-        <location filename="../app/client/Application.cpp" line="181"/>
+        <location filename="../app/client/Application.cpp" line="186"/>
         <source>Accounts</source>
         <translation>アカウント</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="183"/>
+        <location filename="../app/client/Application.cpp" line="188"/>
         <source>Show Scrobbler</source>
         <translation>Scrobbler 表示</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="188"/>
+        <location filename="../app/client/Application.cpp" line="193"/>
         <source>Love</source>
         <translation>Love</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="200"/>
+        <location filename="../app/client/Application.cpp" line="206"/>
         <source>Play</source>
         <translation>再生</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="209"/>
+        <location filename="../app/client/Application.cpp" line="217"/>
         <source>Skip</source>
         <translation>スキップ</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="217"/>
+        <location filename="../app/client/Application.cpp" line="226"/>
         <source>Tag</source>
         <translation>タグ</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="224"/>
+        <location filename="../app/client/Application.cpp" line="235"/>
         <source>Share</source>
         <translation>シェア</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="231"/>
+        <location filename="../app/client/Application.cpp" line="244"/>
         <source>Ban</source>
         <translation>禁止</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="239"/>
+        <location filename="../app/client/Application.cpp" line="252"/>
         <source>Mute</source>
         <translation>ミュート</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="246"/>
+        <location filename="../app/client/Application.cpp" line="259"/>
         <source>Scrobble iPod...</source>
         <translation>iPod を Scrobble...</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="252"/>
+        <location filename="../app/client/Application.cpp" line="265"/>
         <source>Visit Last.fm profile</source>
         <translation>Last.fm プロフィールにアクセス</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="257"/>
+        <location filename="../app/client/Application.cpp" line="270"/>
         <source>Enable Scrobbling</source>
         <translation>Scrobble を有効</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="268"/>
+        <location filename="../app/client/Application.cpp" line="281"/>
         <source>Quit %1</source>
         <translation>%1 を終了</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="451"/>
+        <location filename="../app/client/Application.cpp" line="464"/>
         <source>from %1</source>
         <translation>from %1</translation>
     </message>
+    <message numerus="yes">
+        <location filename="../app/client/Application.cpp" line="578"/>
+        <location filename="../app/client/Application.cpp" line="592"/>
+        <source>You&apos;ve reached this station&apos;s skip limit. Skip again in %n minute(s).</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../app/client/Application.cpp" line="594"/>
+        <source>You have %n skip(s) remaining on this station.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="758"/>
+        <location filename="../app/client/Application.cpp" line="850"/>
         <source>Are you sure you want to quit %1?</source>
         <translation>本当に %1 を終了しますか？</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="759"/>
+        <location filename="../app/client/Application.cpp" line="851"/>
         <source>%1 is about to quit. Tracks played will not be scrobbled if you continue.</source>
         <translation>%1 は終了しようとしています。続行すると再生したトラックは Scrobble されません。</translation>
     </message>
@@ -2595,32 +2449,32 @@ or choose from below</source>
 <context>
     <name>unicorn::LoginProcess</name>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="224"/>
+        <location filename="../lib/unicorn/LoginProcess.cpp" line="221"/>
         <source>Login Failed</source>
         <translation>ログイン失敗</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="225"/>
-        <source>Sorry, we don&#x27;t recognise that username, or you typed the password wrongly.</source>
+        <location filename="../lib/unicorn/LoginProcess.cpp" line="222"/>
+        <source>Sorry, we don&apos;t recognise that username, or you typed the password wrongly.</source>
         <translation>Sorry ! このユーザー名を認識できません。またはパスワードの入力に誤りがあります。</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="233"/>
+        <location filename="../lib/unicorn/LoginProcess.cpp" line="230"/>
         <source>Last.fm Unavailable</source>
         <translation>Last.fm をご利用いただけません</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="234"/>
+        <location filename="../lib/unicorn/LoginProcess.cpp" line="231"/>
         <source>There was a problem communicating with the Last.fm services. Please try again later.</source>
         <translation>Last.fm サービス接続中に問題が発生しました。後でもう一度試してください。</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="258"/>
+        <location filename="../lib/unicorn/LoginProcess.cpp" line="255"/>
         <source>Cannot connect to Last.fm</source>
         <translation>Last.fm に接続できません</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="259"/>
+        <location filename="../lib/unicorn/LoginProcess.cpp" line="256"/>
         <source>Last.fm cannot be reached. Please check your firewall or proxy settings.</source>
         <translation>Last.fm に接続できません。ご利用のファイアウォールもしくはプロキシ設定をチェックしてください。</translation>
     </message>
@@ -2628,7 +2482,7 @@ or choose from below</source>
 <context>
     <name>unicorn::MainWindow</name>
     <message>
-        <location filename="../lib/unicorn/UnicornMainWindow.cpp" line="63"/>
+        <location filename="../lib/unicorn/UnicornMainWindow.cpp" line="64"/>
         <source>Refresh Stylesheet</source>
         <translation>スタイルシートを更新</translation>
     </message>
@@ -2637,7 +2491,8 @@ or choose from below</source>
     <name>unicorn::MessageDialog</name>
     <message>
         <location filename="../lib/unicorn/QMessageBoxBuilder.cpp" line="54"/>
-        <source>Don&#x27;t ask this again</source>
+        <source>Don&apos;t ask this again</source>
         <translation>次回以降確認しない</translation>
     </message>
-</context></TS>
+</context>
+</TS>

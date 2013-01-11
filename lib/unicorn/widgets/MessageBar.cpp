@@ -64,8 +64,20 @@ MessageBar::tracks() const
 }
 
 void
-MessageBar::show( const QString& message, const QString& id )
+MessageBar::show( const QString& message, const QString& id, int timeout )
 {
+    if ( !m_timeout )
+    {
+        m_timeout = new QTimer( this );
+        connect( m_timeout, SIGNAL(timeout()), SLOT(onCloseClicked()) );
+    }
+
+    if ( timeout != -1 )
+        m_timeout->start( timeout * 1000 );
+    else
+        m_timeout->stop();
+
+
     setObjectName( id );
     ui.message->setText( unicorn::Label::boldLinkStyle( message, Qt::black ) );
 

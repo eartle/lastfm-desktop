@@ -69,11 +69,7 @@ SideBar::SideBar(QWidget *parent)
     ui.radio->setObjectName( "radio" );
     layout->addStretch( 1 );
 
-    layout->addWidget( ui.sash = new QPushButton( tr( "Sash" ), this ), Qt::AlignLeft | Qt::AlignBottom );
-    ui.sash->setObjectName( "sash" );
-
     connect( m_buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), SLOT(onButtonClicked(QAbstractButton*)));
-    connect( ui.sash, SIGNAL(clicked()), aApp, SLOT(onBetaTriggered()));
 
     ui.nowPlaying->click();
 

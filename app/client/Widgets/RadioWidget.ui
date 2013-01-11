@@ -92,7 +92,7 @@
        <item>
         <widget class="QLabel" name="personalLabel">
          <property name="text">
-          <string>Personal</string>
+          <string>Personal Stations</string>
          </property>
         </widget>
        </item>

@@ -111,7 +111,7 @@ MessageBar {
 	border: none;
 }
 
-MessageBar#ipod {
+MessageBar {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #E4F1FF, stop:1 #C3CEDA);
   border-bottom: 1px solid #3A3D41;
 }
@@ -131,7 +131,7 @@ MessageBar QLabel#icon {
   min-height: 19px;
 }
 
-MessageBar#ipod QLabel#icon {
+MessageBar QLabel#icon {
   background-image: url(":/message_info.png");
 }
 
@@ -155,6 +155,7 @@ SideBar {
 	background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #2d2d2d, stop:0.925 #2d2d2d, stop:1 #232323);
 	padding: 0px;
 	margin: 0px;
+	min-width: 76px;
 }
 
 SideBar QAbstractButton {
@@ -224,14 +225,6 @@ background-image: url(":/tab_radio_HOVER.png");
 }
 SideBar QAbstractButton#radio:checked {
 background-image: url(":/tab_radio_ACTIVE.png");
-}
-
-SideBar QAbstractButton#sash {
-color: transparent;
-background-position: left bottom;
-background-image: url(":/beta_sash.png");
-padding: 0px;
-margin: 0px;
 }
 
 QFrame#splitter1,
@@ -1431,4 +1424,9 @@ QDialog#AboutDialog QLabel#as {
 	qproperty-scaledContents: true;
 	max-height: 64px;
 	max-width: 64px;
+}
+
+IpodSettingsWidget unicorn--Label {
+	font-size: 12px;
+	color: #333;
 }

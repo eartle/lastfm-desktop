@@ -40,7 +40,7 @@ PlaybackControlsWidget::PlaybackControlsWidget(QWidget *parent) :
     // love is dealt with by the application
     connect( aApp->banAction(), SIGNAL(triggered(bool)), SLOT(onBanClicked()) );
     connect( aApp->playAction(), SIGNAL(triggered(bool)), SLOT(onPlayClicked(bool)) );
-    connect( aApp->skipAction(), SIGNAL(triggered(bool)), SLOT(onSkipClicked()) );
+    connect( aApp, SIGNAL(skipTriggered()), SLOT(onSkipClicked()) );
 
     m_playAction = new QAction( tr( "Play" ), aApp );
     connect( m_playAction, SIGNAL(triggered(bool)), aApp->playAction(), SLOT(trigger()) );
