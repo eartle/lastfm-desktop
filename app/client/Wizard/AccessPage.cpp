@@ -22,6 +22,7 @@
 #include <QLabel>
 #include <QStyle>
 #include <QAbstractButton>
+#include <QTextEdit>
 
 #include "lib/unicorn/LoginProcess.h"
 #include "lib/unicorn/UnicornSession.h"
@@ -40,24 +41,31 @@ AccessPage::AccessPage()
     layout->setContentsMargins( 0, 0, 0, 0 );
     layout->setSpacing( 20 );
     
-    layout->addWidget( ui.image = new QLabel(), 0, Qt::AlignTop | Qt::AlignHCenter );
+    layout->addWidget( ui.image = new QLabel(), 1, Qt::AlignTop | Qt::AlignHCenter );
     ui.image->setObjectName( "image" );
 
-    layout->addWidget( ui.description = new QLabel( tr( "<p>Please click the <strong>Yes, Allow Access</strong> button in your web browser to connect your Last.fm account to the Last.fm Desktop App.</p>"
-                                                        "<p>If you haven't connected because you closed the browser window or you clicked cancel, please try again.</p>" )),
-                       0, Qt::AlignTop);
+    QVBoxLayout* rL = new QVBoxLayout( this );
+    rL->setContentsMargins( 0, 0, 0, 0 );
+    rL->setSpacing( 20 );
 
+    layout->addLayout( rL, 1 );
+
+    rL->addWidget( ui.description = new QLabel( "" ), 1, Qt::AlignTop);
     ui.description->setObjectName( "description" );
     ui.description->setWordWrap( true );
 
-
-
+    rL->addWidget( ui.authUrl = new QTextEdit( "" ) );
+    ui.authUrl->setTextInteractionFlags( Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard );
+    ui.authUrl->setObjectName( "authUrl" );
 }
 
 void
 AccessPage::initializePage()
 {
     setTitle( tr( "We're waiting for you to connect to Last.fm" ));
+
+    ui.description->setText( tr( "<p>Please click the <strong>Yes, Allow Access</strong> button in your web browser to connect your Last.fm account to the Last.fm Desktop App.</p>"
+                                 "<p>If you haven't connected because you closed the browser window or you clicked cancel, please try again.</p>" ) );
 
     wizard()->setCommitPage( true );
 
@@ -79,9 +87,32 @@ AccessPage::initializePage()
 void
 AccessPage::tryAgain()
 {
-    unicorn::LoginProcess* loginProcess = new unicorn::LoginProcess( this );
-    m_loginProcesses << loginProcess;
-    loginProcess->authenticate();
+    if ( !m_loginProcess )
+    {
+        m_loginProcess = new unicorn::LoginProcess( this );
+        connect( m_loginProcess, SIGNAL(authUrlChanged(QString)), SLOT(onAuthUrlChanged(QString)));
+    }
+
+    m_loginProcess->authenticate();
+
+    // disable the try again and coninue buttons
+    wizard()->setButton( FirstRunWizard::NextButton, tr( "Continue" ) )->setEnabled( false );
+    wizard()->setButton( FirstRunWizard::CustomButton, tr( "Try Again" ) )->setEnabled( false );
+}
+
+void
+AccessPage::onAuthUrlChanged( const QString& authUrl )
+{
+    ui.description->setText( tr( "<p>Please click the <strong>Yes, Allow Access</strong> button in your web browser to connect your Last.fm account to the Last.fm Desktop App.</p>"
+                                                       "<p>If you haven't connected because you closed the browser window or you clicked cancel, please try again.</p>" )
+                                                   + tr( "<p>If your web browser didn't open, copy and paste the link below into your address bar.</p>" ) );
+
+    ui.authUrl->setText( authUrl );
+
+    wizard()->setButton( FirstRunWizard::CustomButton, tr( "Try Again" ) )->setEnabled( true );
+
+    if ( !authUrl.isEmpty() )
+        wizard()->setButton( FirstRunWizard::NextButton, tr( "Continue" ) )->setEnabled( true );
 }
 
 void
@@ -110,28 +141,18 @@ AccessPage::checkComplete()
         // we've now got both the session info and the user info
         m_valid = true;
 
-        // make sure the wizard is shown again after they allow access on the website.
         wizard()->showWelcome();
         wizard()->next();
-        wizard()->showNormal();
-        wizard()->setFocus();
-        wizard()->raise();
-        wizard()->activateWindow();
 
-#ifdef Q_OS_WIN32
-        SetForegroundWindow( wizard()->winId() );
-#endif
-
-        foreach ( unicorn::LoginProcess* loginProcess, m_loginProcesses )
-            loginProcess->deleteLater();
-
-        m_loginProcesses.clear();
+        m_loginProcess->deleteLater();
     }
 }
 
 void
 AccessPage::cleanupPage()
 {
+    ui.description->clear();
+    ui.authUrl->clear();
 }
 
 
@@ -141,12 +162,9 @@ AccessPage::validatePage()
     if ( m_valid )
         return true;
 
-    // There is no session so try to fetch it
-    // onAuthenticated will be called if we find one
-    // just try with the most recent one
-    unicorn::LoginProcess* loginProcess = m_loginProcesses[ m_loginProcesses.count() - 1 ];
+    // try to get the session key!
+    m_loginProcess->getSession();
 
-    loginProcess->getToken();
     return false;
 }
 

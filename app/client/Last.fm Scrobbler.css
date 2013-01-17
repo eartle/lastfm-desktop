@@ -39,6 +39,12 @@ font-size: 11px;
 color: #333;
 }
 
+FirstRunWizard #authUrl {
+	border: none;
+	background: transparent;
+	color: #333;
+}
+
 /* QWizard::NextButton */
 /* QWizard::FinishButton */
 /* QWizard::CommitButton */

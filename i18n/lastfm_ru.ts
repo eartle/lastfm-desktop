@@ -18,12 +18,12 @@
     <name>AccessPage</name>
     <message>
         <location filename="../app/client/Wizard/AccessPage.cpp" line="46"/>
-        <source>&lt;p&gt;Please click the &lt;strong&gt;Yes, Allow Access&lt;/strong&gt; button in your web browser to connect your Last.fm account to the Last.fm Desktop App.&lt;/p&gt;&lt;p&gt;If you haven&apos;t connected because you closed the browser window or you clicked cancel, please try again.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Нажмите кнопку &lt;strong&gt;Да, разрешить доступ&lt;/strong&gt; в браузере, чтобы связать аккаунт Last.fm со скробблером Last.fm.&lt;/p&gt;&lt;p&gt;Если вы не подключились, так как закрыли окно браузера или нажали кнопку &quot;Отмена&quot;, повторите попытку.&lt;/p&gt;</translation>
+        <source>&lt;p&gt;Please click the &lt;strong&gt;Yes, Allow Access&lt;/strong&gt; button in your web browser to connect your Last.fm account to the Last.fm Desktop App.&lt;/p&gt;&lt;p&gt;If you haven&#x27;t connected because you closed the browser window or you clicked cancel, please try again.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Нажми кнопку &lt;strong&gt;Да, разрешить доступ&lt;/strong&gt; в браузере, чтобы привязать аккаунт Last.fm к скробблеру Last.fm.&lt;/p&gt;&lt;p&gt;Если не удалось привязать аккаунт из-за того, что ты нажал(а) кнопку &quot;Отмена&quot; или закрыл(а) окно браузера, попробуй еще раз.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/AccessPage.cpp" line="60"/>
-        <source>We&apos;re waiting for you to connect to Last.fm</source>
+        <source>We&#x27;re waiting for you to connect to Last.fm</source>
         <translation>Необходимо подключиться к Last.fm</translation>
     </message>
     <message>
@@ -45,22 +45,22 @@
 <context>
     <name>AdvancedSettingsWidget</name>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line=""/>
         <source>Keyboard Shortcuts:</source>
         <translation>Сочетания клавиш:</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line=""/>
         <source>Raise/Hide Last.fm</source>
         <translation>Показать/скрыть Last.fm</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line=""/>
         <source>Proxy:</source>
         <translation>Прокси-сервер:</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line=""/>
         <source>Cache Size:</source>
         <translation>Объем кэша:</translation>
     </message>
@@ -110,7 +110,7 @@
     </message>
     <message>
         <location filename="../app/client/Wizard/BootstrapPage.cpp" line="79"/>
-        <source>Your plugins haven&apos;t been installed</source>
+        <source>Your plugins haven&#x27;t been installed</source>
         <translation>Модули не установлены</translation>
     </message>
     <message>
@@ -125,7 +125,7 @@
     </message>
     <message>
         <location filename="../app/client/Wizard/BootstrapPage.cpp" line="132"/>
-        <source>Now let&apos;s import your listening history</source>
+        <source>Now let&#x27;s import your listening history</source>
         <translation>Теперь мы импортируем твою историю воспроизведения</translation>
     </message>
     <message>
@@ -148,7 +148,7 @@
     <name>BootstrapProgressPage</name>
     <message>
         <location filename="../app/client/Wizard/BootstrapProgressPage.cpp" line="18"/>
-        <source>&lt;p&gt;Don&apos;t worry, the upload process shouldn&apos;t take more than a couple of minutes, depending on the size of your music library.&lt;/p&gt;&lt;p&gt;While we&apos;re hard at work adding your listening history to your Last.fm profile, why don&apos;t you check out the main features of the Last.fm Desktop App. Click &lt;strong&gt;Continue&lt;/strong&gt; to take the tour.&lt;/p&gt;</source>
+        <source>&lt;p&gt;Don&#x27;t worry, the upload process shouldn&#x27;t take more than a couple of minutes, depending on the size of your music library.&lt;/p&gt;&lt;p&gt;While we&#x27;re hard at work adding your listening history to your Last.fm profile, why don&#x27;t you check out the main features of the Last.fm Desktop App. Click &lt;strong&gt;Continue&lt;/strong&gt; to take the tour.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Не волнуйся, загрузка займет не более двух минут в зависимости от размера твоей музыкальной библиотеки.&lt;/p&gt;&lt;p&gt;Пока мы работаем над добавлением твоей истории воспроизведения в профиль Last.fm, ты можешь ознакомиться со списком возможностей скробблера Last.fm. Нажми &lt;strong&gt;Продолжить&lt;/strong&gt; для ознакомления.&lt;/p&gt;</translation>
     </message>
     <message>
@@ -165,7 +165,7 @@
 <context>
     <name>CloseAppsDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/CloseAppsDialog.ui"/>
+        <location filename="../app/client/Dialogs/CloseAppsDialog.ui" line=""/>
         <source>Close Apps</source>
         <translation>Необходимо закрыть приложения</translation>
     </message>
@@ -221,72 +221,72 @@
 <context>
     <name>DiagnosticsDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
         <source>Diagnostics</source>
         <translation>Диагностика</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
         <source>Scrobbling</source>
         <translation>Скробблинг</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
         <source>This is an easter egg!</source>
         <translation>Это пасхальное яйцо!</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
         <source>Artist</source>
         <translation>Исполнитель</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
         <source>Track</source>
         <translation>Композиция</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
         <source>Album</source>
         <translation>Альбом</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
         <source>Fingerprinting</source>
         <translation>Опознание музыки (Fingerprinting)</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
         <source>Recently Fingerprinted Tracks</source>
         <translation>Недавно опознанные композиции</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
         <source>iPod Scrobbling</source>
         <translation>Скробблинг iPod</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
         <source>iTunes automatically manages my iPod</source>
         <translation>iPod автоматически синхронизируется с iTunes</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
         <source>I manually manage my iPod</source>
         <translation>Синхронизировать iPod вручную</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
         <source>Scrobble iPod</source>
         <translation>Скробблинг iPod</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
         <source>Logs</source>
         <translation>Журналы</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
         <source>&amp;Close</source>
         <translation>&amp;Закрыть</translation>
     </message>
@@ -297,13 +297,14 @@
             <numerusform>%n композиция сохранена в локальном кэше</numerusform>
             <numerusform>%n композиции сохранены в локальном кэше</numerusform>
             <numerusform>%n композиций сохранены в локальном кэше</numerusform>
+            <numerusform>%n композиции сохранены в локальном кэше</numerusform>
         </translation>
     </message>
 </context>
 <context>
     <name>FirstRunWizard</name>
     <message>
-        <location filename="../app/client/Wizard/FirstRunWizard.ui"/>
+        <location filename="../app/client/Wizard/FirstRunWizard.ui" line=""/>
         <source>Last.fm Desktop App</source>
         <translation>Скробблер Last.fm</translation>
     </message>
@@ -326,14 +327,14 @@
 <context>
     <name>FriendListWidget</name>
     <message>
-        <location filename="../app/client/Widgets/FriendListWidget.ui"/>
+        <location filename="../app/client/Widgets/FriendListWidget.ui" line=""/>
         <source>Find your friends on Last.fm</source>
         <translation>Найти друзей на Last.fm</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/FriendListWidget.cpp" line="61"/>
-        <source>&lt;h3&gt;You haven&apos;t made any friends on Last.fm yet.&lt;/h3&gt;&lt;p&gt;Find your Facebook friends and email contacts on Last.fm quickly and easily using the friend finder.&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;У тебя пока нет друзей на Last.fm.&lt;/h3&gt;&lt;p&gt;Используй Friend Finder, чтобы найти на Last.fm своих друзей по Facebook и почтовые контакты.&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;You haven&#x27;t made any friends on Last.fm yet.&lt;/h3&gt;&lt;p&gt;Find your Facebook friends and email contacts on Last.fm quickly and easily using the friend finder.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;У тебя пока нет друзей на Last.fm.&lt;/h3&gt;&lt;p&gt;Используй Friend Finder, чтобы найти своих друзей по Facebook и почтовые контакты на Last.fm.&lt;p /&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/FriendListWidget.cpp" line="66"/>
@@ -356,7 +357,7 @@
     <name>FriendWidget</name>
     <message>
         <location filename="../app/client/Widgets/FriendWidget.cpp" line="41"/>
-        <source>%1&apos;s Library Radio</source>
+        <source>%1&#x27;s Library Radio</source>
         <translation>Радио библиотеки %1</translation>
     </message>
     <message>
@@ -401,42 +402,42 @@
 <context>
     <name>GeneralSettingsWidget</name>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
         <source>Language:</source>
         <translation>Язык:</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
         <source>Show application icon in menu bar</source>
         <translation>Показывать значок приложения в строке меню</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
         <source>Show:</source>
         <translation>Показать:</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
         <source>Launch application with media players</source>
         <translation>Запускать приложение одновременно с музыкальным проигрывателем</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
         <source>Show desktop notifications</source>
         <translation>Показывать уведомления на рабочем столе</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
         <source>Remember last radio station and tune in on start up</source>
         <translation>Запоминать последнюю станцию и включать ее при запуске</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
         <source>Send crash reports to Last.fm</source>
         <translation>Отправлять отчеты об ошибках в Last.fm</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
         <source>Check for updates automatically</source>
         <translation>Автоматически проверять наличие обновлений</translation>
     </message>
@@ -456,7 +457,7 @@
         <translation>Только значок панели меню (скрыть значок панели Dock)</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
         <source>Enable media keys</source>
         <translation>Включить кнопки мультимедиа</translation>
     </message>
@@ -480,12 +481,12 @@
     <name>IPluginInfo</name>
     <message>
         <location filename="../app/client/Plugins/IPluginInfo.cpp" line="73"/>
-        <source>The %1 plugin hasn&apos;t been installed</source>
+        <source>The %1 plugin hasn&#x27;t been installed</source>
         <translation>Модуль %1 не установлен</translation>
     </message>
     <message>
         <location filename="../app/client/Plugins/IPluginInfo.cpp" line="75"/>
-        <source>You didn&apos;t close %1 so its plugin hasn&apos;t been installed.</source>
+        <source>You didn&#x27;t close %1 so its plugin hasn&#x27;t been installed.</source>
         <translation>Для установки модуля необходимо закрыть приложение %1.</translation>
     </message>
 </context>
@@ -502,7 +503,7 @@
     <message>
         <location filename="../app/client/Settings/IpodSettingsWidget.cpp" line="72"/>
         <source>&lt;p&gt;Please note:&lt;/p&gt;&lt;p&gt;Using an iOS scrobbling app, like %1, may result in double scrobbles. Please only enable scrobbling in one of them.&lt;/p&gt;&lt;p&gt;iTunes Match synchronises play counts, but not last played times, across multiple devices. This will lead to duplicate scrobbles, at incorrect times. For now, we recommend iTunes Match users disable device scrobbling on desktop devices and scrobble iPhones/iPods using an iOS scrobbling app, like %1.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Обрати внимание!&lt;/p&gt;&lt;p&gt;Использование приложения для скробблинга под iOS, например %1, может привести к дублированию скробблинга. Скробблинг следует активировать только в одном приложении.&lt;/p&gt;&lt;p&gt;iTunes Match синхронизирует количество воспроизведений, но не время последнего воспроизведения. Это приведет к появлению повторяющихся записей и сохранению  ошибочных временных меток. В настоящее время мы рекомендуем пользователям iTunes Match отключить скробблинг на компьютерах и использовать для скробблинга на iPhone/iPod скробблер для iOS, например %1.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Settings/IpodSettingsWidget.cpp" line="116"/>
@@ -515,12 +516,12 @@
         <translation>Чтобы изменить настройку, необходимо закрыть приложение iTunes</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/IpodSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/IpodSettingsWidget.ui" line=""/>
         <source>Enable Device Scrobbling</source>
         <translation>Включить скробблинг с устройства</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/IpodSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/IpodSettingsWidget.ui" line=""/>
         <source>Confirm Device Scrobbles</source>
         <translation>Подтвердить скробблинг с устройства</translation>
     </message>
@@ -528,7 +529,7 @@
 <context>
     <name>LicensesDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/LicensesDialog.ui"/>
+        <location filename="../app/client/Dialogs/LicensesDialog.ui" line=""/>
         <source>Licenses</source>
         <translation>Лицензии</translation>
     </message>
@@ -547,15 +548,28 @@
     </message>
 </context>
 <context>
+    <name>LoginDialog</name>
+    <message>
+        <location filename="../lib/unicorn/dialogs/LoginDialog.cpp" line="31"/>
+        <source>Last.fm needs your permission first!</source>
+        <translation>Сначала Last.fm требуется твое разрешение!</translation>
+    </message>
+    <message>
+        <location filename="../lib/unicorn/dialogs/LoginDialog.cpp" line="34"/>
+        <source>This application needs your permission to connect to your Last.fm profile.  Click OK to go to the Last.fm website and do this.</source>
+        <translation>Этому приложению требуется разрешение для подключения к твоему профилю Last.fm.  Нажми кнопку OK, чтобы перейти на сайт Last.fm и предоставить разрешение.</translation>
+    </message>
+</context>
+<context>
     <name>LoginPage</name>
     <message>
         <location filename="../app/client/Wizard/LoginPage.cpp" line="50"/>
-        <source>&lt;p&gt;Already a Last.fm user? Connect your account with the Last.fm Desktop App and it&apos;ll update your profile with the music you&apos;re listening to.&lt;/p&gt;&lt;p&gt;If you don&apos;t have an account you can sign up now for free now.&lt;/p&gt;</source>
+        <source>&lt;p&gt;Already a Last.fm user? Connect your account with the Last.fm Desktop App and it&#x27;ll update your profile with the music you&#x27;re listening to.&lt;/p&gt;&lt;p&gt;If you don&#x27;t have an account you can sign up now for free now.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Ты уже являешься пользователем Last.fm? Подключи свой аккаунт к скробблеру Last.fm для того, чтобы сохранить в твоем профиле музыку, которую ты слушаешь.&lt;/p&gt;&lt;p&gt;Если у тебя нет аккаунта, можешь зарегистрироваться прямо сейчас. Это бесплатно!&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/LoginPage.cpp" line="63"/>
-        <source>Let&apos;s get started by connecting your Last.fm account</source>
+        <source>Let&#x27;s get started by connecting your Last.fm account</source>
         <translation>Давай начнем с подключения твоего аккаунта Last.fm</translation>
     </message>
     <message>
@@ -583,7 +597,7 @@
     </message>
     <message>
         <location filename="../app/client/MainWindow.cpp" line="242"/>
-        <source>Your plugins haven&apos;t been installed</source>
+        <source>Your plugins haven&#x27;t been installed</source>
         <translation>Модули не установлены</translation>
     </message>
     <message>
@@ -736,32 +750,33 @@
             <numerusform>&lt;a href=&quot;tracks&quot;&gt;%n композиция&lt;/a&gt; заскробблена с этого устройства</numerusform>
             <numerusform>&lt;a href=&quot;tracks&quot;&gt;%n композиции&lt;/a&gt; заскробблены с этого устройства</numerusform>
             <numerusform>&lt;a href=&quot;tracks&quot;&gt;%n композиций&lt;/a&gt; заскробблены с этого устройства</numerusform>
+            <numerusform>&lt;a href=&quot;tracks&quot;&gt;%n композиции&lt;/a&gt; заскробблены с этого устройства</numerusform>
         </translation>
     </message>
 </context>
 <context>
     <name>MetadataWidget</name>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui" line=""/>
         <source>Back to Scrobbles</source>
         <translation>Вернуться к композициям</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui" line=""/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="285"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="521"/>
         <source>Popular tags:</source>
         <translation>Популярные теги:</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui" line=""/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="355"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="563"/>
         <source>Your tags:</source>
         <translation>Твои теги:</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui" line=""/>
         <source>Similar Artists</source>
         <translation>Похожие исполнители</translation>
     </message>
@@ -801,6 +816,7 @@
             <numerusform>воспроизведение</numerusform>
             <numerusform>воспроизведения</numerusform>
             <numerusform>воспроизведений</numerusform>
+            <numerusform>воспроизведения</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -811,6 +827,7 @@
             <numerusform>воспроизведение в твоей библиотеке</numerusform>
             <numerusform>воспроизведения в твоей библиотеке</numerusform>
             <numerusform>воспроизведений в твоей библиотеке</numerusform>
+            <numerusform>воспроизведения в твоей библиотеке</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -821,6 +838,7 @@
             <numerusform>слушатель</numerusform>
             <numerusform>слушателя</numerusform>
             <numerusform>слушателей</numerusform>
+            <numerusform>слушателя</numerusform>
         </translation>
     </message>
     <message>
@@ -901,12 +919,12 @@
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="671"/>
-        <source>From %1&apos;s library.</source>
+        <source>From %1&#x27;s library.</source>
         <translation>Из библиотеки %1.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="672"/>
-        <source>From %1 and %2&apos;s libraries.</source>
+        <source>From %1 and %2&#x27;s libraries.</source>
         <translation>Из библиотек %1 и %2.</translation>
     </message>
     <message numerus="yes">
@@ -917,68 +935,69 @@
             <numerusform>%L1 раз</numerusform>
             <numerusform>%L1 раза</numerusform>
             <numerusform>%L1 раз</numerusform>
+            <numerusform>%L1 раз</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="673"/>
-        <source>From %1, %2, and %3&apos;s libraries.</source>
+        <source>From %1, %2, and %3&#x27;s libraries.</source>
         <translation>Из библиотек %1, %2 и %3.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="718"/>
-        <source>You&apos;ve listened to %1 %2 and %3 %4.</source>
+        <source>You&#x27;ve listened to %1 %2 and %3 %4.</source>
         <translation>Ты слушал(а) %1 %2 и %3 %4.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="674"/>
-        <source>From %1, %2, %3, and %4&apos;s libraries.</source>
-        <translation>Из библиотек %1, %2, %3 и %4&apos;.</translation>
+        <source>From %1, %2, %3, and %4&#x27;s libraries.</source>
+        <translation>Из библиотек %1, %2, %3 и %4&#x27;.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="722"/>
-        <source>You&apos;ve listened to %1 %2, but not this track.</source>
+        <source>You&#x27;ve listened to %1 %2, but not this track.</source>
         <translation>Ты слушал(а) %1 %2, но не эту композицию</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="675"/>
-        <source>From %1, %2, %3, %4, and %5&apos;s libraries.</source>
+        <source>From %1, %2, %3, %4, and %5&#x27;s libraries.</source>
         <translation>Из библиотек %1, %2, %3, %4 и %5.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="724"/>
-        <source>This is the first time you&apos;ve listened to %1.</source>
+        <source>This is the first time you&#x27;ve listened to %1.</source>
         <translation>Это твое первое прослушивание %1.</translation>
     </message>
 </context>
 <context>
     <name>NothingPlayingWidget</name>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line=""/>
         <source>Hello!</source>
         <translation>Привет!</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line=""/>
         <source>Start a radio station</source>
         <translation>Включить радиостанцию</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line=""/>
         <source>Open iTunes</source>
         <translation>Открыть iTunes</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line=""/>
         <source>Open Windows Media Player</source>
         <translation>Открыть проигрыватель Windows Media</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line=""/>
         <source>Open Winamp</source>
         <translation>Открыть Winamp</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line=""/>
         <source>Open Foobar</source>
         <translation>Открыть Foobar</translation>
     </message>
@@ -1030,21 +1049,21 @@
 <context>
     <name>PlaybackControlsWidget</name>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line=""/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="148"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="153"/>
         <source>Love</source>
         <translation>В любимые</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line=""/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="149"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="154"/>
         <source>Ban</source>
         <translation>Запретить</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line=""/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="45"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="141"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="150"/>
@@ -1053,7 +1072,7 @@
         <translation>Слушать</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line=""/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="151"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="156"/>
         <source>Skip</source>
@@ -1109,6 +1128,7 @@
             <numerusform>%L1 воспроизведение</numerusform>
             <numerusform>%L1 воспроизведения</numerusform>
             <numerusform>%L1 воспроизведений</numerusform>
+            <numerusform>%L1 воспроизведения</numerusform>
         </translation>
     </message>
 </context>
@@ -1135,7 +1155,7 @@
     </message>
     <message>
         <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="54"/>
-        <source>Last.fm couldn&apos;t find any played tracks in your media library.
+        <source>Last.fm couldn&#x27;t find any played tracks in your media library.
 
  Click OK to continue.</source>
         <translation>Last.fm не удалось найти композиции в твоей библиотеке.
@@ -1176,7 +1196,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
     </message>
     <message>
         <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="145"/>
-        <source>Sorry, Last.fm was unable to import your listening history. This is probably because you&apos;ve already scrobbled too many tracks. Listening history can only be imported to brand new profiles.</source>
+        <source>Sorry, Last.fm was unable to import your listening history. This is probably because you&#x27;ve already scrobbled too many tracks. Listening history can only be imported to brand new profiles.</source>
         <translation>Не удалось импортировать журнал прослушанной музыки. Вероятно, в твоем профиле уже заскробблено некоторое количество композиций. Журнал прослушиваний можно импортировать только в новые профили.</translation>
     </message>
 </context>
@@ -1205,7 +1225,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
     </message>
     <message>
         <location filename="../app/client/Wizard/PluginsInstallPage.cpp" line="80"/>
-        <source>Your plugins haven&apos;t been installed</source>
+        <source>Your plugins haven&#x27;t been installed</source>
         <translation>Модули не установлены</translation>
     </message>
     <message>
@@ -1260,27 +1280,27 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui" line=""/>
         <source>General</source>
         <translation>Общие</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui" line=""/>
         <source>Accounts</source>
         <translation>Аккаунты</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui" line=""/>
         <source>Scrobbling</source>
         <translation>Скробблинг</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui" line=""/>
         <source>Devices</source>
         <translation>Устройства</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui" line=""/>
         <source>Advanced</source>
         <translation>Дополнительно</translation>
     </message>
@@ -1299,18 +1319,19 @@ Your profile will be updated with the new tracks in a few minutes.</source>
             <numerusform>%L1 воспроизведение</numerusform>
             <numerusform>%L1 воспроизведения</numerusform>
             <numerusform>%L1 воспроизведений</numerusform>
+            <numerusform>%L1 воспроизведения</numerusform>
         </translation>
     </message>
 </context>
 <context>
     <name>ProfileWidget</name>
     <message>
-        <location filename="../app/client/Widgets/ProfileWidget.ui"/>
+        <location filename="../app/client/Widgets/ProfileWidget.ui" line=""/>
         <source>Top Artists This Week</source>
         <translation>Лучшие исполнители этой недели</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProfileWidget.ui"/>
+        <location filename="../app/client/Widgets/ProfileWidget.ui" line=""/>
         <source>Top Artists Overall</source>
         <translation>Лучшие исполнители за все время</translation>
     </message>
@@ -1321,6 +1342,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
             <numerusform>заскроббленная композиция</numerusform>
             <numerusform>заскроббленные композиции</numerusform>
             <numerusform>заскроббленных композиций</numerusform>
+            <numerusform>заскроббленные композиции</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -1331,6 +1353,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
             <numerusform>любимая композиция</numerusform>
             <numerusform>любимые композиции</numerusform>
             <numerusform>любимых композиций</numerusform>
+            <numerusform>любимые композиции</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -1340,6 +1363,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
             <numerusform>%L1 исполнитель</numerusform>
             <numerusform>%L1 исполнителя</numerusform>
             <numerusform>%L1 исполнителей</numerusform>
+            <numerusform>%L1 исполнителей</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -1348,6 +1372,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>
             <numerusform>%L1 композиция</numerusform>
             <numerusform>%L1 композиции</numerusform>
+            <numerusform>%L1 композиций</numerusform>
             <numerusform>%L1 композиций</numerusform>
         </translation>
     </message>
@@ -1364,6 +1389,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
             <numerusform>Композиция с %1</numerusform>
             <numerusform>Композиции с %1</numerusform>
             <numerusform>Композиций с %1</numerusform>
+            <numerusform>Композиций %1</numerusform>
         </translation>
     </message>
 </context>
@@ -1396,14 +1422,14 @@ Your profile will be updated with the new tracks in a few minutes.</source>
     </message>
     <message>
         <location filename="../app/client/Widgets/ProgressBar.cpp" line="207"/>
-        <source>Enable scrobbling in Spotify&apos;s preferences!</source>
+        <source>Enable scrobbling in Spotify&#x27;s preferences!</source>
         <translation>Включи скробблинг в настройках Spotify!</translation>
     </message>
 </context>
 <context>
     <name>ProxyDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/ProxyDialog.ui"/>
+        <location filename="../app/client/Dialogs/ProxyDialog.ui" line=""/>
         <source>Proxy Settings</source>
         <translation>Параметры прокси-сервера</translation>
     </message>
@@ -1411,22 +1437,22 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>ProxyWidget</name>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui"/>
+        <location filename="../app/client/Widgets/ProxyWidget.ui" line=""/>
         <source>Host:</source>
         <translation>Сервер:</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui"/>
+        <location filename="../app/client/Widgets/ProxyWidget.ui" line=""/>
         <source>Username:</source>
         <translation>Имя пользователя:</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui"/>
+        <location filename="../app/client/Widgets/ProxyWidget.ui" line=""/>
         <source>Port:</source>
         <translation>Порт:</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui"/>
+        <location filename="../app/client/Widgets/ProxyWidget.ui" line=""/>
         <source>Password:</source>
         <translation>Пароль:</translation>
     </message>
@@ -1506,23 +1532,23 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>RadioWidget</name>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="207"/>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="220"/>
         <source>Last Station</source>
         <translation>Последняя станция</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="82"/>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="166"/>
         <source>A Radio Station</source>
         <translation>Радиостанция</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
         <source>Personal Stations</source>
-        <translation type="unfinished">Персональные станции</translation>
+        <translation>Персональные станции</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="93"/>
@@ -1550,7 +1576,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>Радио &quot;Мои рекомендации&quot;</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
         <source>Subscribe to listen to radio</source>
         <translation>Подпишись, чтобы получить доступ к радио</translation>
     </message>
@@ -1560,28 +1586,28 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>Новая музыка на Last.fm</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
         <source>You need to be a Last.fm subscriber to listen to radio in this app. Subscribe now to start listening and take advantage of other great benefits too!</source>
         <translation>Радио в этом приложении доступно только для подписчиков Last.fm. Подпишись, и ты сможешь слушать радио и получишь доступ к другим функциям.</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
         <source>Network Stations</source>
         <translation>Сетевые станции</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
         <source>Subscribe to Last.fm</source>
         <translation>Стать подписчиком Last.fm</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
         <source>Listen free on www.last.fm</source>
         <translation>Слушать бесплатно на www.lastfm.ru</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="97"/>
-        <source>My Friends&apos; Radio</source>
+        <source>My Friends&#x27; Radio</source>
         <translation>Радио моих друзей</translation>
     </message>
     <message>
@@ -1600,7 +1626,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>Музыка пользователей, похожих на тебя</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui"/>
+        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
         <source>Recent Stations</source>
         <translation>Последние станции</translation>
     </message>
@@ -1619,22 +1645,22 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>ScrobbleConfirmationDialog</name>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line=""/>
         <source>Device Scrobbles</source>
         <translation>Скробблинг с устройства</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
-        <source>It looks like you&apos;ve played these tracks. Would you like to scrobble them?</source>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line=""/>
+        <source>It looks like you&#x27;ve played these tracks. Would you like to scrobble them?</source>
         <translation>Ты слушал(а) эти композиции. Хочешь их заскробблить?</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line=""/>
         <source>Scrobble devices automatically</source>
         <translation>Автоматический сробблинг с устройства</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line=""/>
         <source>Toggle selection</source>
         <translation>Переключить</translation>
     </message>
@@ -1645,6 +1671,7 @@ Your profile will be updated with the new tracks in a few minutes.</source>
             <numerusform>%n композиция заскробблена с устройства</numerusform>
             <numerusform>%n композиции заскробблено с устройства</numerusform>
             <numerusform>%n композиций заскробблено с устройства</numerusform>
+            <numerusform>%n композиции заскробблено с устройства</numerusform>
         </translation>
     </message>
 </context>
@@ -1707,27 +1734,27 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>ScrobbleSettingsWidget</name>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line=""/>
         <source>Scrobble at</source>
         <translation>Скробблиниг на</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line=""/>
         <source>percent of the track</source>
         <translation>% композиции</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line=""/>
         <source>Enable scrobbling</source>
         <translation>Включить скробблинг</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line=""/>
         <source>Scrobble podcasts</source>
         <translation>Скробблинг подкастов</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line=""/>
         <source>Allow Last.fm to fingerprint my tracks</source>
         <translation>Разрешить Last.fm опознавать композиции</translation>
     </message>
@@ -1821,12 +1848,12 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>ScrobblesWidget</name>
     <message>
-        <location filename="../app/client/Widgets/ScrobblesWidget.ui"/>
-        <source>You haven&apos;t scrobbled any music to Last.fm yet.</source>
+        <location filename="../app/client/Widgets/ScrobblesWidget.ui" line=""/>
+        <source>You haven&#x27;t scrobbled any music to Last.fm yet.</source>
         <translation>Ты еще не заскробблил(а) музыку на Last.fm</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ScrobblesWidget.ui"/>
+        <location filename="../app/client/Widgets/ScrobblesWidget.ui" line=""/>
         <source>Start listening to some music in your media player or start a radio station:</source>
         <translation>Начни слушать музыку в медиаплеере или запусти радиостанцию:</translation>
     </message>
@@ -1834,22 +1861,22 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>ShareDialog</name>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line=""/>
         <source>Share with Friends</source>
         <translation>Поделиться с друзьями</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line=""/>
         <source>With:</source>
         <translation>Кому:</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line=""/>
         <source>Message (optional):</source>
         <translation>Сообщение (необязательно):</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line=""/>
         <source>include in my recent activity</source>
         <translation>Включить в мои последние действия</translation>
     </message>
@@ -1947,38 +1974,38 @@ Your profile will be updated with the new tracks in a few minutes.</source>
 <context>
     <name>TagDialog</name>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line=""/>
         <location filename="../lib/unicorn/dialogs/TagDialog.cpp" line="69"/>
         <source>Tag</source>
         <translation>Тег</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line=""/>
         <source>Choose something to tag:</source>
         <translation>Выбери, что нужно отметить тегом:</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line=""/>
         <source>Track</source>
         <translation>Композиция</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line=""/>
         <source>Artist</source>
         <translation>Исполнитель</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line=""/>
         <source>Album</source>
         <translation>Альбом</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line=""/>
         <source>icon</source>
         <translation>значок</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line=""/>
         <source>Add tags:</source>
         <translation>Добавить теги:</translation>
     </message>
@@ -2025,12 +2052,12 @@ or choose from below</source>
     <name>TourFinishPage</name>
     <message>
         <location filename="../app/client/Wizard/TourFinishPage.cpp" line="16"/>
-        <source>&lt;p&gt;Now you&apos;re ready to get started! Just click &lt;strong&gt;Finish&lt;/strong&gt; and start exploring.&lt;/p&gt;&lt;p&gt;We&apos;ve also finished importing your listening history and have added it to your Last.fm profile.&lt;/p&gt;&lt;p&gt;Thanks for installing the Last.fm Desktop App, we hope you enjoy using it!&lt;/p&gt;</source>
+        <source>&lt;p&gt;Now you&#x27;re ready to get started! Just click &lt;strong&gt;Finish&lt;/strong&gt; and start exploring.&lt;/p&gt;&lt;p&gt;We&#x27;ve also finished importing your listening history and have added it to your Last.fm profile.&lt;/p&gt;&lt;p&gt;Thanks for installing the Last.fm Desktop App, we hope you enjoy using it!&lt;/p&gt;</source>
         <translation>&lt;p&gt;Все готово, можешь приступать! Просто нажми кнопку &lt;strong&gt;Готово&lt;/strong&gt; и начинай изучать возможности приложения.&lt;/p&gt;&lt;p&gt;Мы также завершили импорт твоей истории воспроизведения и добавили ее в твой профиль Last.fm.&lt;/p&gt;&lt;p&gt;Благодарим за установку скробблера Last.fm, надеемся он тебе понравится!&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/TourFinishPage.cpp" line="29"/>
-        <source>That&apos;s it, you&apos;re good to go!</source>
+        <source>That&#x27;s it, you&#x27;re good to go!</source>
         <translation>Все готово, можешь приступать!</translation>
     </message>
     <message>
@@ -2076,7 +2103,7 @@ or choose from below</source>
     <name>TourMetadataPage</name>
     <message>
         <location filename="../app/client/Wizard/TourMetadataPage.cpp" line="20"/>
-        <source>&lt;p&gt;Find out more about the music you&apos;re listening to, including biographies, listening stats, photos and similar artists, as well as the tags listeners use to describe them.&lt;/p&gt;&lt;p&gt;Check out the &lt;strong&gt;Now Playing&lt;/strong&gt; tab, or simply click on any track in your &lt;strong&gt;Scrobbles&lt;/strong&gt; tab to learn more.&lt;/p&gt;</source>
+        <source>&lt;p&gt;Find out more about the music you&#x27;re listening to, including biographies, listening stats, photos and similar artists, as well as the tags listeners use to describe them.&lt;/p&gt;&lt;p&gt;Check out the &lt;strong&gt;Now Playing&lt;/strong&gt; tab, or simply click on any track in your &lt;strong&gt;Scrobbles&lt;/strong&gt; tab to learn more.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Узнай больше о музыке, которую слушаешь: в твоем распоряжении  биографии, статистика воспроизведения, фотографии, рекомендации похожих исполнителей, а также теги, добавленные слушателями.&lt;/p&gt;&lt;p&gt;Открой вкладку &lt;strong&gt;Ты слушаешь&lt;/strong&gt; или щелкни любую композицию на вкладке &lt;strong&gt;Композиции&lt;/strong&gt;, чтобы узнать больше.&lt;/p&gt;</translation>
     </message>
     <message>
@@ -2147,7 +2174,7 @@ or choose from below</source>
     <name>TourScrobblesPage</name>
     <message>
         <location filename="../app/client/Wizard/TourScrobblesPage.cpp" line="16"/>
-        <source>&lt;p&gt;The desktop client runs in the background, quietly updating your Last.fm profile with the music you&apos;re playing, which you can use to get music recommendations, gig tips and more. &lt;/p&gt;&lt;p&gt;You can also use the Last.fm Desktop App to find out more about the artist you&apos;re listening to, and to play personalised radio.&lt;/p&gt;</source>
+        <source>&lt;p&gt;The desktop client runs in the background, quietly updating your Last.fm profile with the music you&#x27;re playing, which you can use to get music recommendations, gig tips and more. &lt;/p&gt;&lt;p&gt;You can also use the Last.fm Desktop App to find out more about the artist you&#x27;re listening to, and to play personalised radio.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Скробблер работает в фоновом режиме и обновляет твой профиль Last.fm музыкой, которую ты слушаешь. В дальнейшем эта информация используется для составления рекомендаций по музыке и концертам и др. &lt;/p&gt;&lt;p&gt;Кроме того, скробблер Last.fm можно использовать для поиска информации об исполнителе и прослушивания персональных радиостанций.&lt;/p&gt;</translation>
     </message>
     <message>
@@ -2189,22 +2216,22 @@ or choose from below</source>
         <translation>Исполнитель</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui"/>
+        <location filename="../app/client/Widgets/TrackWidget.ui" line=""/>
         <source>Love</source>
         <translation>В любимые</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui"/>
+        <location filename="../app/client/Widgets/TrackWidget.ui" line=""/>
         <source>Tag</source>
         <translation>Тег</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui"/>
+        <location filename="../app/client/Widgets/TrackWidget.ui" line=""/>
         <source>Share</source>
         <translation>Поделиться</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui"/>
+        <location filename="../app/client/Widgets/TrackWidget.ui" line=""/>
         <source>Buy</source>
         <translation>Купить</translation>
     </message>
@@ -2417,20 +2444,22 @@ or choose from below</source>
     <message numerus="yes">
         <location filename="../app/client/Application.cpp" line="578"/>
         <location filename="../app/client/Application.cpp" line="592"/>
-        <source>You&apos;ve reached this station&apos;s skip limit. Skip again in %n minute(s).</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <source>You&#x27;ve reached this station&#x27;s skip limit. Skip again in %n minute(s).</source>
+        <translation>
+            <numerusform>Достигнуто ограничение станции по числу переходов между композициями. Повтори попытку через %n минуту.</numerusform>
+            <numerusform>Достигнуто ограничение станции по числу переходов между композициями. Повтори попытку через %n минуты.</numerusform>
+            <numerusform>Достигнуто ограничение станции по числу переходов между композициями. Повтори попытку через %n минут.</numerusform>
+            <numerusform>Достигнуто ограничение станции по числу переходов между композициями. Повтори попытку через %n минуты.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../app/client/Application.cpp" line="594"/>
         <source>You have %n skip(s) remaining on this station.</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Для этой станции доступен %n переход между композициями.</numerusform>
+            <numerusform>Для этой станции доступно %n перехода между композициями.</numerusform>
+            <numerusform>Для этой станции доступно %n переходов между композициями.</numerusform>
+            <numerusform>Для этой станции доступно %n перехода между композициями.</numerusform>
         </translation>
     </message>
     <message>
@@ -2471,12 +2500,14 @@ or choose from below</source>
             <numerusform>%n мин. назад</numerusform>
             <numerusform>%n мин. назад</numerusform>
             <numerusform>%n мин. назад</numerusform>
+            <numerusform>%n мин. назад</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../lib/unicorn/widgets/Label.cpp" line="119"/>
         <source>%n hour(s) ago</source>
         <translation>
+            <numerusform>%n ч. назад</numerusform>
             <numerusform>%n ч. назад</numerusform>
             <numerusform>%n ч. назад</numerusform>
             <numerusform>%n ч. назад</numerusform>
@@ -2492,7 +2523,7 @@ or choose from below</source>
     </message>
     <message>
         <location filename="../lib/unicorn/LoginProcess.cpp" line="222"/>
-        <source>Sorry, we don&apos;t recognise that username, or you typed the password wrongly.</source>
+        <source>Sorry, we don&#x27;t recognise that username, or you typed the password wrongly.</source>
         <translation>Имя пользователя не опознано или пароль введен неверно.</translation>
     </message>
     <message>
@@ -2528,8 +2559,7 @@ or choose from below</source>
     <name>unicorn::MessageDialog</name>
     <message>
         <location filename="../lib/unicorn/QMessageBoxBuilder.cpp" line="54"/>
-        <source>Don&apos;t ask this again</source>
+        <source>Don&#x27;t ask this again</source>
         <translation>Больше не спрашивать</translation>
     </message>
-</context>
-</TS>
+</context></TS>

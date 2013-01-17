@@ -21,124 +21,17 @@
 namespace unicorn
 {
 
-TinyWebServer::TinyWebServer( QObject* parent )
-    : QObject( parent )
-{
-    m_tcpServer = new QTcpServer( this );
-    m_tcpServer->listen( QHostAddress( QHostAddress::LocalHost ), 0 );
-    connect( m_tcpServer, SIGNAL( newConnection() ), SLOT( onNewConnection() ) );
-}
-
-void
-TinyWebServer::onNewConnection()
-{
-    Q_ASSERT( m_tcpServer );
-    m_clientSocket = m_tcpServer->nextPendingConnection();
-
-    if ( m_clientSocket )
-    {
-        connect( m_clientSocket, SIGNAL( disconnected() ), m_clientSocket, SLOT( deleteLater() ) );
-        connect( m_clientSocket, SIGNAL( readyRead() ), SLOT( readFromSocket() ) );
-    }
-}
-
-int
-TinyWebServer::serverPort() const
-{
-    Q_ASSERT( m_tcpServer );
-    return m_tcpServer->serverPort();
-}
-
-QHostAddress
-TinyWebServer::serverAddress() const
-{
-    Q_ASSERT( m_tcpServer );
-    return m_tcpServer->serverAddress();
-}
-
-void
-TinyWebServer::readFromSocket()
-{
-    Q_ASSERT( m_clientSocket );
-
-    m_header += m_clientSocket->read( m_clientSocket->bytesAvailable() );
-    if ( m_header.endsWith( "\r\n\r\n" ) )
-    {
-        processRequest();
-        m_clientSocket->disconnectFromHost();
-        m_tcpServer->close();
-    }
-}
-
-void
-TinyWebServer::processRequest()
-{
-    QRegExp rx( "token=(\\d|\\w)+" );
-    if ( rx.indexIn( m_header ) != -1 )
-    {
-        QString token = rx.cap( 0 ).split( "=" )[ 1 ];
-        sendRedirect();
-        emit gotToken( token );
-    }
-}
-
-void
-TinyWebServer::sendRedirect()
-{
-    m_clientSocket->write( "HTTP/1.1 302 Found\r\nLocation: http://www.last.fm/\r\n\r\n\0" ) ;
-    m_clientSocket->flush();
-    m_clientSocket->close();
-}
-
-
-/** LoginProcess **/
 LoginProcess::LoginProcess( QObject* parent )
     : QObject( parent )
-    , m_lastError( lastfm::ws::NoError, "" )
-    , m_lastNetworkError( QNetworkReply::NoError )
 {
 }
 
 LoginProcess::~LoginProcess()
 {
-    if ( m_webServer )
-        delete m_webServer;
 }
 
 void
 LoginProcess::authenticate()
-{
-    if ( m_webServer )
-        delete m_webServer;
-
-    m_webServer = new TinyWebServer( this );
-
-    m_authUrl = QUrl( "http://www.last.fm/api/auth/" );
-    QString callbackUrl = "http://" + m_webServer->serverAddress().toString()
-                          + ":" + QString::number( m_webServer->serverPort() );
-    m_authUrl.addQueryItem( "api_key", lastfm::ws::ApiKey );
-    m_authUrl.addQueryItem( "cb", callbackUrl );
-
-    if ( QDesktopServices::openUrl( m_authUrl ) )
-    {
-        connect( m_webServer, SIGNAL( gotToken( QString ) ), SLOT( getSession( QString ) ) );
-    }
-}
-
-QString
-LoginProcess::token() const
-{
-    return m_token;
-}
-
-QUrl
-LoginProcess::authUrl() const
-{
-    return m_authUrl;
-}
-
-void
-LoginProcess::getToken()
 {
     connect( unicorn::Session::getToken(), SIGNAL( finished() ), SLOT( onGotToken() ) );
 }
@@ -148,29 +41,31 @@ LoginProcess::onGotToken()
 {
     lastfm::XmlQuery lfm;
 
+    QUrl authUrl;
+
     if ( lfm.parse( static_cast<QNetworkReply*>( sender() ) ) )
     {
-        getSession( lfm["token"].text() );
+        m_token = lfm["token"].text();
+
+        authUrl.setUrl( "http://www.last.fm/api/auth/" );
+        authUrl.addQueryItem( "api_key", lastfm::ws::ApiKey );
+        authUrl.addQueryItem( "token", m_token );
+        QDesktopServices::openUrl( authUrl );
     }
     else
     {
-        qWarning() << lfm.parseError().message() << lfm.parseError().enumValue();
-
-        m_lastError = lfm.parseError();
-
-        if ( m_lastError.enumValue() == lastfm::ws::UnknownError )
-        {
-           m_lastNetworkError = static_cast<QNetworkReply*>( sender() )->error();
-        }
+        handleError( lfm );
     }
+
+
+    emit authUrlChanged( authUrl.toString() );
 }
 
 
 void
-LoginProcess::getSession( QString token )
+LoginProcess::getSession()
 {
-    m_token = token;
-    connect( unicorn::Session::getSession( token ), SIGNAL( finished() ), SLOT( onGotSession() ) );
+    connect( unicorn::Session::getSession( m_token ), SIGNAL( finished() ), SLOT( onGotSession() ) );
 }
 
 
@@ -186,87 +81,32 @@ LoginProcess::onGotSession()
 
         unicorn::Application* app = qobject_cast<unicorn::Application*>( qApp );
         app->changeSession( username, sessionKey );
-
-        delete m_webServer;
     }
     else
     {
-        qWarning() << lfm.parseError().message() << lfm.parseError().enumValue();
-
-        m_lastError = lfm.parseError();
-
-        if ( m_lastError.enumValue() == lastfm::ws::UnknownError )
-        {
-           m_lastNetworkError = static_cast<QNetworkReply*>( sender() )->error();
-        }
+        handleError( lfm );
     }
 }
 
 void
-LoginProcess::cancel()
+LoginProcess::handleError( const lastfm::XmlQuery& lfm )
 {
-    disconnect( m_webServer, SIGNAL( gotToken( QString ) ), this, SLOT( getSession( QString ) ) );
-    qDeleteAll( findChildren<QNetworkReply*>() );
+    qWarning() << lfm.parseError().message() << lfm.parseError().enumValue();
+
+    QString errorText;
+
+    if ( lfm.parseError().enumValue() == lastfm::ws::UnknownError )
+        errorText = tr( "There was a network error: %1" ).arg( QString::number( static_cast<QNetworkReply*>( sender() )->error() ) );
+    else if ( lfm.parseError().enumValue() == lastfm::ws::TokenNotAuthorised )
+        errorText = tr( "You have not authorised this application" );
+    else
+        errorText = lfm.parseError().message().trimmed() + ": " + QString::number( lfm.parseError().enumValue() );
+
+    QMessageBoxBuilder( 0 )
+            .setIcon( QMessageBox::Critical )
+            .setTitle( tr("Authentication Error") )
+            .setText( errorText )
+            .exec();
 }
-
-void
-LoginProcess::showError() const
-{
-    switch ( m_lastError.enumValue() )
-    {
-        case lastfm::ws::AuthenticationFailed:
-            // COPYTODO
-            QMessageBoxBuilder( 0 )
-                    .setIcon( QMessageBox::Critical )
-                    .setTitle( tr("Login Failed") )
-                    .setText( tr("Sorry, we don't recognise that username, or you typed the password wrongly.") )
-                    .exec();
-            break;
-
-        default:
-            // COPYTODO
-            QMessageBoxBuilder( 0 )
-                    .setIcon( QMessageBox::Critical )
-                    .setTitle( tr("Last.fm Unavailable") )
-                    .setText( tr("There was a problem communicating with the Last.fm services. Please try again later.") )
-                    .exec();
-            break;
-
-        case lastfm::ws::TryAgainLater:
-        case lastfm::ws::UnknownError:
-            switch ( m_lastNetworkError )
-            {
-                case QNetworkReply::ProxyConnectionClosedError:
-                case QNetworkReply::ProxyConnectionRefusedError:
-                case QNetworkReply::ProxyNotFoundError:
-                case QNetworkReply::ProxyTimeoutError:
-                case QNetworkReply::ProxyAuthenticationRequiredError: //TODO we are meant to prompt!
-                case QNetworkReply::UnknownProxyError:
-                case QNetworkReply::UnknownNetworkError:
-                    break;
-                default:
-                    return;
-            }
-
-            // TODO proxy prompting?
-            // COPYTODO
-            QMessageBoxBuilder( 0 )
-                    .setIcon( QMessageBox::Critical )
-                    .setTitle( tr("Cannot connect to Last.fm") )
-                    .setText( tr("Last.fm cannot be reached. Please check your firewall or proxy settings.") )
-                    .exec();
-
-#ifdef WIN32
-            // show Internet Settings Control Panel
-            HMODULE h = LoadLibraryA( "InetCpl.cpl" );
-            if (!h) break;
-            BOOL (WINAPI *cpl)(HWND) = (BOOL (WINAPI *)(HWND)) GetProcAddress( h, "LaunchConnectionDialog" );
-            if (cpl) cpl( qApp->activeWindow()->winId() );
-            FreeLibrary( h );
-#endif
-            break;
-    }
-}
-
 
 }// namespace unicorn

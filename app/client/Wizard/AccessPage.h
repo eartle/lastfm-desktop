@@ -38,6 +38,7 @@ private:
     {
         class QLabel* image;
         class QLabel* description;
+        class QTextEdit* authUrl;
     } ui;
 
 public:
@@ -55,9 +56,10 @@ private slots:
 
     void onGotUserInfo( const lastfm::User& user );
     void onSessionChanged( const unicorn::Session& session );
+    void onAuthUrlChanged( const QString& authUrl );
 
 protected:
-    QList<unicorn::LoginProcess*> m_loginProcesses;
+    QPointer<unicorn::LoginProcess> m_loginProcess;
     bool m_valid;
     bool m_gotUserInfo;
 };

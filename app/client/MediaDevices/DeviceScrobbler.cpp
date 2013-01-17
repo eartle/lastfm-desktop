@@ -177,38 +177,50 @@ DeviceScrobbler::scrobbleIpodFiles( const QStringList& files )
     {
         QList<lastfm::Track> scrobbles = scrobblesFromFiles( files );
 
-        if ( scrobbles.count() > 0 )
+        // TODO: fix the root cause of this problem
+        // If there are more than 4000 scrobbles we assume there was an error with the
+        // iPod scrobbling diff checker so discard these scrobbles.
+        // 4000 because 16 waking hours a day, for two weeks, with 3.5 minute songs
+        if ( scrobbles.count() >= 4000 )
+            removeFiles = true;
+        else
         {
-            if ( unicorn::AppSettings().value( SETTING_ALWAYS_ASK, true ).toBool() )
+            if ( scrobbles.count() > 0 )
             {
-                if ( !m_confirmDialog )
+                if ( unicorn::AppSettings().value( SETTING_ALWAYS_ASK, true ).toBool()
+                     || scrobbles.count() >= 200 ) // always get them to check scrobbles over 200
                 {
-                    m_confirmDialog = new ScrobbleConfirmationDialog( scrobbles, aApp->mainWindow() );
-                    connect( m_confirmDialog, SIGNAL(finished(int)), SLOT(onScrobblesConfirmationFinished(int)) );
+                    if ( !m_confirmDialog )
+                    {
+                        m_confirmDialog = new ScrobbleConfirmationDialog( scrobbles, aApp->mainWindow() );
+                        connect( m_confirmDialog, SIGNAL(finished(int)), SLOT(onScrobblesConfirmationFinished(int)) );
+                    }
+                    else
+                        m_confirmDialog->addTracks( scrobbles );
+
+                    // add the files so it can delete them when the user has decided what to do
+                    m_confirmDialog->addFiles( files );
+                    m_confirmDialog->show();
                 }
                 else
-                    m_confirmDialog->addTracks( scrobbles );
+                {
+                    // sort the iPod scrobbles before caching them
+                    if ( scrobbles.count() > 1 )
+                        qSort ( scrobbles.begin(), scrobbles.end() );
 
-                // add the files so it can delete them when the user has decided what to do
-                m_confirmDialog->addFiles( files );
-                m_confirmDialog->show();
+                    emit foundScrobbles( scrobbles );
+
+                    // we're scrobbling them so remove the source files
+                    removeFiles = true;
+                }
             }
             else
-            {
-                // sort the iPod scrobbles before caching them
-                if ( scrobbles.count() > 1 )
-                    qSort ( scrobbles.begin(), scrobbles.end() );
-
-                emit foundScrobbles( scrobbles );
-
+                // there were no scrobbles in the files so remove them
                 removeFiles = true;
-            }
         }
-        else
-            removeFiles = true;
-
     }
     else
+        // device scrobbling is disabled so remove these files
         removeFiles = true;
 
     if ( removeFiles )
@@ -359,11 +371,7 @@ DeviceScrobbler::scrobbleIpodTracks( int trackCount )
         }
         else
         {
-            unicorn::Session* currentSession = qobject_cast<unicorn::Application*>( qApp )->currentSession();
-            if ( currentSession )
-            {
-                IpodDeviceLinux::deleteDeviceHistory( currentSession->userInfo().name(), iPod->deviceId() );
-            }
+            IpodDeviceLinux::deleteDeviceHistory( qobject_cast<unicorn::Application*>( qApp )->currentSession().user().name(), iPod->deviceId() );
         }
     }
 

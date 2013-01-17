@@ -77,6 +77,8 @@ FirstRunWizard::FirstRunWizard( bool startFromTour, QWidget* parent )
         ui->stackedWidget->setCurrentWidget( ui->loginPage );
 
     initializePage( ui->stackedWidget->currentWidget() );
+
+    setFixedSize( 750, 450 );
 }
 
 FirstRunWizard::~FirstRunWizard()

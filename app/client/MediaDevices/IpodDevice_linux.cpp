@@ -34,7 +34,7 @@
 extern "C"
 {
     #include <gpod/itdb.h>
-    #include <glib/glist.h>
+    #include <glib.h>
 }
 
 IpodTracksFetcher::IpodTracksFetcher( Itdb_iTunesDB *itdb, QSqlDatabase scrobblesdb,
@@ -322,7 +322,7 @@ IpodDeviceLinux::tableName() const
     audioscrobbler::Application* app = qobject_cast<audioscrobbler::Application* >( qApp );
     if ( app )
     {
-        return app->currentSession().userInfo().name() + "_" + m_deviceId;
+        return app->currentSession().user().name() + "_" + m_deviceId;
     }
     return QString();
 }

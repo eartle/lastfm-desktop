@@ -129,7 +129,7 @@ UserManagerWidget::UserManagerWidget( QWidget* parent )
     :QWidget( parent )
 {
     m_lcd = new LoginContinueDialog( this );
-    connect( m_lcd, SIGNAL( accepted()), SLOT( onUserAdded()));
+    connect( m_lcd, SIGNAL( accepted()), SLOT( onLoginContinueDialogAccepted()));
 
     QVBoxLayout* layout = new QVBoxLayout( this );
     layout->setSpacing( 10 );
@@ -193,11 +193,9 @@ UserManagerWidget::onLoginDialogAccepted()
 
     ld->deleteLater();
 
-
-    connect( qApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onLoginComplete()) );
+    connect( qApp, SIGNAL(sessionChanged(unicorn::Session)), SLOT(onLoginComplete(unicorn::Session)) );
 
     m_loginProcess->authenticate();
-
 
     m_lcd->setWindowFlags( Qt::Sheet );
     m_lcd->open();
@@ -205,31 +203,21 @@ UserManagerWidget::onLoginDialogAccepted()
 
 
 void
-UserManagerWidget::onLoginComplete()
-{
-    m_lcd->accept();
-}
-
-void 
-UserManagerWidget::onUserAdded()
+UserManagerWidget::onLoginComplete( const unicorn::Session& session )
 {
     Q_ASSERT( m_loginProcess );
 
-    disconnect( qApp, SIGNAL(sessionChanged(unicorn::Session)), this, SLOT(onLoginComplete()) );
+    disconnect( qApp, SIGNAL(sessionChanged(unicorn::Session)), this, SLOT(onLoginComplete(unicorn::Session)) );
 
-    unicorn::Session& s = qobject_cast<unicorn::Application*>( qApp )->currentSession();
-
-    if ( s.user().name().isEmpty() )
+    if ( session.user().name().isEmpty() )
     {
-        m_loginProcess->cancel();
-        m_loginProcess->showError();
         return;
     }
 
     bool alreadyAdded = false;
     foreach ( UserRadioButton* b, findChildren<UserRadioButton*>() )
     {
-        if ( s.user().name() == b->user() )
+        if ( session.user().name() == b->user() )
         {
             alreadyAdded = true;
             break;
@@ -238,7 +226,7 @@ UserManagerWidget::onUserAdded()
 
     if ( !alreadyAdded )
     {
-        User user( s.user().name() );
+        User user( session.user().name() );
         UserRadioButton* urb = new UserRadioButton( user );
 
         add( urb );
@@ -250,10 +238,16 @@ UserManagerWidget::onUserAdded()
         QMessageBoxBuilder( this )
                     .setIcon( QMessageBox::Information )
                     .setTitle( tr( "Add User Error" ) )
-                    .setText( tr( "To add a new account you must connect it to the Last.fm user permissions." ) )
+                    .setText( tr( "This user has already been added." ) )
                     .exec();
 
     }
+}
+
+void 
+UserManagerWidget::onLoginContinueDialogAccepted()
+{
+    m_loginProcess->getSession();
 }
 
 void

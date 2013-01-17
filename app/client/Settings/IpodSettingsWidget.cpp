@@ -36,7 +36,7 @@
 #include "../MediaDevices/IpodDevice.h"
 
 #include "lib/unicorn/UnicornSettings.h"
-#include "lib/unicorn/Widgets/Label.h"
+#include "lib/unicorn/widgets/Label.h"
 
 #include <lastfm/User.h>
 

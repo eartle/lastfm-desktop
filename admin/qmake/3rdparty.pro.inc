@@ -19,7 +19,7 @@ CONFIG( ffmpeg ) {
         LIBS += /usr/local/lib/libswresample.dylib
     } else {
         CONFIG += link_pkgconfig
-        PKGCONFIG += libavformat
+        PKGCONFIG += libavformat libavcodec libavutil
         packagesExist(libswresample) {
             PKGCONFIG += libswresample
             DEFINES += HAVE_SWRESAMPLE

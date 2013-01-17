@@ -77,7 +77,7 @@ signals:
 protected slots:
     void onAddUserClicked();
     void onLoginDialogAccepted();
-    void onUserAdded();
+    void onLoginContinueDialogAccepted();
     void onUserRemoved();
 
 protected:
@@ -91,7 +91,7 @@ protected:
 
 
 private slots:
-    void onLoginComplete();
+    void onLoginComplete( const unicorn::Session& session );
 
 private:
     QPointer<unicorn::LoginProcess> m_loginProcess;

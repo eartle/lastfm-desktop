@@ -10,45 +10,8 @@
 
 #include "lib/DllExportMacro.h"
 
-class QHostAddress;
-class QTcpServer;
-class QTcpSocket;
-
 namespace unicorn
 {
-
-
-/**
-* This class is used during the web authentication process in order to be able
-* to return to the application after the authentication is completed.
-*/
-class UNICORN_DLLEXPORT TinyWebServer: public QObject
-{
-    Q_OBJECT
-public:
-    TinyWebServer( QObject* parent = 0 );
-
-    int serverPort() const;
-    QHostAddress serverAddress() const;
-
-signals:
-    void gotToken( QString token );
-
-private:
-    void processRequest();
-    void sendRedirect();
-
-private slots:
-    void onNewConnection();
-    void readFromSocket();
-
-private:
-    QPointer<QTcpServer> m_tcpServer;
-    QPointer<QTcpSocket> m_clientSocket;
-    QString     m_header;
-    QString     m_token;
-};
-
 /**
  * This class encapsulates the whole login process.
  *
@@ -62,26 +25,23 @@ class UNICORN_DLLEXPORT LoginProcess : public QObject
 public:
     LoginProcess( QObject* parent = 0 );
     ~LoginProcess();
-    QString token() const;
-    QUrl authUrl() const;
-    void showError() const;
+
+private:
+    void handleError( const lastfm::XmlQuery& lfm );
+
+signals:
+    void authUrlChanged( const QString& authUrl );
 
 public slots:
     void authenticate();
-    void getToken();
-    void getSession( QString token );
-    void cancel();
+    void getSession();
 
 private slots:
     void onGotToken();
     void onGotSession();
 
 private: 
-    QPointer<TinyWebServer> m_webServer;
     QString m_token;
-    lastfm::ws::ParseError m_lastError;
-    QNetworkReply::NetworkError m_lastNetworkError;
-    QUrl m_authUrl;
 };
 
 }// namespace unicorn
