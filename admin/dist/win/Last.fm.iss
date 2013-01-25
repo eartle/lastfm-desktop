@@ -2,13 +2,13 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 [CustomMessages]
-Version=2.1.30
+Version=2.1.33
 
 
 [Setup]
-OutputBaseFilename=Last.fm-2.1.30
-VersionInfoVersion=2.1.30
-VersionInfoTextVersion=2.1.30
+OutputBaseFilename=Last.fm-2.1.33
+VersionInfoVersion=2.1.33
+VersionInfoTextVersion=2.1.33
 AppName="Last.fm Scrobbler"
 AppVerName="Last.fm Scrobbler {cm:Version}"
 VersionInfoDescription=Last.fm Installer
@@ -80,9 +80,9 @@ Source: "..\..\..\_bin\unicorn.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\..\..\_bin\listener.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\..\..\_bin\logger.dll"; DestDir: "{app}"; Flags: ignoreversion
 
-;Visual Studio redistributable packages
-Source: "%VSDIR%\VC\redist\x86\Microsoft.VC90.CRT\*"; DestDir: "{app}"; Flags: ignoreversion
-Source: "%VSDIR%\VC\redist\x86\Microsoft.VC90.ATL\*"; DestDir: "{app}"; Flags: ignoreversion
+;Visual Studio 2010 redistributable packages
+Source: "%VSDIR%\VC\redist\x86\Microsoft.VC100.CRT\*"; DestDir: "{app}"; Flags: ignoreversion
+Source: "%VSDIR%\VC\redist\x86\Microsoft.VC100.ATL\*"; DestDir: "{app}"; Flags: ignoreversion
 
 ;Qt binaries
 Source: "%QTDIR%\bin\QtCore4.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -132,7 +132,7 @@ Source: "..\..\..\_bin\plugins\misc\liblogger_plugin.dll"; DestDir: "{app}\plugi
 
 ;media player plugin installers
 Source: "..\..\..\_bin\plugins\FooPlugin0.9.4Setup_2.3.1.3.exe"; DestDir: "{app}\plugins"; Flags: ignoreversion
-Source: "..\..\..\_bin\plugins\iTunesPluginWinSetup_5.0.5.3.exe"; DestDir: "{app}\plugins"; Flags: ignoreversion
+Source: "..\..\..\_bin\plugins\iTunesPluginWinSetup_5.0.5.4.exe"; DestDir: "{app}\plugins"; Flags: ignoreversion
 Source: "..\..\..\_bin\plugins\WinampPluginSetup_2.1.0.11.exe"; DestDir: "{app}\plugins"; Flags: ignoreversion
 Source: "..\..\..\_bin\plugins\WmpPluginSetup_2.1.0.7.exe"; DestDir: "{app}\plugins"; Flags: ignoreversion
 
@@ -221,6 +221,13 @@ Type: dirifempty; Name: "{app}\imageformats"
 Type: dirifempty; Name: "{app}\phonon_backend"
 Type: dirifempty; Name: "{app}\sqldrivers"
 Type: filesandordirs; Name: "{app}\plugins"
+
+;Visual Studio 2008 redistributable packages
+Type: Files; Name: "{app}\msvcp90.dll"
+Type: Files; Name: "{app}\msvcm90.dll"
+Type: Files; Name: "{app}\Microsoft.VC90.CRT.manifest"
+Type: Files; Name: "{app}\Microsoft.VC90.ATL.manifest"
+Type: Files; Name: "{app}\atl90.dll"
 
 Type: Files; Name: "{app}\Last.fm.css"
 Type: Files; Name: "{app}\Last.fm Scrobbler.css"

@@ -21,7 +21,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="ProxyWidget" name="proxySettings" native="true"/>
+    <widget class="unicorn::ProxyWidget" name="proxySettings" native="true"/>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
@@ -37,9 +37,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>ProxyWidget</class>
+   <class>unicorn::ProxyWidget</class>
    <extends>QWidget</extends>
-   <header>../Widgets/ProxyWidget.h</header>
+   <header>lib/unicorn/widgets/ProxyWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

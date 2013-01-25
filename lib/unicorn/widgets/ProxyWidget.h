@@ -1,11 +1,16 @@
 #ifndef PROXYWIDGET_H
 #define PROXYWIDGET_H
 
+#include "lib/DllExportMacro.h"
+
 #include <QWidget>
 
 namespace Ui { class ProxyWidget; }
 
-class ProxyWidget : public QWidget
+namespace unicorn
+{
+
+class UNICORN_DLLEXPORT ProxyWidget : public QWidget
 {
     Q_OBJECT
 public:
@@ -23,5 +28,7 @@ private slots:
 private:
     Ui::ProxyWidget* ui;
 };
+
+}
 
 #endif // PROXYWIDGET_H

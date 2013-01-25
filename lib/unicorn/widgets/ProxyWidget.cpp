@@ -8,7 +8,7 @@
 #include "ProxyWidget.h"
 #include "ui_ProxyWidget.h"
 
-ProxyWidget::ProxyWidget(QWidget *parent) :
+unicorn::ProxyWidget::ProxyWidget(QWidget *parent) :
     QWidget(parent), ui( new Ui::ProxyWidget)
 {
     ui->setupUi( this );
@@ -35,13 +35,13 @@ ProxyWidget::ProxyWidget(QWidget *parent) :
     onChanged();
 }
 
-ProxyWidget::~ProxyWidget()
+unicorn::ProxyWidget::~ProxyWidget()
 {
     delete ui;
 }
 
 void
-ProxyWidget::onChanged()
+unicorn::ProxyWidget::onChanged()
 {
     bool enabled = ui->proxyType->currentIndex() > 1;
     ui->proxyHost->setEnabled( enabled );
@@ -51,7 +51,7 @@ ProxyWidget::onChanged()
 }
 
 void
-ProxyWidget::save()
+unicorn::ProxyWidget::save()
 {
     unicorn::AppSettings appSettings;
     int proxyType = appSettings.value( "proxyType", 0 ).toInt();

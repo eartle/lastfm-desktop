@@ -42,6 +42,7 @@ class QAction;
 class ScrobbleInfoFetcher;
 class Drawer;
 class QMenuBar;
+class UserManagerDialog;
 #ifdef Q_OS_MAC
 class MediaKey;
 #endif
@@ -91,6 +92,7 @@ namespace audioscrobbler
         QPointer<MainWindow> m_mw;
         QPointer<QMenuBar> m_menuBar;
         QPointer<Notify> m_notify;
+        QPointer<UserManagerDialog> m_userManager;
 #ifdef Q_OS_MAC
         QPointer<MediaKey> m_mediaKey;
 #endif
@@ -117,6 +119,8 @@ namespace audioscrobbler
         QAction* m_scrobble_ipod_action;
         QAction* m_visit_profile_action;
         QAction* m_mute_action;
+
+        bool m_reauthenticating;
         
     public:
         Application(int& argc, char** argv);
@@ -134,6 +138,8 @@ namespace audioscrobbler
         QSystemTrayIcon* tray();
 
         QWidget* mainWindow() const;
+
+        void setBetaUpdates( bool betaUpdates );
 
         void setRaiseHotKey( Qt::KeyboardModifiers mods, int key );
 

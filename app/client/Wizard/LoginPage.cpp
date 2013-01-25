@@ -36,7 +36,7 @@
 #include "FirstRunWizard.h"
 #include "LoginPage.h"
 #include "../Application.h"
-#include "../Dialogs/ProxyDialog.h"
+#include "lib/unicorn/dialogs/ProxyDialog.h"
 
 LoginPage::LoginPage()
 {
@@ -62,9 +62,11 @@ LoginPage::initializePage()
 {
     setTitle( tr( "Let's get started by connecting your Last.fm account" ) );
 
-    wizard()->setButton( FirstRunWizard::NextButton, tr( "Connect Your Account" ) );
+    wizard()->setButton( FirstRunWizard::NextButton, tr( "Connect Your Account" ) )->setEnabled( true );
     QAbstractButton* custom = wizard()->setButton( FirstRunWizard::CustomButton, tr( "Sign up" ) );
+    custom->setEnabled( true );
     QAbstractButton* proxy = wizard()->setButton( FirstRunWizard::BackButton, tr( "Proxy?" ) );
+    proxy->setEnabled( true );
 
     connect( custom, SIGNAL(clicked()), SLOT(onSignUpClicked()));
     connect( proxy, SIGNAL(clicked()), SLOT(onProxyClicked()));
@@ -85,6 +87,6 @@ LoginPage::onSignUpClicked()
 void
 LoginPage::onProxyClicked()
 {
-    ProxyDialog proxy;
+    unicorn::ProxyDialog proxy;
     proxy.exec();
 }

@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = "Last.fm Scrobbler"
-VERSION = 2.1.30
+VERSION = 2.1.33
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 QT = core gui xml network sql webkit
 CONFIG += lastfm unicorn listener logger phonon fingerprint ffmpeg
@@ -104,9 +104,7 @@ SOURCES += \
     Widgets/ScrobblesListWidget.cpp \
     Fingerprinter/Fingerprinter.cpp \
     Services/AnalyticsService/AnalyticsService.cpp \
-    Services/AnalyticsService/PersistentCookieJar.cpp \
-    Widgets/ProxyWidget.cpp \
-    Dialogs/ProxyDialog.cpp
+    Services/AnalyticsService/PersistentCookieJar.cpp
 
 HEADERS += \
     ScrobSocket.h \
@@ -186,9 +184,7 @@ HEADERS += \
     Fingerprinter/Fingerprinter.h \
     Services/AnalyticsService.h \
     Services/AnalyticsService/AnalyticsService.h \
-    Services/AnalyticsService/PersistentCookieJar.h \
-    Widgets/ProxyWidget.h \
-    Dialogs/ProxyDialog.h
+    Services/AnalyticsService/PersistentCookieJar.h
 
 contains(DEFINES, FFMPEG_FINGERPRINTING) {
     SOURCES += Fingerprinter/LAV_Source.cpp
@@ -248,9 +244,7 @@ FORMS += \
     Dialogs/LicensesDialog.ui \
     Widgets/ScrobblesWidget.ui \
     Widgets/ProfileWidget.ui \
-    Widgets/RadioWidget.ui \
-    Widgets/ProxyWidget.ui \
-    Dialogs/ProxyDialog.ui
+    Widgets/RadioWidget.ui
 
 unix:!mac:HEADERS += MediaDevices/IpodDevice_linux.h
 unix:!mac:SOURCES += MediaDevices/IpodDevice_linux.cpp

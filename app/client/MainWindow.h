@@ -63,6 +63,7 @@ public:
     const Track& currentTrack() const{ return m_currentTrack; }
 
     void addWinThumbBarButton( QAction* );
+    void setBetaUpdates( bool betaUpdates );
 
     QString currentCategory() const;
 

@@ -44,6 +44,11 @@ DeviceScrobbler::~DeviceScrobbler()
 {
     if ( m_confirmDialog )
         m_confirmDialog->deleteLater();
+
+    // make sure we terminate twiddly we could be clsoed due
+    // to the installer and twiddly would stop install working
+    if ( m_twiddly )
+        m_twiddly->deleteLater();
 }
 
 bool

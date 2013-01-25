@@ -67,7 +67,9 @@ SOURCES += \
     AnimatedStatusBar.cpp \
     DesktopServices.cpp \
     Updater/Updater.cpp \
-    widgets/StackedWidget.cpp
+    widgets/StackedWidget.cpp \
+    widgets/ProxyWidget.cpp \
+    dialogs/ProxyDialog.cpp
 
 HEADERS += \
     widgets/UserToolButton.h \
@@ -130,7 +132,9 @@ HEADERS += \
     widgets/SlidingStackedWidget.h \
     Updater/Updater.h \
     DesktopServices.h \
-    widgets/StackedWidget.h
+    widgets/StackedWidget.h \
+    widgets/ProxyWidget.h \
+    dialogs/ProxyDialog.h
 	
 win32:SOURCES += qtsingleapplication/qtlockedfile_win.cpp
 	
@@ -155,7 +159,9 @@ FORMS += \
 	dialogs/ShareDialog.ui \
     dialogs/TagDialog.ui \
     dialogs/AboutDialog.ui \
-    dialogs/ScrobbleConfirmationDialog.ui
+    dialogs/ScrobbleConfirmationDialog.ui \
+    widgets/ProxyWidget.ui \
+    dialogs/ProxyDialog.ui
 
 unix:!mac {
     SOURCES -= Updater/Updater.cpp

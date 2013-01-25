@@ -234,7 +234,19 @@ MainWindow::checkUpdatedPlugins()
             if ( closeApps->result() == QDialog::Accepted )
             {
                 foreach ( IPluginInfo* info, m_pluginList->updatedList() )
+                {
+                    info->setVerbose( false );
                     info->doInstall();
+                    info->setVerbose( true );
+                }
+
+                // The user didn't close their media players
+                QMessageBoxBuilder( this ).setTitle( tr( "Plugin(s) installed!", "", m_pluginList->updatedList().count() ) )
+                        .setIcon( QMessageBox::Information )
+                        .setText( tr( "<p>Your plugin(s) ha(s|ve) been installed.</p>"
+                                      "<p>You're now ready to scrobble with your media player(s)</p>", "", m_pluginList->updatedList().count() ) )
+                        .setButtons( QMessageBox::Ok )
+                        .exec();
             }
             else
             {
@@ -266,6 +278,7 @@ MainWindow::setupMenuBar()
 
     foreach ( IPluginInfo* info, m_pluginList->supportedList() )
     {
+        info->setVerbose( true );
         pluginMenu->addAction( info->name(), info, SLOT(doInstall()));
     }
 #endif
@@ -410,6 +423,15 @@ MainWindow::onDiagnosticsTriggered()
 
     m_diagnostics->show();
     m_diagnostics->activateWindow();
+}
+
+void
+MainWindow::setBetaUpdates( bool betaUpdates )
+{
+#if defined(Q_OS_MAC) || defined(Q_OS_WIN)
+    if ( m_updater )
+        m_updater->setBetaUpdates( betaUpdates );
+#endif
 }
 
 void

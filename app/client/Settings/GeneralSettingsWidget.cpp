@@ -21,10 +21,16 @@ GeneralSettingsWidget::GeneralSettingsWidget( QWidget* parent )
     ui->notifications->setChecked( unicorn::Settings().value( SETTING_NOTIFICATIONS, ui->notifications->isChecked() ).toBool() );
     ui->lastRadio->setChecked( unicorn::Settings().value( SETTING_LAST_RADIO, ui->lastRadio->isChecked() ).toBool() );
     ui->sendCrashReports->setChecked( unicorn::Settings().value( SETTING_SEND_CRASH_REPORTS, ui->sendCrashReports->isChecked() ).toBool() );
+    ui->beta->setChecked( unicorn::Settings().value( SETTING_BETA_UPGRADES, false ).toBool() );
 
     connect( ui->notifications, SIGNAL(stateChanged(int)), SLOT( onSettingsChanged() ) );
     connect( ui->lastRadio, SIGNAL(stateChanged(int)), SLOT( onSettingsChanged() ) );
     connect( ui->sendCrashReports, SIGNAL(stateChanged(int)), SLOT( onSettingsChanged() ) );
+    connect( ui->beta, SIGNAL(stateChanged(int)), SLOT( onSettingsChanged() ) );
+
+#if !defined( Q_OS_WIN ) && !defined( Q_OS_MAC )
+    ui->beta->hide(); // only have a beta update setting in mac and windows
+#endif
 
 #ifdef Q_OS_MAC
     ui->showAs->hide();
@@ -83,7 +89,7 @@ GeneralSettingsWidget::populateLanguages()
     ui->languages->addItem( "Polski", QLocale( QLocale::Polish ).name() );
     ui->languages->addItem( "Svenska", QLocale( QLocale::Swedish ).name());
     ui->languages->addItem( QString::fromUtf8( "Türkçe" ), QLocale( QLocale::Turkish ).name() );
-    ui->languages->addItem( QString::fromUtf8( "Руccкий" ), QLocale( QLocale::Russian ).name() );
+    ui->languages->addItem( QString::fromUtf8( "� уccкий" ), QLocale( QLocale::Russian ).name() );
     ui->languages->addItem( QString::fromUtf8( "简体中文" ), QLocale( QLocale::Chinese, QLocale::China ).name() );
     ui->languages->addItem( QString::fromUtf8( "日本語" ), QLocale( QLocale::Japanese ).name());
 
@@ -129,6 +135,9 @@ GeneralSettingsWidget::saveSettings()
         unicorn::Settings().setValue( SETTING_LAST_RADIO, ui->lastRadio->isChecked() );
         unicorn::Settings().setValue( SETTING_SEND_CRASH_REPORTS, ui->sendCrashReports->isChecked() );
         unicorn::Settings().setValue( SETTING_CHECK_UPDATES, ui->updates->isChecked() );
+        unicorn::Settings().setValue( SETTING_BETA_UPGRADES, ui->beta->isChecked() );
+
+        aApp->setBetaUpdates( ui->beta->isChecked() );
 
 #ifdef Q_OS_MAC
         unicorn::Settings().setValue( "mediaKeys", ui->mediaKeys->isChecked() );

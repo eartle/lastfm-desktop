@@ -17,50 +17,60 @@
 <context>
     <name>AccessPage</name>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="46"/>
-        <source>&lt;p&gt;Please click the &lt;strong&gt;Yes, Allow Access&lt;/strong&gt; button in your web browser to connect your Last.fm account to the Last.fm Desktop App.&lt;/p&gt;&lt;p&gt;If you haven&#x27;t connected because you closed the browser window or you clicked cancel, please try again.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Lütfen Last.fm hesabını Last.fm Masaüstü Uygulaması&#x27;na bağlamak için web tarayıcında &lt;strong&gt;Evet, Erişime İzin Ver&lt;/strong&gt; düğmesine tıkla.&lt;/p&gt;&lt;p&gt;Tarayıcı penceresini kapattığın veya iptal seçeneğine tıkladığın için bağlanamadıysan, lütfen yeniden dene.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="60"/>
-        <source>We&#x27;re waiting for you to connect to Last.fm</source>
-        <translation>Last.fm&#x27;e bağlanmanızı bekliyoruz</translation>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="67"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="106"/>
+        <source>&lt;p&gt;Please click the &lt;strong&gt;Yes, Allow Access&lt;/strong&gt; button in your web browser to connect your Last.fm account to the Last.fm Desktop App.&lt;/p&gt;&lt;p&gt;If you haven&apos;t connected because you closed the browser window or you clicked cancel, please try again.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Lütfen Last.fm hesabını Last.fm Masaüstü Uygulaması&apos;na bağlamak için web tarayıcında &lt;strong&gt;Evet, Erişime İzin Ver&lt;/strong&gt; düğmesine tıkla.&lt;/p&gt;&lt;p&gt;Tarayıcı penceresini kapattığın veya iptal seçeneğine tıkladığın için bağlanamadıysan, lütfen yeniden dene.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/AccessPage.cpp" line="65"/>
+        <source>We&apos;re waiting for you to connect to Last.fm</source>
+        <translation>Last.fm&apos;e bağlanmanızı bekliyoruz</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="73"/>
         <source>&lt;&lt; Back</source>
         <translation>&lt;&lt;Geri</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="66"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="74"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="99"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="115"/>
         <source>Continue</source>
         <translation>Devam</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/AccessPage.cpp" line="67"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="75"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="100"/>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="112"/>
         <source>Try Again</source>
         <translation>Yeniden Dene</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Wizard/AccessPage.cpp" line="108"/>
+        <source>&lt;p&gt;If your web browser didn&apos;t open, copy and paste the link below into your address bar.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AdvancedSettingsWidget</name>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
         <source>Keyboard Shortcuts:</source>
         <translation>Klavye Kısayolları:</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
         <source>Raise/Hide Last.fm</source>
-        <translation>Last.fm&#x27;i Göster/Gizle</translation>
+        <translation>Last.fm&apos;i Göster/Gizle</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
         <source>Proxy:</source>
         <translation>Proxy:</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/AdvancedSettingsWidget.ui"/>
         <source>Cache Size:</source>
         <translation>Önbellek Boyutu:</translation>
     </message>
@@ -106,11 +116,11 @@
     <message>
         <location filename="../app/client/Wizard/BootstrapPage.cpp" line="40"/>
         <source>&lt;p&gt;For the best possible recommendations based on your music taste we advise that you import your listening history from your media player.&lt;/p&gt;&lt;p&gt;Please select your preferred media player and click &lt;strong&gt;Start Import&lt;/strong&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Müzik zevkine göre olası en iyi öneriler için, medya çalarından dinleme geçmişini indirmeni öneriyoruz.&lt;/p&gt;&lt;p&gt;Lütfen tercih ettiğin medya çaları seç ve &lt;strong&gt;İçe Aktarmayı Başlat&lt;/strong&gt;&lt;/p&gt;&#x27;a tıkla.</translation>
+        <translation>&lt;p&gt;Müzik zevkine göre olası en iyi öneriler için, medya çalarından dinleme geçmişini indirmeni öneriyoruz.&lt;/p&gt;&lt;p&gt;Lütfen tercih ettiğin medya çaları seç ve &lt;strong&gt;İçe Aktarmayı Başlat&lt;/strong&gt;&lt;/p&gt;&apos;a tıkla.</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/BootstrapPage.cpp" line="79"/>
-        <source>Your plugins haven&#x27;t been installed</source>
+        <source>Your plugins haven&apos;t been installed</source>
         <translation>Eklentilerin kurulmamış</translation>
     </message>
     <message>
@@ -125,7 +135,7 @@
     </message>
     <message>
         <location filename="../app/client/Wizard/BootstrapPage.cpp" line="132"/>
-        <source>Now let&#x27;s import your listening history</source>
+        <source>Now let&apos;s import your listening history</source>
         <translation>Şimdi dinleme geçmişini içeri aktaralım</translation>
     </message>
     <message>
@@ -148,8 +158,8 @@
     <name>BootstrapProgressPage</name>
     <message>
         <location filename="../app/client/Wizard/BootstrapProgressPage.cpp" line="18"/>
-        <source>&lt;p&gt;Don&#x27;t worry, the upload process shouldn&#x27;t take more than a couple of minutes, depending on the size of your music library.&lt;/p&gt;&lt;p&gt;While we&#x27;re hard at work adding your listening history to your Last.fm profile, why don&#x27;t you check out the main features of the Last.fm Desktop App. Click &lt;strong&gt;Continue&lt;/strong&gt; to take the tour.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Merak etme, karşıya yükleme süreci müzik arşivinin boyutuna bağlı olarak birkaç dakikadan daha uzun sürmeyecektir.&lt;/p&gt;&lt;p&gt;Biz dinleme geçmişini Last.fm profiline eklemek için çalışırken, neden sen de Last.fm Masaüstü Uygulaması&#x27;nın ana özelliklerine göz atmıyorsun? Bir tur atmak için &lt;strong&gt;Devam&lt;/strong&gt;&#x27;a tıkla.</translation>
+        <source>&lt;p&gt;Don&apos;t worry, the upload process shouldn&apos;t take more than a couple of minutes, depending on the size of your music library.&lt;/p&gt;&lt;p&gt;While we&apos;re hard at work adding your listening history to your Last.fm profile, why don&apos;t you check out the main features of the Last.fm Desktop App. Click &lt;strong&gt;Continue&lt;/strong&gt; to take the tour.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Merak etme, karşıya yükleme süreci müzik arşivinin boyutuna bağlı olarak birkaç dakikadan daha uzun sürmeyecektir.&lt;/p&gt;&lt;p&gt;Biz dinleme geçmişini Last.fm profiline eklemek için çalışırken, neden sen de Last.fm Masaüstü Uygulaması&apos;nın ana özelliklerine göz atmıyorsun? Bir tur atmak için &lt;strong&gt;Devam&lt;/strong&gt;&apos;a tıkla.</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/BootstrapProgressPage.cpp" line="44"/>
@@ -165,12 +175,12 @@
 <context>
     <name>CloseAppsDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/CloseAppsDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/CloseAppsDialog.ui"/>
         <source>Close Apps</source>
         <translation>Uygulamaları Kapat</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/CloseAppsDialog.cpp" line="35"/>
+        <location filename="../app/client/Dialogs/CloseAppsDialog.cpp" line="37"/>
         <source>Please close the following apps to continue.</source>
         <translation>Lütfen devam etmek için aşağıdaki uygulamaları kapatın.</translation>
     </message>
@@ -178,42 +188,42 @@
 <context>
     <name>DeviceScrobbler</name>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="344"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="354"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="400"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="410"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="440"/>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="449"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="361"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="371"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="413"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="423"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="453"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="462"/>
         <source>Scrobble iPod</source>
-        <translation>iPod&#x27;u skropla</translation>
+        <translation>iPod&apos;u skropla</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="345"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="362"/>
         <source>Do you want to associate the device %1 to your audioscrobbler user account?</source>
         <translation>%1 cihazının audioscrobbler kullanıcı hesabınla ilişkilendirilmesini istiyor musun?</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="355"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="372"/>
         <source>Device successfully associated to your user account. From now on you can scrobble the tracks you listen on this device.</source>
         <translation>Cihaz başarıyla kullanıcı hesabınla ilişkilendirildi. Şu andan itibaren bu cihazda dinlediğiniz parçaları skroplayabilirsin.</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="401"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="414"/>
         <source>%1 tracks scrobbled.</source>
         <translation>%1 parça skroplandı.</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="411"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="424"/>
         <source>No tracks to scrobble since your last sync.</source>
         <translation>Son senkronizasyondan bu yana skroplanacak parça yok.</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="441"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="454"/>
         <source>The iPod database could not be opened.</source>
         <translation>iPod veritabanı açılamadı.</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="450"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="463"/>
         <source>An unknown error occurred while trying to access the iPod database.</source>
         <translation>iPod veritabanına ulaşmaya çalışırken istenmeyen bir hata oluştu.</translation>
     </message>
@@ -221,72 +231,72 @@
 <context>
     <name>DiagnosticsDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Diagnostics</source>
         <translation>Tanı</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Scrobbling</source>
         <translation>Skroplama</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>This is an easter egg!</source>
         <translation>Bu bir paskalya yumurtası!</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Artist</source>
         <translation>Sanatçı</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Track</source>
         <translation>Parça</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Album</source>
         <translation>Albüm</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Fingerprinting</source>
         <translation>Parmak İzi Kontrolü</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Recently Fingerprinted Tracks</source>
         <translation>Son Parmak İzi Kontrolü Yapılmış Parçalar</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>iPod Scrobbling</source>
         <translation>iPod Skroplaması</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>iTunes automatically manages my iPod</source>
-        <translation>iTunes iPod&#x27;umu otomatik olarak yönetiyor</translation>
+        <translation>iTunes iPod&apos;umu otomatik olarak yönetiyor</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>I manually manage my iPod</source>
-        <translation>iPod&#x27;umu manuel olarak yönetiyorum</translation>
+        <translation>iPod&apos;umu manuel olarak yönetiyorum</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Scrobble iPod</source>
-        <translation>iPod&#x27;u skropla</translation>
+        <translation>iPod&apos;u skropla</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>Logs</source>
         <translation>Kayıtlar</translation>
     </message>
     <message>
-        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/DiagnosticsDialog.ui"/>
         <source>&amp;Close</source>
         <translation>&amp;Kapat</translation>
     </message>
@@ -301,22 +311,22 @@
 <context>
     <name>FirstRunWizard</name>
     <message>
-        <location filename="../app/client/Wizard/FirstRunWizard.ui" line=""/>
+        <location filename="../app/client/Wizard/FirstRunWizard.ui"/>
         <source>Last.fm Desktop App</source>
         <translation>Last.fm Masaüstü Uygulaması</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/FirstRunWizard.cpp" line="203"/>
+        <location filename="../app/client/Wizard/FirstRunWizard.cpp" line="214"/>
         <source>Thanks &lt;strong&gt;%1&lt;/strong&gt;, your account is now connected!</source>
         <translation>Teşekkürler &lt;strong&gt;%1&lt;/strong&gt;, hesabın artık bağlandı!</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/FirstRunWizard.cpp" line="313"/>
+        <location filename="../app/client/Wizard/FirstRunWizard.cpp" line="324"/>
         <source>Importing...</source>
         <translation>İçe aktarılıyor...</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/FirstRunWizard.cpp" line="330"/>
+        <location filename="../app/client/Wizard/FirstRunWizard.cpp" line="341"/>
         <source>Import complete!</source>
         <translation>İçe aktarma tamamlandı!</translation>
     </message>
@@ -324,28 +334,28 @@
 <context>
     <name>FriendListWidget</name>
     <message>
-        <location filename="../app/client/Widgets/FriendListWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/FriendListWidget.ui"/>
         <source>Find your friends on Last.fm</source>
-        <translation>Last.fm&#x27;de arkadaşlarını bul</translation>
+        <translation>Last.fm&apos;de arkadaşlarını bul</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/FriendListWidget.cpp" line="61"/>
-        <source>&lt;h3&gt;You haven&#x27;t made any friends on Last.fm yet.&lt;/h3&gt;&lt;p&gt;Find your Facebook friends and email contacts on Last.fm quickly and easily using the friend finder.&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;Henüz Last.fm&#x27;de hiç arkadaşınız yok.&lt;/h3&gt;&lt;p&gt;Arkadaş bulucu ile Last.fm kullanan Facebook arkadaşlarını ve e-posta bağlantılarını kolayca ve hızla bul.&lt;p /&gt;&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;You haven&apos;t made any friends on Last.fm yet.&lt;/h3&gt;&lt;p&gt;Find your Facebook friends and email contacts on Last.fm quickly and easily using the friend finder.&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;Henüz Last.fm&apos;de hiç arkadaşınız yok.&lt;/h3&gt;&lt;p&gt;Arkadaş bulucu ile Last.fm kullanan Facebook arkadaşlarını ve e-posta bağlantılarını kolayca ve hızla bul.&lt;p /&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="66"/>
+        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="68"/>
         <source>Search for a friend by username or real name</source>
         <translation>Kullanıcı adı veya gerçek adıyla bir arkadaşını ara</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="110"/>
-        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="293"/>
+        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="113"/>
+        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="296"/>
         <source>Refresh Friends</source>
         <translation>Arkadaşları Yenile</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="175"/>
+        <location filename="../app/client/Widgets/FriendListWidget.cpp" line="178"/>
         <source>Refreshing...</source>
         <translation>Yenileniyor...</translation>
     </message>
@@ -354,7 +364,7 @@
     <name>FriendWidget</name>
     <message>
         <location filename="../app/client/Widgets/FriendWidget.cpp" line="41"/>
-        <source>%1&#x27;s Library Radio</source>
+        <source>%1&apos;s Library Radio</source>
         <translation>%1 Kişisel Radyosu</translation>
     </message>
     <message>
@@ -386,12 +396,12 @@
 <context>
     <name>FriendsPicker</name>
     <message>
-        <location filename="../lib/unicorn/widgets/FriendsPicker.cpp" line="36"/>
+        <location filename="../lib/unicorn/widgets/FriendsPicker.cpp" line="38"/>
         <source>Search your friends</source>
         <translation>Arkadaşlarını ara</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/widgets/FriendsPicker.cpp" line="41"/>
+        <location filename="../lib/unicorn/widgets/FriendsPicker.cpp" line="44"/>
         <source>Browse Friends</source>
         <translation>Arkadaşlarına Göz At</translation>
     </message>
@@ -399,91 +409,106 @@
 <context>
     <name>GeneralSettingsWidget</name>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Language:</source>
         <translation>Dil:</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Show application icon in menu bar</source>
         <translation>Uygulama simgesini menü çubuğunda göster</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Show:</source>
         <translation>Göster:</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Launch application with media players</source>
         <translation>Uygulamayı medya çalarlarla başlat</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Show desktop notifications</source>
         <translation>Masaüstü bildirimlerini göster</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Remember last radio station and tune in on start up</source>
         <translation>Son radyo istasyonunu hatırla ve başlangıçta çal</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Send crash reports to Last.fm</source>
-        <translation>Hata raporlarını Last.fm&#x27;e gönder</translation>
+        <translation>Hata raporlarını Last.fm&apos;e gönder</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Check for updates automatically</source>
         <translation>Güncellemeleri otomatik olarak denetle</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="36"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="42"/>
         <source>Menu bar and dock icons</source>
         <translation>Menü çubuğu ve dock simgeleri</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="37"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="43"/>
         <source>Only dock icon (hide menu bar icon)</source>
         <translation>Yalnızca dock simgesi (menü çubuğu simgesini sakla)</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="38"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="44"/>
         <source>Only menu bar icon (hide dock icon)</source>
         <translation>Yalnızca menü çubuğu simgesi (dock simgesini sakla)</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
         <source>Enable media keys</source>
         <translation>Medya tuşlarını etkinleştir</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="76"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="82"/>
         <source>System Language</source>
         <translation>Sistem Dili</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="161"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="170"/>
         <source>Restart now?</source>
         <translation>Şİmdi yeniden başlatmak istiyor musun?</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="162"/>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.cpp" line="171"/>
         <source>An application restart is required for the change to take effect. Would you like to restart now?</source>
         <translation>Değişikliğin etkili olması için uygulamanın yeniden başlatılması gerekiyor. Şimdi yeniden başlatmak istiyor musun?</translation>
+    </message>
+    <message>
+        <location filename="../app/client/Settings/GeneralSettingsWidget.ui"/>
+        <source>Update to beta versions - Warning: only for the brave!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>IPluginInfo</name>
     <message>
-        <location filename="../app/client/Plugins/IPluginInfo.cpp" line="73"/>
-        <source>The %1 plugin hasn&#x27;t been installed</source>
+        <location filename="../app/client/Plugins/IPluginInfo.cpp" line="70"/>
+        <source>Plugin installed!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/client/Plugins/IPluginInfo.cpp" line="72"/>
+        <source>&lt;p&gt;The %1 plugin has been installed.&lt;p&gt;&lt;p&gt;You&apos;re now ready to scrobble with %1.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/client/Plugins/IPluginInfo.cpp" line="81"/>
+        <source>The %1 plugin hasn&apos;t been installed</source>
         <translation>%1 eklentisi yüklenmedi</translation>
     </message>
     <message>
-        <location filename="../app/client/Plugins/IPluginInfo.cpp" line="75"/>
-        <source>You didn&#x27;t close %1 so its plugin hasn&#x27;t been installed.</source>
+        <location filename="../app/client/Plugins/IPluginInfo.cpp" line="83"/>
+        <source>You didn&apos;t close %1 so its plugin hasn&apos;t been installed.</source>
         <translation>%1 öğesini kapatmadığından uygulaması yüklenmedi.</translation>
     </message>
 </context>
@@ -500,7 +525,7 @@
     <message>
         <location filename="../app/client/Settings/IpodSettingsWidget.cpp" line="72"/>
         <source>&lt;p&gt;Please note:&lt;/p&gt;&lt;p&gt;Using an iOS scrobbling app, like %1, may result in double scrobbles. Please only enable scrobbling in one of them.&lt;/p&gt;&lt;p&gt;iTunes Match synchronises play counts, but not last played times, across multiple devices. This will lead to duplicate scrobbles, at incorrect times. For now, we recommend iTunes Match users disable device scrobbling on desktop devices and scrobble iPhones/iPods using an iOS scrobbling app, like %1.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Lütfen dikkat:&lt;/p&gt;&lt;p&gt;%1 gibi bir iOS skroplama uygulamasını kullanmak çifte skroplamaya neden olabilir. Lütfen bunlardan yalnızca birinde skroplamayı etkinleştirin.&lt;/p&gt;&lt;p&gt;iTunes Match çalış sayısını senkronize eder ancak çok sayıda cihaz arasındaki son çalınmaları kaydetmez. Bu yanlış saatlerde ikili skroplamalara neden olur. Şimdilik, iTunes Match kullanıcılarına masaüstü cihazlarda cihaz skroplamasını devre dışı bırakmalarını ve %1 gibi bir iOS skroplama uygulaması kullanarak iPhone/iPod&#x27;larını skroplamalarını öneriyoruz.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Lütfen dikkat:&lt;/p&gt;&lt;p&gt;%1 gibi bir iOS skroplama uygulamasını kullanmak çifte skroplamaya neden olabilir. Lütfen bunlardan yalnızca birinde skroplamayı etkinleştirin.&lt;/p&gt;&lt;p&gt;iTunes Match çalış sayısını senkronize eder ancak çok sayıda cihaz arasındaki son çalınmaları kaydetmez. Bu yanlış saatlerde ikili skroplamalara neden olur. Şimdilik, iTunes Match kullanıcılarına masaüstü cihazlarda cihaz skroplamasını devre dışı bırakmalarını ve %1 gibi bir iOS skroplama uygulaması kullanarak iPhone/iPod&apos;larını skroplamalarını öneriyoruz.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Settings/IpodSettingsWidget.cpp" line="116"/>
@@ -510,15 +535,15 @@
     <message>
         <location filename="../app/client/Settings/IpodSettingsWidget.cpp" line="118"/>
         <source>You did not close iTunes for this setting to change</source>
-        <translation>Bu ayarın değişmesi için iTunes&#x27;u kapatmadın</translation>
+        <translation>Bu ayarın değişmesi için iTunes&apos;u kapatmadın</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/IpodSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/IpodSettingsWidget.ui"/>
         <source>Enable Device Scrobbling</source>
         <translation>Cihaz Skroplamayı Etkinleştir</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/IpodSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/IpodSettingsWidget.ui"/>
         <source>Confirm Device Scrobbles</source>
         <translation>Cihaz Skroplamalarını Onayla</translation>
     </message>
@@ -526,7 +551,7 @@
 <context>
     <name>LicensesDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/LicensesDialog.ui" line=""/>
+        <location filename="../app/client/Dialogs/LicensesDialog.ui"/>
         <source>Licenses</source>
         <translation>Lisanslar</translation>
     </message>
@@ -541,7 +566,7 @@
     <message>
         <location filename="../lib/unicorn/dialogs/LoginContinueDialog.cpp" line="35"/>
         <source>Click OK once you have approved this app.</source>
-        <translation>Bu uygulamayı onayladığında Tamam&#x27;a bas.</translation>
+        <translation>Bu uygulamayı onayladığında Tamam&apos;a bas.</translation>
     </message>
 </context>
 <context>
@@ -561,12 +586,12 @@
     <name>LoginPage</name>
     <message>
         <location filename="../app/client/Wizard/LoginPage.cpp" line="50"/>
-        <source>&lt;p&gt;Already a Last.fm user? Connect your account with the Last.fm Desktop App and it&#x27;ll update your profile with the music you&#x27;re listening to.&lt;/p&gt;&lt;p&gt;If you don&#x27;t have an account you can sign up now for free now.&lt;/p&gt;</source>
+        <source>&lt;p&gt;Already a Last.fm user? Connect your account with the Last.fm Desktop App and it&apos;ll update your profile with the music you&apos;re listening to.&lt;/p&gt;&lt;p&gt;If you don&apos;t have an account you can sign up now for free now.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Zaten bir Last.fm kullanıcısı mısın? Hesabını Masaüstü Uygulaması ile bağlarsan profilini dinlediğin müziğe göre güncelleyecektir.&lt;/p&gt;&lt;p&gt;Hesabın yoksa, şimdi ücretsiz kayıt olabilirsin.</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/LoginPage.cpp" line="63"/>
-        <source>Let&#x27;s get started by connecting your Last.fm account</source>
+        <source>Let&apos;s get started by connecting your Last.fm account</source>
         <translation>Last.fm hesabını bağlamakla başlayalım</translation>
     </message>
     <message>
@@ -580,7 +605,7 @@
         <translation>Kayıt Ol</translation>
     </message>
     <message>
-        <location filename="../app/client/Wizard/LoginPage.cpp" line="67"/>
+        <location filename="../app/client/Wizard/LoginPage.cpp" line="68"/>
         <source>Proxy?</source>
         <translation>Proxy?</translation>
     </message>
@@ -592,156 +617,170 @@
         <source>There are updates to your media player plugins. Would you like to install them now?</source>
         <translation>Medya çalar eklentilerin için güncellemeler var. Onları şimdi indirmek ister misin?</translation>
     </message>
-    <message>
+    <message numerus="yes">
+        <location filename="../app/client/MainWindow.cpp" line="240"/>
+        <source>Plugin(s) installed!</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
         <location filename="../app/client/MainWindow.cpp" line="242"/>
-        <source>Your plugins haven&#x27;t been installed</source>
+        <source>&lt;p&gt;Your plugin(s) ha(s|ve) been installed.&lt;/p&gt;&lt;p&gt;You&apos;re now ready to scrobble with your media player(s)&lt;/p&gt;</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../app/client/MainWindow.cpp" line="250"/>
+        <source>Your plugins haven&apos;t been installed</source>
         <translation>Eklentilerin kurulmamış</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="244"/>
+        <location filename="../app/client/MainWindow.cpp" line="252"/>
         <source>You can install them later through the file menu</source>
         <translation>Dosya menüsü üzerinden onları daha sonra yükleyebilirsin</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="262"/>
+        <location filename="../app/client/MainWindow.cpp" line="270"/>
         <source>File</source>
         <translation>Dosya</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="265"/>
+        <location filename="../app/client/MainWindow.cpp" line="273"/>
         <source>Install plugins</source>
         <translation>Eklentileri yükle</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="273"/>
+        <location filename="../app/client/MainWindow.cpp" line="281"/>
         <source>&amp;Quit</source>
         <translation>&amp;Çık</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="282"/>
+        <location filename="../app/client/MainWindow.cpp" line="290"/>
         <source>View</source>
         <translation>Görüntüle</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="285"/>
+        <location filename="../app/client/MainWindow.cpp" line="293"/>
         <source>My Last.fm Profile</source>
         <translation>Last.fm Profilim</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="288"/>
+        <location filename="../app/client/MainWindow.cpp" line="296"/>
         <source>Scrobbles</source>
         <translation>Skroplamalar</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="289"/>
+        <location filename="../app/client/MainWindow.cpp" line="297"/>
         <source>Refresh</source>
         <translation>Yenile</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="292"/>
+        <location filename="../app/client/MainWindow.cpp" line="300"/>
         <source>Controls</source>
         <translation>Denetimler</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="296"/>
+        <location filename="../app/client/MainWindow.cpp" line="304"/>
         <source>Account</source>
         <translation>Hesap</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="299"/>
+        <location filename="../app/client/MainWindow.cpp" line="307"/>
         <source>Tools</source>
         <translation>Araçlar</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="301"/>
+        <location filename="../app/client/MainWindow.cpp" line="309"/>
         <source>Check for Updates</source>
         <translation>Güncellemeleri Denetle</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="304"/>
+        <location filename="../app/client/MainWindow.cpp" line="312"/>
         <source>Options</source>
         <translation>Tercihler</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="308"/>
+        <location filename="../app/client/MainWindow.cpp" line="316"/>
         <source>Window</source>
         <translation>Pencere</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="309"/>
+        <location filename="../app/client/MainWindow.cpp" line="317"/>
         <source>Minimize</source>
         <translation>Küçült</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="310"/>
+        <location filename="../app/client/MainWindow.cpp" line="318"/>
         <source>Zoom</source>
         <translation>Yakınlaştır</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="314"/>
+        <location filename="../app/client/MainWindow.cpp" line="322"/>
         <source>Bring All to Front</source>
         <translation>Tümünü Öne Getir</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="317"/>
+        <location filename="../app/client/MainWindow.cpp" line="325"/>
         <source>Help</source>
         <translation>Yardım</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="318"/>
+        <location filename="../app/client/MainWindow.cpp" line="326"/>
         <source>About</source>
         <translation>Hakkında</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="321"/>
+        <location filename="../app/client/MainWindow.cpp" line="329"/>
         <source>FAQ</source>
         <translation>SSS</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="322"/>
+        <location filename="../app/client/MainWindow.cpp" line="330"/>
         <source>Forums</source>
         <translation>Forumlar</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="324"/>
+        <location filename="../app/client/MainWindow.cpp" line="332"/>
         <source>Tour</source>
         <translation>Tur</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="326"/>
+        <location filename="../app/client/MainWindow.cpp" line="334"/>
         <source>Show Licenses</source>
         <translation>Lisansları Göster</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="329"/>
+        <location filename="../app/client/MainWindow.cpp" line="337"/>
         <source>Diagnostics</source>
         <translation>Tanı</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="466"/>
-        <location filename="../app/client/MainWindow.cpp" line="485"/>
+        <location filename="../app/client/MainWindow.cpp" line="483"/>
+        <location filename="../app/client/MainWindow.cpp" line="502"/>
         <source>%1 - %2 - %3</source>
         <translation>%1 - %2 - %3</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="468"/>
-        <location filename="../app/client/MainWindow.cpp" line="487"/>
-        <location filename="../app/client/MainWindow.cpp" line="495"/>
+        <location filename="../app/client/MainWindow.cpp" line="485"/>
+        <location filename="../app/client/MainWindow.cpp" line="504"/>
+        <location filename="../app/client/MainWindow.cpp" line="512"/>
         <source>%1 - %2</source>
         <translation>%1 - %2</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="497"/>
+        <location filename="../app/client/MainWindow.cpp" line="514"/>
         <source>%1</source>
         <translation>%1</translation>
     </message>
     <message>
-        <location filename="../app/client/MainWindow.cpp" line="504"/>
+        <location filename="../app/client/MainWindow.cpp" line="521"/>
         <source>%1: %2</source>
         <translation>%1: %2</translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/MainWindow.cpp" line="525"/>
+        <location filename="../app/client/MainWindow.cpp" line="542"/>
         <source>&lt;a href=&quot;tracks&quot;&gt;%n play(s)&lt;/a&gt; ha(s|ve) been scrobbled from a device</source>
         <translation>
             <numerusform>&lt;a href=&quot;tracks&quot;&gt;%n çalış&lt;/a&gt; bir cihazdan skroplandı.</numerusform>
@@ -751,26 +790,26 @@
 <context>
     <name>MetadataWidget</name>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
         <source>Back to Scrobbles</source>
         <translation>Skroplamalara Geri Dön</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="285"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="521"/>
         <source>Popular tags:</source>
         <translation>Popüler etiketler:</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="355"/>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="563"/>
         <source>Your tags:</source>
         <translation>Etiketlerin</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/MetadataWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/MetadataWidget.ui"/>
         <source>Similar Artists</source>
         <translation>Benzer Sanatçılar</translation>
     </message>
@@ -904,12 +943,12 @@
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="671"/>
-        <source>From %1&#x27;s library.</source>
+        <source>From %1&apos;s library.</source>
         <translation>%1 arşivinden.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="672"/>
-        <source>From %1 and %2&#x27;s libraries.</source>
+        <source>From %1 and %2&apos;s libraries.</source>
         <translation>%1 ve %2 arşivlerinden.</translation>
     </message>
     <message numerus="yes">
@@ -922,74 +961,74 @@
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="673"/>
-        <source>From %1, %2, and %3&#x27;s libraries.</source>
+        <source>From %1, %2, and %3&apos;s libraries.</source>
         <translation>%1, %2 ve %3 arşivlerinden.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="718"/>
-        <source>You&#x27;ve listened to %1 %2 and %3 %4.</source>
+        <source>You&apos;ve listened to %1 %2 and %3 %4.</source>
         <translation>%1 %2 ve %3 %4 dinledin.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="674"/>
-        <source>From %1, %2, %3, and %4&#x27;s libraries.</source>
+        <source>From %1, %2, %3, and %4&apos;s libraries.</source>
         <translation>%1, %2, %3 ve %4 arşivlerinden.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="722"/>
-        <source>You&#x27;ve listened to %1 %2, but not this track.</source>
+        <source>You&apos;ve listened to %1 %2, but not this track.</source>
         <translation>%1 %2 dinledin ama bu parçayı dinlemedin.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="675"/>
-        <source>From %1, %2, %3, %4, and %5&#x27;s libraries.</source>
+        <source>From %1, %2, %3, %4, and %5&apos;s libraries.</source>
         <translation>%1, %2, %3, %4 ve %5 arşivlerinden.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/MetadataWidget.cpp" line="724"/>
-        <source>This is the first time you&#x27;ve listened to %1.</source>
+        <source>This is the first time you&apos;ve listened to %1.</source>
         <translation>İlk defa %1 dinliyorsun.</translation>
     </message>
 </context>
 <context>
     <name>NothingPlayingWidget</name>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Hello!</source>
         <translation>Merhaba!</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Start a radio station</source>
         <translation>Bir radyo istasyonu başlat</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Open iTunes</source>
-        <translation>iTunes&#x27;u Aç</translation>
+        <translation>iTunes&apos;u Aç</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Open Windows Media Player</source>
-        <translation>Windows Media Player&#x27;ı Aç</translation>
+        <translation>Windows Media Player&apos;ı Aç</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Open Winamp</source>
-        <translation>Winamp&#x27;ı Aç</translation>
+        <translation>Winamp&apos;ı Aç</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.ui"/>
         <source>Open Foobar</source>
-        <translation>Foobar&#x27;ı Aç</translation>
+        <translation>Foobar&apos;ı Aç</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.cpp" line="33"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.cpp" line="34"/>
         <source>&lt;h2&gt;Scrobble from your music player&lt;/h2&gt;&lt;p&gt;Start listening to some music in your media player. You can see more information about the tracks you play on the Now Playing tab.&lt;/p&gt;</source>
         <translation>&lt;h2&gt;Müzik çalarından skropla&lt;/h2&gt;&lt;p&gt;Medya çalarında bazı müzikleri dinlemeye başla. Şimdi Çalıyor sekmesinde çaldığın parçalarla ilgili daha fazla bilgi bulabilirsin.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/NothingPlayingWidget.cpp" line="65"/>
+        <location filename="../app/client/Widgets/NothingPlayingWidget.cpp" line="70"/>
         <source>Hello, %1!</source>
         <translation>Merhaba, %1!</translation>
     </message>
@@ -1031,21 +1070,21 @@
 <context>
     <name>PlaybackControlsWidget</name>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="148"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="153"/>
         <source>Love</source>
         <translation>Sev</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="149"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="154"/>
         <source>Ban</source>
         <translation>Engelle</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="45"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="141"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="150"/>
@@ -1054,7 +1093,7 @@
         <translation>Çal</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/PlaybackControlsWidget.ui"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="151"/>
         <location filename="../app/client/Widgets/PlaybackControlsWidget.cpp" line="156"/>
         <source>Skip</source>
@@ -1120,7 +1159,7 @@
  Click OK to continue.</source>
         <translation>Last.fm medya arşivini aktardı.
 
- Devam etmek için Tamam&#x27;a tıkla.</translation>
+ Devam etmek için Tamam&apos;a tıkla.</translation>
     </message>
     <message>
         <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="52"/>
@@ -1134,12 +1173,12 @@
     </message>
     <message>
         <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="54"/>
-        <source>Last.fm couldn&#x27;t find any played tracks in your media library.
+        <source>Last.fm couldn&apos;t find any played tracks in your media library.
 
  Click OK to continue.</source>
         <translation>Last.fm arşivinde çalınmış parça bulamadı.
 
- Devam etmek için Tamam&#x27;a tıkla.</translation>
+ Devam etmek için Tamam&apos;a tıkla.</translation>
     </message>
     <message>
         <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="50"/>
@@ -1147,35 +1186,35 @@
         <translation>Last.fm güncel medya arşivini içe aktarıyor...</translation>
     </message>
     <message>
-        <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="70"/>
+        <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="78"/>
         <source>Where is Winamp?</source>
         <translation>Winamp nerede?</translation>
     </message>
     <message>
-        <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="70"/>
+        <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="78"/>
         <source>Where is Windows Media Player?</source>
         <translation>Windows Media Player nerede?</translation>
     </message>
     <message>
-        <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="136"/>
+        <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="147"/>
         <source>Media Library Import Complete</source>
         <translation>Medya Arşivi Aktarımı Tamamlandı</translation>
     </message>
     <message>
-        <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="137"/>
+        <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="148"/>
         <source>Last.fm has submitted your listening history to the server.
 Your profile will be updated with the new tracks in a few minutes.</source>
         <translation>Last.fm dinleme geçmişini sunucuya iletti.
 Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
     </message>
     <message>
-        <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="144"/>
+        <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="155"/>
         <source>Library Import Failed</source>
         <translation>Kütüphane Aktarımı Başarısız</translation>
     </message>
     <message>
-        <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="145"/>
-        <source>Sorry, Last.fm was unable to import your listening history. This is probably because you&#x27;ve already scrobbled too many tracks. Listening history can only be imported to brand new profiles.</source>
+        <location filename="../app/client/Bootstrapper/PluginBootstrapper.cpp" line="156"/>
+        <source>Sorry, Last.fm was unable to import your listening history. This is probably because you&apos;ve already scrobbled too many tracks. Listening history can only be imported to brand new profiles.</source>
         <translation>Üzgünüz, Last.fm dinleme geçmişini aktaramadı. Bunun nedeni büyük olasılıkla bugüne kadar zaten çok parça skroplamış olman. Dinleme geçmişi sadece yeni profillere aktarılabilir.</translation>
     </message>
 </context>
@@ -1184,7 +1223,7 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
     <message>
         <location filename="../app/client/Wizard/PluginsInstallPage.cpp" line="21"/>
         <source>&lt;p&gt;Please follow the instructions that appear from your operating system to install the plugins.&lt;/p&gt;&lt;p&gt;Once the plugins have been installed on you computer, click &lt;strong&gt;Continue&lt;/strong&gt;.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Lütfen işletim sisteminizde eklentileri yüklemek için görünen talimatları izleyin.&lt;/p&gt;&lt;p&gt;Eklentiler bilgisayarınıza yüklendikten sonra &lt;strong&gt;Devam&lt;/strong&gt;&#x27;a tıklayın.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Lütfen işletim sisteminizde eklentileri yüklemek için görünen talimatları izleyin.&lt;/p&gt;&lt;p&gt;Eklentiler bilgisayarınıza yüklendikten sonra &lt;strong&gt;Devam&lt;/strong&gt;&apos;a tıklayın.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/PluginsInstallPage.cpp" line="33"/>
@@ -1204,7 +1243,7 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/PluginsInstallPage.cpp" line="80"/>
-        <source>Your plugins haven&#x27;t been installed</source>
+        <source>Your plugins haven&apos;t been installed</source>
         <translation>Eklentilerin kurulmamış</translation>
     </message>
     <message>
@@ -1218,7 +1257,7 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
     <message>
         <location filename="../app/client/Wizard/PluginsPage.cpp" line="48"/>
         <source>&lt;p&gt;Your media players need a special Last.fm plugin to be able to scrobble the music you listen to.&lt;/p&gt;&lt;p&gt;Please select the media players that you would like to scrobble your music from and click &lt;strong&gt;Install Plugins&lt;/strong&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Medya çalarlarının, dinlediğin müziği skroplamak için özel bir Last.fm eklentisine ihtiyacı var.&lt;/p&gt;&lt;p&gt;Lütfen müziğinin skroplanmasını istediğin medya çaları seç ve &lt;strong&gt;Eklentileri Yükle&lt;/strong&gt;&#x27;ye tıkla&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Medya çalarlarının, dinlediğin müziği skroplamak için özel bir Last.fm eklentisine ihtiyacı var.&lt;/p&gt;&lt;p&gt;Lütfen müziğinin skroplanmasını istediğin medya çaları seç ve &lt;strong&gt;Eklentileri Yükle&lt;/strong&gt;&apos;ye tıkla&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/PluginsPage.cpp" line="89"/>
@@ -1259,27 +1298,27 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui" line=""/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
         <source>General</source>
         <translation>Genel</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui" line=""/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
         <source>Accounts</source>
         <translation>Hesaplar</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui" line=""/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
         <source>Scrobbling</source>
         <translation>Skroplama</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui" line=""/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
         <source>Devices</source>
         <translation>Cihazlar</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/PreferencesDialog.ui" line=""/>
+        <location filename="../app/client/Settings/PreferencesDialog.ui"/>
         <source>Advanced</source>
         <translation>Gelişmiş</translation>
     </message>
@@ -1302,12 +1341,12 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
 <context>
     <name>ProfileWidget</name>
     <message>
-        <location filename="../app/client/Widgets/ProfileWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/ProfileWidget.ui"/>
         <source>Top Artists This Week</source>
         <translation>Bu Haftanın En Sevilen Sanatçıları</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProfileWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/ProfileWidget.ui"/>
         <source>Top Artists Overall</source>
         <translation>Genelde En Sevilen Sanatçılar</translation>
     </message>
@@ -1383,14 +1422,14 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/ProgressBar.cpp" line="207"/>
-        <source>Enable scrobbling in Spotify&#x27;s preferences!</source>
-        <translation>Spotify&#x27;ın tercihlerinden skroplamayı etkinleştir!</translation>
+        <source>Enable scrobbling in Spotify&apos;s preferences!</source>
+        <translation>Spotify&apos;ın tercihlerinden skroplamayı etkinleştir!</translation>
     </message>
 </context>
 <context>
     <name>ProxyDialog</name>
     <message>
-        <location filename="../app/client/Dialogs/ProxyDialog.ui" line=""/>
+        <location filename="../lib/unicorn/dialogs/ProxyDialog.ui"/>
         <source>Proxy Settings</source>
         <translation>Proxy Ayarları</translation>
     </message>
@@ -1398,44 +1437,40 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
 <context>
     <name>ProxyWidget</name>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui" line=""/>
+        <location filename="../lib/unicorn/widgets/ProxyWidget.ui"/>
         <source>Host:</source>
         <translation>Ana Bilgisayar:</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui" line=""/>
+        <location filename="../lib/unicorn/widgets/ProxyWidget.ui"/>
         <source>Username:</source>
         <translation>Kullanıcı adı:</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui" line=""/>
+        <location filename="../lib/unicorn/widgets/ProxyWidget.ui"/>
         <source>Port:</source>
         <translation>Port:</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.ui" line=""/>
+        <location filename="../lib/unicorn/widgets/ProxyWidget.ui"/>
         <source>Password:</source>
         <translation>Parola:</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.cpp" line="19"/>
         <source>Auto-detect</source>
-        <translation>Otomatik algıla</translation>
+        <translation type="obsolete">Otomatik algıla</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.cpp" line="19"/>
         <source>No-proxy</source>
-        <translation>Proxy yok</translation>
+        <translation type="obsolete">Proxy yok</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.cpp" line="19"/>
         <source>HTTP</source>
-        <translation>HTTP</translation>
+        <translation type="obsolete">HTTP</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ProxyWidget.cpp" line="19"/>
         <source>SOCKS5</source>
-        <translation>SOCKS5</translation>
+        <translation type="obsolete">SOCKS5</translation>
     </message>
 </context>
 <context>
@@ -1446,32 +1481,32 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
         <translation>bilinmeyen medya çalar</translation>
     </message>
     <message>
-        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="310"/>
+        <location filename="../app/client/MediaDevices/DeviceScrobbler.cpp" line="327"/>
         <source>Where is your iPod mounted?</source>
-        <translation>iPod&#x27;un nereye bağlı?</translation>
+        <translation>iPod&apos;un nereye bağlı?</translation>
     </message>
 </context>
 <context>
     <name>QuickStartWidget</name>
     <message>
-        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="62"/>
+        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="64"/>
         <source>Type an artist or tag and press play</source>
-        <translation>Sanatçı veya etiket yaz ve çal&#x27;a tıkla</translation>
+        <translation>Sanatçı veya etiket yaz ve çal&apos;a tıkla</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="67"/>
-        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="68"/>
-        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="283"/>
+        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="70"/>
+        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="71"/>
+        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="286"/>
         <source>Play</source>
         <translation>Çal</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="209"/>
+        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="212"/>
         <source>Why not try %1, %2, %3 or %4?</source>
-        <translation>%1, %2, %3 veya %4&#x27;ü neden denemiyorsun?</translation>
+        <translation>%1, %2, %3 veya %4&apos;ü neden denemiyorsun?</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="286"/>
+        <location filename="../app/client/Widgets/QuickStartWidget.cpp" line="289"/>
         <source>Play next</source>
         <translation>Bir sonrakini çal</translation>
     </message>
@@ -1493,21 +1528,21 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
 <context>
     <name>RadioWidget</name>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="207"/>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="220"/>
         <source>Last Station</source>
         <translation>Son İstasyon</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="82"/>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="166"/>
         <source>A Radio Station</source>
         <translation>Radyo İstasyonu</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Personal Stations</source>
         <translation>Kişisel İstasyonlar</translation>
     </message>
@@ -1537,38 +1572,38 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
         <translation>Önerilen Radyom</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Subscribe to listen to radio</source>
         <translation>Radyo dinlemek için abone ol</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="95"/>
         <source>New music from Last.fm</source>
-        <translation>Last.fm&#x27;den yeni müzik</translation>
+        <translation>Last.fm&apos;den yeni müzik</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>You need to be a Last.fm subscriber to listen to radio in this app. Subscribe now to start listening and take advantage of other great benefits too!</source>
         <translation>Bu uygulamada radyo dinlemek için Last.fm abonesi olman gerekir. Dinlemeye başlamak için şimdi abone ol ve diğer muhteşem imkanlardan da yararlan!</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Network Stations</source>
         <translation>Ağ İstasyonları</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Subscribe to Last.fm</source>
-        <translation>Last.fm&#x27;e abone ol</translation>
+        <translation>Last.fm&apos;e abone ol</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Listen free on www.last.fm</source>
         <translation>www.last.fm sitesinde ücretsiz dinle</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/RadioWidget.cpp" line="97"/>
-        <source>My Friends&#x27; Radio</source>
+        <source>My Friends&apos; Radio</source>
         <translation>Arkadaşlarımın Radyosu</translation>
     </message>
     <message>
@@ -1587,7 +1622,7 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
         <translation>Sana benzeren dinleyicilerin müzikleri</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/RadioWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/RadioWidget.ui"/>
         <source>Recent Stations</source>
         <translation>Son İstasyonlar</translation>
     </message>
@@ -1606,22 +1641,22 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
 <context>
     <name>ScrobbleConfirmationDialog</name>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line=""/>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
         <source>Device Scrobbles</source>
         <translation>Cihaz Skroplamaları</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line=""/>
-        <source>It looks like you&#x27;ve played these tracks. Would you like to scrobble them?</source>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
+        <source>It looks like you&apos;ve played these tracks. Would you like to scrobble them?</source>
         <translation>Bu parçaları çalmış gibi görünüyorsun. Onları skroplamak ister misin?</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line=""/>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
         <source>Scrobble devices automatically</source>
         <translation>Cihazları otomatik olarak skropla</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui" line=""/>
+        <location filename="../lib/unicorn/dialogs/ScrobbleConfirmationDialog.ui"/>
         <source>Toggle selection</source>
         <translation>Seçimi değiştir</translation>
     </message>
@@ -1665,17 +1700,17 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
     <message>
         <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="58"/>
         <source>Share on Last.fm</source>
-        <translation>Last.fm&#x27;de paylaş</translation>
+        <translation>Last.fm&apos;de paylaş</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="59"/>
         <source>Share on Twitter</source>
-        <translation>Twitter&#x27;da paylaş</translation>
+        <translation>Twitter&apos;da paylaş</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="60"/>
         <source>Share on Facebook</source>
-        <translation>Facebook&#x27;ta paylaş</translation>
+        <translation>Facebook&apos;ta paylaş</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/ScrobbleControls.cpp" line="63"/>
@@ -1692,29 +1727,29 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
 <context>
     <name>ScrobbleSettingsWidget</name>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
         <source>Scrobble at</source>
         <translation>Şurada skropla:</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
         <source>percent of the track</source>
         <translation>parçanın yüzdesi</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
         <source>Enable scrobbling</source>
         <translation>Skroplamayı etkinleştir</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
         <source>Scrobble podcasts</source>
-        <translation>Podcast&#x27;ları skropla</translation>
+        <translation>Podcast&apos;ları skropla</translation>
     </message>
     <message>
-        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui" line=""/>
+        <location filename="../app/client/Settings/ScrobbleSettingsWidget.ui"/>
         <source>Allow Last.fm to fingerprint my tracks</source>
-        <translation>Last.fm&#x27;in parçalarıma parmak izi kontrolü yapmasına izin ver</translation>
+        <translation>Last.fm&apos;in parçalarıma parmak izi kontrolü yapmasına izin ver</translation>
     </message>
 </context>
 <context>
@@ -1722,7 +1757,7 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
     <message>
         <location filename="../app/client/Widgets/ScrobblesListWidget.cpp" line="232"/>
         <source>More Scrobbles at Last.fm</source>
-        <translation>Last.fm&#x27;de daha fazla skroplama</translation>
+        <translation>Last.fm&apos;de daha fazla skroplama</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/ScrobblesListWidget.cpp" line="384"/>
@@ -1806,12 +1841,12 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
 <context>
     <name>ScrobblesWidget</name>
     <message>
-        <location filename="../app/client/Widgets/ScrobblesWidget.ui" line=""/>
-        <source>You haven&#x27;t scrobbled any music to Last.fm yet.</source>
-        <translation>Last.fm&#x27;de henüz hiçbir müziği skroplamadın.</translation>
+        <location filename="../app/client/Widgets/ScrobblesWidget.ui"/>
+        <source>You haven&apos;t scrobbled any music to Last.fm yet.</source>
+        <translation>Last.fm&apos;de henüz hiçbir müziği skroplamadın.</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/ScrobblesWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/ScrobblesWidget.ui"/>
         <source>Start listening to some music in your media player or start a radio station:</source>
         <translation>Medya çalarında biraz müzik dinlemeye başla veya bir radyo istasyonu başlat:</translation>
     </message>
@@ -1819,22 +1854,22 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
 <context>
     <name>ShareDialog</name>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line=""/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
         <source>Share with Friends</source>
         <translation>Arkadaşlarınla Paylaş</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line=""/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
         <source>With:</source>
         <translation>Birlikte:</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line=""/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
         <source>Message (optional):</source>
         <translation>Mesaj (isteğe bağlı):</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/ShareDialog.ui" line=""/>
+        <location filename="../lib/unicorn/dialogs/ShareDialog.ui"/>
         <source>include in my recent activity</source>
         <translation>son etkinliklerimi dahil et</translation>
     </message>
@@ -1932,38 +1967,38 @@ Profilin, yeni parçalarla birkaç dakika içinde güncellenecek.</translation>
 <context>
     <name>TagDialog</name>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line=""/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <location filename="../lib/unicorn/dialogs/TagDialog.cpp" line="69"/>
         <source>Tag</source>
         <translation>Etiket</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line=""/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>Choose something to tag:</source>
         <translation>Etiketlemek için bir şey seç:</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line=""/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>Track</source>
         <translation>İz</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line=""/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>Artist</source>
         <translation>Sanatçı</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line=""/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>Album</source>
         <translation>Albüm</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line=""/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>icon</source>
         <translation>simge</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/dialogs/TagDialog.ui" line=""/>
+        <location filename="../lib/unicorn/dialogs/TagDialog.ui"/>
         <source>Add tags:</source>
         <translation>Etiket ekle:</translation>
     </message>
@@ -2010,12 +2045,12 @@ veya aşağıdan seç</translation>
     <name>TourFinishPage</name>
     <message>
         <location filename="../app/client/Wizard/TourFinishPage.cpp" line="16"/>
-        <source>&lt;p&gt;Now you&#x27;re ready to get started! Just click &lt;strong&gt;Finish&lt;/strong&gt; and start exploring.&lt;/p&gt;&lt;p&gt;We&#x27;ve also finished importing your listening history and have added it to your Last.fm profile.&lt;/p&gt;&lt;p&gt;Thanks for installing the Last.fm Desktop App, we hope you enjoy using it!&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Artık başlamaya hazırsın! Sadece &lt;strong&gt;Bitir&lt;/strong&gt;&#x27;e tıkla ve keşfetmeye başla.&lt;/p&gt;&lt;p&gt;Dinleme geçmişini içe aktarmayı da başardık ve Last.fm profiline ekledik.&lt;/p&gt;&lt;p&gt;Last.fm Masaüstü Uygulamasını yüklediğin için teşekkürler, umarız kullanmaktan zevk alırsın!&lt;/p&gt;</translation>
+        <source>&lt;p&gt;Now you&apos;re ready to get started! Just click &lt;strong&gt;Finish&lt;/strong&gt; and start exploring.&lt;/p&gt;&lt;p&gt;We&apos;ve also finished importing your listening history and have added it to your Last.fm profile.&lt;/p&gt;&lt;p&gt;Thanks for installing the Last.fm Desktop App, we hope you enjoy using it!&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Artık başlamaya hazırsın! Sadece &lt;strong&gt;Bitir&lt;/strong&gt;&apos;e tıkla ve keşfetmeye başla.&lt;/p&gt;&lt;p&gt;Dinleme geçmişini içe aktarmayı da başardık ve Last.fm profiline ekledik.&lt;/p&gt;&lt;p&gt;Last.fm Masaüstü Uygulamasını yüklediğin için teşekkürler, umarız kullanmaktan zevk alırsın!&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/TourFinishPage.cpp" line="29"/>
-        <source>That&#x27;s it, you&#x27;re good to go!</source>
+        <source>That&apos;s it, you&apos;re good to go!</source>
         <translation>Bu kadar, başlamaya hazırsın!</translation>
     </message>
     <message>
@@ -2034,7 +2069,7 @@ veya aşağıdan seç</translation>
     <message>
         <location filename="../app/client/Wizard/TourLocationPage.cpp" line="25"/>
         <source>&lt;p&gt;The red arrow on your screen points to the location of the Last.fm Desktop App in your system tray.&lt;/p&gt;&lt;p&gt;Click the icon to quickly access radio play controls, share and tag track, edit your preferences and visit your Last.fm profile.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Ekranındaki kırmızı ok, sistem tepsindeki Last.fm Masaüstü Uygulaması&#x27;nın yerini işaret eder.&lt;/p&gt;&lt;p&gt;Radyo çalma denetimlerine erişmek, parça paylaşmak ve etiketlemek, tercihlerini düzenlemek ve Last.fm profilini ziyaret etmek için simgeye tıkla.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Ekranındaki kırmızı ok, sistem tepsindeki Last.fm Masaüstü Uygulaması&apos;nın yerini işaret eder.&lt;/p&gt;&lt;p&gt;Radyo çalma denetimlerine erişmek, parça paylaşmak ve etiketlemek, tercihlerini düzenlemek ve Last.fm profilini ziyaret etmek için simgeye tıkla.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/TourLocationPage.cpp" line="53"/>
@@ -2061,7 +2096,7 @@ veya aşağıdan seç</translation>
     <name>TourMetadataPage</name>
     <message>
         <location filename="../app/client/Wizard/TourMetadataPage.cpp" line="20"/>
-        <source>&lt;p&gt;Find out more about the music you&#x27;re listening to, including biographies, listening stats, photos and similar artists, as well as the tags listeners use to describe them.&lt;/p&gt;&lt;p&gt;Check out the &lt;strong&gt;Now Playing&lt;/strong&gt; tab, or simply click on any track in your &lt;strong&gt;Scrobbles&lt;/strong&gt; tab to learn more.&lt;/p&gt;</source>
+        <source>&lt;p&gt;Find out more about the music you&apos;re listening to, including biographies, listening stats, photos and similar artists, as well as the tags listeners use to describe them.&lt;/p&gt;&lt;p&gt;Check out the &lt;strong&gt;Now Playing&lt;/strong&gt; tab, or simply click on any track in your &lt;strong&gt;Scrobbles&lt;/strong&gt; tab to learn more.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Biyografiler, dinleme istatistikleri, fotoğraflar, benzer sanatçılar ve aynı zamanda dinleyicilerin onları açıklamak için kullandığı etiketler de dahil olmak üzere dinlediğin müzik hakkında daha fazla bilgi edin.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Şimdi Çalıyor&lt;/strong&gt; sekmesini kontrol et veya daha fazla bilgi için &lt;strong&gt;Skroplamalar&lt;/strong&gt; sekmesindeki herhangi bir parçaya tıkla.&lt;/p&gt;</translation>
     </message>
     <message>
@@ -2095,7 +2130,7 @@ veya aşağıdan seç</translation>
     <message>
         <location filename="../app/client/Wizard/TourRadioPage.cpp" line="38"/>
         <source>&lt;p&gt;Use the Last.fm Desktop App to listen to personalised radio based on the music you want to hear.&lt;/p&gt;&lt;p&gt;Every play of every Last.fm station is totally different, from stations based on artists and tags to brand new recommendations tailored to your music taste.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Duymak istediğiniz müziği esas alan kişiselleştirilmiş radyo dinlemek için Last.fm Masaüstü Uygulaması&#x27;nı kullanın.&lt;/p&gt;&lt;p&gt;Last.fm istasyonunun her çalışı, sanatçılara ve etiketlere dayalı istasyonlardan müzik zevkinize uygun yepyeni önerileri bulunan istasyonlara kadar bambaşkadır.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Duymak istediğiniz müziği esas alan kişiselleştirilmiş radyo dinlemek için Last.fm Masaüstü Uygulaması&apos;nı kullanın.&lt;/p&gt;&lt;p&gt;Last.fm istasyonunun her çalışı, sanatçılara ve etiketlere dayalı istasyonlardan müzik zevkinize uygun yepyeni önerileri bulunan istasyonlara kadar bambaşkadır.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/TourRadioPage.cpp" line="43"/>
@@ -2105,7 +2140,7 @@ veya aşağıdan seç</translation>
     <message>
         <location filename="../app/client/Wizard/TourRadioPage.cpp" line="44"/>
         <source>&lt;p&gt;Subscribe to Last.fm and use the Last.fm Desktop App to listen to personalised radio based on the music you want to hear.&lt;/p&gt;&lt;p&gt;Every play of every Last.fm station is totally different, from stations based on artists and tags to brand new recommendations tailored to your music taste.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Last.fm&#x27;e abone olun ve duymak istediğiniz müziği esas alan kişiselleştirilmiş radyoyu dinlemek için Last.fm Masaüstü Uygulaması&#x27;nı kullanın.&lt;/p&gt;&lt;p&gt;Her bir Last.fm istasyonunun tüm çalışları, sanatçılara ve etiketlere dayalı istasyonlardan müzik zevkinize uygun yepyeni önerileri bulunan istasyonlara kadar bambaşkadır.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Last.fm&apos;e abone olun ve duymak istediğiniz müziği esas alan kişiselleştirilmiş radyoyu dinlemek için Last.fm Masaüstü Uygulaması&apos;nı kullanın.&lt;/p&gt;&lt;p&gt;Her bir Last.fm istasyonunun tüm çalışları, sanatçılara ve etiketlere dayalı istasyonlardan müzik zevkinize uygun yepyeni önerileri bulunan istasyonlara kadar bambaşkadır.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../app/client/Wizard/TourRadioPage.cpp" line="47"/>
@@ -2132,7 +2167,7 @@ veya aşağıdan seç</translation>
     <name>TourScrobblesPage</name>
     <message>
         <location filename="../app/client/Wizard/TourScrobblesPage.cpp" line="16"/>
-        <source>&lt;p&gt;The desktop client runs in the background, quietly updating your Last.fm profile with the music you&#x27;re playing, which you can use to get music recommendations, gig tips and more. &lt;/p&gt;&lt;p&gt;You can also use the Last.fm Desktop App to find out more about the artist you&#x27;re listening to, and to play personalised radio.&lt;/p&gt;</source>
+        <source>&lt;p&gt;The desktop client runs in the background, quietly updating your Last.fm profile with the music you&apos;re playing, which you can use to get music recommendations, gig tips and more. &lt;/p&gt;&lt;p&gt;You can also use the Last.fm Desktop App to find out more about the artist you&apos;re listening to, and to play personalised radio.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Masaüstü istemcisi; müzik önerileri, konser ipuçları ve daha fazlasını öğrenmek için kullanabileceğin dinlediğin müzikle Last.fm profilini sessizce güncelleyerek arka planda çalışır.&lt;/p&gt;&lt;p&gt;Last.fm masaüstü uygulamasını, dinlediğin sanatçılar hakkında daha fazla bilgi edinmek ve kişiselleştirilmiş radyonu çalmak için de kullanabilirsin.&lt;/p&gt;</translation>
     </message>
     <message>
@@ -2174,22 +2209,22 @@ veya aşağıdan seç</translation>
         <translation>Sanatçı</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/TrackWidget.ui"/>
         <source>Love</source>
         <translation>Sev</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/TrackWidget.ui"/>
         <source>Tag</source>
         <translation>Etiket</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/TrackWidget.ui"/>
         <source>Share</source>
         <translation>Paylaş</translation>
     </message>
     <message>
-        <location filename="../app/client/Widgets/TrackWidget.ui" line=""/>
+        <location filename="../app/client/Widgets/TrackWidget.ui"/>
         <source>Buy</source>
         <translation>Satın al</translation>
     </message>
@@ -2232,17 +2267,17 @@ veya aşağıdan seç</translation>
     <message>
         <location filename="../app/client/Widgets/TrackWidget.cpp" line="306"/>
         <source>Share on Last.fm</source>
-        <translation>Last.fm&#x27;de paylaş</translation>
+        <translation>Last.fm&apos;de paylaş</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/TrackWidget.cpp" line="307"/>
         <source>Share on Twitter</source>
-        <translation>Twitter&#x27;da paylaş</translation>
+        <translation>Twitter&apos;da paylaş</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/TrackWidget.cpp" line="308"/>
         <source>Share on Facebook</source>
-        <translation>Facebook&#x27;ta paylaş</translation>
+        <translation>Facebook&apos;ta paylaş</translation>
     </message>
     <message>
         <location filename="../app/client/Widgets/TrackWidget.cpp" line="372"/>
@@ -2285,22 +2320,26 @@ veya aşağıdan seç</translation>
         <translation>Yeni Kullanıcı Hesabı Ekle</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="252"/>
+        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="240"/>
         <source>Add User Error</source>
         <translation>Kullanıcı Hatası Ekle</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="253"/>
-        <source>To add a new account you must connect it to the Last.fm user permissions.</source>
-        <translation>Yeni bir hesap eklemek için onu Last.fm kullanıcı izinlerine bağlaman gerekir.</translation>
+        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="241"/>
+        <source>This user has already been added.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="265"/>
+        <source>To add a new account you must connect it to the Last.fm user permissions.</source>
+        <translation type="obsolete">Yeni bir hesap eklemek için onu Last.fm kullanıcı izinlerine bağlaman gerekir.</translation>
+    </message>
+    <message>
+        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="259"/>
         <source>Removing %1</source>
         <translation>%1 Kaldırılıyor</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="266"/>
+        <location filename="../lib/unicorn/widgets/UserManagerWidget.cpp" line="260"/>
         <source>Are you sure you want to remove this user? All user settings will be lost and you will need to re authenticate in order to scrobble in the future.</source>
         <translation>Bu kullanıcıyı kaldırmak istediğinden emin misin? Tüm kullanıcı ayarları kaybolacak ve gelecekte skroplama yapabilmek için yeniden kimlik doğrulaması yapman gerekecek.</translation>
     </message>
@@ -2330,97 +2369,107 @@ veya aşağıdan seç</translation>
 <context>
     <name>audioscrobbler::Application</name>
     <message>
-        <location filename="../app/client/Application.cpp" line="186"/>
+        <location filename="../app/client/Application.cpp" line="189"/>
         <source>Accounts</source>
         <translation>Hesaplar</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="188"/>
+        <location filename="../app/client/Application.cpp" line="191"/>
         <source>Show Scrobbler</source>
         <translation>Skroplayıcıyı Göster</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="193"/>
+        <location filename="../app/client/Application.cpp" line="196"/>
         <source>Love</source>
         <translation>Sev</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="206"/>
+        <location filename="../app/client/Application.cpp" line="209"/>
         <source>Play</source>
         <translation>Çal</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="217"/>
+        <location filename="../app/client/Application.cpp" line="220"/>
         <source>Skip</source>
         <translation>Atla</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="226"/>
+        <location filename="../app/client/Application.cpp" line="229"/>
         <source>Tag</source>
         <translation>Etiket</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="235"/>
+        <location filename="../app/client/Application.cpp" line="238"/>
         <source>Share</source>
         <translation>Paylaş</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="244"/>
+        <location filename="../app/client/Application.cpp" line="247"/>
         <source>Ban</source>
         <translation>Engelle</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="252"/>
+        <location filename="../app/client/Application.cpp" line="255"/>
         <source>Mute</source>
         <translation>Sessiz</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="259"/>
+        <location filename="../app/client/Application.cpp" line="262"/>
         <source>Scrobble iPod...</source>
-        <translation>iPod&#x27;u Skropla...</translation>
+        <translation>iPod&apos;u Skropla...</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="265"/>
+        <location filename="../app/client/Application.cpp" line="268"/>
         <source>Visit Last.fm profile</source>
         <translation>Last.fm profilini ziyaret et</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="270"/>
+        <location filename="../app/client/Application.cpp" line="273"/>
         <source>Enable Scrobbling</source>
         <translation>Skroplamayı Etkinleştir</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="281"/>
+        <location filename="../app/client/Application.cpp" line="284"/>
         <source>Quit %1</source>
         <translation>%1 Uygulamasından Çık</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="464"/>
+        <location filename="../app/client/Application.cpp" line="473"/>
         <source>from %1</source>
         <translation>%1 üzerinden</translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Application.cpp" line="578"/>
-        <location filename="../app/client/Application.cpp" line="592"/>
-        <source>You&#x27;ve reached this station&#x27;s skip limit. Skip again in %n minute(s).</source>
+        <location filename="../app/client/Application.cpp" line="587"/>
+        <location filename="../app/client/Application.cpp" line="601"/>
+        <source>You&apos;ve reached this station&apos;s skip limit. Skip again in %n minute(s).</source>
         <translation>
             <numerusform>Bu istasyonun atlama sınırına eriştin. %n dakika içinde yeniden atla.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../app/client/Application.cpp" line="594"/>
+        <location filename="../app/client/Application.cpp" line="603"/>
         <source>You have %n skip(s) remaining on this station.</source>
         <translation>
             <numerusform>Bu istasyon için %n atlama kaldı.</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="850"/>
+        <location filename="../app/client/Application.cpp" line="755"/>
+        <source>Authentication Required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/client/Application.cpp" line="756"/>
+        <source>&lt;p&gt;The user account &lt;strong&gt;%1&lt;/strong&gt; is no longer authenticated with Last.fm.&lt;/p&gt;&lt;p&gt;Click OK to start the setup process and reauthenticate this account.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/client/Application.cpp" line="887"/>
         <source>Are you sure you want to quit %1?</source>
         <translation>%1 uygulamasından çıkmak istediğine emin misin?</translation>
     </message>
     <message>
-        <location filename="../app/client/Application.cpp" line="851"/>
+        <location filename="../app/client/Application.cpp" line="888"/>
         <source>%1 is about to quit. Tracks played will not be scrobbled if you continue.</source>
         <translation>%1 uygulamasından çıkılmak üzere. Devam edersen çalınan parçalar skroplanmayacak.</translation>
     </message>
@@ -2463,34 +2512,43 @@ veya aşağıdan seç</translation>
 <context>
     <name>unicorn::LoginProcess</name>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="221"/>
         <source>Login Failed</source>
-        <translation>Giriş Yapılamadı</translation>
+        <translation type="obsolete">Giriş Yapılamadı</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="222"/>
-        <source>Sorry, we don&#x27;t recognise that username, or you typed the password wrongly.</source>
-        <translation>Üzgünüz, bu kullanıcı adını hatırlamıyoruz veya parolayı yanlış yazdın.</translation>
+        <source>Sorry, we don&apos;t recognise that username, or you typed the password wrongly.</source>
+        <translation type="obsolete">Üzgünüz, bu kullanıcı adını hatırlamıyoruz veya parolayı yanlış yazdın.</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="230"/>
         <source>Last.fm Unavailable</source>
-        <translation>Last.fm kullanılamıyor.</translation>
+        <translation type="obsolete">Last.fm kullanılamıyor.</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="231"/>
         <source>There was a problem communicating with the Last.fm services. Please try again later.</source>
-        <translation>Last.fm hizmetleriyle iletişimde sorun oluştu. Lütfen daha sonra yeniden deneyin.</translation>
+        <translation type="obsolete">Last.fm hizmetleriyle iletişimde sorun oluştu. Lütfen daha sonra yeniden deneyin.</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="255"/>
         <source>Cannot connect to Last.fm</source>
-        <translation>Last.fm&#x27;e bağlanamıyor</translation>
+        <translation type="obsolete">Last.fm&apos;e bağlanamıyor</translation>
     </message>
     <message>
-        <location filename="../lib/unicorn/LoginProcess.cpp" line="256"/>
         <source>Last.fm cannot be reached. Please check your firewall or proxy settings.</source>
-        <translation>Last.fm&#x27;e ulaşılamıyor. Lütfen güvenlik duvarınızı veya proxy ayarlarınızı kontrol edin.</translation>
+        <translation type="obsolete">Last.fm&apos;e ulaşılamıyor. Lütfen güvenlik duvarınızı veya proxy ayarlarınızı kontrol edin.</translation>
+    </message>
+    <message>
+        <location filename="../lib/unicorn/LoginProcess.cpp" line="108"/>
+        <source>There was a network error: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lib/unicorn/LoginProcess.cpp" line="110"/>
+        <source>You have not authorised this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../lib/unicorn/LoginProcess.cpp" line="116"/>
+        <source>Authentication Error</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2505,7 +2563,31 @@ veya aşağıdan seç</translation>
     <name>unicorn::MessageDialog</name>
     <message>
         <location filename="../lib/unicorn/QMessageBoxBuilder.cpp" line="54"/>
-        <source>Don&#x27;t ask this again</source>
+        <source>Don&apos;t ask this again</source>
         <translation>Bunu bir daha sorma</translation>
     </message>
-</context></TS>
+</context>
+<context>
+    <name>unicorn::ProxyWidget</name>
+    <message>
+        <location filename="../lib/unicorn/widgets/ProxyWidget.cpp" line="19"/>
+        <source>Auto-detect</source>
+        <translation type="unfinished">Otomatik algıla</translation>
+    </message>
+    <message>
+        <location filename="../lib/unicorn/widgets/ProxyWidget.cpp" line="19"/>
+        <source>No-proxy</source>
+        <translation type="unfinished">Proxy yok</translation>
+    </message>
+    <message>
+        <location filename="../lib/unicorn/widgets/ProxyWidget.cpp" line="19"/>
+        <source>HTTP</source>
+        <translation type="unfinished">HTTP</translation>
+    </message>
+    <message>
+        <location filename="../lib/unicorn/widgets/ProxyWidget.cpp" line="19"/>
+        <source>SOCKS5</source>
+        <translation type="unfinished">SOCKS5</translation>
+    </message>
+</context>
+</TS>

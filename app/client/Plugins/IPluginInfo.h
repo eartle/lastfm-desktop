@@ -86,6 +86,8 @@ public:
     virtual bool isInstalled() const;
     bool canBootstrap() const;
 
+    void setVerbose( bool verbose );
+
 public slots:
     void doInstall();
     void install( bool install );
@@ -96,6 +98,7 @@ protected:
 
 private:
     bool m_install;
+    bool m_verbose;
 };
 
 #endif //PLUGIN_INFO_H_

@@ -12,6 +12,7 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 
+#include "lib/unicorn/dialogs/ProxyDialog.h"
 #include "lib/unicorn/DesktopServices.h"
 
 #ifdef WIN32
@@ -93,20 +94,29 @@ LoginProcess::handleError( const lastfm::XmlQuery& lfm )
 {
     qWarning() << lfm.parseError().message() << lfm.parseError().enumValue();
 
-    QString errorText;
-
-    if ( lfm.parseError().enumValue() == lastfm::ws::UnknownError )
-        errorText = tr( "There was a network error: %1" ).arg( QString::number( static_cast<QNetworkReply*>( sender() )->error() ) );
-    else if ( lfm.parseError().enumValue() == lastfm::ws::TokenNotAuthorised )
-        errorText = tr( "You have not authorised this application" );
+    if ( lfm.parseError().enumValue() == lastfm::ws::MalformedResponse )
+    {
+        // ask for proxy settings
+        unicorn::ProxyDialog proxy;
+        proxy.exec();
+    }
     else
-        errorText = lfm.parseError().message().trimmed() + ": " + QString::number( lfm.parseError().enumValue() );
+    {
+        QString errorText;
 
-    QMessageBoxBuilder( 0 )
-            .setIcon( QMessageBox::Critical )
-            .setTitle( tr("Authentication Error") )
-            .setText( errorText )
-            .exec();
+        if ( lfm.parseError().enumValue() == lastfm::ws::UnknownError )
+            errorText = tr( "There was a network error: %1" ).arg( QString::number( static_cast<QNetworkReply*>( sender() )->error() ) );
+        else if ( lfm.parseError().enumValue() == lastfm::ws::TokenNotAuthorised )
+            errorText = tr( "You have not authorised this application" );
+        else
+            errorText = lfm.parseError().message().trimmed() + ": " + QString::number( lfm.parseError().enumValue() );
+
+        QMessageBoxBuilder( 0 )
+                .setIcon( QMessageBox::Critical )
+                .setTitle( tr("Authentication Error") )
+                .setText( errorText )
+                .exec();
+    }
 }
 
 }// namespace unicorn

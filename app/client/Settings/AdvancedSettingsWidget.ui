@@ -59,7 +59,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="ProxyWidget" name="proxySettings" native="true"/>
+       <widget class="unicorn::ProxyWidget" name="proxySettings" native="true"/>
       </item>
      </layout>
     </widget>
@@ -81,15 +81,15 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>unicorn::ProxyWidget</class>
+   <extends>QWidget</extends>
+   <header>lib/unicorn/widgets/ProxyWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
    <class>ShortcutEdit</class>
    <extends>QComboBox</extends>
    <header>../Widgets/ShortcutEdit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>ProxyWidget</class>
-   <extends>QWidget</extends>
-   <header>../Widgets/ProxyWidget.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

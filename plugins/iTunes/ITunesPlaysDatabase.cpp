@@ -106,7 +106,7 @@ static void unlock_notify_cb(void **apArg, int nArg)
 		UnlockNotification *p = (UnlockNotification *)apArg[i];
 		EnterCriticalSection( &p->mutex );
 		p->fired = 1;
-		WakeConditionVariable ( &p->cond );
+		//WakeConditionVariable( &p->cond );
 		LeaveCriticalSection( &p->mutex );
 	}
 }
@@ -132,7 +132,7 @@ static int wait_for_unlock_notify(sqlite3 *db){
 	/* Initialize the UnlockNotification structure. */
 	un.fired = 0;
 	InitializeCriticalSection( &un.mutex );
-	InitializeConditionVariable( &un.cond );
+	//InitializeConditionVariable( &un.cond );
 
 	/* Register for an unlock-notify callback. */
 	rc = sqlite3_unlock_notify( db, unlock_notify_cb, (void *)&un );
@@ -153,7 +153,7 @@ static int wait_for_unlock_notify(sqlite3 *db){
 
 		if( !un.fired )
 		{
-			SleepConditionVariableCS( &un.cond, &un.mutex, INFINITE );
+			//SleepConditionVariableCS( &un.cond, &un.mutex, INFINITE );
 		}
 
 		LeaveCriticalSection( &un.mutex );
@@ -292,7 +292,9 @@ ITunesPlaysDatabase::query( /* utf-8 */ const char* statement, std::string* resu
 
 				case SQLITE_LOCKED:
 					LOG( 3, "Database locked. Waiting for unlock." );
-					wait_for_unlock_notify( m_db );
+					busyCount++;
+                    sqlite3_sleep( 25 );
+					//wait_for_unlock_notify( m_db );
 					break;
 
                 default:

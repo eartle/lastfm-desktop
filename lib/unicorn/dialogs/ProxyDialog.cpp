@@ -1,7 +1,7 @@
 #include "ProxyDialog.h"
 #include "ui_ProxyDialog.h"
 
-ProxyDialog::ProxyDialog(QWidget *parent) :
+unicorn::ProxyDialog::ProxyDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ProxyDialog)
 {
@@ -12,13 +12,13 @@ ProxyDialog::ProxyDialog(QWidget *parent) :
     setFixedSize( width(), height() );
 }
 
-ProxyDialog::~ProxyDialog()
+unicorn::ProxyDialog::~ProxyDialog()
 {
     delete ui;
 }
 
 void
-ProxyDialog::onAccepted()
+unicorn::ProxyDialog::onAccepted()
 {
     ui->proxySettings->save();
 }

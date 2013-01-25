@@ -188,8 +188,17 @@ FirstRunWizard::next()
         else if ( currentPage == ui->tourScrobblesPage )
             ui->stackedWidget->setCurrentWidget( ui->tourMetadataPage );
         // only show the radio page if you can subscribe to get radio
-        else if ( currentPage == ui->tourMetadataPage && aApp->currentSession().subscriberRadio() )
-            ui->stackedWidget->setCurrentWidget( ui->tourRadioPage );
+        else if ( currentPage == ui->tourMetadataPage )
+        {
+            if ( aApp->currentSession().subscriberRadio() )
+                ui->stackedWidget->setCurrentWidget( ui->tourRadioPage );
+            else
+#ifndef Q_WS_X11 // don't show the sys tray page on linux because there isn't one
+                ui->stackedWidget->setCurrentWidget( ui->tourLocationPage );
+#else
+                ui->stackedWidget->setCurrentWidget( ui->tourFinishPage );
+#endif
+        }
         else if ( currentPage == ui->tourRadioPage )
 #ifndef Q_WS_X11 // don't show the sys tray page on linux because there isn't one
             ui->stackedWidget->setCurrentWidget( ui->tourLocationPage );

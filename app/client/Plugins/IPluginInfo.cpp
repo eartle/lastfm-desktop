@@ -41,7 +41,9 @@ Version::fromString( const QString& string )
 }
 
 IPluginInfo::IPluginInfo( QObject* parent )
-    :QObject( parent ), m_install( false )
+    :QObject( parent )
+    , m_install( false )
+    , m_verbose( false )
 {}
 
 void
@@ -66,6 +68,16 @@ IPluginInfo::doInstall()
         bool finished = installerProcess->waitForFinished( -1 );
         qDebug() << finished << installerProcess->error() << installerProcess->errorString();
 
+        if ( m_verbose )
+        {
+            // The user didn't closed their media players
+            QMessageBoxBuilder( 0 ).setTitle( tr( "Plugin installed!" ) )
+                    .setIcon( QMessageBox::Information )
+                    .setText( tr( "<p>The %1 plugin has been installed.<p>"
+                                  "<p>You're now ready to scrobble with %1.</p>" ).arg( name() ) )
+                    .setButtons( QMessageBox::Ok )
+                    .exec();
+        }
     }
     else
     {
@@ -144,5 +156,11 @@ QString
 IPluginInfo::programFiles64() const
 {
     return QString( getenv( "ProgramW6432" ) );
+}
+
+void
+IPluginInfo::setVerbose( bool verbose )
+{
+    m_verbose = verbose;
 }
 

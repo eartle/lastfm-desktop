@@ -24,8 +24,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#define _WIN32_WINNT 0x0500
-
 #include "windows.h"
 #include "Sddl.h"       // for ConvertSidToString (_WIN32_WINNT = 0x0500)
 #include <string>

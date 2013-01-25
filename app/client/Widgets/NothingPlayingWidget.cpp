@@ -2,6 +2,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QProcess>
 
 #include "../Application.h"
 
@@ -38,7 +39,7 @@ NothingPlayingWidget::NothingPlayingWidget( QWidget* parent )
     ui->winamp->hide();
     ui->foobar->hide();
 
-#if  defined( Q_OS_WIN32 ) || defined( Q_OS_MAC )
+#if  defined( Q_OS_WIN ) || defined( Q_OS_MAC )
     ui->itunes->show();
     ui->itunes->setAttribute( Qt::WA_LayoutUsesWidgetRect );
 
@@ -52,6 +53,10 @@ NothingPlayingWidget::NothingPlayingWidget( QWidget* parent )
     ui->winamp->setAttribute( Qt::WA_LayoutUsesWidgetRect );
     ui->foobar->setVisible( pluginList.pluginById( "foo3" )->isAppInstalled() );
     ui->foobar->setAttribute( Qt::WA_LayoutUsesWidgetRect );
+
+    connect( ui->wmp, SIGNAL(clicked()), SLOT(onWMPClicked()));
+    connect( ui->winamp, SIGNAL(clicked()), SLOT(onWinampClicked()));
+    connect( ui->foobar, SIGNAL(clicked()), SLOT(onFoobarClicked()));
 #endif
 #endif
 
@@ -74,9 +79,46 @@ NothingPlayingWidget::onSessionChanged( const unicorn::Session& session )
     }
 }
 
-#ifndef Q_OS_MAC
+#ifdef Q_OS_WIN
+void
+NothingPlayingWidget::startApp( const QString& app )
+{
+    QString mediaPlayer = QString( qgetenv( "ProgramFiles(x86)" ) ).append( app );
+
+    if ( !QFile::exists( mediaPlayer ) )
+        mediaPlayer = QString( qgetenv( "ProgramFiles" ) ).append( app );
+
+    if ( QFile::exists( mediaPlayer ) )
+    {
+        mediaPlayer = QString( "\"%1\"" ).arg( mediaPlayer );
+        QProcess::startDetached( mediaPlayer );
+    }
+}
+
 void
 NothingPlayingWidget::oniTunesClicked()
 {
+    startApp( "/iTunes/iTunes.exe" );
+}
+
+void
+NothingPlayingWidget::onWinampClicked()
+{
+    startApp( "/Winamp/winamp.exe" );
+}
+
+void
+NothingPlayingWidget::onWMPClicked()
+{
+    startApp( "/Windows Media Player/wmplayer.exe" );
+}
+
+void
+NothingPlayingWidget::onFoobarClicked()
+{
+    startApp( "/foobar2000/foobar2000.exe" );
 }
 #endif
+
+
+

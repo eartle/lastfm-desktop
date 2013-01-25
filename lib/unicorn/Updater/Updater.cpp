@@ -9,6 +9,9 @@
 #include <winsparkle.h>
 #endif
 
+#include "lib/unicorn/UnicornSettings.h"
+#include "lib/unicorn/UnicornApplication.h"
+
 unicorn::Updater::Updater(QObject *parent) :
     QObject(parent)
 {
@@ -16,11 +19,24 @@ unicorn::Updater::Updater(QObject *parent) :
     win_sparkle_init();
 
     if ( qApp->arguments().contains( "--update" ) )
-        win_sparkle_set_appcast_url( "http://users.last.fm/~michael/updates_win.xml" );
-    else if ( qApp->arguments().contains( "--update-static" ) )
-        win_sparkle_set_appcast_url( "http://static.last.fm/client/Mac/updates.xml" );
+    {
+        int urlIndex = qApp->arguments().indexOf( "--update" ) + 1;
+
+        if ( qApp->arguments().count() > urlIndex && qApp->arguments()[urlIndex].startsWith( "http://" ) )
+            win_sparkle_set_appcast_url( qApp->arguments()[urlIndex].toUtf8() );
+        else
+            setBetaUpdates( unicorn::Settings().value( SETTING_BETA_UPGRADES, false ).toBool() );
+    }
     else
-        win_sparkle_set_appcast_url( "http://cdn.last.fm/client/Win/updates.xml" );
+        setBetaUpdates( unicorn::Settings().value( SETTING_BETA_UPGRADES, false ).toBool() );
+#endif
+}
+
+void
+unicorn::Updater::setBetaUpdates( bool betaUpdates )
+{
+#ifdef Q_OS_WIN
+    win_sparkle_set_appcast_url( betaUpdates ? UPDATE_URL_WIN_BETA : UPDATE_URL_WIN );
 #endif
 }
 

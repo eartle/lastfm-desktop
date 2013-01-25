@@ -58,9 +58,17 @@ PluginBootstrapper::bootStrap()
     QString mediaPlayer = "";
 
     if ( m_pluginId == "wa2" )
-        mediaPlayer = QString( getenv( "ProgramFiles(x86)" ) ).append( "/Winamp/winamp.exe" );
+    {
+        mediaPlayer = QString( qgetenv( "ProgramFiles(x86)" ) ).append( "/Winamp/winamp.exe" );
+        if ( !QFile::exists( mediaPlayer ) )
+            mediaPlayer = QString( qgetenv( "ProgramFiles" ) ).append( "/Winamp/winamp.exe" );
+    }
     else
-        mediaPlayer = QString( getenv( "ProgramFiles(x86)" ) ).append( "/Windows Media Player/wmplayer.exe" );
+    {
+        mediaPlayer = QString( qgetenv( "ProgramFiles(x86)" ) ).append( "/Windows Media Player/wmplayer.exe" );
+        if ( !QFile::exists( mediaPlayer ) )
+            mediaPlayer = QString( qgetenv( "ProgramFiles" ) ).append( "/Windows Media Player/wmplayer.exe" );
+    }
 
     qDebug() << mediaPlayer;
 
@@ -82,6 +90,9 @@ PluginBootstrapper::bootStrap()
     {
         qDebug() << process->error() << process->errorString();
 
+        // We were unable to start the bootstrap so don't tell the media
+        // player to do the bootstrap on it's next launch anymore
+        bootstrap.setValue( m_pluginId, "" );
         emit done( Bootstrap_Cancelled );
     }
     else
