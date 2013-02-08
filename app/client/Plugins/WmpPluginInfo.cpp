@@ -10,7 +10,7 @@ WmpPluginInfo::WmpPluginInfo( QObject* parent )
 Version
 WmpPluginInfo::version() const
 {
-    return Version( 2, 1, 0, 7 );
+    return Version( 2, 1, 0, 8 );
 }
 
 QString
@@ -52,5 +52,5 @@ WmpPluginInfo::bootstrapType() const
 QString
 WmpPluginInfo::pluginInstaller() const
 {
-    return "WmpPluginSetup_2.1.0.7.exe";
+    return "WmpPluginSetup_2.1.0.8.exe";
 }

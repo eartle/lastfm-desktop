@@ -18,7 +18,10 @@ unicorn::StackedWidget::onCurrentChanged( int index )
     for ( int i = 0 ; i < count() ; ++i )
     {
         if ( i == index )
+        {
             widget( i )->setSizePolicy( QSizePolicy::Preferred, QSizePolicy::Preferred );
+            widget( i )->adjustSize();
+        }
         else
             widget( i )->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }

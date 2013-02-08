@@ -20,18 +20,26 @@ CONFIG( lastfm ) {
     LIBS += -llastfm
     win32 {
         CONFIG += link_pkgconfig
-        PKGCONFIG += lastfm
+
+        CONFIG(debug, debug|release) {
+            PKGCONFIG += lastfm-debug
+        }
+        else {
+            PKGCONFIG += lastfm-release
+        }
 
     }
     mac{
-        MAC_SDK  = $$system(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+        CONFIG( notifications ) {
+            MAC_SDK  = $$system(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
 
-        if( !exists( $$MAC_SDK) ) {
-            message("You do not have the MacOSX10.8 SDK installed. User Notifications will not be built.")
-        }
-        else {
-            macx:QMAKE_MAC_SDK = $$MAC_SDK
-            DEFINES += LASTFM_USER_NOTIFICATIONS
+            if( !exists( $$MAC_SDK) ) {
+                message("You do not have the MacOSX10.8 SDK installed. User Notifications will not be built.")
+            }
+            else {
+                macx:QMAKE_MAC_SDK = $$MAC_SDK
+                DEFINES += LASTFM_USER_NOTIFICATIONS
+            }
         }
 
         LIBS += -weak_framework Carbon -weak_framework CoreFoundation -weak_framework Foundation

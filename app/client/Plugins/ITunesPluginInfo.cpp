@@ -44,7 +44,11 @@ ITunesPluginInfo::id() const
 bool
 ITunesPluginInfo::isAppInstalled() const
 {
+#ifdef Q_OS_WIN32
     return QSettings("HKEY_CURRENT_USER\\Software\\Apple Computer, Inc.\\iTunes", QSettings::NativeFormat).contains("SM Shortcut Installed");
+#elif
+    return true;
+#endif
 }
 
 IPluginInfo::BootstrapType

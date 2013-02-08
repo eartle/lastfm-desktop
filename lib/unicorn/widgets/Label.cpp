@@ -92,7 +92,13 @@ unicorn::Label::setLinkColor( QColor linkColor )
 QString
 unicorn::Label::anchor( const QString& url, const QString& text )
 {
-    return QString( "<a href=\"%1\">%2</a>" ).arg( url, text );
+    QString actualText = text;
+    actualText.replace( QRegExp( "&" ), "&amp;" ); // This _must_ come first
+    actualText.replace( QRegExp( "<" ), "&lt;" );
+    actualText.replace( QRegExp( ">" ), "&gt;" );
+    actualText.replace( QRegExp( "\"" ), "&quot;" );
+
+    return QString( "<a href=\"%1\">%2</a>" ).arg( url, actualText );
 }
 
 void

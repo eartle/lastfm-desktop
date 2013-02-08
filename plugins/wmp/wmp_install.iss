@@ -2,13 +2,13 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 [CustomMessages]
-Version=2.1.0.7
+Version=2.1.0.8
 
 [Setup]
-OutputBaseFilename=WmpPluginSetup_2.1.0.7
+OutputBaseFilename=WmpPluginSetup_2.1.0.8
 ; setup.exe version
-VersionInfoVersion=2.1.0.7
-VersionInfoTextVersion=2.1.0.7
+VersionInfoVersion=2.1.0.8
+VersionInfoTextVersion=2.1.0.8
 AppName=Last.fm Windows Media Player Plugin
 AppVerName=Last.fm Windows Media Player Plugin {cm:Version}
 VersionInfoDescription=Last.fm WMP Plugin Installer

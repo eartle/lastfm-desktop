@@ -60,8 +60,8 @@ IDR_WMP_SCROBBLER       REGISTRY                "wmp_scrobbler.rgs"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 2,1,0,7
- PRODUCTVERSION 2,1,0,7
+ FILEVERSION 2,1,0,8
+ PRODUCTVERSION 2,1,0,8
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x9L
@@ -79,13 +79,13 @@ BEGIN
             VALUE "Comments", "http://www.last.fm"
             VALUE "CompanyName", "Last.fm"
             VALUE "FileDescription", "Last.fm Windows Media Player Plugin"
-            VALUE "FileVersion", "2, 1, 0, 7"
+            VALUE "FileVersion", "2, 1, 0, 8"
             VALUE "InternalName", "wmp_scrobbler"
             VALUE "LegalCopyright", "Copyright (C) 2007"
             VALUE "OriginalFilename", "wmp_scrobbler.dll"
             VALUE "PrivateBuild", "624"
             VALUE "ProductName", "Last.fm Windows Media Player Plugin"
-            VALUE "ProductVersion", "2, 1, 0, 7"
+            VALUE "ProductVersion", "2, 1, 0, 8"
         END
     END
     BLOCK "VarFileInfo"

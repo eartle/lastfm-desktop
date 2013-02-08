@@ -64,6 +64,7 @@ PreferencesDialog::PreferencesDialog( QMenuBar* menuBar, QWidget* parent )
 
     setFixedWidth( 550 );
 
+    ui->stackedWidget->setCurrentWidget( ui->accounts );
     ui->actionGeneral->trigger();
 }
 

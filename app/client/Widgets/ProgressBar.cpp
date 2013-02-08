@@ -181,7 +181,9 @@ ProgressBar::paintEvent( QPaintEvent* e )
                 {
                     if ( unicorn::UserSettings().value( "scrobblingOn", true ).toBool() )
                     {
-                        if ( m_track.isVideo() )
+                        if ( ScrobbleService::instance().isDirExcluded( m_track ) )
+                            message = tr( "Not scrobbling - excluded directory" );
+                        else if ( m_track.isVideo() )
                             message = tr( "Not scrobbling - not a music video" );
                         else if ( !unicorn::UserSettings().value( "podcasts", true ).toBool() && m_track.isPodcast() )
                             message = tr( "Not scrobbling - podcasts disabled" );

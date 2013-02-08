@@ -1,6 +1,6 @@
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wmp_scrobbler", "wmp_scrobbler.vcproj", "{CF8AD3FB-2EAF-4A9D-8619-F6701B9A9BDE}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wmp_scrobbler", "wmp_scrobbler.vcxproj", "{CF8AD3FB-2EAF-4A9D-8619-F6701B9A9BDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
