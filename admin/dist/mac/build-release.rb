@@ -6,7 +6,7 @@
 #version = ARGV[0]
 
 # TODO: find out the app version from the app's plist.info
-$version = '2.1.33'
+$version = '2.1.34'
 
 # TODO: get the version numbers from the argument list
 $deltas = []
@@ -42,11 +42,14 @@ def build
 
 	system 'qmake -r CONFIG+=release'
 	system 'make'
+
+	system 'rm -rf _bin/Last.fm.app'
+	system 'mv "_bin/Last.fm Scrobbler.app" _bin/Last.fm.app'
 end
 
 def copy_plugin
 	## copy the iTunes plugin into the bundle
-	system "cp -R _bin/Audioscrobbler.bundle '_bin/Last.fm Scrobbler.app/Contents/MacOS/'"
+	system "cp -R _bin/Audioscrobbler.bundle '_bin/Last.fm.app/Contents/MacOS/'"
 end
 
 def create_zip
@@ -54,8 +57,11 @@ def create_zip
 	Dir.chdir("_bin") do
 		system "rm -rf #{$version}"
 		system "mkdir #{$version}"
-		system "tar cjf #{$version}/Last.fm-#{$version}.tar.bz2 'Last.fm Scrobbler.app'"
-		system "zip -ry #{$version}/Last.fm-#{$version}.zip 'Last.fm Scrobbler.app'"
+		system "tar cjf #{$version}/Last.fm-#{$version}.tar.bz2 'Last.fm.app'"
+		Dir.chdir("Last.fm.app/Contents") do
+			system "tar cjf ../../#{$version}/Last.fm_Mac_Update_#{$version}.tar.bz2 *"
+		end
+		system "zip -ry #{$version}/Last.fm-#{$version}.zip 'Last.fm.app'"
 	end
 end
 
@@ -64,7 +70,7 @@ def create_deltas
 	Dir.chdir("_bin") do
 		# unzip the new app
 		puts "unzipping #{$version}"
-		system "tar xjf #{$version}/Last.fm-#{$version}.tar.bz2 -C #{$version}"
+		system "unzip -q #{$version}/Last.fm-#{$version}.zip -d #{$version}"
 
 		$deltas.each do |delta|
 			# unzip the old version (try both compression formats)
@@ -88,7 +94,9 @@ def upload_files
 	# scp the main zip file
 	# scp all the deltas
 	# put them in my userhome if we are doing a test update
+
 	system "scp _bin/#{$version}/Last.fm-#{$version}.tar.bz2 badger:#{$upload_folder}"
+	system "scp _bin/#{$version}/Last.fm_Mac_Update_#{$version}.tar.bz2 badger:#{$upload_folder}"
 	system "scp _bin/#{$version}/Last.fm-#{$version}.zip badger:#{$upload_folder}"
 
 	$deltas.each do |delta|
@@ -125,13 +133,17 @@ def generate_appcast_xml
 	end
 end
 
-
-# run all the things
-clean
-build
-copy_plugin
-create_zip
-create_deltas
-upload_files
-generate_appcast_xml
+if not ARGV.include?( "--no-build" )
+	# build the app
+	clean
+	build
+	copy_plugin
+end
+if not ARGV.include?( "--no-package" )
+	# package and upload the app
+	create_zip
+	create_deltas
+	upload_files
+	generate_appcast_xml
+end
 

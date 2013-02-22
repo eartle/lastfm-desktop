@@ -18,16 +18,27 @@
    You should have received a copy of the GNU General Public License
    along with lastfm-desktop.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 #include "IPod.h"
 #include "TwiddlyApplication.h"
-#include "lib/unicorn/UnicornCoreApplication.h"
+#include "Utils.h"
+
 #include "plugins/iTunes/ITunesExceptions.h"
+#include "common/c++/Logger.h"
+#include "lib/unicorn/UnicornCoreApplication.h"
+
+#ifdef Q_OS_MAC
+#include "lib/unicorn/plugins/Version.h"
+#include "lib/unicorn/plugins/ITunesPluginInstaller.h"
+#else
+#include "lib/unicorn/plugins/ITunesPluginInfo.h"
+#endif
+
 #include <lastfm/misc.h>
+
 #include <QtCore>
 #include <QtXml>
 #include <iostream>
-#include "common/c++/Logger.h"
-#include "Utils.h"
 
 void writeXml( const QDomDocument&, const QString& path );
 void logException( QString );
@@ -68,6 +79,33 @@ main( int argc, char** argv )
 #elif defined Q_OS_WIN
     TwiddlyApplication::addLibraryPath( QDir( TwiddlyApplication::applicationDirPath() ).absoluteFilePath( "plugins" ) );
 #endif
+
+
+    // check we're using a compatible version of the plugin
+    unicorn::Version compatibleVersion( 6, 0, 5, 4 );
+    unicorn::Version installedVersion;
+#ifdef Q_OS_WIN
+    unicorn::ITunesPluginInfo* iTunesPluginInfo = new unicorn::ITunesPluginInfo;
+    installedVersion = iTunesPluginInfo->installedVersion()
+    delete iTunesPluginInfo;
+#else
+    // TODO: get the actual installed version
+    installedVersion = unicorn::ITunesPluginInstaller::installedVersion();
+#endif
+
+    if ( installedVersion < compatibleVersion )
+    {
+        // tell the app that the plugin is incompatible
+        QStringList args;
+        args << "--tray";
+        args << "--twiddly";
+        args << "incompatible-plugin";
+
+        Utils::startAudioscrobbler( args );
+
+        qDebug() << "The iTunes pluggin is old and incompatible. Please update. Shutting down" << app.arguments();
+        return 1;
+    }
 
     try
     {

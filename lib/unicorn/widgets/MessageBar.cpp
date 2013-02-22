@@ -48,6 +48,7 @@ MessageBar::MessageBar( QWidget* parent )
     connect( ui.close, SIGNAL(clicked()), SLOT(onCloseClicked()));
 
     connect( qApp, SIGNAL(showMessage(QString,QString)), SLOT(show(QString,QString)));
+    connect( qApp, SIGNAL(error(QString)), SLOT(show(QString)));
 
     hide();
 }

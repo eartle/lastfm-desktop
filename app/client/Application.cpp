@@ -82,11 +82,14 @@ using audioscrobbler::Application;
 #define SKIP_LIMIT 1000
 
 #ifdef Q_WS_X11
-    #define AS_TRAY_ICON ":22x22.png"
+#define AS_TRAY_ICON ":/22x22.png"
+#define AS_TRAY_ICON_OFF ":/lastfm_icon_22_grayscale.png"
 #elif defined( Q_WS_WIN )
-    #define AS_TRAY_ICON ":16x16.png"
+#define AS_TRAY_ICON ":/16x16.png"
+#define AS_TRAY_ICON_OFF ":/lastfm_icon_16_grayscale.png"
 #elif defined( Q_WS_MAC )
-    #define AS_TRAY_ICON ":systray_icon_rest_mac.png"
+#define AS_TRAY_ICON ":/systray_icon_rest_mac.png"
+#define AS_TRAY_ICON_OFF ":/mac_control_bar_as_OFF.png"
 #endif
 
 Application::Application(int& argc, char** argv) 
@@ -128,7 +131,7 @@ Application::initiateLogin( bool forceWizard ) throw( StubbornUserException )
 {
     closeAllWindows();
 
-    if( forceWizard || !unicorn::Settings().value( SETTING_FIRST_RUN_WIZARD_COMPLETED, false ).toBool() )
+    if( forceWizard || !unicorn::Settings().firstRunWizardCompleted() )
     {
         setWizardRunning( true );
 
@@ -381,24 +384,32 @@ Application::tray()
     if ( !m_tray )
     {
         m_tray = new QSystemTrayIcon(this);
-        QIcon trayIcon( AS_TRAY_ICON );
-#ifdef Q_WS_MAC
-        trayIcon.addFile( ":systray_icon_pressed_mac.png", QSize(), QIcon::Selected );
-#endif
+        setTrayIcon();
 
-#ifdef Q_WS_WIN
+#if defined(Q_OS_WIN) || defined(Q_WS_X11)
         connect( m_tray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), SLOT( onTrayActivated(QSystemTrayIcon::ActivationReason)) );
 #endif
-
-#ifdef Q_WS_X11
-        connect( m_tray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), SLOT( onTrayActivated(QSystemTrayIcon::ActivationReason)) );
-#endif
-        m_tray->setIcon(trayIcon);
-        showAs( unicorn::Settings().value( SETTING_SHOW_AS, true ).toBool() );
+        showAs( unicorn::Settings().showAS() );
         connect( this, SIGNAL( aboutToQuit()), m_tray, SLOT( hide()));
     }
 
     return m_tray;
+}
+
+void
+Application::setTrayIcon()
+{
+    if ( m_tray )
+    {
+        bool scrobblingOn = unicorn::UserSettings().value( "scrobblingOn", true ).toBool();
+
+        QIcon trayIcon( scrobblingOn ? AS_TRAY_ICON : AS_TRAY_ICON_OFF );
+#ifdef Q_WS_MAC
+        trayIcon.addFile( ":systray_icon_pressed_mac.png", QSize(), QIcon::Selected );
+#endif
+
+        m_tray->setIcon(trayIcon);
+    }
 }
 
 void
@@ -471,7 +482,7 @@ Application::onTrackStarted( const lastfm::Track& track, const Track& oldTrack )
         m_currentTrack = track;
 
         if ( ScrobbleService::instance().scrobblableTrack( m_currentTrack )
-             && unicorn::Settings().value( SETTING_NOTIFICATIONS, true ).toBool() )
+             && unicorn::Settings().notifications() )
         {
 #ifdef Q_OS_MAC
             m_notify->newTrack( track );
@@ -596,16 +607,20 @@ Application::onSkipTriggered()
 {
     QString station = RadioService::instance().station().url();
 
+    bool ok = false;
+    int envSkipLimit = QString( qgetenv( "LASTFM_SKIP_LIMIT" ) ).toInt( &ok );
+    int skipLimit = ok ? envSkipLimit : SKIP_LIMIT;
+
     // remove skips for this station that are older than an hour
     while ( (m_skips[ station ].count()
             && m_skips[ station ].head().secsTo( QDateTime::currentDateTimeUtc() ) >= 60 * 60 ) // limit to skips in the last hour
-            || m_skips[ station ].count() > SKIP_LIMIT ) // limit to the last SKIP_LIMIT skips
+            || m_skips[ station ].count() > skipLimit ) // limit to the last skipLimit skips
         m_skips[ station ].dequeue();
 
-    if ( m_skips[ station ].count() == SKIP_LIMIT
+    if ( m_skips[ station ].count() == skipLimit
          && m_skips[ station ].last().secsTo( QDateTime::currentDateTimeUtc() ) < 10 * 60 )
     {
-        // There have been SKIP_LIMIT skips in the last hour
+        // There have been skipLimit skips in the last hour
         // and the last skip was under 10 minutes ago
         m_mw->showMessage( tr( "You've reached this station's skip limit. Skip again in %n minute(s).", "", minutesUntilNextSkip( RadioService::instance().station() ) ), "skips", 10 );
     }
@@ -614,10 +629,10 @@ Application::onSkipTriggered()
         // Make a note of the station and the time that it was skipped
         m_skips[ station ].enqueue( QDateTime::currentDateTimeUtc() );
 
-        if ( m_skips[ station ].count() >= 4 )
+        if ( m_skips[ station ].count() >= skipLimit - 2 )
         {
             // show a warning that there are only a few skips left
-            int skipsLeft = SKIP_LIMIT - m_skips[ station ].count();
+            int skipsLeft = skipLimit - m_skips[ station ].count();
 
             // if skips is 0 and we got here it's because there were no skips in the last 10 minutes
             if ( skipsLeft <= 0 || m_skips[ station ].last().secsTo( QDateTime::currentDateTimeUtc() ) >= 10 * 60 )
@@ -713,6 +728,9 @@ Application::onScrobbleToggled( bool scrobblingOn )
     }
 
     m_submit_scrobbles_toggle->setChecked( scrobblingOn );
+
+    setTrayIcon();
+
     emit scrobbleToggled( scrobblingOn );
 }
 
@@ -770,7 +788,7 @@ Application::onWsError( lastfm::ws::Error e )
             us.remove( unauthedUser );
             us.endGroup();
 
-            us.setValue( SETTING_FIRST_RUN_WIZARD_COMPLETED, false );
+            us.setFirstRunWizardCompleted( false );
 
             // Tell them that there was an error
             QMessageBoxBuilder( m_mw )

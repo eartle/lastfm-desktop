@@ -28,7 +28,7 @@
 #include "lib/unicorn/UnicornSession.h"
 
 #ifdef Q_OS_WIN32
-#include "../Plugins/PluginList.h"
+#include "lib/unicorn/plugins/PluginList.h"
 #endif
 
 namespace Ui { class FirstRunWizard; }
@@ -60,7 +60,7 @@ public:
     void showWelcome();
 
 #ifdef Q_OS_WIN32
-    class PluginList* pluginList() const { return m_plugins; }
+    class unicorn::PluginList* pluginList() const { return m_plugins; }
 #endif
 
 public slots:
@@ -82,7 +82,7 @@ private:
 private:
     Ui::FirstRunWizard* ui;
 #ifdef Q_OS_WIN32
-    QPointer<PluginList> m_plugins;
+    QPointer<unicorn::PluginList> m_plugins;
 #endif
 
     QList<QWidget*> m_pages;

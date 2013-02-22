@@ -3,7 +3,7 @@ TARGET = "Last.fm Scrobbler"
 unix:!mac {
     TARGET = lastfm-scrobbler
 }
-VERSION = 2.1.33
+VERSION = 2.1.34
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 QT = core gui xml network sql webkit
 CONFIG += lastfm unicorn listener logger phonon fingerprint ffmpeg
@@ -56,7 +56,6 @@ SOURCES += \
     Services/RadioService/RadioService.cpp \
     Services/RadioService/RadioConnection.cpp \
     Dialogs/DiagnosticsDialog.cpp \
-    Dialogs/CloseAppsDialog.cpp \
     Bootstrapper/PluginBootstrapper.cpp \
     Bootstrapper/ITunesDevice/itunesdevice.cpp \
     Bootstrapper/iTunesBootstrapper.cpp \
@@ -128,7 +127,6 @@ HEADERS += \
     MediaDevices/IpodDevice.h \
     MediaDevices/DeviceScrobbler.h \
     Dialogs/DiagnosticsDialog.h \
-    Dialogs/CloseAppsDialog.h \
     Bootstrapper/PluginBootstrapper.h \
     Bootstrapper/ITunesDevice/MediaDeviceInterface.h \
     Bootstrapper/ITunesDevice/ITunesParser.h \
@@ -198,44 +196,20 @@ contains(DEFINES, FFMPEG_FINGERPRINTING) {
     HEADERS += Fingerprinter/LAV_Source.h
 }
 
-win32:HEADERS += Plugins/FooBar08PluginInfo.h \
-                    Plugins/FooBar09PluginInfo.h \
-                    Plugins/ITunesPluginInfo.h \
-                    Plugins/WinampPluginInfo.h \
-                    Plugins/WmpPluginInfo.h \
-                    Plugins/PluginList.h \
-                    Plugins/KillProcess.h \
-                    Plugins/IPluginInfo.h
-
-win32:SOURCES += Plugins/PluginList.cpp \
-                    Plugins/IPluginInfo.cpp \
-                    Plugins/FooBar08PluginInfo.cpp \
-                    Plugins/FooBar09PluginInfo.cpp \
-                    Plugins/ITunesPluginInfo.cpp \
-                    Plugins/WinampPluginInfo.cpp \
-                    Plugins/WmpPluginInfo.cpp
-
-
 mac:HEADERS += CommandReciever/CommandReciever.h \
-                Services/ITunesPluginInstaller.h \
-                Services/ITunesPluginInstaller/ITunesPluginInstaller.h \
                 MediaKeys/MediaKey.h \
                 ../../lib/3rdparty/SPMediaKeyTap/SPMediaKeyTap.h \
                 ../../lib/3rdparty/SPMediaKeyTap/SPInvocationGrabbing/NSObject+SPInvocationGrabbing.h
-
-mac:SOURCES += Services/ITunesPluginInstaller/ITunesPluginInstaller_mac.cpp
 
 mac:OBJECTIVE_SOURCES += CommandReciever/CommandReciever.mm \
                             Widgets/NothingPlayingWidget_mac.mm \
                             MediaKeys/MediaKey.mm \
                             ../../lib/3rdparty/SPMediaKeyTap/SPMediaKeyTap.m \
-                            ../../lib/3rdparty/SPMediaKeyTap/SPInvocationGrabbing/NSObject+SPInvocationGrabbing.m \
-                            Dialogs/CloseAppsDialog_mac.mm
+                            ../../lib/3rdparty/SPMediaKeyTap/SPInvocationGrabbing/NSObject+SPInvocationGrabbing.m
 
 FORMS += \
     Widgets/PlaybackControlsWidget.ui \
     Dialogs/DiagnosticsDialog.ui \
-    Dialogs/CloseAppsDialog.ui \
     Widgets/MetadataWidget.ui \
     Settings/PreferencesDialog.ui \
     Settings/GeneralSettingsWidget.ui \
@@ -255,10 +229,6 @@ FORMS += \
 
 unix:!mac:HEADERS += MediaDevices/IpodDevice_linux.h
 unix:!mac:SOURCES += MediaDevices/IpodDevice_linux.cpp
-
-unix:!mac:HEADERS -= Dialogs/CloseAppsDialog.h
-unix:!mac:SOURCES -= Dialogs/CloseAppsDialog.cpp
-unix:!mac:FORMS   -= Dialogs/CloseAppsDialog.ui
 
 RESOURCES += \
     qrc/audioscrobbler.qrc

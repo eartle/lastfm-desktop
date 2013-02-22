@@ -1,8 +1,28 @@
+/*
+   Copyright 2010-2013 Last.fm Ltd.
+      - Primarily authored by Jono Cole and Michael Coffey
+
+   This file is part of the Last.fm Desktop Application Suite.
+
+   lastfm-desktop is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   lastfm-desktop is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with lastfm-desktop.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #include "PluginList.h"
 #include <QStringList>
 
-QList<IPluginInfo*> 
-PluginList::availablePlugins() const
+QList<unicorn::IPluginInfo*>
+unicorn::PluginList::availablePlugins() const
 {
     QList<IPluginInfo*> ret;
     foreach( IPluginInfo* plugin, m_plugins )
@@ -15,8 +35,8 @@ PluginList::availablePlugins() const
     return ret;
 }
 
-QList<IPluginInfo*> 
-PluginList::installedPlugins() const
+QList<unicorn::IPluginInfo*>
+unicorn::PluginList::installedPlugins() const
 {
     QList<IPluginInfo*> ret;
     foreach( IPluginInfo* plugin, m_plugins )
@@ -27,8 +47,8 @@ PluginList::installedPlugins() const
     return ret;
 }
 
-QList<IPluginInfo*>
-PluginList::bootstrappablePlugins() const
+QList<unicorn::IPluginInfo*>
+unicorn::PluginList::bootstrappablePlugins() const
 {
     QList<IPluginInfo*> ret;
     foreach( IPluginInfo* plugin, installedPlugins() )
@@ -39,8 +59,8 @@ PluginList::bootstrappablePlugins() const
     return ret;
 }
 
-QList<IPluginInfo*>
-PluginList::supportedList() const
+QList<unicorn::IPluginInfo*>
+unicorn::PluginList::supportedList() const
 {
     QList<IPluginInfo*> ret;
     foreach( IPluginInfo* i, m_plugins )
@@ -49,8 +69,8 @@ PluginList::supportedList() const
     return ret;
 }
 
-QList<IPluginInfo*>
-PluginList::installList() const
+QList<unicorn::IPluginInfo*>
+unicorn::PluginList::installList() const
 {
     QList<IPluginInfo*> ret;
     foreach( IPluginInfo* i, m_plugins )
@@ -62,8 +82,8 @@ PluginList::installList() const
     return ret;
 }
 
-QList<IPluginInfo*>
-PluginList::updatedList() const
+QList<unicorn::IPluginInfo*>
+unicorn::PluginList::updatedList() const
 {
     QList<IPluginInfo*> ret;
     foreach( IPluginInfo* i, m_plugins )
@@ -76,7 +96,7 @@ PluginList::updatedList() const
 }
 
 QString
-PluginList::availableDescription() const
+unicorn::PluginList::availableDescription() const
 {
     QStringList mediaPlayers;
     
@@ -91,8 +111,8 @@ PluginList::availableDescription() const
     return ret;
 }
 
-IPluginInfo* 
-PluginList::pluginById( const QString& id ) const
+unicorn::IPluginInfo*
+unicorn::PluginList::pluginById( const QString& id ) const
 {
     foreach( IPluginInfo* plugin, m_plugins )
     {

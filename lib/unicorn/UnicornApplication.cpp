@@ -633,42 +633,9 @@ unicorn::Application::isInternetConnectionUp() const
 
 #ifdef Q_OS_MAC
 void
-unicorn::Application::hideDockIcon( bool hideDockIcon )
+unicorn::Application::showDockIcon( bool show )
 {
-    QFile f( QDir( applicationDirPath() ).absoluteFilePath( "../Info.plist" ) );
-
-    if ( f.open( QIODevice::ReadOnly ) )
-    {
-        QTemporaryFile newFile;
-
-        if ( newFile.open() )
-        {
-            while ( !f.atEnd() )
-            {
-                QByteArray line = f.readLine();
-                newFile.write( line );
-
-                if ( line.contains( "<key>LSUIElement</key>" ) && !f.atEnd() )
-                {
-                    // read the next line from the source and throw it away
-                    QString boolLine = f.readLine();
-
-                    // replace <true> or <false> with the correct thing
-                    QRegExp rx("(<true/>|<false/>)");      // match ampersands but not &amp;
-                    boolLine.replace( rx, hideDockIcon ? "<true/>" : "<false/>" );
-
-                    newFile.write( boolLine.toAscii() );
-                }
-            }
-
-            newFile.close();
-        }
-
-        f.close();
-
-        f.remove();
-        newFile.copy( f.fileName() );
-    }
+    m_delegate->showDockIcon( show );
 }
 #endif
 

@@ -17,18 +17,26 @@
  *   51 Franklin Steet, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef ITUNES_PLUGIN_INSTALLER_H
-#define ITUNES_PLUGIN_INSTALLER_H
+#pragma once
 
-#include <QApplication>
+#include "Version.h"
+
+#include <lib/DllExportMacro.h>
+
+#include <QObject>
 #include <QString>
 
+namespace unicorn
+{
 
-class ITunesPluginInstaller : public QObject
+class UNICORN_DLLEXPORT ITunesPluginInstaller : public QObject
 {
     Q_OBJECT
 public:
-    ITunesPluginInstaller( QObject* parent = 0 );
+    ITunesPluginInstaller( QWidget* parent );
+
+    static Version installedVersion();
+    static Version bundledVersion();
     
     void uninstall();
 
@@ -40,7 +48,7 @@ public slots:
 
 private:
     bool isPluginInstalled();
-    QString pListVersion( const QString& file );
+    static Version pListVersion( const QString& file );
 
     bool removeInstalledPlugin();
     bool installPlugin();
@@ -48,9 +56,8 @@ private:
     // Legacy code: removes old LastFmHelper for updates
     void disableLegacyHelperApp();
 
-    QString const k_shippedPluginDir;
-    QString const k_iTunesPluginDir;
+private:
     bool m_needsTwiddlyBootstrap;
 };
 
-#endif
+}

@@ -48,7 +48,7 @@ FirstRunWizard::FirstRunWizard( bool startFromTour, QWidget* parent )
       m_showWelcome( false )
 {
 #ifdef Q_OS_WIN32
-    m_plugins = new PluginList;
+    m_plugins = new unicorn::PluginList;
 #endif
 
     ui->setupUi( this );
@@ -344,7 +344,7 @@ FirstRunWizard::onBootstrapDone( int status )
 void
 FirstRunWizard::onWizardCompleted()
 {
-    unicorn::Settings().setValue( SETTING_FIRST_RUN_WIZARD_COMPLETED, true );
+    unicorn::Settings().setFirstRunWizardCompleted( true );
 }
 
 

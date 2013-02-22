@@ -1,3 +1,23 @@
+/*
+   Copyright 2012 Last.fm Ltd.
+      - Primarily authored by Michael Coffey
+
+   This file is part of the Last.fm Desktop Application Suite.
+
+   lastfm-desktop is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   lastfm-desktop is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with lastfm-desktop.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #include <QTimer>
 #include <QPushButton>
 #include <QDebug>
@@ -5,15 +25,17 @@
 #ifdef Q_OS_WIN
 #include <windows.h>
 #include <psapi.h>
+#endif
 
-#include "../Plugins/ITunesPluginInfo.h"
+#ifndef Q_OS_MAC
+#include "../plugins/ITunesPluginInfo.h"
 #endif
 
 #include "CloseAppsDialog.h"
 #include "ui_CloseAppsDialog.h"
 
 
-CloseAppsDialog::CloseAppsDialog( const QList<IPluginInfo*>& plugins, QWidget *parent )
+unicorn::CloseAppsDialog::CloseAppsDialog( const QList<IPluginInfo*>& plugins, QWidget *parent )
     :QDialog( parent ),
       ui(new Ui::CloseAppsDialog),
       m_plugins( plugins ),
@@ -22,7 +44,7 @@ CloseAppsDialog::CloseAppsDialog( const QList<IPluginInfo*>& plugins, QWidget *p
     commonSetup();
 }
 
-CloseAppsDialog::CloseAppsDialog(QWidget *parent) :
+unicorn::CloseAppsDialog::CloseAppsDialog(QWidget *parent) :
     QDialog( parent ),
     ui(new Ui::CloseAppsDialog)
 {
@@ -30,13 +52,35 @@ CloseAppsDialog::CloseAppsDialog(QWidget *parent) :
 }
 
 void
-CloseAppsDialog::commonSetup()
+unicorn::CloseAppsDialog::setTitle( const QString& title )
+{
+    setWindowTitle( title );
+}
+
+void
+unicorn::CloseAppsDialog::setDescription( const QString& description )
+{
+    ui->text->setText( description );
+    ui->text->adjustSize();
+    adjustSize();
+}
+
+void
+unicorn::CloseAppsDialog::showPluginList( bool showPluginList )
+{
+    ui->listWidget->setVisible( showPluginList );
+    adjustSize();
+}
+
+void
+unicorn::CloseAppsDialog::commonSetup()
 {
     ui->setupUi(this);
 
     ui->text->setText( tr( "Please close the following apps to continue." ) );
 
-    setVisible( runningApps().count() > 0 );
+    if ( runningApps().count() == 0 )
+        hide();
 
     checkApps();
 
@@ -47,13 +91,13 @@ CloseAppsDialog::commonSetup()
 }
 
 void
-CloseAppsDialog::setOwnsPlugins( bool ownsPlugins )
+unicorn::CloseAppsDialog::setOwnsPlugins( bool ownsPlugins )
 {
     m_ownsPlugins = ownsPlugins;
 }
 
 bool
-CloseAppsDialog::isITunesRunning()
+unicorn::CloseAppsDialog::isITunesRunning()
 {
     QStringList apps;
 #ifndef Q_OS_MAC
@@ -69,7 +113,7 @@ CloseAppsDialog::isITunesRunning()
 }
 
 void
-CloseAppsDialog::checkApps()
+unicorn::CloseAppsDialog::checkApps()
 {
     QStringList apps = runningApps();
 
@@ -88,13 +132,13 @@ CloseAppsDialog::checkApps()
 
 #ifndef Q_OS_MAC
 QStringList
-CloseAppsDialog::runningApps()
+unicorn::CloseAppsDialog::runningApps()
 {
     return runningApps( m_plugins );
 }
 
 QStringList
-CloseAppsDialog::runningApps( const QList<IPluginInfo*>& plugins )
+unicorn::CloseAppsDialog::runningApps( const QList<IPluginInfo*>& plugins )
 {
     QStringList apps;
 
@@ -149,7 +193,7 @@ CloseAppsDialog::runningApps( const QList<IPluginInfo*>& plugins )
 }
 #endif
 
-CloseAppsDialog::~CloseAppsDialog()
+unicorn::CloseAppsDialog::~CloseAppsDialog()
 {
     delete ui;
 #ifdef Q_OS_WIN

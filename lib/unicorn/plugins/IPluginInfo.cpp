@@ -1,3 +1,22 @@
+/*
+   Copyright 2010-2013 Last.fm Ltd.
+      - Primarily authored by Jono Cole and Michael Coffey
+
+   This file is part of the Last.fm Desktop Application Suite.
+
+   lastfm-desktop is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   lastfm-desktop is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with lastfm-desktop.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 #include <QSettings>
 #include <QStringList>
@@ -18,37 +37,17 @@
 #include "IPluginInfo.h"
 #include "KillProcess.h"
 
-QString
-Version::toString() const
-{
-    return QString( "%1.%2.%3.%4" ).arg( QString::number( m_major ),
-                                         QString::number( m_minor ),
-                                         QString::number( m_build ),
-                                         QString::number( m_revision ) );
-}
-
-Version
-Version::fromString( const QString& string )
-{
-    QStringList versionList = string.split( "." );
-
-    int major = versionList.count() > 0 ? versionList.at( 0 ).toUInt() : 0;
-    int minor = versionList.count() > 1 ? versionList.at( 1 ).toUInt() : 0;
-    int build = versionList.count() > 2 ? versionList.at( 2 ).toUInt() : 0;
-    int revision = versionList.count() > 3 ? versionList.at( 3 ).toUInt() : 0;
-
-    return Version( major, minor, build, revision );
-}
-
-IPluginInfo::IPluginInfo( QObject* parent )
+unicorn::IPluginInfo::IPluginInfo( QObject* parent )
     :QObject( parent )
     , m_install( false )
     , m_verbose( false )
 {}
 
-void
-IPluginInfo::doInstall()
+bool
+unicorn::IPluginInfo::doInstall()
 {
+    bool success = false;
+
     QList<IPluginInfo*> plugins;
     plugins << this;
 
@@ -64,19 +63,34 @@ IPluginInfo::doInstall()
         QString installer = QString( "\"%1\"" ).arg( QCoreApplication::applicationDirPath() + "/plugins/" + pluginInstaller() );
         qDebug() << installer;
         QProcess* installerProcess = new QProcess( this );
-        installerProcess->start( installer, QStringList() << "/SILENT" );
-        bool finished = installerProcess->waitForFinished( -1 );
-        qDebug() << finished << installerProcess->error() << installerProcess->errorString();
+        QStringList args;
+        if ( !m_verbose )
+            args << "/SILENT";
+        installerProcess->start( installer, args );
+        success = installerProcess->waitForFinished( -1 );
 
         if ( m_verbose )
         {
-            // The user didn't closed their media players
-            QMessageBoxBuilder( 0 ).setTitle( tr( "Plugin installed!" ) )
-                    .setIcon( QMessageBox::Information )
-                    .setText( tr( "<p>The %1 plugin has been installed.<p>"
-                                  "<p>You're now ready to scrobble with %1.</p>" ).arg( name() ) )
-                    .setButtons( QMessageBox::Ok )
-                    .exec();
+            if ( !success )
+            {
+                // Tell the user that
+                QMessageBoxBuilder( 0 ).setTitle( tr( "Plugin install error" ) )
+                        .setIcon( QMessageBox::Information )
+                        .setText( tr( "<p>There was an error updating your plugin.</p>"
+                                      "<p>Please try again later.</p>" ) )
+                        .setButtons( QMessageBox::Ok )
+                        .exec();
+            }
+            else
+            {
+                // The user didn't closed their media players
+                QMessageBoxBuilder( 0 ).setTitle( tr( "Plugin installed!" ) )
+                        .setIcon( QMessageBox::Information )
+                        .setText( tr( "<p>The %1 plugin has been installed.<p>"
+                                      "<p>You're now ready to scrobble with %1.</p>" ).arg( name() ) )
+                        .setButtons( QMessageBox::Ok )
+                        .exec();
+            }
         }
     }
     else
@@ -88,23 +102,26 @@ IPluginInfo::doInstall()
                 .setButtons( QMessageBox::Ok )
                 .exec();
     }
+
+    return success;
 }
 
 bool
-IPluginInfo::install() const
+unicorn::IPluginInfo::install() const
 {
     return m_install;
 }
 
 
 void
-IPluginInfo::install( bool install )
+unicorn::IPluginInfo::install( bool install )
 {
     m_install = install;
 }
 
+#ifdef Q_OS_WIN
 BOOL
-IPluginInfo::isWow64()
+unicorn::IPluginInfo::isWow64()
 {
     BOOL bIsWow64 = FALSE;
 
@@ -124,42 +141,43 @@ IPluginInfo::isWow64()
     }
     return bIsWow64;
 }
+#endif
 
 
 bool
-IPluginInfo::isInstalled() const
+unicorn::IPluginInfo::isInstalled() const
 {
     QSettings settings( "HKEY_LOCAL_MACHINE\\SOFTWARE\\Last.fm\\Client\\Plugins", QSettings::NativeFormat );
     return settings.childGroups().contains( id() );
 }
 
-Version
-IPluginInfo::installedVersion() const
+unicorn::Version
+unicorn::IPluginInfo::installedVersion() const
 {
     QSettings settings( "HKEY_LOCAL_MACHINE\\SOFTWARE\\Last.fm\\Client\\Plugins\\" + id(), QSettings::NativeFormat );
     return Version::fromString( settings.value( "Version", "0.0.0.0" ).toString() );
 }
 
 bool
-IPluginInfo::canBootstrap() const
+unicorn::IPluginInfo::canBootstrap() const
 {
     return bootstrapType() != NoBootstrap;
 }
 
 QString
-IPluginInfo::programFilesX86() const
+unicorn::IPluginInfo::programFilesX86() const
 {
     return QString( getenv( "ProgramFiles(x86)" ) );
 }
 
 QString
-IPluginInfo::programFiles64() const
+unicorn::IPluginInfo::programFiles64() const
 {
     return QString( getenv( "ProgramW6432" ) );
 }
 
 void
-IPluginInfo::setVerbose( bool verbose )
+unicorn::IPluginInfo::setVerbose( bool verbose )
 {
     m_verbose = verbose;
 }

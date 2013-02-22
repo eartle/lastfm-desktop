@@ -229,6 +229,8 @@ namespace audioscrobbler
         void onSessionChanged( unicorn::Session& );
 
         void onMessageReceived(const QStringList& message);
+
+        void setTrayIcon();
 		
         /** all webservices connect to this and emit in the case of bad errors that
 	     * need to be handled at a higher level */

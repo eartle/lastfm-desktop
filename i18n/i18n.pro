@@ -1,3 +1,4 @@
+CONFIG -= app_bundle
 include( ../admin/include.qmake )
 
 TRANSLATIONS = lastfm_de.ts \

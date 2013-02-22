@@ -236,7 +236,8 @@ background-image: url(":/tab_radio_ACTIVE.png");
 QFrame#splitter1,
 QFrame#splitter2,
 QFrame#splitter3,
-QFrame#splitter4 {
+QFrame#splitter4,
+QFrame#splitter5 {
 	border: none;
 	border-right: 1px solid white;
 	border-left: 1px solid #cdcdcd;
@@ -254,6 +255,11 @@ QFrame#hsplitter2 {
 	min-height: 0px;
 	max-height: 0px;
 	margin: 10px 0px;
+}
+
+MetadataWidget QFrame#hsplitter1,
+MetadataWidget QFrame#hsplitter2 {
+	margin: 0px;
 }
 
 NothingPlayingWidget {
@@ -375,7 +381,7 @@ padding: 0px 0px 0px 25px;
 
 MetadataWidget QFrame#trackDetails {
 	border: none;
-	margin: 20px 20px 0px;
+	margin: 20px 20px 0px 20px;
 }
 
 MetadataWidget HttpImageWidget#albumImage {
@@ -395,26 +401,17 @@ MetadataWidget QLabel#trackTitle {
 color: #333;
 font-size: 16px;
 font-weight: bold;
-padding-bottom: 5px;
 }
 
 MetadataWidget QLabel#trackArtist {
-border: 1px solid #cdcdcd;
-border-width: 0px 0px 1px 0px;
-padding-bottom: 12px;
 color: #333;
 }
 
 MetadataWidget ScrobbleControls {
 border: none;
-border-top: 1px solid #ffffff;
-border-bottom: 1px solid #cdcdcd;
-padding: 7px 0px;
 }
 
 MetadataWidget QLabel#trackAlbum {
-border-top: 1px solid #ffffff;
-padding-top: 11px;
 font-size: 12px;
 }
 

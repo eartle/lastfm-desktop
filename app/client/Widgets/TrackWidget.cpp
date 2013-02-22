@@ -1,3 +1,22 @@
+/*
+   Copyright 2012 Last.fm Ltd.
+      - Primarily authored by Michael Coffey
+
+   This file is part of the Last.fm Desktop Application Suite.
+
+   lastfm-desktop is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   lastfm-desktop is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with lastfm-desktop.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 #include <QMovie>
 #include <QTimer>
@@ -194,6 +213,15 @@ TrackWidget::setTrackTitleWidth()
         width = qMin( width, ui->trackTitleFrame->width() - (ui->asterisk->width() + 3) );
 
     ui->trackTitle->setFixedWidth( width );
+}
+
+void
+TrackWidget::update( const lastfm::Track& track )
+{
+    // we're getting an update from a track fetched from user.getRecentTracks
+    MutableTrack mt( m_track );
+    mt.setScrobbleStatus( Track::Submitted ); // it's definitely been scrobbled
+    mt.setLoved( track.isLoved() ); // make sure the love state is consistent with Last.fm
 }
 
 void

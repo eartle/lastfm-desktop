@@ -33,8 +33,6 @@
 #include "../../Application.h"
 #include "RadioService.h"
 
-#define ALLOW_ALL_USAGE -1
-
 RadioService::RadioService()
      : m_audioOutput( 0 ),
        m_mediaObject( 0 ),

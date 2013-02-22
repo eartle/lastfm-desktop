@@ -200,5 +200,8 @@
         <file>button_dark_RIGHT_REST.png</file>
         <file>meta_ban_REST.png</file>
         <file>meta_skip_REST.png</file>
+        <file>lastfm_icon_16_grayscale.png</file>
+        <file>mac_control_bar_as_OFF.png</file>
+        <file>lastfm_icon_22_grayscale.png</file>
     </qresource>
 </RCC>

@@ -18,83 +18,162 @@
  *   51 Franklin Steet, Fifth Floor, Boston, MA  02110-1301, USA.          *
  ***************************************************************************/
 
+
+#include "ITunesPluginInstaller.h"
+
+#include "lib/unicorn/dialogs/CloseAppsDialog.h"
+#include "lib/unicorn/QMessageBoxBuilder.h"
+
+#include <CoreFoundation/CoreFoundation.h>
+
+#include <QApplication>
 #include <QDir>
 #include <QProcess>
 #include <QDebug>
 
-#include <CoreFoundation/CoreFoundation.h>
-
-#include "Dialogs/CloseAppsDialog.h"
-
-#include "ITunesPluginInstaller.h"
-
 static const char* kBundleName = "AudioScrobbler.bundle";
 static const char* kPListFile = "Contents/Info.plist";
 
-
-ITunesPluginInstaller::ITunesPluginInstaller( QObject* parent )
-    :QObject( parent ),
-      k_shippedPluginDir( qApp->applicationDirPath() + "/" + kBundleName + "/" ),
-      k_iTunesPluginDir( QDir::homePath() + "/Library/iTunes/iTunes Plug-ins/" + kBundleName + "/" ),
-      m_needsTwiddlyBootstrap( false )
+QString
+shippedPluginDir()
 {
-    qDebug() << " shippedPluginDir: " << k_shippedPluginDir;
+    return qApp->applicationDirPath() + "/" + kBundleName + "/";
 }
 
+QString
+iTunesPluginDir()
+{
+    return QDir::homePath() + "/Library/iTunes/iTunes Plug-ins/" + kBundleName + "/";
+}
+
+unicorn::ITunesPluginInstaller::ITunesPluginInstaller( QWidget* parent )
+    :QObject( parent ),
+      m_needsTwiddlyBootstrap( false )
+{
+    qDebug() << " shippedPluginDir: " << shippedPluginDir();
+}
+
+unicorn::Version
+unicorn::ITunesPluginInstaller::installedVersion()
+{
+    return pListVersion( iTunesPluginDir() + kPListFile );
+}
+
+unicorn::Version
+unicorn::ITunesPluginInstaller::bundledVersion()
+{
+    return pListVersion( shippedPluginDir() + kPListFile );
+}
 
 void
-ITunesPluginInstaller::install()
+unicorn::ITunesPluginInstaller::install()
 {
     qDebug() << "Found installed iTunes plugin?" << isPluginInstalled();
 
-    QString installedVersion;
-    QString shippedVersion;
+    Version installVersion;
+    Version shippedVersion;
 
     disableLegacyHelperApp();
 
     if ( isPluginInstalled() ) 
     {
-        installedVersion = pListVersion( k_iTunesPluginDir + kPListFile );
-        qDebug() << "Found installed iTunes plugin version:" << installedVersion;
+        installVersion = installedVersion();
+        qDebug() << "Found installed iTunes plugin version:" << installVersion.toString();
     }
     else
         //TODO don't bootstrap if installation fails
         m_needsTwiddlyBootstrap = true;
 
-    shippedVersion = pListVersion( k_shippedPluginDir + kPListFile );
-    if ( shippedVersion.isEmpty() )
+    shippedVersion = bundledVersion();
+
+    if ( shippedVersion == Version() )
     {
-        qDebug() << "Could not locate shipped iTunes plugin!";
+        qDebug() << "Could not locate shipped iTunes plugin!" << shippedPluginDir();
     }
     else
     {
-        qDebug() << "Found shipped iTunes plugin version:" << shippedVersion;
+        qDebug() << "Found shipped iTunes plugin version:" << shippedVersion.toString();
 
-        if ( installedVersion != shippedVersion )
+        if ( installVersion != shippedVersion )
         {
+            bool closeAppsShown = false;
+
             qDebug() << "Installing shipped iTunes plugin...";
 
-            CloseAppsDialog* closeApps = new CloseAppsDialog();
+            QWidget* dialogParent = 0;
+            if ( parent()->isWidgetType() )
+                dialogParent = qobject_cast<QWidget*>( parent() );
+
+            unicorn::CloseAppsDialog* closeApps = new unicorn::CloseAppsDialog( dialogParent );
+
+            closeApps->setTitle( tr( "Close iTunes for plugin update!" ) );
+            closeApps->setDescription( tr( "<p>Your iTunes plugin (%2) is different to the one shipped with this version of the app (%1).</p>"
+                                           "<p>Please close iTunes now to update.</p>" ).arg( shippedVersion.toString(), installVersion == Version() ? tr( "not installed" ) : installVersion.toString() ) );
+            closeApps->showPluginList( false );
 
             if ( closeApps->result() != QDialog::Accepted )
+            {
+                closeAppsShown = true;
                 closeApps->exec();
+            }
             else
                 closeApps->deleteLater();
 
-            if ( !removeInstalledPlugin() )
+            if ( closeApps->result() == QDialog::Accepted )
             {
-                qDebug() << "Removing installed plugin from" << k_iTunesPluginDir << "failed!";
+                if ( !removeInstalledPlugin() )
+                {
+                    qDebug() << "Removing installed plugin from" << iTunesPluginDir() << "failed!";
+
+                    // The user didn't close their media players
+                    QMessageBoxBuilder( dialogParent ).setTitle( tr( "Your plugin hasn't been installed" ) )
+                            .setIcon( QMessageBox::Warning )
+                            .setText( tr( "There was an error while removing the old plugin" ) )
+                            .setButtons( QMessageBox::Ok )
+                            .exec();
+                }
+                else
+                {
+                    qDebug() << "Successfully removed installed plugin.";
+
+                    if ( installPlugin() )
+                    {
+                        qDebug() << "Successfully installed the plugin.";
+
+                        if ( closeAppsShown )
+                        {
+                            // Tell the user that
+                            QMessageBoxBuilder( dialogParent ).setTitle( tr( "iTunes Plugin installed!" ) )
+                                    .setIcon( QMessageBox::Information )
+                                    .setText( tr( "<p>Your iTunes plugin has been installed.</p>"
+                                                  "<p>You're now ready to device scrobble.</p>" ) )
+                                    .setButtons( QMessageBox::Ok )
+                                    .exec();
+                        }
+                    }
+                    else
+                    {
+                        qDebug() << "Installing the plugin failed!";
+
+                        // The user didn't close their media players
+                        QMessageBoxBuilder( dialogParent ).setTitle( tr( "Your plugin hasn't been installed" ) )
+                                .setIcon( QMessageBox::Warning )
+                                .setText( tr( "There was an error while copying the new plugin into place" ) )
+                                .setButtons( QMessageBox::Ok )
+                                .exec();
+                    }
+                }
             }
             else
             {
-                qDebug() << "Successfully removed installed plugin.";
+                qDebug() << "Plugin not installed. User reject the dialog.";
 
-                if ( installPlugin() )
-                {
-                    qDebug() << "Successfully installed the plugin.";
-                }
-                else
-                    qDebug() << "Installing the plugin failed!";
+                // The user didn't close their media players
+                QMessageBoxBuilder( dialogParent ).setTitle( tr( "Your plugin hasn't been installed" ) )
+                        .setIcon( QMessageBox::Warning )
+                        .setText( tr( "You didn't close iTunes" ) )
+                        .setButtons( QMessageBox::Ok )
+                        .exec();
             }
         }
         else
@@ -102,20 +181,19 @@ ITunesPluginInstaller::install()
     }
 }
 
-
 bool
-ITunesPluginInstaller::isPluginInstalled()
+unicorn::ITunesPluginInstaller::isPluginInstalled()
 {
-    return QDir( k_iTunesPluginDir ).exists();
+    return QDir( iTunesPluginDir() ).exists();
 }
 
 
-QString
-ITunesPluginInstaller::pListVersion( const QString& file )
+unicorn::Version
+unicorn::ITunesPluginInstaller::pListVersion( const QString& file )
 {
     QFile f( file );
     if ( !f.open( QIODevice::ReadOnly ) )
-        return "";
+        return Version();
 
     const QString key( "<key>CFBundleVersion</key>" );
     const QString begin( "<string>" );
@@ -127,8 +205,9 @@ ITunesPluginInstaller::pListVersion( const QString& file )
         if ( line.contains( key ) && !f.atEnd() )
         {
             QString versionLine = QString( ( f.readLine() ) ).trimmed();
-            QString version = versionLine.section( begin, 1 );
-            version = version.left( version.length() - end.length() );
+            QString versionString = versionLine.section( begin, 1 );
+            versionString = versionString.left( versionString.length() - end.length() );
+            Version version = Version::fromString( versionString );
 
             f.close();
             return version;
@@ -136,7 +215,7 @@ ITunesPluginInstaller::pListVersion( const QString& file )
     }
 
     f.close();
-    return "";
+    return Version();
 }
 
 
@@ -169,12 +248,12 @@ deleteDir( QString path )
 
 
 bool
-ITunesPluginInstaller::removeInstalledPlugin()
+unicorn::ITunesPluginInstaller::removeInstalledPlugin()
 {
     if ( !isPluginInstalled() )
         return true;
 
-    return deleteDir( k_iTunesPluginDir );
+    return deleteDir( iTunesPluginDir() );
 }
 
 
@@ -209,9 +288,9 @@ copyDir( QString path, QString dest )
 
 
 bool
-ITunesPluginInstaller::installPlugin()
+unicorn::ITunesPluginInstaller::installPlugin()
 {
-    return copyDir( k_shippedPluginDir, k_iTunesPluginDir );
+    return copyDir( shippedPluginDir(), iTunesPluginDir() );
 }
 
 
@@ -241,7 +320,7 @@ CFStringToUtf8( CFStringRef s )
 
 
 void
-ITunesPluginInstaller::disableLegacyHelperApp()
+unicorn::ITunesPluginInstaller::disableLegacyHelperApp()
 {
     qDebug() << "Disabling old LastFmHelper";
 
@@ -292,9 +371,9 @@ ITunesPluginInstaller::disableLegacyHelperApp()
 
 
 void
-ITunesPluginInstaller::uninstall()
+unicorn::ITunesPluginInstaller::uninstall()
 {
-    QDir d = k_iTunesPluginDir + "Contents/Resources";
+    QDir d = iTunesPluginDir() + "Contents/Resources";
     
     // always use absolute paths to tools! - muesli
     QProcess::startDetached( "/bin/sh", 
